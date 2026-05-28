@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lo que hacemos – Copayment | Procesamiento, emisión, adquirencia y cumplimiento</title>
+  <meta name="description" content="Procesamiento de pagos, emisión de tarjetas, adquirencia, prevención de fraude, PCI DSS, EMV y SAS. La plataforma de pagos más completa de México.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <nav class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-logo"><img src="assets/logo.svg" alt="Copayment"></a>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a href="nosotros.html" class="nav-link" aria-haspopup="true" aria-expanded="false">Nosotros<svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="dropdown"><div class="dropdown-group">
+            <a href="nosotros.html#quienes" class="dropdown-link">¿Quiénes somos?</a>
+            <a href="nosotros.html#partners" class="dropdown-link">Socios</a>
+            <a href="nosotros.html#vacantes" class="dropdown-link">Vacantes</a>
+            <a href="nosotros.html#contacto" class="dropdown-link">Contacto</a>
+          </div></div>
+        </li>
+        <li class="nav-item">
+          <a href="lo-que-hacemos.html" class="nav-link active" aria-haspopup="true" aria-expanded="false">Lo que hacemos<svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="dropdown dropdown-wide">
+            <div>
+              <div class="dropdown-group">
+                <div class="dropdown-heading">Conecta y procesa</div>
+                <a href="#procesamiento" class="dropdown-link">Procesamiento de pagos</a>
+                <a href="#emision" class="dropdown-link">Emisión</a>
+                <a href="#adquirencia" class="dropdown-link">Adquirencia</a>
+                <a href="#gestion" class="dropdown-link">Gestión Operativa</a>
+                <a href="#robot" class="dropdown-link">Robot de aclaraciones</a>
+              </div>
+              <div class="dropdown-group">
+                <div class="dropdown-heading">Protege cada transacción</div>
+                <a href="#fraude" class="dropdown-link">Prevención de Fraude</a>
+                <a href="#cursos" class="dropdown-link">Cursos y herramientas</a>
+              </div>
+            </div>
+            <div>
+              <div class="dropdown-group">
+                <div class="dropdown-heading">Cumplimiento sin complicaciones</div>
+                <a href="#pci" class="dropdown-link">PCI DSS</a>
+                <a href="#emv" class="dropdown-link">EMV</a>
+                <a href="#sas" class="dropdown-link">SAS</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="soluciones.html" class="nav-link" aria-haspopup="true" aria-expanded="false">Soluciones<svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="dropdown dropdown-wide">
+            <div>
+              <div class="dropdown-group">
+                <div class="dropdown-heading">Autenticación reforzada</div>
+                <a href="soluciones.html#3ds" class="dropdown-link">3Ds</a>
+                <a href="soluciones.html#softoken" class="dropdown-link">Softoken</a>
+                <a href="soluciones.html#cybersource" class="dropdown-link">Cybersource</a>
+              </div>
+              <div class="dropdown-group">
+                <div class="dropdown-heading">Gestión de NIP</div>
+                <a href="soluciones.html#nip" class="dropdown-link">Desbloqueo, asignación, cambio y consulta</a>
+                <a href="soluciones.html#cvv" class="dropdown-link">CVV Dinámico</a>
+              </div>
+            </div>
+            <div>
+              <div class="dropdown-group">
+                <div class="dropdown-heading">Prevención inteligente</div>
+                <a href="soluciones.html#preautorizador" class="dropdown-link">Preautorizador</a>
+                <a href="soluciones.html#alert" class="dropdown-link">Alert Manager</a>
+                <a href="soluciones.html#robot" class="dropdown-link">Robot de aclaraciones</a>
+                <a href="soluciones.html#tokenizacion" class="dropdown-link">Tokenización</a>
+              </div>
+              <div class="dropdown-group">
+                <div class="dropdown-heading">Emisión</div>
+                <a href="soluciones.html#virtuales" class="dropdown-link">Tarjetas Virtuales</a>
+                <a href="soluciones.html#fisicas" class="dropdown-link">Tarjetas Físicas</a>
+                <a href="soluciones.html#cvv-fisico" class="dropdown-link">Tarjetas Físicas con CVV Dinámico</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="novedades.html" class="nav-link" aria-haspopup="true" aria-expanded="false">Novedades<svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="dropdown"><div class="dropdown-group">
+            <a href="novedades.html#foros" class="dropdown-link">Foros</a>
+            <a href="novedades.html#capacitacion" class="dropdown-link">Capacitación y certificaciones</a>
+            <a href="novedades.html#eventos" class="dropdown-link">Eventos</a>
+            <a href="novedades.html#clientes" class="dropdown-link">Clientes</a>
+            <a href="novedades.html#recursos" class="dropdown-link">Recursos</a>
+          </div></div>
+        </li>
+      </ul>
+      <div class="navbar-cta">
+        <a href="comencemos.html" class="btn-nav-cta">Comencemos<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+      <button class="navbar-toggle" aria-label="Menú"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero" id="main-content">
+    <div class="container">
+      <div class="page-hero-content">
+        <nav class="breadcrumb" aria-label="Ruta de navegación">
+          <a href="index.html">Inicio</a>
+          <span class="breadcrumb-sep">›</span>
+          <span>Lo que hacemos</span>
+        </nav>
+        <h1>Una plataforma.<br>Todo lo que necesitas.</h1>
+        <p>Desde el procesamiento de cada transacción hasta la certificación PCI DSS, Copayment cubre toda la cadena de valor de los pagos en México con una sola conexión.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="section" id="servicios">
+    <div class="container">
+
+      <!-- PILLAR 1: Conecta y procesa -->
+      <div class="pillar-group">
+        <div class="pillar-group-header">
+          <div>
+            <div class="pillar-group-label">Conecta y procesa</div>
+            <h2 class="pillar-group-title">Integra tu operación a los principales sistemas de pago</h2>
+          </div>
+          <span class="pillar-group-count">5</span>
+        </div>
+        <div class="pillar-group-showcase solutions-showcase">
+
+          <div class="solution-row anim-fade-up" id="procesamiento">
+            <span class="solution-row-num">01</span>
+            <div class="solution-row-body">
+              <div class="solution-row-head">
+                <h3 class="solution-row-title">Procesamiento de pagos</h3>
+                <a href="soluciones.html" class="solution-row-link">Ver soluciones<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              </div>
+              <p class="solution-row-desc">Conecta directamente con las principales redes de pago de México: Visa, Mastercard, Carnet y PROSA. Procesamos transacciones en tiempo real con alta disponibilidad, soporte EMV, NFC y banda magnética, y conciliación automatizada para toda tu operación.</p>
+              <div class="solution-row-tags">
+                <span class="stag">Visa</span><span class="stag">Mastercard</span><span class="stag">Carnet</span><span class="stag">PROSA</span><span class="stag">EMV</span><span class="stag">NFC</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="solution-row anim-fade-up anim-delay-1" id="emision">
+            <span class="solution-row-num">02</span>
+            <div class="solution-row-body">
+              <div class="solution-row-head">
+                <h3 class="solution-row-title">Emisión de tarjetas</h3>
+                <a href="soluciones.html#virtuales" class="solution-row-link">Ver soluciones<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              </div>
+              <p class="solution-row-desc">Emite tarjetas físicas y virtuales bajo las marcas que necesitas. Gestionamos todo el ciclo de vida de la tarjeta: solicitud, personalización, activación, bloqueo y reposición. Compatible con CVV Dinámico y estándares EMV para máxima seguridad.</p>
+              <div class="solution-row-tags">
+                <span class="stag">Tarjetas Físicas</span><span class="stag">Tarjetas Virtuales</span><span class="stag">CVV Dinámico</span><span class="stag">Personalización</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="solution-row anim-fade-up anim-delay-2" id="adquirencia">
+            <span class="solution-row-num">03</span>
+            <div class="solution-row-body">
+              <div class="solution-row-head">
+                <h3 class="solution-row-title">Adquirencia</h3>
+                <a href="comencemos.html" class="solution-row-link">Solicitar información<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              </div>
+              <p class="solution-row-desc">Habilitamos a comercios, cadenas de retail y plataformas digitales para aceptar pagos con tarjeta a través de terminales físicas (TPV) y canales en línea. Liquidación rápida, soporte multi-moneda y conciliación integrada con tus sistemas.</p>
+              <div class="solution-row-tags">
+                <span class="stag">TPV</span><span class="stag">E-commerce</span><span class="stag">Multi-moneda</span><span class="stag">Liquidación</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="solution-row anim-fade-up anim-delay-3" id="gestion">
+            <span class="solution-row-num">04</span>
+            <div class="solution-row-body">
+              <div class="solution-row-head">
+                <h3 class="solution-row-title">Gestión Operativa</h3>
+                <a href="comencemos.html" class="solution-row-link">Solicitar información<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              </div>
+              <p class="solution-row-desc">Automatiza los procesos de back-office que más tiempo consumen: conciliación, reportería regulatoria, gestión de chargebacks y control de flujos transaccionales. Menos operación manual, más control sobre tu negocio.</p>
+              <div class="solution-row-tags">
+                <span class="stag">Back-office</span><span class="stag">Conciliación</span><span class="stag">Reportería</span><span class="stag">Chargebacks</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="solution-row anim-fade-up anim-delay-4" id="robot">
+            <span class="solution-row-num">05</span>
+            <div class="solution-row-body">
+              <div class="solution-row-head">
+                <h3 class="solution-row-title">Robot de aclaraciones</h3>
+                <a href="soluciones.html#robot" class="solution-row-link">Ver soluciones<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              </div>
+              <p class="solution-row-desc">Automatiza la gestión de aclaraciones y disputas de transacciones. Nuestro robot procesa las solicitudes de los usuarios, valida la información contra las redes de pago y resuelve los casos sin intervención humana en los flujos estándar.</p>
+              <div class="solution-row-tags">
+                <span class="stag">Automatización</span><span class="stag">Disputas</span><span class="stag">Aclaraciones</span><span class="stag">Visa</span><span class="stag">Mastercard</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PILLAR 2: Protege cada transacción -->
+      <div class="pillar-group">
+        <div class="pillar-group-header">
+          <div>
+            <div class="pillar-group-label">Protege cada transacción</div>
+            <h2 class="pillar-group-title">Prevención de fraude y ciberseguridad</h2>
+          </div>
+          <span class="pillar-group-count">2</span>
+        </div>
+        <div class="pillar-group-showcase solutions-showcase">
+
+          <div class="solution-row anim-fade-up" id="fraude">
+            <span class="solution-row-num">01</span>
+            <div class="solution-row-body">
+              <div class="solution-row-head">
+                <h3 class="solution-row-title">Prevención de Fraude</h3>
+                <a href="soluciones.html#preautorizador" class="solution-row-link">Ver soluciones<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              </div>
+              <p class="solution-row-desc">Detectamos y bloqueamos transacciones fraudulentas antes de que ocurran. Combinamos reglas en tiempo real, análisis de comportamiento transaccional, alertas automáticas y autenticación reforzada para blindar cada operación de tus clientes.</p>
+              <div class="solution-row-tags">
+                <span class="stag">Preautorizador</span><span class="stag">Alert Manager</span><span class="stag">3DS</span><span class="stag">Tokenización</span><span class="stag">Cybersource</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="solution-row anim-fade-up anim-delay-1" id="cursos">
+            <span class="solution-row-num">02</span>
+            <div class="solution-row-body">
+              <div class="solution-row-head">
+                <h3 class="solution-row-title">Cursos y herramientas</h3>
+                <a href="novedades.html#capacitacion" class="solution-row-link">Ver capacitaciones<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              </div>
+              <p class="solution-row-desc">Capacitamos a los equipos de tus instituciones en prevención de fraude, normatividad PCI DSS, mejores prácticas de seguridad y uso de herramientas de monitoreo. Formamos el talento que protege tu operación desde adentro.</p>
+              <div class="solution-row-tags">
+                <span class="stag">Capacitación</span><span class="stag">PCI DSS</span><span class="stag">Seguridad</span><span class="stag">Certificaciones</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PILLAR 3: Cumplimiento -->
+      <div class="pillar-group" style="padding-bottom:4rem;">
+        <div class="pillar-group-header">
+          <div>
+            <div class="pillar-group-label">Cumplimiento sin complicaciones</div>
+            <h2 class="pillar-group-title">Certifícate con quienes ya saben el camino</h2>
+          </div>
+          <span class="pillar-group-count">3</span>
+        </div>
+        <div class="pillar-group-showcase solutions-showcase">
+
+          <div class="solution-row anim-fade-up" id="pci">
+            <span class="solution-row-num">01</span>
+            <div class="solution-row-body">
+              <div class="solution-row-head">
+                <h3 class="solution-row-title">PCI DSS</h3>
+                <a href="comencemos.html" class="solution-row-link">Solicitar asesoría<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              </div>
+              <p class="solution-row-desc">Te acompañamos en todo el proceso de certificación PCI DSS: desde el diagnóstico inicial hasta la emisión del certificado. Somos una organización certificada PCI DSS que entiende los requerimientos del estándar desde adentro, no como auditor externo.</p>
+              <div class="solution-row-tags">
+                <span class="stag">PCI DSS v4.0</span><span class="stag">Diagnóstico</span><span class="stag">Certificación</span><span class="stag">Cumplimiento</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="solution-row anim-fade-up anim-delay-1" id="emv">
+            <span class="solution-row-num">02</span>
+            <div class="solution-row-body">
+              <div class="solution-row-head">
+                <h3 class="solution-row-title">EMV</h3>
+                <a href="comencemos.html" class="solution-row-link">Solicitar asesoría<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              </div>
+              <p class="solution-row-desc">Habilitamos a emisores y adquirentes para cumplir con los estándares EMV de transacciones con chip. Nuestra plataforma soporta el procesamiento de tarjetas EMV contacto y sin contacto (NFC), con gestión de claves y personalización de chips.</p>
+              <div class="solution-row-tags">
+                <span class="stag">EMV Contacto</span><span class="stag">EMV Sin Contacto</span><span class="stag">NFC</span><span class="stag">Gestión de claves</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="solution-row anim-fade-up anim-delay-2" id="sas">
+            <span class="solution-row-num">03</span>
+            <div class="solution-row-body">
+              <div class="solution-row-head">
+                <h3 class="solution-row-title">SAS</h3>
+                <a href="comencemos.html" class="solution-row-link">Solicitar asesoría<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              </div>
+              <p class="solution-row-desc">Gestión y cumplimiento del Script de Aplicación Segura (SAS) para emisores de tarjetas. Te apoyamos en la implementación y certificación de los controles requeridos por las redes de pago para la personalización segura de chips EMV.</p>
+              <div class="solution-row-tags">
+                <span class="stag">SAS</span><span class="stag">Script EMV</span><span class="stag">Personalización</span><span class="stag">Emisores</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>¿Cuál de estos servicios necesitas?</h2>
+      <p>Cuéntanos tu caso y te orientamos hacia la solución que mejor se ajusta a tu operación.</p>
+      <div class="cta-actions">
+        <a href="comencemos.html" class="btn-cta-white">Comencemos<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="soluciones.html" class="btn btn-outline">Ver soluciones específicas</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo"><img src="assets/logo.svg" alt="Copayment"></a>
+          <p class="footer-tagline">La infraestructura de pagos más completa de México. Rápido, seguro y diseñado para escalar contigo.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="#" aria-label="Twitter / X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Nosotros</h4>
+          <a href="nosotros.html#quienes" class="footer-link">¿Quiénes somos?</a>
+          <a href="nosotros.html#partners" class="footer-link">Socios</a>
+          <a href="nosotros.html#vacantes" class="footer-link">Vacantes</a>
+          <a href="nosotros.html#contacto" class="footer-link">Contacto</a>
+        </div>
+        <div class="footer-col">
+          <h4>Lo que hacemos</h4>
+          <div class="footer-col-group">
+            <div class="footer-col-group-label">Conecta y procesa</div>
+            <a href="#procesamiento" class="footer-link">Procesamiento de pagos</a>
+            <a href="#emision" class="footer-link">Emisión</a>
+            <a href="#adquirencia" class="footer-link">Adquirencia</a>
+            <a href="#gestion" class="footer-link">Gestión Operativa</a>
+            <a href="#robot" class="footer-link">Robot de aclaraciones</a>
+          </div>
+          <div class="footer-col-group">
+            <div class="footer-col-group-label">Protege</div>
+            <a href="#fraude" class="footer-link">Prevención de Fraude</a>
+            <a href="#cursos" class="footer-link">Cursos y herramientas</a>
+          </div>
+          <div class="footer-col-group">
+            <div class="footer-col-group-label">Cumplimiento</div>
+            <a href="#pci" class="footer-link">PCI DSS · EMV · SAS</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Novedades</h4>
+          <a href="novedades.html#foros" class="footer-link">Foros</a>
+          <a href="novedades.html#capacitacion" class="footer-link">Capacitación y certificaciones</a>
+          <a href="novedades.html#eventos" class="footer-link">Eventos</a>
+          <a href="novedades.html#recursos" class="footer-link">Recursos</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Copayment – Sistemas de pagos. Todos los derechos reservados.</span>
+        <div class="footer-bottom-links"><a href="#">Aviso de privacidad</a><a href="#">Términos de uso</a></div>
+      </div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
