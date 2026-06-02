@@ -17,7 +17,7 @@
   <nav class="navbar" id="navbar">
     <div class="navbar-inner">
       <a href="index.html" class="navbar-logo">
-        <img src="assets/logo.svg" alt="Copayment">
+        <img src="assets/logo-horizontal.svg" alt="Copayment">
       </a>
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -27,10 +27,10 @@
           </a>
           <div class="dropdown">
             <div class="dropdown-group">
-              <a href="nosotros.html#quienes" class="dropdown-link">¿Quiénes somos?</a>
-              <a href="nosotros.html#partners" class="dropdown-link">Socios</a>
-              <a href="nosotros.html#vacantes" class="dropdown-link">Vacantes</a>
-              <a href="nosotros.html#contacto" class="dropdown-link">Contacto</a>
+              <a href="nosotros/quienes-somos.html#quienes" class="dropdown-link">¿Quiénes somos?</a>
+              <a href="nosotros/quienes-somos.html#partners" class="dropdown-link">Socios</a>
+              <a href="nosotros/quienes-somos.html#vacantes" class="dropdown-link">Vacantes</a>
+              <a href="nosotros/quienes-somos.html#contacto" class="dropdown-link">Contacto</a>
             </div>
           </div>
         </li>
@@ -58,9 +58,7 @@
             <div>
               <div class="dropdown-group">
                 <div class="dropdown-heading">Cumplimiento sin complicaciones</div>
-                <a href="lo-que-hacemos.html#pci" class="dropdown-link">PCI DSS</a>
-                <a href="lo-que-hacemos.html#emv" class="dropdown-link">EMV</a>
-                <a href="lo-que-hacemos.html#sas" class="dropdown-link">SAS</a>
+                <a href="lo-que-hacemos/cumplimiento.html" class="dropdown-link">Cumplimiento</a>
               </div>
             </div>
           </div>
@@ -141,9 +139,9 @@
             <span class="hero-badge-dot"></span>
             Infraestructura de pagos · México
           </div>
-          <h1 class="hero-title">
+          <h1 class="hero-title" id="heroTitle">
             El futuro de los pagos<br>
-            <span>se construye hoy</span>
+            <span class="hero-title-accent">se construye hoy</span>
           </h1>
           <p class="hero-subtitle">
             Una sola conexión a Copayment es todo lo que necesitas para acceder a la infraestructura de pagos más completa de México. Rápido, seguro y diseñado para escalar contigo.
@@ -160,43 +158,88 @@
         </div>
         <div class="hero-visual">
           <div class="infra-diagram">
-            <svg class="infra-svg" viewBox="0 0 360 300" fill="none" aria-hidden="true">
-              <defs>
-                <path id="dp1" d="M180,63 L180,110"/>
-                <path id="dp2" d="M68,132 L141,145"/>
-                <path id="dp3" d="M292,132 L219,145"/>
-                <path id="dp4" d="M98,236 L152,180"/>
-                <path id="dp5" d="M262,236 L208,180"/>
-              </defs>
-              <!-- Connection lines -->
-              <line class="infra-line infra-line--1" x1="180" y1="110" x2="180" y2="63"/>
-              <line class="infra-line infra-line--2" x1="68"  y1="132" x2="141" y2="145"/>
-              <line class="infra-line infra-line--3" x1="292" y1="132" x2="219" y2="145"/>
-              <line class="infra-line infra-line--4" x1="98"  y1="236" x2="152" y2="180"/>
-              <line class="infra-line infra-line--5" x1="262" y1="236" x2="208" y2="180"/>
-              <!-- Orbital rings around hub -->
-              <circle cx="180" cy="152" r="58" fill="none" stroke="rgba(0,172,255,.18)" stroke-width="1" stroke-dasharray="3 9">
-                <animateTransform attributeName="transform" type="rotate" from="0 180 152" to="360 180 152" dur="12s" repeatCount="indefinite"/>
+            <style>
+              /* Orbital nodes */
+              .orb-node {
+                fill: rgba(255,255,255,.09);
+                stroke: rgba(0,172,255,.6);
+                stroke-width: 1.5;
+              }
+              .orb-node--top {
+                fill: rgba(0,172,255,.18);
+                stroke: #00acff;
+                stroke-width: 2;
+                filter: drop-shadow(0 0 8px rgba(0,172,255,.5));
+              }
+              .orb-label {
+                fill: rgba(255,255,255,.9);
+                font-family: 'Montserrat', sans-serif;
+                font-size: 7.5px;
+                font-weight: 700;
+                text-anchor: middle;
+                dominant-baseline: middle;
+                pointer-events: none;
+              }
+              /* Arm lines */
+              .orb-arm {
+                stroke: rgba(0,172,255,.4);
+                stroke-width: 1.2;
+                stroke-dasharray: 4 5;
+              }
+              /* Hero text reveal */
+              .hw {
+                display: inline-block;
+                opacity: 0;
+                transform: translateY(22px);
+                transition: opacity .5s ease, transform .5s cubic-bezier(.34,1.4,.64,1);
+              }
+              .hw.in { opacity: 1; transform: translateY(0); }
+            </style>
+
+            <svg class="infra-svg" viewBox="0 0 360 300" fill="none" id="infraSvg" aria-hidden="true">
+              <!-- Outer orbital rings -->
+              <circle cx="180" cy="152" r="62" fill="none" stroke="rgba(0,172,255,.12)" stroke-width="1" stroke-dasharray="3 10">
+                <animateTransform attributeName="transform" type="rotate" from="0 180 152" to="360 180 152" dur="16s" repeatCount="indefinite"/>
               </circle>
-              <circle cx="180" cy="152" r="74" fill="none" stroke="rgba(0,172,255,.1)" stroke-width="1" stroke-dasharray="2 14">
-                <animateTransform attributeName="transform" type="rotate" from="360 180 152" to="0 180 152" dur="20s" repeatCount="indefinite"/>
+              <circle cx="180" cy="152" r="82" fill="none" stroke="rgba(0,172,255,.06)" stroke-width="1" stroke-dasharray="2 16">
+                <animateTransform attributeName="transform" type="rotate" from="360 180 152" to="0 180 152" dur="26s" repeatCount="indefinite"/>
               </circle>
-              <!-- Peripheral nodes -->
-              <g><!-- Redes de Pago --><circle cx="180" cy="37" r="26" class="infra-node-circle infra-node-circle--accent"/><text class="infra-node-label" x="180" y="33">Redes de</text><text class="infra-node-label" x="180" y="45">Pago</text></g>
-              <g><!-- Bancos Emisores --><circle cx="44"  cy="130" r="26" class="infra-node-circle"/><text class="infra-node-label" x="44"  y="126">Bancos e</text><text class="infra-node-label" x="44"  y="138">Emisores</text></g>
-              <g><!-- Comercios --><circle cx="316" cy="130" r="26" class="infra-node-circle"/><text class="infra-node-label" x="316" y="126">Comercios</text><text class="infra-node-label" x="316" y="138">y TPV</text></g>
-              <g><!-- Fintechs --><circle cx="80"  cy="258" r="26" class="infra-node-circle"/><text class="infra-node-label" x="80"  y="254">Fintechs</text><text class="infra-node-label" x="80"  y="266">/ NBFI</text></g>
-              <g><!-- Adquirentes --><circle cx="280" cy="258" r="26" class="infra-node-circle"/><text class="infra-node-label" x="280" y="254">Adqui-</text><text class="infra-node-label" x="280" y="266">rentes</text></g>
-              <!-- Transaction dots flowing inward to hub -->
-              <circle r="2.5" fill="#00acff" opacity="0.9"><animateMotion dur="2.2s" begin="0s" repeatCount="indefinite" calcMode="linear"><mpath href="#dp1"/></animateMotion></circle>
-              <circle r="2.5" fill="#00acff" opacity="0.9"><animateMotion dur="2.5s" begin="-0.5s" repeatCount="indefinite" calcMode="linear"><mpath href="#dp2"/></animateMotion></circle>
-              <circle r="2.5" fill="#00acff" opacity="0.9"><animateMotion dur="2.3s" begin="-1s" repeatCount="indefinite" calcMode="linear"><mpath href="#dp3"/></animateMotion></circle>
-              <circle r="2.5" fill="#00acff" opacity="0.9"><animateMotion dur="2.8s" begin="-1.5s" repeatCount="indefinite" calcMode="linear"><mpath href="#dp4"/></animateMotion></circle>
-              <circle r="2.5" fill="#00acff" opacity="0.9"><animateMotion dur="2.6s" begin="-2s" repeatCount="indefinite" calcMode="linear"><mpath href="#dp5"/></animateMotion></circle>
-              <!-- Hub -->
-              <circle cx="180" cy="152" r="46" class="infra-hub-glow"/>
-              <circle cx="180" cy="152" r="39" class="infra-hub-circle"/>
-              <image href="assets/logo-icon.svg" x="153" y="125" width="54" height="54" preserveAspectRatio="xMidYMid meet"/>
+
+              <!-- Arm lines (JS updates endpoints) -->
+              <line id="ol0" class="orb-arm"/>
+              <line id="ol1" class="orb-arm"/>
+              <line id="ol2" class="orb-arm"/>
+              <line id="ol3" class="orb-arm"/>
+              <line id="ol4" class="orb-arm"/>
+
+              <!-- Hub (always on top of arms, below nodes) -->
+              <circle cx="180" cy="152" r="48" class="infra-hub-glow"/>
+              <circle cx="180" cy="152" r="40" class="infra-hub-circle"/>
+              <image href="assets/logo-icon.svg" x="152" y="124" width="56" height="56" preserveAspectRatio="xMidYMid meet"/>
+
+              <!-- Orbital nodes (centered at 0,0; JS positions via transform) -->
+              <!-- 0: Redes de Pago  1: Comercios  2: Adquirentes  3: Fintechs  4: Bancos -->
+              <g id="on0">
+                <circle cx="0" cy="0" r="32" class="orb-node"/>
+                <text x="0" y="-6" class="orb-label">Redes de</text>
+                <text x="0" y="6"  class="orb-label">Pago</text>
+              </g>
+              <g id="on1">
+                <circle cx="0" cy="0" r="32" class="orb-node"/>
+                <text x="0" y="0" class="orb-label">Comercios</text>
+              </g>
+              <g id="on2">
+                <circle cx="0" cy="0" r="32" class="orb-node"/>
+                <text x="0" y="0" class="orb-label">Adquirentes</text>
+              </g>
+              <g id="on3">
+                <circle cx="0" cy="0" r="32" class="orb-node"/>
+                <text x="0" y="0" class="orb-label">Fintechs</text>
+              </g>
+              <g id="on4">
+                <circle cx="0" cy="0" r="32" class="orb-node"/>
+                <text x="0" y="0" class="orb-label">Bancos</text>
+              </g>
             </svg>
             <p class="infra-caption">Una conexión · Todo México</p>
           </div>
@@ -403,19 +446,19 @@
     </div>
     <div class="partners-marquee">
       <div class="partners-track">
-        <img src="assets/visa.svg" alt="Visa" loading="lazy" class="partner-logo">
-        <img src="assets/carnet.svg" alt="Carnet" loading="lazy" class="partner-logo">
-        <img src="assets/prosa.svg" alt="PROSA" loading="lazy" class="partner-logo">
-        <img src="assets/cybersource.svg" alt="Cybersource" loading="lazy" class="partner-logo">
-        <img src="assets/softools.svg" alt="Softtools" loading="lazy" class="partner-logo">
-        <img src="assets/yg.svg" alt="Y&G" loading="lazy" class="partner-logo">
+        <a href="https://www.visa.com.mx" target="_blank" rel="noopener" class="partner-link"><img src="assets/visa.svg" alt="Visa" loading="lazy" class="partner-logo"></a>
+        <a href="https://carnet.com.mx" target="_blank" rel="noopener" class="partner-link"><img src="assets/carnet.svg" alt="CARNET" loading="lazy" class="partner-logo"></a>
+        <a href="https://www.prosa.com.mx" target="_blank" rel="noopener" class="partner-link"><img src="assets/prosa.svg" alt="PROSA" loading="lazy" class="partner-logo"></a>
+        <a href="https://www.cybersource.com" target="_blank" rel="noopener" class="partner-link"><img src="assets/cybersource.svg" alt="Cybersource" loading="lazy" class="partner-logo"></a>
+        <a href="#" class="partner-link"><img src="assets/softools.svg" alt="Softtools" loading="lazy" class="partner-logo"></a>
+        <a href="#" class="partner-link"><img src="assets/yg.svg" alt="Y&amp;G" loading="lazy" class="partner-logo"></a>
         <!-- duplicate for seamless loop -->
-        <img src="assets/visa.svg" alt="" aria-hidden="true" loading="lazy" class="partner-logo">
-        <img src="assets/carnet.svg" alt="" aria-hidden="true" loading="lazy" class="partner-logo">
-        <img src="assets/prosa.svg" alt="" aria-hidden="true" loading="lazy" class="partner-logo">
-        <img src="assets/cybersource.svg" alt="" aria-hidden="true" loading="lazy" class="partner-logo">
-        <img src="assets/softools.svg" alt="" aria-hidden="true" loading="lazy" class="partner-logo">
-        <img src="assets/yg.svg" alt="" aria-hidden="true" loading="lazy" class="partner-logo">
+        <a href="https://www.visa.com.mx" target="_blank" rel="noopener" class="partner-link" aria-hidden="true"><img src="assets/visa.svg" alt="" loading="lazy" class="partner-logo"></a>
+        <a href="https://carnet.com.mx" target="_blank" rel="noopener" class="partner-link" aria-hidden="true"><img src="assets/carnet.svg" alt="" loading="lazy" class="partner-logo"></a>
+        <a href="https://www.prosa.com.mx" target="_blank" rel="noopener" class="partner-link" aria-hidden="true"><img src="assets/prosa.svg" alt="" loading="lazy" class="partner-logo"></a>
+        <a href="https://www.cybersource.com" target="_blank" rel="noopener" class="partner-link" aria-hidden="true"><img src="assets/cybersource.svg" alt="" loading="lazy" class="partner-logo"></a>
+        <a href="#" class="partner-link" aria-hidden="true"><img src="assets/softools.svg" alt="" loading="lazy" class="partner-logo"></a>
+        <a href="#" class="partner-link" aria-hidden="true"><img src="assets/yg.svg" alt="" loading="lazy" class="partner-logo"></a>
       </div>
     </div>
   </section>
@@ -437,8 +480,9 @@
           </div>
         </div>
         <div class="anim-fade-right anim-delay-1">
-          <h2 class="section-title">Nuestro propósito es claro: transformar la forma en la que el mundo paga</h2>
-          <p style="margin-bottom:2rem;">Somos expertos en el mercado mexicano de pagos y nuestro compromiso es claro: transformar la forma en que el mundo paga. Hacemos equipo con líderes globales y nacionales en tecnología financiera, ciberseguridad y procesamiento de pagos.</p>
+          <h2 class="section-title">Impulsando el ecosistema de medios de pago</h2>
+          <p style="margin-bottom:1.25rem;">Somos expertos en el mercado mexicano de pagos y nuestro compromiso es claro: transformar la forma en que el mundo paga.</p>
+          <p style="margin-bottom:2rem;color:var(--silver);">Detrás de cada transacción hay un equipo que se preocupa de verdad. En Copayment somos un equipo comprometido con sus clientes, con su seguridad y totalmente convencidos de que la mejor tecnología se construye con colaboración, experiencia y confianza.</p>
           <div class="about-values">
             <div class="value-item">
               <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -450,20 +494,20 @@
             <div class="value-item">
               <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
               <div>
-                <div class="value-title">Rápido y escalable</div>
-                <div class="value-desc">Arquitectura diseñada para crecer contigo, desde startups hasta grandes instituciones financieras.</div>
+                <div class="value-title">Más de 100 expertos</div>
+                <div class="value-desc">En medios de pago, tecnología financiera y prevención de fraudes trabajando en tu proyecto.</div>
               </div>
             </div>
             <div class="value-item">
               <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
               <div>
-                <div class="value-title">Soporte humano 24/7</div>
-                <div class="value-desc">Equipo técnico especializado disponible todos los días para garantizar la continuidad de tu operación.</div>
+                <div class="value-title">9 años de trayectoria</div>
+                <div class="value-desc">Monterrey · Ciudad de México · Santiago de Chile · Bogotá · Arriaga.</div>
               </div>
             </div>
           </div>
           <div style="margin-top:2rem;">
-            <a href="nosotros.html" class="btn btn-primary">Conoce más sobre nosotros</a>
+            <a href="nosotros/quienes-somos.html#quienes" class="btn btn-primary">Conoce al equipo</a>
           </div>
         </div>
       </div>
@@ -529,7 +573,7 @@
           Comencemos
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
-        <a href="nosotros.html#contacto" class="btn btn-outline">Hablar con un especialista</a>
+        <a href="nosotros/quienes-somos.html#contacto" class="btn btn-outline">Hablar con un especialista</a>
       </div>
     </div>
   </section>
@@ -539,7 +583,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="footer-logo"><img src="assets/logo.svg" alt="Copayment"></a>
+          <a href="index.html" class="footer-logo"><img src="assets/logo-horizontal.svg" alt="Copayment"></a>
           <p class="footer-tagline">La infraestructura de pagos más completa de México. Rápido, seguro y diseñado para escalar contigo.</p>
           <div class="footer-social">
             <a href="#" aria-label="LinkedIn">
@@ -552,10 +596,10 @@
         </div>
         <div class="footer-col">
           <h4>Nosotros</h4>
-          <a href="nosotros.html#quienes" class="footer-link">¿Quiénes somos?</a>
-          <a href="nosotros.html#partners" class="footer-link">Socios</a>
-          <a href="nosotros.html#vacantes" class="footer-link">Vacantes</a>
-          <a href="nosotros.html#contacto" class="footer-link">Contacto</a>
+          <a href="nosotros/quienes-somos.html#quienes" class="footer-link">¿Quiénes somos?</a>
+          <a href="nosotros/quienes-somos.html#partners" class="footer-link">Socios</a>
+          <a href="nosotros/quienes-somos.html#vacantes" class="footer-link">Vacantes</a>
+          <a href="nosotros/quienes-somos.html#contacto" class="footer-link">Contacto</a>
           <a href="#" class="footer-link">Redes Sociales</a>
         </div>
         <div class="footer-col">
@@ -598,5 +642,121 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+  /* ── Hero text reveal (word-by-word slide up) ── */
+  (function(){
+    // Animate all hero-text elements: badge, title, subtitle, buttons
+    var heroText = document.querySelector('.hero-text');
+    if (!heroText) return;
+
+    function wrapNode(node) {
+      if (node.nodeType === 3) {
+        var words = node.textContent.split(/(\s+)/);
+        var frag = document.createDocumentFragment();
+        words.forEach(function(w) {
+          if (/^\s+$/.test(w) || w === '') {
+            frag.appendChild(document.createTextNode(w));
+          } else {
+            var s = document.createElement('span');
+            s.className = 'hw';
+            s.textContent = w;
+            frag.appendChild(s);
+          }
+        });
+        node.parentNode.replaceChild(frag, node);
+      } else if (node.nodeType === 1 && !['SCRIPT','A','SVG','PATH','POLYLINE','LINE','CIRCLE'].includes(node.nodeName)) {
+        Array.from(node.childNodes).forEach(wrapNode);
+      }
+    }
+
+    // Wrap all text inside hero-text block (badge, title, subtitle)
+    ['.hero-badge', '.hero-title', '.hero-subtitle'].forEach(function(sel) {
+      var el = heroText.querySelector(sel);
+      if (el) wrapNode(el);
+    });
+
+    // Also fade in buttons as a block
+    var actions = heroText.querySelector('.hero-actions');
+    if (actions) { actions.style.opacity = '0'; actions.style.transform = 'translateY(18px)'; }
+
+    var spans = heroText.querySelectorAll('.hw');
+    spans.forEach(function(s, i) {
+      setTimeout(function(){ s.classList.add('in'); }, 80 + i * 65);
+    });
+    // Buttons reveal after all words
+    if (actions) {
+      setTimeout(function(){
+        actions.style.transition = 'opacity .5s ease, transform .5s cubic-bezier(.34,1.4,.64,1)';
+        actions.style.opacity = '1';
+        actions.style.transform = 'translateY(0)';
+      }, 80 + spans.length * 65 + 100);
+    }
+  })();
+
+  /* ── Orbital diagram ── */
+  (function(){
+    var CX = 180, CY = 152, R = 128;  /* wider orbit */
+    var HUB_R = 44;
+    var SPEED = 360 / 18000;
+
+    var labels = ['Redes de Pago','Comercios','Adquirentes','Fintechs','Bancos'];
+    var nodes = [0,1,2,3,4].map(function(i){ return document.getElementById('on'+i); });
+    var arms  = [0,1,2,3,4].map(function(i){ return document.getElementById('ol'+i); });
+
+    // Initial angles (evenly spaced, start from -90 = top)
+    var angles = [-90, -90+72, -90+144, -90+216, -90+288];
+    var prev = null;
+
+    // Float offsets — each node bobs at a different phase
+    var floatPhase = [0, 1.3, 2.6, 0.7, 1.9];
+
+    function tick(t) {
+      var dt = prev ? (t - prev) : 0;
+      if (dt > 100) dt = 16; // cap large gaps (tab was hidden)
+      prev = t;
+
+      angles = angles.map(function(a){ return (a + SPEED * dt + 360) % 360; });
+
+      nodes.forEach(function(node, i) {
+        var rad = angles[i] * Math.PI / 180;
+        var x = CX + R * Math.cos(rad);
+        // Orbit y + gentle float
+        var floatY = Math.sin(t / 1200 + floatPhase[i]) * 4;
+        var y = CY + R * Math.sin(rad) + floatY;
+
+        // Scale: dramatic difference — 2.0 at top, 0.72 at bottom
+        var sinVal = Math.sin(rad);
+        var norm = (sinVal + 1) / 2;           // 0 at top, 1 at bottom
+        var scale = 2.0 - 1.28 * norm;         // 2.0 → 0.72
+
+        // Pulse glow on the "top" node
+        var circle = node.querySelector('circle');
+        if (circle) {
+          if (norm < 0.18) {
+            circle.classList.add('orb-node--top');
+          } else {
+            circle.classList.remove('orb-node--top');
+          }
+        }
+
+        node.setAttribute('transform',
+          'translate(' + x.toFixed(2) + ',' + y.toFixed(2) + ') scale(' + scale.toFixed(3) + ')'
+        );
+
+        // Arm from hub edge to node
+        if (arms[i]) {
+          arms[i].setAttribute('x1', (CX + HUB_R * Math.cos(rad)).toFixed(2));
+          arms[i].setAttribute('y1', (CY + HUB_R * Math.sin(rad)).toFixed(2));
+          arms[i].setAttribute('x2', x.toFixed(2));
+          arms[i].setAttribute('y2', y.toFixed(2));
+        }
+      });
+
+      requestAnimationFrame(tick);
+    }
+
+    requestAnimationFrame(tick);
+  })();
+  </script>
 </body>
 </html>

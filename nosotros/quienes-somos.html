@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Quiénes somos? – Copayment</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+
+    /* ════════════════════════════════════════════
+       TIMELINE — KINETIC VERTICAL SCROLL
+    ════════════════════════════════════════════ */
+
+    .tl-section  { background: linear-gradient(135deg, #001e4d 0%, #00327a 50%, #0058c8 100%); }
+    .tl-wrapper  { height: 500vh; position: relative; }
+
+    .tl-sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      overflow: hidden;
+    }
+
+    /* ── Left sidebar ── */
+    .tl-sidebar {
+      width: 180px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 0 0 3.5rem;
+      position: relative;
+      z-index: 2;
+    }
+    .tl-line-track {
+      position: absolute;
+      left: 4.5rem;
+      top: 18%;
+      bottom: 18%;
+      width: 2px;
+      background: rgba(255,255,255,.08);
+    }
+    .tl-line-fill {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 0%;
+      background: linear-gradient(180deg, #00acff 0%, #0058c8 100%);
+      will-change: height;
+    }
+    .tl-nav { display: flex; flex-direction: column; gap: 2.75rem; position: relative; z-index: 1; }
+    .tl-nav-item { display: flex; align-items: center; gap: .85rem; cursor: default; }
+    .tl-nav-dot {
+      width: 11px; height: 11px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.12);
+      border: 2px solid rgba(255,255,255,.12);
+      flex-shrink: 0;
+      transition: background .4s, border-color .4s, box-shadow .4s, transform .4s;
+    }
+    .tl-nav-item.is-active .tl-nav-dot {
+      background: #00acff;
+      border-color: #00acff;
+      box-shadow: 0 0 0 5px rgba(0,172,255,.2);
+      transform: scale(1.3);
+    }
+    .tl-nav-year {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .07em;
+      color: rgba(255,255,255,.2);
+      transition: color .4s, letter-spacing .4s;
+    }
+    .tl-nav-item.is-active .tl-nav-year {
+      color: #00acff;
+      letter-spacing: .1em;
+    }
+
+    /* ── Main panel area ── */
+    .tl-main {
+      flex: 1;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 5rem 0 2.5rem;
+      overflow: hidden;
+    }
+
+    .tl-label {
+      position: absolute;
+      top: 2.5rem; left: 2.5rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.22);
+    }
+
+    .tl-counter {
+      position: absolute;
+      bottom: 2.5rem; right: 5rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      color: rgba(255,255,255,.18);
+    }
+    .tl-counter em { color: rgba(255,255,255,.5); font-style: normal; }
+
+    /* ── Era panels ── */
+    .tl-panels { position: relative; }
+
+    .tl-panel {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      opacity: 0;
+      pointer-events: none;
+      /* transform driven entirely by JS — no CSS transition on transform */
+    }
+    .tl-panel.is-active  { position: relative; opacity: 1; pointer-events: auto; }
+    .tl-panel.is-past    { opacity: 0; }
+
+    /* Opacity transitions are CSS; transforms are JS */
+    .tl-panel { transition: opacity .45s cubic-bezier(.4,0,.2,1); }
+
+    /* ── Big scroll-driven watermark year ── */
+    .tl-watermark {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: clamp(5rem, 16vw, 11rem);
+      color: rgba(255,255,255,.07);
+      line-height: 1;
+      user-select: none;
+      pointer-events: none;
+      will-change: transform, opacity;
+      transform-origin: left center;
+      margin-bottom: -.5rem;
+    }
+
+    /* ── Era year heading — JS-driven scale, large + punchy ── */
+    .tl-era-year {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: clamp(3.5rem, 7vw, 6.5rem);
+      color: #ffffff;
+      line-height: 1;
+      margin-bottom: 1.75rem;
+      will-change: transform;
+      transform-origin: left center;
+      letter-spacing: -.02em;
+      text-shadow: 0 0 60px rgba(0,172,255,.55), 0 2px 0 rgba(0,0,0,.2);
+    }
+
+    /* ── Milestone items ── */
+    .tl-items { list-style: none; padding: 0; margin: 0; }
+
+    .tl-item {
+      display: flex;
+      gap: 1.1rem;
+      padding: .7rem 0;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      /* entrance animation via CSS when panel becomes active */
+      opacity: 0;
+      transform: translateX(-32px) scale(.9);
+      transition: opacity .5s cubic-bezier(.4,0,.2,1),
+                  transform .5s cubic-bezier(.34,1.45,.64,1); /* spring */
+    }
+    .tl-item:last-child { border-bottom: none; }
+
+    /* Stagger delays applied when is-active */
+    .tl-panel.is-active .tl-item:nth-child(1) { transition-delay: .07s; }
+    .tl-panel.is-active .tl-item:nth-child(2) { transition-delay: .17s; }
+    .tl-panel.is-active .tl-item:nth-child(3) { transition-delay: .27s; }
+    .tl-panel.is-active .tl-item:nth-child(4) { transition-delay: .37s; }
+    .tl-panel.is-active .tl-item {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+    }
+
+    .tl-num {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: .65rem;
+      color: rgba(0,172,255,.6);
+      flex-shrink: 0;
+      margin-top: .4rem;
+      min-width: 1.4rem;
+      letter-spacing: .04em;
+    }
+    .tl-text {
+      color: rgba(255,255,255,.65);
+      font-size: clamp(.88rem, 1.2vw, 1rem);
+      line-height: 1.65;
+    }
+
+    /* ── Cyan keyword highlights ── */
+    mark.h {
+      background: none;
+      color: #00acff;
+      font-weight: 700;
+      text-shadow: 0 0 18px rgba(0,172,255,.35);
+    }
+
+    /* Scroll hint */
+    .tl-hint {
+      position: absolute;
+      bottom: 2.5rem; left: 2.5rem;
+      display: flex; align-items: center; gap: .5rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: .62rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: rgba(255,255,255,.2);
+      transition: opacity .5s;
+    }
+    .tl-hint.gone { opacity: 0; pointer-events: none; }
+    .tl-hint svg { animation: bounce 1.8s ease-in-out infinite; }
+    @keyframes bounce { 0%,100%{transform:translateY(0)} 55%{transform:translateY(6px)} }
+
+    /* ── Mobile ── */
+    @media (max-width: 768px) {
+      .tl-wrapper { height: auto; }
+      .tl-sticky  { position: static; height: auto; flex-direction: column; }
+      .tl-sidebar { display: none; }
+      .tl-main    { padding: 3.5rem 1.5rem; }
+      .tl-label   { position: static; margin-bottom: 1.5rem; }
+      .tl-panels  { display: flex; flex-direction: column; gap: 3rem; }
+      .tl-panel, .tl-panel.is-active { position: static; opacity: 1; }
+      .tl-item    { opacity: 1; transform: none; }
+      .tl-watermark { font-size: 4rem; }
+      .tl-era-year  { font-size: 2rem; }
+      .tl-counter, .tl-hint { display: none; }
+    }
+
+    /* ── Offices ── */
+    .offices-wrap { display:flex; flex-wrap:wrap; gap:1.25rem 3rem; justify-content:center; margin-top:1.5rem; }
+    .office-tag { font-family:'Montserrat',sans-serif; font-weight:600; font-size:.95rem; color:var(--navy); display:flex; align-items:center; gap:.5rem; }
+    .office-tag::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--blue); flex-shrink:0; }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <nav class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <a href="../index.html" class="navbar-logo"><img src="../assets/logo-horizontal.svg" alt="Copayment"></a>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a href="quienes-somos.html#quienes" class="nav-link active" aria-haspopup="true" aria-expanded="false">Nosotros<svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="dropdown"><div class="dropdown-group">
+            <a href="quienes-somos.html#quienes" class="dropdown-link">¿Quiénes somos?</a>
+            <a href="quienes-somos.html#partners" class="dropdown-link">Socios</a>
+            <a href="quienes-somos.html#vacantes" class="dropdown-link">Vacantes</a>
+            <a href="../comencemos.html" class="dropdown-link">Contacto</a>
+          </div></div>
+        </li>
+        <li class="nav-item">
+          <a href="../lo-que-hacemos.html" class="nav-link" aria-haspopup="true" aria-expanded="false">Lo que hacemos<svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="dropdown dropdown-wide"><div><div class="dropdown-group"><div class="dropdown-heading">Conecta y procesa</div>
+            <a href="../lo-que-hacemos/procesamiento.html" class="dropdown-link">Procesamiento e Integración</a>
+            <a href="../lo-que-hacemos/emision.html" class="dropdown-link">Emisión</a>
+            <a href="../lo-que-hacemos/adquirencia.html" class="dropdown-link">Adquirencia</a>
+            <a href="../lo-que-hacemos/goe.html" class="dropdown-link">Gestión Operativa</a>
+            <a href="../lo-que-hacemos/rpa.html" class="dropdown-link">Robot de aclaraciones</a>
+          </div><div class="dropdown-group"><div class="dropdown-heading">Protege cada transacción</div>
+            <a href="../lo-que-hacemos/prevencion-fraudes.html" class="dropdown-link">Prevención de Fraude</a>
+            <a href="../novedades/cursos.html" class="dropdown-link">Cursos y herramientas</a>
+          </div></div><div><div class="dropdown-group"><div class="dropdown-heading">Cumplimiento sin complicaciones</div>
+            <a href="../lo-que-hacemos/cumplimiento.html" class="dropdown-link">Cumplimiento</a>
+          </div></div></div>
+        </li>
+        <li class="nav-item">
+          <a href="../soluciones.html" class="nav-link" aria-haspopup="true" aria-expanded="false">Soluciones<svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="dropdown dropdown-wide"><div><div class="dropdown-group"><div class="dropdown-heading">Autenticación reforzada</div>
+            <a href="../soluciones/3ds.html" class="dropdown-link">3Ds</a>
+            <a href="../soluciones/soft-token.html" class="dropdown-link">Soft Token</a>
+            <a href="../lo-que-hacemos/prevencion-fraudes.html" class="dropdown-link">Cybersource</a>
+          </div><div class="dropdown-group"><div class="dropdown-heading">Gestión de NIP</div>
+            <a href="../soluciones/gestion-nip.html" class="dropdown-link">Desbloqueo, asignación, cambio y consulta</a>
+            <a href="../soluciones/cvv-dinamico.html" class="dropdown-link">CVV Dinámico</a>
+          </div></div><div><div class="dropdown-group"><div class="dropdown-heading">Prevención inteligente</div>
+            <a href="../soluciones/preautorizador.html" class="dropdown-link">Preautorizador</a>
+            <a href="../soluciones/alert-manager.html" class="dropdown-link">Alert Manager</a>
+            <a href="../lo-que-hacemos/rpa.html" class="dropdown-link">Robot de aclaraciones</a>
+            <a href="../soluciones/tokenizacion.html" class="dropdown-link">Tokenización</a>
+          </div><div class="dropdown-group"><div class="dropdown-heading">Emisión</div>
+            <a href="../soluciones/tarjetas-virtuales.html" class="dropdown-link">Tarjetas Virtuales</a>
+            <a href="../soluciones/cvv-dinamico.html" class="dropdown-link">Tarjetas Físicas con CVV Dinámico</a>
+          </div></div></div>
+        </li>
+        <li class="nav-item">
+          <a href="../novedades.html" class="nav-link" aria-haspopup="true" aria-expanded="false">Novedades<svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="dropdown"><div class="dropdown-group">
+            <a href="../novedades/foros.html" class="dropdown-link">Foros</a>
+            <a href="../novedades/cursos.html" class="dropdown-link">Capacitación y certificaciones</a>
+            <a href="../novedades/webinars.html" class="dropdown-link">Webinars</a>
+            <a href="../novedades/clientes.html" class="dropdown-link">Clientes</a>
+            <a href="../novedades/recursos.html" class="dropdown-link">Recursos</a>
+          </div></div>
+        </li>
+      </ul>
+      <div class="navbar-cta"><a href="../comencemos.html" class="btn-nav-cta">Comencemos<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
+      <button class="navbar-toggle" aria-label="Menú"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="page-hero" id="quienes">
+    <div class="container">
+      <div class="page-hero-content">
+        <nav class="breadcrumb" aria-label="Ruta de navegación">
+          <span>Nosotros</span><span class="breadcrumb-sep">›</span><span>Quiénes somos</span>
+        </nav>
+        <h1>Impulsando el ecosistema de medios de pago</h1>
+        <p>Somos expertos en el mercado mexicano de pagos y nuestro compromiso es claro: transformar la forma en que el mundo paga.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM PHOTO -->
+  <section class="section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-img-wrap anim-fade-left">
+          <img src="../assets/team.jpg" alt="Equipo Copayment" loading="lazy">
+        </div>
+        <div class="anim-fade-right anim-delay-1">
+          <h2 class="section-title">Detrás de cada transacción hay un equipo que se preocupa de verdad.</h2>
+          <p style="color:var(--silver);line-height:1.7;">En Copayment somos un equipo comprometido con sus clientes, con su seguridad y totalmente convencidos de que la mejor tecnología se construye con colaboración, experiencia y confianza.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⚡ KINETIC VERTICAL SCROLL TIMELINE -->
+  <section class="tl-section" id="historia">
+    <div class="tl-wrapper" id="tlWrapper">
+      <div class="tl-sticky">
+
+        <!-- Left vertical progress -->
+        <div class="tl-sidebar">
+          <div class="tl-line-track"><div class="tl-line-fill" id="tlFill"></div></div>
+          <div class="tl-nav">
+            <div class="tl-nav-item" id="tlN0"><div class="tl-nav-dot"></div><span class="tl-nav-year">2017–2019</span></div>
+            <div class="tl-nav-item" id="tlN1"><div class="tl-nav-dot"></div><span class="tl-nav-year">2020–2021</span></div>
+            <div class="tl-nav-item" id="tlN2"><div class="tl-nav-dot"></div><span class="tl-nav-year">2022–2023</span></div>
+            <div class="tl-nav-item" id="tlN3"><div class="tl-nav-dot"></div><span class="tl-nav-year">2024–2025</span></div>
+          </div>
+        </div>
+
+        <!-- Main content -->
+        <div class="tl-main">
+          <div class="tl-label">Recorre la historia de Copayment</div>
+
+          <div class="tl-panels" id="tlPanels">
+
+            <!-- ── ERA 0 ── -->
+            <div class="tl-panel" id="tlP0">
+              <div class="tl-watermark" id="tlW0">2017</div>
+              <div class="tl-era-year" id="tlY0">2017 – 2019</div>
+              <ul class="tl-items">
+                <li class="tl-item">
+                  <span class="tl-num">01</span>
+                  <span class="tl-text">Iniciamos con el propósito de fortalecer el ecosistema de medios de pago, ofreciendo consultorías en operaciones y <mark class="h">prevención de fraudes</mark>.</span>
+                </li>
+                <li class="tl-item">
+                  <span class="tl-num">02</span>
+                  <span class="tl-text">Obtuvimos nuestra primera certificación <mark class="h">PCI DSS</mark>.</span>
+                </li>
+                <li class="tl-item">
+                  <span class="tl-num">03</span>
+                  <span class="tl-text">Fortalecimos nuestro propósito impulsando foros de encuentro e intercambio.</span>
+                </li>
+                <li class="tl-item">
+                  <span class="tl-num">04</span>
+                  <span class="tl-text">Impulsamos a más clientes con nuestros servicios de <mark class="h">Switch Emisor</mark> y <mark class="h">BIN Sponsor</mark>.</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- ── ERA 1 ── -->
+            <div class="tl-panel" id="tlP1">
+              <div class="tl-watermark" id="tlW1">2020</div>
+              <div class="tl-era-year" id="tlY1">2020 – 2021</div>
+              <ul class="tl-items">
+                <li class="tl-item">
+                  <span class="tl-num">05</span>
+                  <span class="tl-text">Impulsamos a más clientes con nuestros servicios de <mark class="h">Switch Emisor</mark> y <mark class="h">BIN Sponsor</mark>.</span>
+                </li>
+                <li class="tl-item">
+                  <span class="tl-num">06</span>
+                  <span class="tl-text">Nos consolidamos como <mark class="h">procesador de pagos VISA</mark> integrando nuestro primer cliente emisor.</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- ── ERA 2 ── -->
+            <div class="tl-panel" id="tlP2">
+              <div class="tl-watermark" id="tlW2">2022</div>
+              <div class="tl-era-year" id="tlY2">2022 – 2023</div>
+              <ul class="tl-items">
+                <li class="tl-item">
+                  <span class="tl-num">07</span>
+                  <span class="tl-text">Desarrollamos e implementamos el primer <mark class="h">robot de aclaraciones y contracargos</mark> de México.</span>
+                </li>
+                <li class="tl-item">
+                  <span class="tl-num">08</span>
+                  <span class="tl-text">Nos convertimos en el primer emisor certificado para operar con la <mark class="h">Cámara Doméstica VISA</mark>.</span>
+                </li>
+                <li class="tl-item">
+                  <span class="tl-num">09</span>
+                  <span class="tl-text">Implementamos la certificación <mark class="h">Switch Agregador Productivo Copayment</mark>.</span>
+                </li>
+                <li class="tl-item">
+                  <span class="tl-num">10</span>
+                  <span class="tl-text">Obtuvimos la aprobación de la licencia principal de <mark class="h">emisor con VISA</mark>.</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- ── ERA 3 ── -->
+            <div class="tl-panel" id="tlP3">
+              <div class="tl-watermark" id="tlW3">2024</div>
+              <div class="tl-era-year" id="tlY3">2024 – 2025</div>
+              <ul class="tl-items">
+                <li class="tl-item">
+                  <span class="tl-num">11</span>
+                  <span class="tl-text">Fuimos el primer emisor certificado para operar con la <mark class="h">Cámara Doméstica VISA</mark>.</span>
+                </li>
+                <li class="tl-item">
+                  <span class="tl-num">12</span>
+                  <span class="tl-text">Implementamos la certificación <mark class="h">Switch Agregador Productivo Copayment</mark>.</span>
+                </li>
+                <li class="tl-item">
+                  <span class="tl-num">13</span>
+                  <span class="tl-text">Logramos nuestra certificación <mark class="h">PCI 2.0.1</mark> por 5° año consecutivo.</span>
+                </li>
+                <li class="tl-item">
+                  <span class="tl-num">14</span>
+                  <span class="tl-text">Primer Procesador mexicano en desarrollar e implementar <mark class="h">CVV Dinámico en Tarjeta Física sin Batería</mark>.</span>
+                </li>
+              </ul>
+            </div>
+
+          </div><!-- /tl-panels -->
+
+          <div class="tl-counter"><em id="tlCur">1</em> / 4</div>
+          <div class="tl-hint" id="tlHint">
+            Scroll para continuar
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+          </div>
+        </div>
+
+      </div><!-- /tl-sticky -->
+    </div><!-- /tl-wrapper -->
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section class="section-sm certs-section">
+    <div class="container">
+      <p class="partners-label">Tecnología certificada por los más altos estándares de la industria</p>
+      <div class="certs-flex">
+        <div class="cert-item"><img src="../assets/pci-dss.jpg" alt="PCI DSS" loading="lazy"></div>
+        <div class="cert-item"><img src="../assets/service-badge.png" alt="Visa Service Provider" loading="lazy"></div>
+        <div class="cert-item"><img src="../assets/pci-tested.jpg" alt="PCI Tested" loading="lazy"></div>
+        <div class="cert-item" style="border:2px dashed rgba(0,50,122,.15);border-radius:var(--radius);padding:1rem 2rem;display:flex;align-items:center;justify-content:center;">
+          <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);opacity:.28;text-align:center;">Agregar logo de certificaciones</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAT -->
+  <section class="section-sm" style="background:var(--navy);text-align:center;">
+    <div class="container">
+      <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(1.1rem,2vw,1.5rem);color:var(--white);max-width:700px;margin:0 auto;line-height:1.5;">
+        Más de 100 expertos en medios de pago, tecnología financiera y prevención de fraudes trabajando en tu proyecto
+      </p>
+    </div>
+  </section>
+
+  <!-- COLABORADORES PLACEHOLDER -->
+  <section class="section-sm">
+    <div class="container">
+      <div style="border:2px dashed rgba(0,50,122,.18);border-radius:var(--radius-lg);padding:6rem 2rem;text-align:center;">
+        <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);opacity:.28;">Fotos de los colaboradores</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFICES -->
+  <section class="section-sm" style="background:var(--light-bg);text-align:center;">
+    <div class="container">
+      <h2 style="font-family:'Montserrat',sans-serif;font-weight:800;color:var(--navy);margin-bottom:.25rem;">Oficinas</h2>
+      <div class="offices-wrap">
+        <span class="office-tag">Ciudad de México</span>
+        <span class="office-tag">Santiago de Chile</span>
+        <span class="office-tag">Monterrey</span>
+        <span class="office-tag">Bogotá</span>
+        <span class="office-tag">Arriaga</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION + CTA -->
+  <section class="section">
+    <div class="container" style="max-width:700px;">
+      <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.25rem;color:var(--navy);margin-bottom:1.25rem;line-height:1.4;">
+        Detrás de cada transacción hay un equipo que se preocupa de verdad.
+      </p>
+      <p style="color:var(--silver);line-height:1.7;margin-bottom:2.5rem;">
+        En Copayment somos un equipo comprometido con sus clientes, con su seguridad y totalmente convencidos de que la mejor tecnología se construye con colaboración, experiencia y confianza.
+      </p>
+      <a href="#vacantes" class="btn btn-primary">
+        Súmate a Copayment
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-left:.5rem"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       PARTNERS SECTION
+  ══════════════════════════════════════ -->
+  <section class="section" id="partners" style="background:var(--light-bg);">
+    <div class="container">
+      <div class="pillar-group-label" style="margin-bottom:.5rem;">Nuestros partners</div>
+      <h2 class="section-title" style="margin-bottom:.75rem;">Nuestros Partners</h2>
+      <p style="color:var(--silver);margin-bottom:3rem;max-width:640px;">Trabajamos con las principales Redes de Pago y Cámaras de Compensación, así como con las instituciones líderes en Gateways, Ciberseguridad y Cumplimiento Normativo.</p>
+      <!-- PLACEHOLDER: add all partner logos -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1.5rem;margin-bottom:2.5rem;">
+        <div style="border:1px solid rgba(0,50,122,.1);border-radius:var(--radius);padding:1.5rem 1rem;display:flex;align-items:center;justify-content:center;background:var(--white);box-shadow:var(--shadow-sm);">
+          <img src="../assets/visa.svg" alt="Visa" style="max-height:32px;max-width:90px;object-fit:contain;" loading="lazy">
+        </div>
+        <div style="border:1px solid rgba(0,50,122,.1);border-radius:var(--radius);padding:1.5rem 1rem;display:flex;align-items:center;justify-content:center;background:var(--white);box-shadow:var(--shadow-sm);">
+          <img src="../assets/prosa.svg" alt="Prosa" style="max-height:32px;max-width:90px;object-fit:contain;" loading="lazy">
+        </div>
+        <div style="border:1px solid rgba(0,50,122,.1);border-radius:var(--radius);padding:1.5rem 1rem;display:flex;align-items:center;justify-content:center;background:var(--white);box-shadow:var(--shadow-sm);">
+          <img src="../assets/carnet.svg" alt="CARNET" style="max-height:32px;max-width:90px;object-fit:contain;" loading="lazy">
+        </div>
+        <div style="border:1px solid rgba(0,50,122,.1);border-radius:var(--radius);padding:1.5rem 1rem;display:flex;align-items:center;justify-content:center;background:var(--white);box-shadow:var(--shadow-sm);">
+          <img src="../assets/cybersource.svg" alt="Cybersource" style="max-height:32px;max-width:90px;object-fit:contain;" loading="lazy">
+        </div>
+        <div style="border:1px solid rgba(0,50,122,.1);border-radius:var(--radius);padding:1.5rem 1rem;display:flex;align-items:center;justify-content:center;background:var(--white);box-shadow:var(--shadow-sm);">
+          <img src="../assets/softools.svg" alt="Softools" style="max-height:32px;max-width:90px;object-fit:contain;" loading="lazy">
+        </div>
+        <div style="border:1px solid rgba(0,50,122,.1);border-radius:var(--radius);padding:1.5rem 1rem;display:flex;align-items:center;justify-content:center;background:var(--white);box-shadow:var(--shadow-sm);">
+          <img src="../assets/yg.svg" alt="YG" style="max-height:32px;max-width:90px;object-fit:contain;" loading="lazy">
+        </div>
+      </div>
+      <div style="background:var(--white);border-radius:var(--radius);padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;box-shadow:var(--shadow-sm);">
+        <div>
+          <p style="font-family:'Montserrat',sans-serif;font-weight:700;color:var(--navy);margin-bottom:.25rem;">¿Te interesa un patrocinio?</p>
+          <p style="color:var(--silver);font-size:.88rem;">Únete a nuestra red de socios estratégicos.</p>
+        </div>
+        <a href="mailto:hola@copayment.com.mx" class="btn btn-primary" style="text-decoration:none;white-space:nowrap;">hola@copayment.com.mx</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       VACANTES SECTION
+  ══════════════════════════════════════ -->
+  <section class="section" id="vacantes">
+    <style>
+      /* ── Values orbit diagram ── */
+      .val-orbit-wrap { position:relative; width:290px; height:290px; flex-shrink:0; margin:0 auto; }
+      .val-hub {
+        position:absolute; top:50%; left:50%;
+        transform:translate(-50%,-50%);
+        width:86px; height:86px; border-radius:50%;
+        background:var(--gradient);
+        display:flex; align-items:center; justify-content:center;
+        box-shadow:0 0 0 10px rgba(0,172,255,.12), var(--shadow-md);
+        z-index:2;
+        animation: valFloat 3s ease-in-out infinite;
+      }
+      @keyframes valFloat { 0%,100%{transform:translate(-50%,-50%) translateY(0)} 50%{transform:translate(-50%,-50%) translateY(-6px)} }
+      .val-hub-text { font-family:'Montserrat',sans-serif; font-weight:800; font-size:.75rem; color:var(--white); text-align:center; letter-spacing:.06em; text-transform:uppercase; }
+      /* Orbit ring */
+      .val-ring {
+        position:absolute; top:50%; left:50%;
+        width:240px; height:240px;
+        margin:-120px 0 0 -120px;
+        border-radius:50%;
+        border:1.5px dashed rgba(0,172,255,.25);
+        animation:valRing 18s linear infinite;
+      }
+      @keyframes valRing { to{transform:rotate(360deg)} }
+      /* Each orbit node */
+      .val-node {
+        position:absolute; top:50%; left:50%;
+        width:72px; height:72px;
+        margin:-36px 0 0 -36px;
+        border-radius:50%;
+        display:flex; align-items:center; justify-content:center;
+        font-family:'Montserrat',sans-serif; font-weight:700; font-size:.62rem;
+        text-align:center; line-height:1.25; color:#fff;
+        border:2px solid;
+        animation: valOrbit 10s linear infinite;
+        will-change:transform;
+      }
+      /* Orbit using rotate+translate+counter-rotate so text stays upright */
+      @keyframes valOrbit {
+        from { transform: rotate(var(--a)) translateX(120px) rotate(calc(-1 * var(--a))); }
+        to   { transform: rotate(calc(var(--a) + 360deg)) translateX(120px) rotate(calc(-1 * var(--a) - 360deg)); }
+      }
+      /* 6 nodes — starting angles + stagger via negative delay */
+      .val-node:nth-child(1) { --a:0deg;    animation-delay:0s;      background:rgba(0,50,122,.9);   border-color:#00acff; }
+      .val-node:nth-child(2) { --a:60deg;   animation-delay:-1.67s;  background:rgba(0,88,200,.85);  border-color:rgba(0,172,255,.6); }
+      .val-node:nth-child(3) { --a:120deg;  animation-delay:-3.33s;  background:rgba(0,50,122,.9);   border-color:#00acff; }
+      .val-node:nth-child(4) { --a:180deg;  animation-delay:-5s;     background:rgba(0,88,200,.85);  border-color:rgba(0,172,255,.6); }
+      .val-node:nth-child(5) { --a:240deg;  animation-delay:-6.67s;  background:rgba(0,50,122,.9);   border-color:#00acff; }
+      .val-node:nth-child(6) { --a:300deg;  animation-delay:-8.33s;  background:rgba(0,88,200,.85);  border-color:rgba(0,172,255,.6); }
+      /* Diagram + content grid */
+      .vacantes-grid { display:grid; grid-template-columns:300px 1fr; gap:4rem; align-items:center; }
+      @media(max-width:900px){ .vacantes-grid{grid-template-columns:1fr;gap:2.5rem;} .val-orbit-wrap{order:-1;} }
+    </style>
+
+    <div class="container">
+      <div class="vacantes-grid">
+
+        <!-- Left: animated values orbit -->
+        <div class="val-orbit-wrap">
+          <div class="val-ring"></div>
+          <div class="val-hub"><span class="val-hub-text">Nuestros<br>Valores</span></div>
+          <div class="val-node">Colaboración</div>
+          <div class="val-node">Compromiso</div>
+          <div class="val-node">Empatía</div>
+          <div class="val-node">Pasión</div>
+          <div class="val-node">Versátil</div>
+          <div class="val-node">Profesionalismo</div>
+        </div>
+
+        <!-- Right: vacantes content -->
+        <div>
+          <div class="pillar-group-label" style="margin-bottom:.5rem;">Únete al equipo</div>
+          <h2 class="section-title" style="margin-bottom:.75rem;">¿Te interesa formar parte de una compañía referente en el sector de pagos?</h2>
+          <p style="color:var(--silver);margin-bottom:2rem;">Trabajamos con los mejores especialistas en medios de pago de México.</p>
+
+          <!-- Job placeholder -->
+          <div style="border:2px dashed rgba(0,50,122,.15);border-radius:var(--radius-lg);padding:2rem;text-align:center;margin-bottom:1.75rem;">
+            <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);opacity:.3;">Vacantes próximamente</p>
+            <p style="color:var(--silver);margin-top:.5rem;font-size:.88rem;">Mientras tanto, puedes enviarnos tu CV directamente.</p>
+          </div>
+
+          <p style="font-family:'Montserrat',sans-serif;font-weight:700;color:var(--navy);margin-bottom:.75rem;">¿Quieres enviarnos tu CV?</p>
+          <a href="mailto:recursoshumanos@copayment.com.mx" class="btn btn-primary" style="text-decoration:none;">recursoshumanos@copayment.com.mx</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       CONTACTO SECTION
+  ══════════════════════════════════════ -->
+  <section class="section" id="contacto" style="background:var(--light-bg);">
+    <div class="container">
+      <div class="pillar-group-label" style="margin-bottom:.5rem;">Contacto</div>
+      <h2 class="section-title" style="margin-bottom:.75rem;">¿Hablamos?</h2>
+      <p style="color:var(--silver);margin-bottom:3rem;max-width:600px;">Estamos aquí para resolver tus dudas, explorar cómo podemos trabajar juntos y ayudarte a encontrar la solución de pagos que tu negocio necesita.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;margin-bottom:3rem;">
+        <div style="background:var(--white);border-radius:var(--radius-lg);padding:1.75rem;box-shadow:var(--shadow-sm);">
+          <p style="font-family:'Montserrat',sans-serif;font-weight:700;color:var(--navy);margin-bottom:.5rem;">¿Ya eres cliente?</p>
+          <a href="mailto:operaciones@copayment.com.mx" style="color:var(--blue);font-size:.88rem;word-break:break-all;">operaciones@copayment.com.mx</a>
+        </div>
+        <div style="background:var(--white);border-radius:var(--radius-lg);padding:1.75rem;box-shadow:var(--shadow-sm);">
+          <p style="font-family:'Montserrat',sans-serif;font-weight:700;color:var(--navy);margin-bottom:.5rem;">¿Sigues investigando?</p>
+          <a href="mailto:hola@copayment.com.mx" style="color:var(--blue);font-size:.88rem;word-break:break-all;">hola@copayment.com.mx</a>
+        </div>
+        <div style="background:var(--white);border-radius:var(--radius-lg);padding:1.75rem;box-shadow:var(--shadow-sm);">
+          <p style="font-family:'Montserrat',sans-serif;font-weight:700;color:var(--navy);margin-bottom:.5rem;">¿Te interesa algún evento?</p>
+          <a href="mailto:foro@copayment.com.mx" style="color:var(--blue);font-size:.88rem;word-break:break-all;">foro@copayment.com.mx</a>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <a href="../comencemos.html" class="btn btn-primary">Ir a Comencemos<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-left:.5rem"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ¿HABLAMOS? CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>¿Hablamos?</h2>
+      <p>Estamos aquí para resolver tus dudas, explorar cómo podemos trabajar juntos y ayudarte a encontrar la solución de pagos que tu negocio necesita.</p>
+      <div class="cta-actions">
+        <a href="../comencemos.html" class="btn-cta-white">Comencemos<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="footer-logo"><img src="../assets/logo-horizontal.svg" alt="Copayment"></a>
+          <p class="footer-tagline">Transformamos la forma en la que el mundo paga.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="#" aria-label="Twitter / X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>¿Tienes un proyecto en mente?</h4>
+          <a href="mailto:hola@copayment.com.mx" class="footer-link">hola@copayment.com.mx</a>
+        </div>
+        <div class="footer-col">
+          <h4>¿Necesitas ayuda?</h4>
+          <a href="mailto:operaciones@copayment.com.mx" class="footer-link">operaciones@copayment.com.mx</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Copayment – Sistemas de pagos. Todos los derechos reservados.</span>
+        <div class="footer-bottom-links">
+          <a href="#">Aviso de privacidad</a>
+          <a href="#">Política de cookies</a>
+          <a href="#">Términos y condiciones</a>
+          <a href="#">Eliminación y destrucción de datos</a>
+          <a href="#">Mapa del sitio</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+  (function () {
+    if (window.innerWidth <= 768) return;
+
+    var wrapper  = document.getElementById('tlWrapper');
+    var fillEl   = document.getElementById('tlFill');
+    var hint     = document.getElementById('tlHint');
+    var curEl    = document.getElementById('tlCur');
+
+    var TOTAL = 4;
+    var panels    = [0,1,2,3].map(function(i){ return document.getElementById('tlP'+i); });
+    var watermarks= [0,1,2,3].map(function(i){ return document.getElementById('tlW'+i); });
+    var years     = [0,1,2,3].map(function(i){ return document.getElementById('tlY'+i); });
+    var navItems  = [0,1,2,3].map(function(i){ return document.getElementById('tlN'+i); });
+
+    var activeIdx = -1;
+
+    function ease(t) {
+      // smooth step
+      return t * t * (3 - 2 * t);
+    }
+
+    function setActive(i) {
+      if (i === activeIdx) return;
+      activeIdx = i;
+      panels.forEach(function(p, idx) {
+        p.classList.remove('is-active', 'is-past');
+        if (idx === i)     p.classList.add('is-active');
+        else if (idx < i)  p.classList.add('is-past');
+      });
+      navItems.forEach(function(n, idx) {
+        n.classList.toggle('is-active', idx === i);
+      });
+      if (curEl) curEl.textContent = i + 1;
+    }
+
+    function onScroll() {
+      var rect        = wrapper.getBoundingClientRect();
+      var totalScroll = wrapper.offsetHeight - window.innerHeight;
+      var scrolled    = -rect.top;
+      var progress    = Math.max(0, Math.min(1, scrolled / totalScroll));
+
+      // Fill line
+      fillEl.style.height = (progress * 100) + '%';
+
+      // Hint
+      if (hint) hint.classList.toggle('gone', progress > 0.04);
+
+      // Active era index
+      var segSize = 1 / TOTAL;
+      var idx     = Math.min(TOTAL - 1, Math.floor(progress * TOTAL));
+      if (scrolled < 0) idx = 0;
+
+      // Progress within the current era (0 → 1)
+      var eraProgress = ease(Math.max(0, Math.min(1,
+        (progress - idx * segSize) / segSize
+      )));
+
+      setActive(idx);
+
+      // ── Kinetic transforms ──
+      panels.forEach(function(panel, i) {
+        var wm = watermarks[i];
+        var yr = years[i];
+
+        if (i === idx) {
+          // Active panel: watermark grows and brightens as you scroll through era
+          var wmScale   = 0.72 + eraProgress * 0.58;  // 0.72 → 1.30
+          var wmOpacity = 0.05 + eraProgress * 0.10;   // 0.05 → 0.15
+
+          // Year label grows subtly: 0.90 → 1.04
+          var yrScale = 0.90 + eraProgress * 0.14;
+
+          if (wm) {
+            wm.style.transform = 'scale(' + wmScale + ')';
+            wm.style.opacity   = wmOpacity;
+          }
+          if (yr) {
+            yr.style.transform = 'scale(' + yrScale + ')';
+          }
+
+          // Slide-in: panel comes from below when entering (eraProgress 0→0.2)
+          var panelY = (1 - Math.min(eraProgress / 0.2, 1)) * 55; // 55px → 0
+          panel.style.transform = 'translateY(' + panelY + 'px)';
+
+        } else if (i < idx) {
+          // Past panels: pushed up and shrunk
+          if (wm) { wm.style.transform = 'scale(1.3)'; wm.style.opacity = '0.01'; }
+          if (yr) yr.style.transform = 'scale(1.04)';
+          panel.style.transform = 'translateY(-55px)';
+        } else {
+          // Future panels: waiting below
+          if (wm) { wm.style.transform = 'scale(0.72)'; wm.style.opacity = '0.03'; }
+          if (yr) yr.style.transform = 'scale(0.90)';
+          panel.style.transform = 'translateY(55px)';
+        }
+      });
+    }
+
+    // Init
+    setActive(0);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+  </script>
+</body>
+</html>
