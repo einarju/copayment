@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -24,6 +24,7 @@
             <a href="nosotros/quienes-somos.html#partners" class="dropdown-link">Socios</a>
             <a href="nosotros/quienes-somos.html#vacantes" class="dropdown-link">Vacantes</a>
             <a href="nosotros/quienes-somos.html#contacto" class="dropdown-link">Contacto</a>
+              <a href="nosotros.html#redes" class="dropdown-link">Redes Sociales</a>
           </div></div>
         </li>
         <li class="nav-item">
@@ -35,7 +36,7 @@
                 <a href="#procesamiento" class="dropdown-link">Procesamiento de pagos</a>
                 <a href="#emision" class="dropdown-link">Emisión</a>
                 <a href="#adquirencia" class="dropdown-link">Adquirencia</a>
-                <a href="#gestion" class="dropdown-link">Gestión Operativa</a>
+                <a href="#gestion" class="dropdown-link">Gestión Operativa Especializada (GOE)</a>
                 <a href="#robot" class="dropdown-link">Robot de aclaraciones</a>
               </div>
               <div class="dropdown-group">
@@ -135,32 +136,161 @@
         </div>
         <div class="pillar-group-showcase solutions-showcase">
 
-          <div class="solution-row anim-fade-up" id="procesamiento">
-            <span class="solution-row-num">01</span>
-            <div class="solution-row-body">
-              <div class="solution-row-head">
-                <h3 class="solution-row-title">Procesamiento de pagos</h3>
-                <a href="soluciones.html" class="solution-row-link">Ver soluciones<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-              </div>
-              <p class="solution-row-desc">Conecta directamente con las principales redes de pago de México: Visa, Mastercard, Carnet y PROSA. Procesamos transacciones en tiempo real con alta disponibilidad, soporte EMV, NFC y banda magnética, y conciliación automatizada para toda tu operación.</p>
-              <div class="solution-row-tags">
-                <span class="stag">Visa</span><span class="stag">Mastercard</span><span class="stag">Carnet</span><span class="stag">PROSA</span><span class="stag">EMV</span><span class="stag">NFC</span>
+          <!-- ── PROCESAMIENTO DE PAGOS — rich section ── -->
+          <div id="procesamiento" class="proc-section anim-fade-up">
+
+            <div class="proc-intro">
+              <h3 class="proc-title">El procesamiento que usan los grandes, al alcance de todos</h3>
+              <p class="proc-subtitle">Infraestructura de procesamiento de pagos para conectarte a las redes, bajo el respaldo regulatorio que necesitas, sin que tengas que navegar la complejidad solo.</p>
+              <a href="comencemos.html" class="btn-emision-cta">Comencemos</a>
+            </div>
+
+            <div class="proc-sub">
+              <h4 class="proc-sub-title">Conéctate con las redes internacionales y emite tarjetas</h4>
+              <button class="btn-emision-saber" aria-expanded="false" id="procSaber1">
+                <span class="proc-saber-text">Saber más</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="proc-sub-detail" hidden id="procDetail1">
+                <p>Conectamos tu operación directamente con Visa, Mastercard y CARNET. Emite tarjetas con marca propia, gestiona ciclos de vida completos y opera bajo los estándares EMV más exigentes del mercado.</p>
               </div>
             </div>
+
+            <div class="proc-sub">
+              <h4 class="proc-sub-title">Acepta medios de pago de forma segura, eficiente y cumpliente</h4>
+              <button class="btn-emision-saber" aria-expanded="false" id="procSaber2">
+                <span class="proc-saber-text">Saber más</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="proc-sub-detail" hidden id="procDetail2">
+                <p>Habilitamos terminales físicas, canales digitales y apps para aceptar cualquier tipo de pago. Liquidación rápida, reportería automatizada y cumplimiento regulatorio integrado desde el primer día.</p>
+              </div>
+            </div>
+
+            <!-- 4 floating bubbles -->
+            <div class="proc-bubbles-wrap" aria-hidden="true">
+              <div class="proc-bubble proc-bubble--1"><span>Seguridad transaccional</span></div>
+              <div class="proc-bubble proc-bubble--2"><span>Integración sin fricciones</span></div>
+              <div class="proc-bubble proc-bubble--3"><span>Conexión con las principales redes</span></div>
+              <div class="proc-bubble proc-bubble--4"><span>Acompañamiento y capacitación</span></div>
+            </div>
+
+            <!-- ZENO case study -->
+            <div class="proc-case">
+              <div class="proc-case-media">
+                <div class="proc-case-zeno-placeholder">
+                  <div class="proc-case-zeno-logo">ZENO</div>
+                  <div class="proc-case-phones"></div>
+                </div>
+              </div>
+              <div class="proc-case-body">
+                <h4 class="proc-case-title">Cómo Copayment ayudó a Zeno a lanzar su operación en México con velocidad, seguridad y estrategia</h4>
+                <p class="proc-case-desc">Cada pago que procesas junto a Copayment es una persona que accede, un negocio que crece, una comunidad que se integra a la economía formal.</p>
+                <a href="#" class="btn-emision-cta">Leer</a>
+              </div>
+            </div>
+
+            <!-- Network logos -->
+            <div class="emision-network">
+              <p class="emision-network-text">Conéctate a una red que ya está donde tú necesitas estar</p>
+              <div class="emision-network-logos">
+                <img src="assets/visa.svg" alt="Visa" loading="lazy">
+                <svg class="emision-mc-logo" viewBox="0 0 52 32" aria-label="Mastercard">
+                  <circle cx="19" cy="16" r="12" fill="#EB001B" opacity=".9"/>
+                  <circle cx="33" cy="16" r="12" fill="#F79E1B" opacity=".9"/>
+                  <path d="M26 6.7A12 12 0 0 1 33 16 12 12 0 0 1 26 25.3 12 12 0 0 1 19 16 12 12 0 0 1 26 6.7z" fill="#FF5F00" opacity=".85"/>
+                </svg>
+                <img src="assets/carnet.svg" alt="CARNET" loading="lazy">
+              </div>
+            </div>
+
+            <!-- Products row -->
+            <div class="proc-products">
+              <p class="proc-products-label">Procesamiento eficiente para empresas que quieren ir más lejos</p>
+              <div class="proc-product-badges">
+                <a href="comencemos.html" class="proc-product-badge">Switch emisor</a>
+                <a href="comencemos.html" class="proc-product-badge">Switch adquirente</a>
+                <a href="comencemos.html" class="proc-product-badge">BIN Sponsor</a>
+              </div>
+            </div>
+
           </div>
 
-          <div class="solution-row anim-fade-up anim-delay-1" id="emision">
-            <span class="solution-row-num">02</span>
-            <div class="solution-row-body">
-              <div class="solution-row-head">
-                <h3 class="solution-row-title">Emisión de tarjetas</h3>
-                <a href="soluciones.html#virtuales" class="solution-row-link">Ver soluciones<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-              </div>
-              <p class="solution-row-desc">Emite tarjetas físicas y virtuales bajo las marcas que necesitas. Gestionamos todo el ciclo de vida de la tarjeta: solicitud, personalización, activación, bloqueo y reposición. Compatible con CVV Dinámico y estándares EMV para máxima seguridad.</p>
-              <div class="solution-row-tags">
-                <span class="stag">Tarjetas Físicas</span><span class="stag">Tarjetas Virtuales</span><span class="stag">CVV Dinámico</span><span class="stag">Personalización</span>
+          <!-- ── EMISIÓN — rich section ── -->
+          <div id="emision" class="emision-section anim-fade-up">
+
+            <!-- Intro -->
+            <div class="emision-intro">
+              <h3 class="emision-title">Accede a la emisión de tarjetas, sin importar tu tamaño</h3>
+              <p class="emision-subtitle">Tanto si eres una fintech que quiere lanzar rápido su programa de tarjetas, como una institución que necesita modernizar su operación, tenemos la infraestructura y el acompañamiento para hacerlo posible.</p>
+              <a href="comencemos.html" class="btn-emision-cta">Comencemos</a>
+            </div>
+
+            <!-- Floating capability bubbles -->
+            <div class="emision-bubbles-wrap" aria-hidden="true">
+              <div class="emision-bubble emision-bubble--1"><span>Emisión de tarjetas físicas y virtuales</span></div>
+              <div class="emision-bubble emision-bubble--2"><span>APIs para ágil integración</span></div>
+              <div class="emision-bubble emision-bubble--3"><span>Cumplimiento regulatorio</span></div>
+              <div class="emision-bubble emision-bubble--4"><span>Acompañamiento y capacitación</span></div>
+              <div class="emision-bubble emision-bubble--5"><span>Gestión de riesgo antifraude</span></div>
+              <div class="emision-bubble emision-bubble--6"><span>Mensajería de ISO 8583</span></div>
+            </div>
+
+            <!-- Network logos -->
+            <div class="emision-network">
+              <p class="emision-network-text">Conéctate a una red que ya está donde tú necesitas estar</p>
+              <div class="emision-network-logos">
+                <img src="assets/visa.svg" alt="Visa" loading="lazy">
+                <svg class="emision-mc-logo" viewBox="0 0 52 32" aria-label="Mastercard">
+                  <circle cx="19" cy="16" r="12" fill="#EB001B" opacity=".9"/>
+                  <circle cx="33" cy="16" r="12" fill="#F79E1B" opacity=".9"/>
+                  <path d="M26 6.7A12 12 0 0 1 33 16 12 12 0 0 1 26 25.3 12 12 0 0 1 19 16 12 12 0 0 1 26 6.7z" fill="#FF5F00" opacity=".85"/>
+                </svg>
+                <img src="assets/carnet.svg" alt="CARNET" loading="lazy">
               </div>
             </div>
+
+            <!-- ¿Para quiénes? -->
+            <div class="emision-audience">
+              <h3 class="emision-audience-title">¿Para quiénes?</h3>
+              <p class="emision-audience-sub">Programas de beneficios</p>
+              <div class="emision-audience-grid">
+                <div class="emision-audience-item">Fintechs e instituciones digitales</div>
+                <div class="emision-audience-item">Cualquier institución que quiera Emitir o implementar un medio de pago</div>
+                <div class="emision-audience-item">Bancos y Neobancos</div>
+                <div class="emision-audience-item">Retail</div>
+                <div class="emision-audience-item emision-audience-item--wide">Billeteras digitales</div>
+              </div>
+              <a href="comencemos.html" class="btn-emision-cta">Comencemos</a>
+            </div>
+
+            <!-- Ciclo de vida -->
+            <div class="emision-lifecycle">
+              <h3 class="emision-lifecycle-title">Administración del ciclo de vida de las tarjetas</h3>
+              <p class="emision-lifecycle-sub">Validación del NIP, Cambio de NIP, activación, cancelación.</p>
+              <button class="btn-emision-saber" aria-expanded="false" id="emisionSaberMas">
+                <span class="emision-saber-text">Saber más</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="emision-lifecycle-detail" hidden id="emisionLifecycleDetail">
+                <p>Gestionamos el ciclo de vida completo de cada tarjeta: desde la solicitud y personalización hasta la activación, bloqueo temporal, cambio de NIP, reposición y cancelación definitiva. Compatible con canales digitales, app móvil y terminales físicas.</p>
+              </div>
+            </div>
+
+            <!-- Product cards -->
+            <div class="emision-products">
+              <div class="emision-product-card anim-fade-up">
+                <div class="emision-product-badge">Switch emisor</div>
+                <p class="emision-product-desc">Nuestro switch emisor autoriza, valida y responde en tiempo real para que tus tarjetas funcionen en cualquier lugar del mundo.</p>
+                <a href="comencemos.html" class="btn-emision-demo">Agendar demo</a>
+              </div>
+              <div class="emision-product-card anim-fade-up anim-delay-1">
+                <div class="emision-product-badge">BIN Sponsor</div>
+                <p class="emision-product-desc">Emite y procesa tarjetas de forma rápida y segura, sin necesidad de construir tu propia infraestructura.</p>
+                <a href="comencemos.html" class="btn-emision-demo">Agendar demo</a>
+              </div>
+            </div>
+
           </div>
 
           <div class="solution-row anim-fade-up anim-delay-2" id="adquirencia">
@@ -181,7 +311,7 @@
             <span class="solution-row-num">04</span>
             <div class="solution-row-body">
               <div class="solution-row-head">
-                <h3 class="solution-row-title">Gestión Operativa</h3>
+                <h3 class="solution-row-title">Gestión Operativa Especializada (GOE)</h3>
                 <a href="comencemos.html" class="solution-row-link">Solicitar información<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
               </div>
               <p class="solution-row-desc">Automatiza los procesos de back-office que más tiempo consumen: conciliación, reportería regulatoria, gestión de chargebacks y control de flujos transaccionales. Menos operación manual, más control sobre tu negocio.</p>
@@ -346,7 +476,7 @@
             <a href="#procesamiento" class="footer-link">Procesamiento de pagos</a>
             <a href="#emision" class="footer-link">Emisión</a>
             <a href="#adquirencia" class="footer-link">Adquirencia</a>
-            <a href="#gestion" class="footer-link">Gestión Operativa</a>
+            <a href="#gestion" class="footer-link">Gestión Operativa Especializada (GOE)</a>
             <a href="#robot" class="footer-link">Robot de aclaraciones</a>
           </div>
           <div class="footer-col-group">
@@ -374,5 +504,41 @@
     </div>
   </footer>
   <script src="js/main.js"></script>
+  <script>
+  (function(){
+    [
+      ['procSaber1','procDetail1'],
+      ['procSaber2','procDetail2']
+    ].forEach(function(pair){
+      var btn = document.getElementById(pair[0]);
+      var detail = document.getElementById(pair[1]);
+      if (!btn || !detail) return;
+      btn.addEventListener('click', function(){
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        var textEl = btn.querySelector('.proc-saber-text');
+        detail.hidden = expanded;
+        textEl.textContent = expanded ? 'Saber más' : 'Saber menos';
+      });
+    });
+  })();
+  (function(){
+    var btn = document.getElementById('emisionSaberMas');
+    var detail = document.getElementById('emisionLifecycleDetail');
+    if (!btn || !detail) return;
+    btn.addEventListener('click', function() {
+      var expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      var textEl = btn.querySelector('.emision-saber-text');
+      if (expanded) {
+        detail.hidden = true;
+        textEl.textContent = 'Saber más';
+      } else {
+        detail.hidden = false;
+        textEl.textContent = 'Saber menos';
+      }
+    });
+  })();
+  </script>
 </body>
 </html>

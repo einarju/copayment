@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -31,6 +31,7 @@
               <a href="nosotros/quienes-somos.html#partners" class="dropdown-link">Socios</a>
               <a href="nosotros/quienes-somos.html#vacantes" class="dropdown-link">Vacantes</a>
               <a href="nosotros/quienes-somos.html#contacto" class="dropdown-link">Contacto</a>
+              <a href="nosotros.html#redes" class="dropdown-link">Redes Sociales</a>
             </div>
           </div>
         </li>
@@ -46,7 +47,7 @@
                 <a href="lo-que-hacemos.html#procesamiento" class="dropdown-link">Procesamiento de pagos</a>
                 <a href="lo-que-hacemos.html#emision" class="dropdown-link">Emisión</a>
                 <a href="lo-que-hacemos.html#adquirencia" class="dropdown-link">Adquirencia</a>
-                <a href="lo-que-hacemos.html#gestion" class="dropdown-link">Gestión Operativa</a>
+                <a href="lo-que-hacemos.html#gestion" class="dropdown-link">Gestión Operativa Especializada (GOE)</a>
                 <a href="lo-que-hacemos.html#robot" class="dropdown-link">Robot de aclaraciones</a>
               </div>
               <div class="dropdown-group">
@@ -59,6 +60,7 @@
               <div class="dropdown-group">
                 <div class="dropdown-heading">Cumplimiento sin complicaciones</div>
                 <a href="lo-que-hacemos/cumplimiento.html" class="dropdown-link">Cumplimiento</a>
+                <a href="lo-que-hacemos.html#consultorias" class="dropdown-link">Consultor&#237;as</a>
               </div>
             </div>
           </div>
@@ -137,18 +139,18 @@
         <div class="hero-text">
           <div class="hero-badge">
             <span class="hero-badge-dot"></span>
-            Infraestructura de pagos · México
+            Infraestructura de pagos
           </div>
           <h1 class="hero-title" id="heroTitle">
             El futuro de los pagos<br>
             <span class="hero-title-accent">se construye hoy</span>
           </h1>
           <p class="hero-subtitle">
-            Una sola conexión a Copayment es todo lo que necesitas para acceder a la infraestructura de pagos más completa de México. Rápido, seguro y diseñado para escalar contigo.
+            Una sola conexión a Copayment es todo lo que necesitas para acceder a la infraestructura de pagos más completa. Rápido, seguro y diseñado para escalar contigo.
           </p>
           <div class="hero-actions">
             <a href="comencemos.html" class="btn btn-primary">
-              Comenzar ahora
+              Comencemos
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
             <a href="lo-que-hacemos.html" class="btn btn-outline">
@@ -241,7 +243,7 @@
                 <text x="0" y="0" class="orb-label">Bancos</text>
               </g>
             </svg>
-            <p class="infra-caption">Una conexión · Todo México</p>
+            <p class="infra-caption">Una conexión · Pagos Globales</p>
           </div>
         </div>
       </div>
@@ -280,6 +282,31 @@
     </div>
   </div>
 
+  <!-- ═══════════════════════ STATS ═══════════════════════ -->
+  <section class="stats-section" id="stats">
+    <canvas class="stats-canvas" id="statsCanvas" aria-hidden="true"></canvas>
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item anim-fade-up">
+          <div class="stat-number"><span data-count="25" data-suffix="+">0+</span></div>
+          <div class="stat-label">Clientes activos</div>
+        </div>
+        <div class="stat-item anim-fade-up anim-delay-1">
+          <div class="stat-number"><span data-count="99.9" data-suffix="%" data-decimal="1">0%</span></div>
+          <div class="stat-label">Disponibilidad garantizada</div>
+        </div>
+        <div class="stat-item anim-fade-up anim-delay-2">
+          <div class="stat-number"><span data-count="10" data-suffix="+">0+</span></div>
+          <div class="stat-label">Años de experiencia en pagos</div>
+        </div>
+        <div class="stat-item anim-fade-up anim-delay-3">
+          <div class="stat-number"><span data-count="7">0</span></div>
+          <div class="stat-label">Socios tecnológicos estratégicos</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══════════════════════ LO QUE HACEMOS ═══════════════════════ -->
   <section class="section">
     <div class="container">
@@ -291,11 +318,15 @@
           </div>
           <h3 class="pillar-title">Conecta y procesa</h3>
           <p class="pillar-desc">Integra tu operación a los principales sistemas de pago con una plataforma completa que cubre desde la emisión y adquirencia hasta la automatización de procesos todo en un solo lugar.</p>
-          <ul class="pillar-list">
+          <button class="pillar-toggle" aria-expanded="false">
+            <span class="pillar-toggle-text">Saber más</span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <ul class="pillar-list" hidden>
             <li>Procesamiento de pagos</li>
             <li>Emisión de tarjetas</li>
             <li>Adquirencia</li>
-            <li>Gestión Operativa</li>
+            <li>Gestión Operativa Especializada (GOE)</li>
             <li>Robot de aclaraciones</li>
           </ul>
           <a href="lo-que-hacemos.html#procesamiento" class="pillar-link">
@@ -309,7 +340,11 @@
           </div>
           <h3 class="pillar-title">Protege cada transacción</h3>
           <p class="pillar-desc">Blindamos tu operación con las herramientas más avanzadas del mercado: autenticación, monitoreo y soluciones especializadas para detectar y prevenir el fraude antes de que ocurra.</p>
-          <ul class="pillar-list">
+          <button class="pillar-toggle" aria-expanded="false">
+            <span class="pillar-toggle-text">Saber más</span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <ul class="pillar-list" hidden>
             <li>Prevención de Fraude</li>
             <li>Ciberseguridad</li>
             <li>Normatividad</li>
@@ -327,7 +362,11 @@
           </div>
           <h3 class="pillar-title">Cumplimiento sin complicaciones</h3>
           <p class="pillar-desc">Mantén tu operación alineada a los más altos estándares de la industria. Te acompañamos en el proceso de certificación para que operes con confianza y sin fricciones regulatorias.</p>
-          <ul class="pillar-list">
+          <button class="pillar-toggle" aria-expanded="false">
+            <span class="pillar-toggle-text">Saber más</span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <ul class="pillar-list" hidden>
             <li>PCI DSS</li>
             <li>EMV</li>
             <li>SAS</li>
@@ -341,26 +380,84 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════ STATS ═══════════════════════ -->
-  <section class="section-sm" style="background:var(--light-bg);">
+  <!-- ═══════════════════════ NETWORK DIAGRAM ═══════════════════════ -->
+  <section class="net-section net-scroll-section" id="red-copayment">
+    <div class="net-sticky">
     <div class="container">
-      <div class="stats-grid">
-        <div class="stat-item anim-fade-up anim-delay-1">
-          <div class="stat-number"><span data-target="25" data-suffix="+">0+</span></div>
-          <div class="stat-label">Clientes activos en México</div>
+      <div class="net-intro">
+        <h2 class="section-title">Estamos contigo en cada etapa de tu operación de pagos.</h2>
+        <p class="net-intro-sub">Desde la integración hasta el crecimiento.</p>
+      </div>
+      <div class="net-wrap" id="netWrap">
+        <svg class="net-svg" viewBox="0 0 860 250" fill="none" aria-hidden="true">
+          <!-- Connection lines (drawn by animation) -->
+          <line class="nl nl--1" x1="430" y1="58" x2="144" y2="108"/>
+          <line class="nl nl--2" x1="430" y1="58" x2="720" y2="108"/>
+          <line class="nl nl--3" x1="144" y1="146" x2="97"  y2="200"/>
+          <line class="nl nl--4" x1="144" y1="146" x2="256" y2="200"/>
+          <line class="nl nl--5" x1="720" y1="146" x2="637" y2="200"/>
+          <line class="nl nl--6" x1="720" y1="146" x2="783" y2="200"/>
+          <!-- Center node -->
+          <g class="nn nn--main">
+            <rect x="258" y="14" width="344" height="44" rx="22"/>
+            <text class="nt nt--main" x="430" y="37">Procesamiento e Integración</text>
+          </g>
+          <!-- Level 1 -->
+          <g class="nn nn--l1 nn--n1">
+            <rect x="72" y="108" width="144" height="38" rx="19"/>
+            <text class="nt nt--l1" x="144" y="127">Emisión</text>
+          </g>
+          <g class="nn nn--l1 nn--n2">
+            <rect x="616" y="108" width="208" height="38" rx="19"/>
+            <text class="nt nt--l1" x="720" y="127">Switch Adquirente</text>
+          </g>
+          <!-- Level 2 -->
+          <g class="nn nn--l2 nn--n3">
+            <rect x="18" y="200" width="158" height="34" rx="17"/>
+            <text class="nt nt--l2" x="97" y="218">Switch Emisor</text>
+          </g>
+          <g class="nn nn--l2 nn--n4">
+            <rect x="186" y="200" width="140" height="34" rx="17"/>
+            <text class="nt nt--l2" x="256" y="218">BIN Sponsor</text>
+          </g>
+          <g class="nn nn--l2 nn--n5">
+            <rect x="562" y="200" width="150" height="34" rx="17"/>
+            <text class="nt nt--l2" x="637" y="218">Adquirente</text>
+          </g>
+          <g class="nn nn--l2 nn--n6">
+            <rect x="718" y="200" width="130" height="34" rx="17"/>
+            <text class="nt nt--l2" x="783" y="218">Agregador</text>
+          </g>
+        </svg>
+        <div class="net-ops-row">
+          <span class="net-op-pill">Monitoreo</span>
+          <span class="net-op-pill">Back Office</span>
+          <span class="net-op-pill">Compensación y liquidación</span>
+          <span class="net-op-pill">Análisis transaccional</span>
+          <span class="net-op-pill">Plataformas Operativas</span>
         </div>
-        <div class="stat-item anim-fade-up anim-delay-2">
-          <div class="stat-number"><span data-target="99" data-suffix=".9%">0%</span></div>
-          <div class="stat-label">Disponibilidad garantizada</div>
-        </div>
-        <div class="stat-item anim-fade-up anim-delay-3">
-          <div class="stat-number"><span data-target="10" data-suffix="+">0+</span></div>
-          <div class="stat-label">Años de experiencia en pagos</div>
-        </div>
-        <div class="stat-item anim-fade-up anim-delay-4">
-          <div class="stat-number"><span data-target="7" data-suffix="">0</span></div>
-          <div class="stat-label">Socios tecnológicos estratégicos</div>
-        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ INDUSTRIES ═══════════════════════ -->
+  <section class="industries-section" id="industrias">
+    <div class="container">
+      <div class="industries-header anim-fade-up">
+        <span class="section-label">Sectores que servimos</span>
+        <h2 style="color:#fff">Industrias</h2>
+      </div>
+      <div class="industries-pills-grid">
+        <span class="ind-pill">Fintech</span>
+        <span class="ind-pill">Cámaras de compensación</span>
+        <span class="ind-pill">Emisores</span>
+        <span class="ind-pill">Retail</span>
+        <span class="ind-pill">Sofomes</span>
+        <span class="ind-pill">Adquirente</span>
+        <span class="ind-pill">Cajas de ahorro</span>
+        <span class="ind-pill">Sofipos</span>
+        <span class="ind-pill">Agregadores</span>
       </div>
     </div>
   </section>
@@ -371,70 +468,39 @@
       <div class="text-center anim-fade-up">
         <h2 class="section-title">Emite, procesa y adquiere.<br>Más simple de lo que crees.</h2>
       </div>
-      <div class="solutions-showcase">
+      <div class="prod-cards-row">
 
-        <div class="solution-row anim-fade-up anim-delay-1">
-          <span class="solution-row-num">01</span>
-          <div class="solution-row-body">
-            <div class="solution-row-head">
-              <h3 class="solution-row-title">Autenticación reforzada</h3>
-              <a href="soluciones.html#3ds" class="solution-row-link">
-                Ver soluciones
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </a>
-            </div>
-            <p class="solution-row-desc">Verifica la identidad de tus usuarios sin fricción con protocolos de tres dominios, tokens digitales y análisis de riesgo en tiempo real.</p>
-            <div class="solution-row-tags">
-              <span class="stag">3Ds</span>
-              <span class="stag">Softoken</span>
-              <span class="stag">Cybersource</span>
-            </div>
+        <div class="prod-card prod-card--emit anim-fade-up anim-delay-1">
+          <div class="prod-card-icon">
+            <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
           </div>
+          <h3 class="prod-card-title">Emite tarjetas</h3>
+          <div class="prod-card-pills">
+            <span class="prod-card-pill">Switch Emisor</span>
+            <span class="prod-card-pill">BIN Sponsor</span>
+          </div>
+          <p class="prod-card-desc">Ponte tu marca a cada transacción con infraestructura lista para operar.</p>
         </div>
 
-        <div class="solution-row anim-fade-up anim-delay-2">
-          <span class="solution-row-num">02</span>
-          <div class="solution-row-body">
-            <div class="solution-row-head">
-              <h3 class="solution-row-title">Prevención inteligente</h3>
-              <a href="soluciones.html#preautorizador" class="solution-row-link">
-                Ver soluciones
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </a>
-            </div>
-            <p class="solution-row-desc">Detecta y bloquea fraudes antes de que ocurran. Reglas en tiempo real, alertas automatizadas y tokenización para blindar cada transacción.</p>
-            <div class="solution-row-tags">
-              <span class="stag">Preautorizador</span>
-              <span class="stag">Alert Manager</span>
-              <span class="stag">Robot de aclaraciones</span>
-              <span class="stag">Tokenización</span>
-            </div>
+        <div class="prod-card prod-card--procesa anim-fade-up anim-delay-2">
+          <div class="prod-card-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49M7.76 7.76a6 6 0 0 0 0 8.49"/></svg>
           </div>
+          <h3 class="prod-card-title">Procesa pagos</h3>
+          <div class="prod-card-pills">
+            <span class="prod-card-pill">Switch Adquirente</span>
+          </div>
+          <p class="prod-card-desc">Conecta tu operación a las redes de pago más importantes de México.</p>
         </div>
 
-        <div class="solution-row anim-fade-up anim-delay-3">
-          <span class="solution-row-num">03</span>
-          <div class="solution-row-body">
-            <div class="solution-row-head">
-              <h3 class="solution-row-title">Emisión y procesamiento de tarjetas</h3>
-              <a href="soluciones.html#virtuales" class="solution-row-link">
-                Ver soluciones
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </a>
-            </div>
-            <p class="solution-row-desc">Emite tarjetas físicas y virtuales con CVV Dinámico y ofrece a tus usuarios control total de su NIP desde cualquier canal digital.</p>
-            <div class="solution-row-tags">
-              <span class="stag">Tarjetas Virtuales</span>
-              <span class="stag">Tarjetas Físicas</span>
-              <span class="stag">CVV Dinámico</span>
-              <span class="stag">Gestión de NIP</span>
-            </div>
+        <div class="prod-card prod-card--integra anim-fade-up anim-delay-3">
+          <div class="prod-card-icon">
+            <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
           </div>
+          <h3 class="prod-card-title">Todo integrado</h3>
+          <p class="prod-card-desc">Con Copayment tienes todo en un mismo lugar hecho a la medida de tu negocio.</p>
         </div>
 
-      </div>
-      <div style="text-align:center; margin-top:3rem;">
-        <a href="soluciones.html" class="btn btn-primary">Ver todas las soluciones</a>
       </div>
     </div>
   </section>
@@ -452,92 +518,25 @@
         <a href="https://www.cybersource.com" target="_blank" rel="noopener" class="partner-link"><img src="assets/cybersource.svg" alt="Cybersource" loading="lazy" class="partner-logo"></a>
         <a href="#" class="partner-link"><img src="assets/softools.svg" alt="Softtools" loading="lazy" class="partner-logo"></a>
         <a href="#" class="partner-link"><img src="assets/yg.svg" alt="Y&amp;G" loading="lazy" class="partner-logo"></a>
-        <!-- duplicate for seamless loop -->
+        <!-- duplicates ×3 for seamless wide-screen loop -->
         <a href="https://www.visa.com.mx" target="_blank" rel="noopener" class="partner-link" aria-hidden="true"><img src="assets/visa.svg" alt="" loading="lazy" class="partner-logo"></a>
         <a href="https://carnet.com.mx" target="_blank" rel="noopener" class="partner-link" aria-hidden="true"><img src="assets/carnet.svg" alt="" loading="lazy" class="partner-logo"></a>
         <a href="https://www.prosa.com.mx" target="_blank" rel="noopener" class="partner-link" aria-hidden="true"><img src="assets/prosa.svg" alt="" loading="lazy" class="partner-logo"></a>
         <a href="https://www.cybersource.com" target="_blank" rel="noopener" class="partner-link" aria-hidden="true"><img src="assets/cybersource.svg" alt="" loading="lazy" class="partner-logo"></a>
         <a href="#" class="partner-link" aria-hidden="true"><img src="assets/softools.svg" alt="" loading="lazy" class="partner-logo"></a>
         <a href="#" class="partner-link" aria-hidden="true"><img src="assets/yg.svg" alt="" loading="lazy" class="partner-logo"></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════ ABOUT PREVIEW ═══════════════════════ -->
-  <section class="section">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-img-wrap anim-fade-left">
-          <img src="assets/team.jpg" alt="Equipo Copayment" loading="lazy">
-          <div class="about-img-badge">
-            <div class="about-img-badge-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <div>
-              <div class="about-badge-text-main">+25 clientes</div>
-              <div class="about-badge-text-sub">confían en nosotros</div>
-            </div>
-          </div>
-        </div>
-        <div class="anim-fade-right anim-delay-1">
-          <h2 class="section-title">Impulsando el ecosistema de medios de pago</h2>
-          <p style="margin-bottom:1.25rem;">Somos expertos en el mercado mexicano de pagos y nuestro compromiso es claro: transformar la forma en que el mundo paga.</p>
-          <p style="margin-bottom:2rem;color:var(--silver);">Detrás de cada transacción hay un equipo que se preocupa de verdad. En Copayment somos un equipo comprometido con sus clientes, con su seguridad y totalmente convencidos de que la mejor tecnología se construye con colaboración, experiencia y confianza.</p>
-          <div class="about-values">
-            <div class="value-item">
-              <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              <div>
-                <div class="value-title">Confiable y seguro</div>
-                <div class="value-desc">Certificados PCI DSS con infraestructura de alta disponibilidad y encriptación de extremo a extremo.</div>
-              </div>
-            </div>
-            <div class="value-item">
-              <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              <div>
-                <div class="value-title">Más de 100 expertos</div>
-                <div class="value-desc">En medios de pago, tecnología financiera y prevención de fraudes trabajando en tu proyecto.</div>
-              </div>
-            </div>
-            <div class="value-item">
-              <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-              <div>
-                <div class="value-title">9 años de trayectoria</div>
-                <div class="value-desc">Monterrey · Ciudad de México · Santiago de Chile · Bogotá · Arriaga.</div>
-              </div>
-            </div>
-          </div>
-          <div style="margin-top:2rem;">
-            <a href="nosotros/quienes-somos.html#quienes" class="btn btn-primary">Conoce al equipo</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════ CLIENTES ═══════════════════════ -->
-  <section class="section clients-section">
-    <div class="container">
-      <div class="text-center anim-fade-up">
-        <h2 class="section-title text-white">Ellos confían en nosotros</h2>
-        <p style="color:rgba(255,255,255,.65); max-width:600px; margin:0 auto 3rem;">Instituciones bancarias, plataformas Fintech y grandes cadenas de retail ya confían en nosotros.</p>
-      </div>
-      <div class="clients-grid">
-        <div class="client-logo-wrap"><div class="client-logo-text">Todito</div></div>
-        <div class="client-logo-wrap"><div class="client-logo-text">Liverpool</div></div>
-        <div class="client-logo-wrap"><div class="client-logo-text">Tarjeta Amiga</div></div>
-        <div class="client-logo-wrap"><div class="client-logo-text">Peibo</div></div>
-        <div class="client-logo-wrap"><div class="client-logo-text">Aspiralapp</div></div>
-        <div class="client-logo-wrap"><div class="client-logo-text">Spin</div></div>
-        <div class="client-logo-wrap"><div class="client-logo-text">Bradescard</div></div>
-        <div class="client-logo-wrap"><div class="client-logo-text">Dapp</div></div>
-        <div class="client-logo-wrap"><div class="client-logo-text">Gentera</div></div>
-        <div class="client-logo-wrap"><div class="client-logo-text">Bankaool</div></div>
-        <div class="client-logo-wrap"><div class="client-logo-text">Fincomún</div></div>
-        <div class="client-logo-wrap"><div class="client-logo-text">Velpay</div></div>
-        <div class="client-logo-wrap"><div class="client-logo-text">Progressa</div></div>
-        <div class="client-logo-wrap"><div class="client-logo-text">CrediClub</div></div>
-        <div class="client-logo-wrap"><div class="client-logo-text">Quarkpay</div></div>
-        <div class="client-logo-wrap"><div class="client-logo-text">Banco Forjadores</div></div>
+        <a href="https://www.visa.com.mx" target="_blank" rel="noopener" class="partner-link" aria-hidden="true"><img src="assets/visa.svg" alt="" loading="lazy" class="partner-logo"></a>
+        <a href="https://carnet.com.mx" target="_blank" rel="noopener" class="partner-link" aria-hidden="true"><img src="assets/carnet.svg" alt="" loading="lazy" class="partner-logo"></a>
+        <a href="https://www.prosa.com.mx" target="_blank" rel="noopener" class="partner-link" aria-hidden="true"><img src="assets/prosa.svg" alt="" loading="lazy" class="partner-logo"></a>
+        <a href="https://www.cybersource.com" target="_blank" rel="noopener" class="partner-link" aria-hidden="true"><img src="assets/cybersource.svg" alt="" loading="lazy" class="partner-logo"></a>
+        <a href="#" class="partner-link" aria-hidden="true"><img src="assets/softools.svg" alt="" loading="lazy" class="partner-logo"></a>
+        <a href="#" class="partner-link" aria-hidden="true"><img src="assets/yg.svg" alt="" loading="lazy" class="partner-logo"></a>
+        <a href="https://www.visa.com.mx" target="_blank" rel="noopener" class="partner-link" aria-hidden="true"><img src="assets/visa.svg" alt="" loading="lazy" class="partner-logo"></a>
+        <a href="https://carnet.com.mx" target="_blank" rel="noopener" class="partner-link" aria-hidden="true"><img src="assets/carnet.svg" alt="" loading="lazy" class="partner-logo"></a>
+        <a href="https://www.prosa.com.mx" target="_blank" rel="noopener" class="partner-link" aria-hidden="true"><img src="assets/prosa.svg" alt="" loading="lazy" class="partner-logo"></a>
+        <a href="https://www.cybersource.com" target="_blank" rel="noopener" class="partner-link" aria-hidden="true"><img src="assets/cybersource.svg" alt="" loading="lazy" class="partner-logo"></a>
+        <a href="#" class="partner-link" aria-hidden="true"><img src="assets/softools.svg" alt="" loading="lazy" class="partner-logo"></a>
+        <a href="#" class="partner-link" aria-hidden="true"><img src="assets/yg.svg" alt="" loading="lazy" class="partner-logo"></a>
       </div>
     </div>
   </section>
@@ -575,6 +574,20 @@
         </a>
         <a href="nosotros/quienes-somos.html#contacto" class="btn btn-outline">Hablar con un especialista</a>
       </div>
+      <div class="redes-box">
+        <span class="redes-box-label">Redes Sociales</span>
+        <div class="redes-box-icons">
+          <a href="#" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="rgba(0,30,77,.9)"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -589,8 +602,21 @@
             <a href="#" aria-label="LinkedIn">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
             </a>
-            <a href="#" aria-label="Twitter / X">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            <a href="#" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#001e4d"/></svg>
+            </a>
+            <a href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+          </div>
+          <div class="footer-contact-quick">
+            <a href="https://wa.me/5218180102526" class="footer-contact-quick-item" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.422 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884zm8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+              81 8010 2526
+            </a>
+            <a href="mailto:hola@copayment.com.mx" class="footer-contact-quick-item">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              hola@copayment.com.mx
             </a>
           </div>
         </div>
@@ -609,7 +635,7 @@
             <a href="lo-que-hacemos.html#procesamiento" class="footer-link">Procesamiento de pagos</a>
             <a href="lo-que-hacemos.html#emision" class="footer-link">Emisión</a>
             <a href="lo-que-hacemos.html#adquirencia" class="footer-link">Adquirencia</a>
-            <a href="lo-que-hacemos.html#gestion" class="footer-link">Gestión Operativa</a>
+            <a href="lo-que-hacemos.html#gestion" class="footer-link">Gestión Operativa Especializada (GOE)</a>
             <a href="lo-que-hacemos.html#robot" class="footer-link">Robot de aclaraciones</a>
           </div>
           <div class="footer-col-group">
@@ -630,16 +656,33 @@
           <a href="novedades.html#clientes" class="footer-link">Clientes</a>
           <a href="novedades.html#recursos" class="footer-link">Recursos</a>
         </div>
+        <div class="footer-col">
+          <h4>Mapa del sitio</h4>
+          <a href="index.html" class="footer-link">Inicio</a>
+          <a href="nosotros/quienes-somos.html" class="footer-link">Nosotros</a>
+          <a href="lo-que-hacemos.html" class="footer-link">Lo que hacemos</a>
+          <a href="soluciones.html" class="footer-link">Soluciones</a>
+          <a href="novedades.html" class="footer-link">Novedades</a>
+          <a href="comencemos.html" class="footer-link">Comencemos</a>
+        </div>
       </div>
       <div class="footer-bottom">
         <span>© 2026 Copayment – Sistemas de pagos. Todos los derechos reservados.</span>
         <div class="footer-bottom-links">
           <a href="#">Aviso de privacidad</a>
-          <a href="#">Términos de uso</a>
+          <a href="#">Política de cookies</a>
+          <a href="#">Términos y condiciones</a>
+          <a href="#">Eliminación y destrucción de datos</a>
+          <a href="#">Mapa del sitio</a>
         </div>
       </div>
     </div>
   </footer>
+
+  <!-- WhatsApp float -->
+  <a href="https://wa.me/5218180102526" target="_blank" rel="noopener" class="wa-float" aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.422 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884zm8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+  </a>
 
   <script src="js/main.js"></script>
   <script>
@@ -691,6 +734,216 @@
         actions.style.transform = 'translateY(0)';
       }, 80 + spans.length * 65 + 100);
     }
+  })();
+
+  /* ── Pillar card word-reveal on scroll ── */
+  (function(){
+    function wrapCardWords(card) {
+      ['.pillar-title', '.pillar-desc'].forEach(function(sel) {
+        var el = card.querySelector(sel);
+        if (!el || el.dataset.wrapped) return;
+        el.dataset.wrapped = '1';
+        var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+        var textNodes = [];
+        var n;
+        while ((n = walker.nextNode())) textNodes.push(n);
+        textNodes.forEach(function(tn) {
+          var words = tn.textContent.split(/(\s+)/);
+          var frag = document.createDocumentFragment();
+          words.forEach(function(w) {
+            if (/^\s+$/.test(w) || w === '') {
+              frag.appendChild(document.createTextNode(w));
+            } else {
+              var s = document.createElement('span');
+              s.className = 'cw';
+              s.textContent = w;
+              frag.appendChild(s);
+            }
+          });
+          tn.parentNode.replaceChild(frag, tn);
+        });
+      });
+    }
+
+    var cardObs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (!e.isIntersecting) return;
+        var card = e.target;
+        wrapCardWords(card);
+        var spans = card.querySelectorAll('.cw');
+        spans.forEach(function(s, i) {
+          setTimeout(function(){ s.classList.add('in'); }, i * 40);
+        });
+        cardObs.unobserve(card);
+      });
+    }, { threshold: 0.25 });
+
+    document.querySelectorAll('.pillar-card').forEach(function(c) {
+      cardObs.observe(c);
+    });
+  })();
+
+  /* ── Pillar "Saber más" toggle ── */
+  (function(){
+    document.querySelectorAll('.pillar-toggle').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var list = btn.nextElementSibling;
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        var textEl = btn.querySelector('.pillar-toggle-text');
+        if (expanded) {
+          list.hidden = true;
+          textEl.textContent = 'Saber más';
+        } else {
+          list.hidden = false;
+          textEl.textContent = 'Saber menos';
+        }
+      });
+    });
+  })();
+
+  /* ── Network diagram — IntersectionObserver reveal ── */
+  (function(){
+    var wrap = document.getElementById('netWrap');
+    var section = document.getElementById('red-copayment');
+    if (!wrap || !section) return;
+    var obs = new IntersectionObserver(function(entries){
+      if (entries[0].intersectionRatio >= 0.3) {
+        wrap.classList.add('net-go');
+        setTimeout(function(){ wrap.classList.add('net-flow'); }, 1800);
+        obs.disconnect();
+      }
+    }, { threshold: 0.3 });
+    obs.observe(section);
+  })();
+
+  /* ── Stats particle canvas — Blue Bolt + mouse follow ── */
+  (function() {
+    var canvas = document.getElementById('statsCanvas');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var pts = [];
+    var mouse = { x: -9999, y: -9999 };
+
+    var section = canvas.parentElement;
+    section.addEventListener('mousemove', function(e) {
+      var r = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - r.left;
+      mouse.y = e.clientY - r.top;
+    });
+    section.addEventListener('mouseleave', function() { mouse.x = -9999; mouse.y = -9999; });
+
+    function resize() {
+      canvas.width  = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', function() { resize(); init(); });
+
+    function init() {
+      var n = Math.max(22, Math.floor(canvas.width / 26));
+      pts = [];
+      for (var i = 0; i < n; i++) {
+        pts.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          vx: (Math.random() - .5) * .4,
+          vy: (Math.random() - .5) * .4,
+          r: Math.random() * 2 + .8
+        });
+      }
+    }
+    init();
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      pts.forEach(function(p) {
+        /* Mouse attraction */
+        if (mouse.x > -100) {
+          var mdx = mouse.x - p.x, mdy = mouse.y - p.y;
+          var md  = Math.sqrt(mdx*mdx + mdy*mdy);
+          if (md < 160 && md > 1) {
+            var force = (160 - md) / 160 * 0.035;
+            p.vx += mdx / md * force;
+            p.vy += mdy / md * force;
+          }
+        }
+        /* Speed cap */
+        var spd = Math.sqrt(p.vx*p.vx + p.vy*p.vy);
+        if (spd > 1.8) { p.vx = p.vx/spd*1.8; p.vy = p.vy/spd*1.8; }
+
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > canvas.width)  p.vx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+        /* Glowing cyan dot */
+        ctx.shadowBlur  = 10;
+        ctx.shadowColor = 'rgba(0,172,255,.9)';
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r + .5, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(0,172,255,.85)'; /* Cyan glow dot */
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      });
+      for (var i = 0; i < pts.length; i++) {
+        for (var j = i + 1; j < pts.length; j++) {
+          var dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
+          var d  = Math.sqrt(dx*dx + dy*dy);
+          if (d < 130) {
+            ctx.beginPath();
+            ctx.moveTo(pts[i].x, pts[i].y);
+            ctx.lineTo(pts[j].x, pts[j].y);
+            ctx.strokeStyle = 'rgba(255,255,255,' + (1 - d/130) * .18 + ')'; /* white lines */
+            ctx.lineWidth = .8;
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(draw);
+    }
+    draw();
+  })();
+
+  /* ── Stat number counter ── */
+  (function() {
+    var spans = document.querySelectorAll('.stat-number span[data-count]');
+    if (!spans.length) return;
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) return;
+        var span = entry.target;
+        var target = parseFloat(span.dataset.count);
+        var suffix = span.dataset.suffix || '';
+        var dec = parseInt(span.dataset.decimal || '0');
+        var start = null;
+        var dur = 1600;
+        function step(ts) {
+          if (!start) start = ts;
+          var p = Math.min((ts - start) / dur, 1);
+          var ease = 1 - Math.pow(1 - p, 3);
+          var val = target * ease;
+          span.textContent = (dec ? val.toFixed(dec) : Math.floor(val)) + suffix;
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+        obs.unobserve(span);
+      });
+    }, { threshold: 0.5 });
+    spans.forEach(function(s) { obs.observe(s); });
+  })();
+
+  /* ── Industries pills stagger reveal ── */
+  (function() {
+    var grid = document.querySelector('.industries-pills-grid');
+    if (!grid) return;
+    var obs = new IntersectionObserver(function(entries) {
+      if (!entries[0].isIntersecting) return;
+      document.querySelectorAll('.ind-pill').forEach(function(p, i) {
+        setTimeout(function() { p.classList.add('visible'); }, i * 70);
+      });
+      obs.disconnect();
+    }, { threshold: 0.15 });
+    obs.observe(grid);
   })();
 
   /* ── Orbital diagram ── */
