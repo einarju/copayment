@@ -3953,9 +3953,9 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
 .net-op-pill:nth-child(4) { border-color: rgba(46,23,161,.5);   color: rgba(155,128,255,.88); }
 .net-op-pill:nth-child(5) { border-color: rgba(6,142,80,.5);    color: rgba(45,215,130,.88); }
 
-/* Industries pills — cycling secondary border accents */
-.ind-pill:nth-child(5n+1) { border-color: rgba(244,127,32,.45); }
-.ind-pill:nth-child(5n+2) { border-color: rgba(6,142,80,.45); }
-.ind-pill:nth-child(5n+3) { border-color: rgba(32,133,126,.45); }
-.ind-pill:nth-child(5n+4) { border-color: rgba(46,23,161,.45); }
-.ind-pill:nth-child(5n)   { border-color: rgba(204,0,44,.4); }
+/* Industries pills — cycling secondary color borders */
+.ind-pill:nth-child(5n+1) { border-color: rgba(244,127,32,.75);  border-width: 1.5px; }
+.ind-pill:nth-child(5n+2) { border-color: rgba(6,142,80,.75);    border-width: 1.5px; }
+.ind-pill:nth-child(5n+3) { border-color: rgba(32,133,126,.75);  border-width: 1.5px; }
+.ind-pill:nth-child(5n+4) { border-color: rgba(81,53,137,.75);   border-width: 1.5px; }
+.ind-pill:nth-child(5n)   { border-color: rgba(204,0,44,.65);    border-width: 1.5px; }
