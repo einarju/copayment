@@ -701,13 +701,14 @@
     </script>
   </section>
 
-  <!-- OFFICES MAP – WORLD CANVAS -->
+  <!-- OFFICES MAP – LEAFLET -->
   <section class="section-sm offices-map-section" style="background:var(--navy);text-align:center;">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
     <div class="container">
       <h2 class="section-title" style="color:#fff;margin-bottom:.4rem;">Oficinas</h2>
       <p style="color:rgba(255,255,255,.45);font-size:.85rem;margin-bottom:1.4rem;font-family:'Montserrat',sans-serif;">Presentes en 3 países de Latinoamérica</p>
       <div class="wmap-wrap">
-        <canvas id="wmapCanvas"></canvas>
+        <div id="officesMap"></div>
       </div>
       <div class="city-tabs">
         <button class="city-tab" data-fly="cdmx">🇲🇽 Ciudad de México</button>
@@ -720,159 +721,52 @@
     </div>
     <style>
       .wmap-wrap{max-width:800px;margin:0 auto 1.25rem;border-radius:14px;overflow:hidden;border:1px solid rgba(0,172,255,.2);box-shadow:0 0 50px rgba(0,30,120,.5);}
-      #wmapCanvas{display:block;width:100%;height:380px;cursor:crosshair;}
+      #officesMap{display:block;width:100%;height:400px;}
       .city-tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:.45rem;max-width:800px;margin:0 auto;}
       .city-tab{background:rgba(255,255,255,.06);border:1px solid rgba(0,172,255,.22);color:rgba(255,255,255,.68);font-family:'Montserrat',sans-serif;font-size:.78rem;font-weight:600;padding:.42rem 1rem;border-radius:2rem;cursor:pointer;transition:background .18s,color .18s,border-color .18s,box-shadow .18s;}
       .city-tab:hover,.city-tab.active{background:rgba(0,172,255,.18);border-color:#00acff;color:#fff;box-shadow:0 0 14px rgba(0,172,255,.35);}
       .city-tab-all{opacity:.58;}
       .city-tab-all:hover{opacity:1;}
+      /* Leaflet custom markers */
+      .map-pin{width:20px;height:20px;border-radius:50%;background:rgba(0,172,255,.18);display:flex;align-items:center;justify-content:center;animation:pinPulse 2.2s ease-in-out infinite;}
+      .map-pin-dot{width:10px;height:10px;border-radius:50%;background:#00acff;box-shadow:0 0 8px rgba(0,172,255,.8);}
+      @keyframes pinPulse{0%,100%{box-shadow:0 0 0 0 rgba(0,172,255,.45);}50%{box-shadow:0 0 0 10px rgba(0,172,255,0);}}
+      .leaflet-popup-content-wrapper{background:rgba(0,25,70,.92)!important;border:1px solid rgba(0,172,255,.35)!important;color:#fff!important;border-radius:8px!important;box-shadow:0 4px 20px rgba(0,0,0,.5)!important;}
+      .leaflet-popup-tip{background:rgba(0,25,70,.92)!important;}
+      .leaflet-popup-content{font-family:'Montserrat',sans-serif;font-size:.8rem;font-weight:600;color:#fff!important;margin:.5rem .75rem!important;}
+      .leaflet-container{font-family:'Montserrat',sans-serif;}
     </style>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
     (function(){
-      var canvas=document.getElementById('wmapCanvas');
-      if(!canvas||!canvas.getContext)return;
-      var ctx=canvas.getContext('2d');
-      var W=0,H=0,pulse=0,raf;
-      var cam={lon:-75,lat:2,zoom:1.8};
-      var tgt={lon:-75,lat:2,zoom:1.8};
-      var activeKey=null;
-
       var cities=[
-        {key:'cdmx',lon:-99.1,lat:19.4,label:'Ciudad de México'},
-        {key:'mty', lon:-100.3,lat:25.7,label:'Monterrey'},
-        {key:'arr', lon:-93.9,lat:16.3,label:'Arriaga'},
-        {key:'bog', lon:-74.1,lat:4.7, label:'Bogotá'},
-        {key:'stg', lon:-70.6,lat:-33.5,label:'Santiago'}
+        {key:'cdmx',lat:19.43,lon:-99.13,label:'Ciudad de México'},
+        {key:'mty', lat:25.67,lon:-100.31,label:'Monterrey'},
+        {key:'arr', lat:16.24,lon:-93.90,label:'Arriaga'},
+        {key:'bog', lat:4.71, lon:-74.07,label:'Bogotá'},
+        {key:'stg', lat:-33.45,lon:-70.67,label:'Santiago'}
       ];
 
-      /* LATAM country polygons [lon, lat] */
-      var lands=[
-        /* Mexico */
-        [[-117,32],[-114,31],[-111,26],[-109,23],[-110,24],
-         [-105,20],[-100,18],[-97,19],[-94,18],[-92,15],
-         [-90,15],[-89,16],[-90,21],[-88,16],[-87,21],
-         [-90,18],[-94,18],[-97,22],[-100,19],[-104,19],
-         [-110,24],[-114,29],[-117,31],[-117,32]],
-        /* Baja California */
-        [[-117,32],[-110,23],[-109,23],[-113,28],[-117,30],[-117,32]],
-        /* Central America */
-        [[-92,18],[-90,18],[-89,16],[-88,16],[-87,14],[-85,11],
-         [-83,10],[-79,8],[-77,8],[-77,9],[-83,11],[-85,12],
-         [-88,16],[-90,15],[-92,15],[-92,18]],
-        /* Colombia */
-        [[-77,8],[-72,12],[-67,11],[-63,10],[-62,6],[-63,4],
-         [-67,2],[-69,1],[-72,2],[-76,-1],[-78,0],
-         [-78,2],[-77,5],[-76,8],[-77,8]],
-        /* Venezuela */
-        [[-72,12],[-63,11],[-62,11],[-60,11],[-61,9],
-         [-63,4],[-63,6],[-67,2],[-72,4],[-72,12]],
-        /* Guyana + Suriname simplified */
-        [[-60,11],[-57,6],[-52,4],[-57,2],[-63,3],[-63,6],[-60,11]],
-        /* Ecuador */
-        [[-78,0],[-76,-1],[-72,2],[-75,-4],[-79,-4],[-80,-2],[-78,0]],
-        /* Peru */
-        [[-81,-4],[-75,-2],[-72,2],[-69,1],[-70,-4],
-         [-70,-18],[-75,-15],[-78,-8],[-81,-4]],
-        /* Bolivia */
-        [[-69,1],[-67,2],[-63,4],[-60,-5],[-58,-20],
-         [-68,-22],[-70,-18],[-70,-4],[-69,1]],
-        /* Brazil */
-        [[-34,-8],[-35,-5],[-50,4],[-52,3],[-57,2],[-60,5],
-         [-63,4],[-62,6],[-60,11],[-63,10],[-67,11],[-72,12],
-         [-72,4],[-69,1],[-69,-4],[-70,-18],[-60,-5],
-         [-58,-20],[-54,-32],[-53,-35],[-44,-23],[-39,-15],[-34,-8]],
-        /* Paraguay */
-        [[-62,-20],[-58,-20],[-60,-24],[-62,-22],[-62,-20]],
-        /* Uruguay */
-        [[-53,-35],[-54,-32],[-58,-35],[-58,-34],[-53,-35]],
-        /* Argentina */
-        [[-68,-22],[-58,-20],[-54,-32],[-53,-35],[-57,-38],
-         [-62,-42],[-65,-46],[-68,-54],[-75,-52],
-         [-72,-42],[-70,-30],[-70,-18],[-68,-22]],
-        /* Chile */
-        [[-70,-18],[-68,-22],[-68,-54],[-75,-52],
-         [-74,-42],[-72,-30],[-70,-18]]
-      ];
+      var pinIcon = L.divIcon({
+        className:'',
+        html:'<div class="map-pin"><div class="map-pin-dot"></div></div>',
+        iconSize:[20,20], iconAnchor:[10,10]
+      });
 
-      function project(lon,lat){
-        var wx=(lon+180)/360, wy=(90-lat)/180;
-        var cx=(cam.lon+180)/360, cy=(90-cam.lat)/180;
-        return[((wx-cx)*cam.zoom+0.5)*W, ((wy-cy)*cam.zoom+0.5)*H];
-      }
+      var map = L.map('officesMap',{
+        center:[8,-84], zoom:3.5,
+        zoomControl:false, attributionControl:false,
+        dragging:true, scrollWheelZoom:false, doubleClickZoom:false
+      });
 
-      function roundRect(c,x,y,w,h,r){
-        c.beginPath();
-        c.moveTo(x+r,y);c.lineTo(x+w-r,y);c.arcTo(x+w,y,x+w,y+r,r);
-        c.lineTo(x+w,y+h-r);c.arcTo(x+w,y+h,x+w-r,y+h,r);
-        c.lineTo(x+r,y+h);c.arcTo(x,y+h,x,y+h-r,r);
-        c.lineTo(x,y+r);c.arcTo(x,y,x+r,y,r);c.closePath();
-      }
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{
+        subdomains:'abcd', maxZoom:19
+      }).addTo(map);
 
-      function draw(){
-        ctx.clearRect(0,0,W,H);
-        /* Ocean bg */
-        var bg=ctx.createLinearGradient(0,0,W,H);
-        bg.addColorStop(0,'#001635');bg.addColorStop(1,'#002060');
-        ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);
-        /* Grid lines */
-        ctx.strokeStyle='rgba(0,172,255,.05)';ctx.lineWidth=0.5;
-        for(var lt=-60;lt<=60;lt+=30){
-          var p1=project(-180,lt),p2=project(180,lt);
-          ctx.beginPath();ctx.moveTo(p1[0],p1[1]);ctx.lineTo(p2[0],p2[1]);ctx.stroke();
-        }
-        for(var ln=-150;ln<=180;ln+=30){
-          var pa=project(ln,80),pb=project(ln,-80);
-          ctx.beginPath();ctx.moveTo(pa[0],pa[1]);ctx.lineTo(pb[0],pb[1]);ctx.stroke();
-        }
-        /* Continents */
-        lands.forEach(function(poly){
-          ctx.beginPath();
-          poly.forEach(function(pt,i){
-            var p=project(pt[0],pt[1]);
-            if(i===0)ctx.moveTo(p[0],p[1]);else ctx.lineTo(p[0],p[1]);
-          });
-          ctx.closePath();
-          ctx.fillStyle='rgba(0,75,195,.48)';ctx.fill();
-          ctx.strokeStyle='rgba(0,172,255,.38)';ctx.lineWidth=0.8;ctx.stroke();
-        });
-        /* City pins */
-        cities.forEach(function(c){
-          var p=project(c.lon,c.lat),x=p[0],y=p[1];
-          if(x<-24||x>W+24||y<-24||y>H+24)return;
-          var isActive=c.key===activeKey;
-          if(isActive){
-            var hr=15+Math.sin(pulse)*5;
-            ctx.beginPath();ctx.arc(x,y,hr,0,Math.PI*2);
-            ctx.fillStyle='rgba(0,172,255,'+(0.08+Math.sin(pulse)*0.04).toFixed(2)+')';ctx.fill();
-            ctx.beginPath();ctx.arc(x,y,9,0,Math.PI*2);
-            ctx.fillStyle='rgba(0,172,255,.2)';ctx.fill();
-          }
-          ctx.shadowBlur=isActive?22:9;ctx.shadowColor='#00acff';
-          ctx.beginPath();ctx.arc(x,y,isActive?7:4.5,0,Math.PI*2);
-          ctx.fillStyle=isActive?'#00acff':'rgba(0,200,255,.82)';ctx.fill();
-          ctx.shadowBlur=0;
-          if(isActive||cam.zoom>2.5){
-            ctx.font='bold 10px Montserrat,sans-serif';
-            ctx.textAlign='center';ctx.textBaseline='middle';
-            var tw=ctx.measureText(c.label).width;
-            var lx=x,ly=y-16;
-            ctx.fillStyle='rgba(0,18,58,.9)';
-            roundRect(ctx,lx-tw/2-7,ly-9,tw+14,17,4);ctx.fill();
-            ctx.strokeStyle='rgba(0,172,255,.5)';ctx.lineWidth=0.75;ctx.stroke();
-            ctx.fillStyle='#fff';ctx.fillText(c.label,lx,ly);
-          }
-        });
-      }
-
-      function tick(){
-        pulse+=0.045;if(pulse>6.283)pulse-=6.283;
-        var S=0.18;
-        cam.lon+=(tgt.lon-cam.lon)*S;
-        cam.lat+=(tgt.lat-cam.lat)*S;
-        cam.zoom+=(tgt.zoom-cam.zoom)*S;
-        draw();
-        requestAnimationFrame(tick);
-      }
+      cities.forEach(function(c){
+        L.marker([c.lat,c.lon],{icon:pinIcon}).addTo(map)
+          .bindPopup('<strong>'+c.label+'</strong>',{maxWidth:160});
+      });
 
       function setTabs(key){
         document.querySelectorAll('.city-tab').forEach(function(b){
@@ -880,40 +774,23 @@
         });
       }
 
-      function flyTo(key){
-        if(key==='world'){resetWorld();return;}
-        for(var i=0;i<cities.length;i++){
-          if(cities[i].key===key){
-            activeKey=key;
-            tgt.lon=cities[i].lon;tgt.lat=cities[i].lat;tgt.zoom=4.5;
-            setTabs(key);return;
+      document.querySelectorAll('[data-fly]').forEach(function(btn){
+        function go(){
+          var key=btn.dataset.fly;
+          setTabs(key);
+          if(key==='world'){ map.flyTo([8,-84],3.5,{duration:1.3}); return; }
+          for(var i=0;i<cities.length;i++){
+            if(cities[i].key===key){
+              map.flyTo([cities[i].lat,cities[i].lon],7,{duration:1.3});
+              return;
+            }
           }
         }
-      }
-
-      function resetWorld(){
-        activeKey=null;tgt.lon=-75;tgt.lat=2;tgt.zoom=1.8;setTabs('world');
-      }
-
-      function resize(){
-        var r=canvas.parentElement.getBoundingClientRect();
-        W=r.width||760;H=380;
-        canvas.width=W;canvas.height=H;
-      }
-
-      resize();
-      window.addEventListener('resize',function(){resize();});
-      tick();
-
-      document.querySelectorAll('[data-fly]').forEach(function(btn){
-        btn.addEventListener('mouseenter',function(){flyTo(btn.dataset.fly);});
-        btn.addEventListener('click',function(){flyTo(btn.dataset.fly);});
+        btn.addEventListener('mouseenter',go);
+        btn.addEventListener('click',go);
       });
     })();
     </script>
-    <svg style="display:none" class="offices-svg" viewBox="0 0 480 520">
-          <!-- placeholder kept for any downstream reference -->
-        </svg>
   </section>
 
   <!-- MISSION + CTA -->
@@ -1072,26 +949,65 @@
       .pilares-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
       @media(max-width:900px){ .pilares-grid{grid-template-columns:1fr;gap:2.5rem;} }
 
-      /* Venn diagram */
-      .pilares-venn { position:relative; width:300px; height:260px; margin:0 auto; }
+      /* Venn diagram – modern glassmorphism */
+      .pilares-venn {
+        position:relative; width:320px; height:295px; margin:0 auto;
+        filter:drop-shadow(0 0 40px rgba(0,107,255,.12));
+      }
       .pv-circle {
-        position:absolute; width:150px; height:150px; border-radius:50%;
+        position:absolute; width:168px; height:168px; border-radius:50%;
         display:flex; align-items:center; justify-content:center;
-        font-family:'Montserrat',sans-serif; font-weight:700; font-size:.62rem;
-        text-align:center; line-height:1.3; padding:1rem;
-        animation:pvPulse 4s ease-in-out infinite;
+        font-family:'Montserrat',sans-serif; font-weight:700; font-size:.6rem;
+        text-align:center; line-height:1.35; padding:1.2rem;
+        backdrop-filter:blur(2px);
       }
-      .pv-circle:nth-child(1){ background:rgba(0,50,118,.22); border:2px solid rgba(0,107,255,.5);  color:var(--navy); top:0;   left:20px;  animation-delay:0s;   }
-      .pv-circle:nth-child(2){ background:rgba(244,127,32,.15); border:2px solid rgba(244,127,32,.5); color:#7a3c00; top:0;   right:20px; animation-delay:-1.3s; }
-      .pv-circle:nth-child(3){ background:rgba(0,50,118,.18); border:2px solid rgba(0,107,255,.4);  color:var(--navy); bottom:0; left:50%; transform:translateX(-50%); animation-delay:-2.6s; }
-      @keyframes pvPulse {
-        0%,100%{ box-shadow:0 0 0 0 rgba(0,107,255,.1); }
-        50%    { box-shadow:0 0 0 12px rgba(0,107,255,.0); }
+      .pv-circle:nth-child(1){
+        background:radial-gradient(circle at 55% 45%, rgba(0,88,200,.65), rgba(0,30,100,.35));
+        border:1.5px solid rgba(0,172,255,.45);
+        color:#cce8ff;
+        top:0; left:8px;
+        animation:pvFloat1 5.5s ease-in-out infinite;
+        box-shadow:0 8px 32px rgba(0,80,200,.25), inset 0 1px 0 rgba(255,255,255,.1);
       }
-      .pv-circle:nth-child(2) { animation-name:pvPulseOrange; }
-      @keyframes pvPulseOrange {
-        0%,100%{ box-shadow:0 0 0 0 rgba(244,127,32,.1); }
-        50%    { box-shadow:0 0 0 12px rgba(244,127,32,.0); }
+      .pv-circle:nth-child(2){
+        background:radial-gradient(circle at 45% 55%, rgba(46,23,161,.6), rgba(25,10,100,.4));
+        border:1.5px solid rgba(120,80,255,.45);
+        color:#d5ccff;
+        top:0; right:8px;
+        animation:pvFloat2 6s ease-in-out infinite;
+        box-shadow:0 8px 32px rgba(46,23,161,.25), inset 0 1px 0 rgba(255,255,255,.08);
+      }
+      .pv-circle:nth-child(3){
+        background:radial-gradient(circle at 50% 45%, rgba(6,142,80,.55), rgba(2,80,50,.4));
+        border:1.5px solid rgba(0,191,110,.4);
+        color:#b8f0d8;
+        bottom:0; left:50%; transform:translateX(-50%);
+        animation:pvFloat3 5s ease-in-out infinite;
+        box-shadow:0 8px 32px rgba(6,142,80,.22), inset 0 1px 0 rgba(255,255,255,.08);
+      }
+      /* Center intersection glow */
+      .pv-center-glow {
+        position:absolute; width:54px; height:54px; border-radius:50%;
+        top:50%; left:50%; transform:translate(-50%,-48%);
+        background:radial-gradient(circle, rgba(255,255,255,.18) 0%, transparent 70%);
+        animation:pvGlow 2.8s ease-in-out infinite alternate;
+        pointer-events:none;
+      }
+      @keyframes pvFloat1 {
+        0%,100%{ transform:translate(0,0); }
+        50%    { transform:translate(4px,-10px); }
+      }
+      @keyframes pvFloat2 {
+        0%,100%{ transform:translate(0,0); }
+        50%    { transform:translate(-4px,-8px); }
+      }
+      @keyframes pvFloat3 {
+        0%,100%{ transform:translateX(-50%) translateY(0); }
+        50%    { transform:translateX(-50%) translateY(9px); }
+      }
+      @keyframes pvGlow {
+        from{ opacity:.45; transform:translate(-50%,-48%) scale(1); }
+        to  { opacity:1;   transform:translate(-50%,-48%) scale(1.5); }
       }
 
       /* Pillar cards 2×2 */
@@ -1122,6 +1038,7 @@
             <div class="pv-circle">Pilares<br>Empresariales</div>
             <div class="pv-circle">Brindan soporte<br>a la visión</div>
             <div class="pv-circle">Ayudan a confirmar<br>que la visión<br>es alcanzable</div>
+            <div class="pv-center-glow"></div>
           </div>
           <p style="color:var(--silver);font-size:.82rem;margin-top:1.5rem;max-width:280px;">Los pilares se traducen en <strong>Iniciativas y Proyectos</strong> que dan lugar a acciones concretas en la organización.</p>
         </div>
@@ -1158,12 +1075,12 @@
   ══════════════════════════════════════ -->
   <section class="section" id="contacto" style="background:var(--navy);">
     <style>
-      /* Animated country flags */
+      /* Animated country SVG flags */
       .ctc-flags { display:flex; justify-content:center; gap:1.5rem; margin:2rem 0 2.5rem; flex-wrap:wrap; }
       .ctc-flag-btn {
-        display:flex; flex-direction:column; align-items:center; gap:.5rem;
+        display:flex; flex-direction:column; align-items:center; gap:.6rem;
         background:rgba(255,255,255,.07); border:1.5px solid rgba(255,255,255,.15);
-        border-radius:14px; padding:1rem 1.5rem; cursor:pointer;
+        border-radius:14px; padding:1.1rem 1.6rem; cursor:pointer;
         transition:background .2s, border-color .2s, transform .2s, box-shadow .2s;
         color:#fff; font-family:'Montserrat',sans-serif; font-size:.72rem; font-weight:700;
         letter-spacing:.08em; text-transform:uppercase;
@@ -1172,19 +1089,19 @@
         background:rgba(0,172,255,.18); border-color:#00acff;
         transform:translateY(-4px); box-shadow:0 8px 24px rgba(0,172,255,.25);
       }
-      .ctc-flag-emoji {
-        font-size:2.4rem; line-height:1;
-        animation:flagWave 3s ease-in-out infinite;
-        transform-origin:bottom center;
-        display:inline-block;
+      .ctc-flag-svg {
+        border-radius:4px; overflow:hidden;
+        box-shadow:0 3px 12px rgba(0,0,0,.4), 0 0 0 1px rgba(255,255,255,.12);
+        transform-origin:left center;
+        animation:svgFlagWave 3s ease-in-out infinite;
       }
-      .ctc-flag-btn:nth-child(1) .ctc-flag-emoji { animation-delay:0s; }
-      .ctc-flag-btn:nth-child(2) .ctc-flag-emoji { animation-delay:.4s; }
-      .ctc-flag-btn:nth-child(3) .ctc-flag-emoji { animation-delay:.8s; }
-      @keyframes flagWave {
-        0%,100% { transform:rotate(0deg); }
-        20%     { transform:rotate(8deg); }
-        40%     { transform:rotate(-5deg); }
+      .ctc-flag-btn:nth-child(1) .ctc-flag-svg { animation-delay:0s; }
+      .ctc-flag-btn:nth-child(2) .ctc-flag-svg { animation-delay:.5s; }
+      .ctc-flag-btn:nth-child(3) .ctc-flag-svg { animation-delay:1s; }
+      @keyframes svgFlagWave {
+        0%,100% { transform:perspective(220px) rotateY(0deg) skewX(0deg); }
+        25%     { transform:perspective(220px) rotateY(12deg) skewX(1.5deg); }
+        75%     { transform:perspective(220px) rotateY(-8deg) skewX(-1deg); }
         60%     { transform:rotate(6deg); }
         80%     { transform:rotate(-3deg); }
       }
@@ -1244,18 +1161,36 @@
       <p style="color:rgba(255,255,255,.55);margin-bottom:.25rem;">Siempre nos alegra saber de ti.</p>
       <p style="color:rgba(255,255,255,.55);margin-bottom:1.5rem;">Cuéntanos qué necesitas y te conectamos con la persona correcta.</p>
 
-      <!-- Animated country flags -->
+      <!-- Animated country SVG flags -->
       <div class="ctc-flags">
         <button class="ctc-flag-btn active" type="button">
-          <span class="ctc-flag-emoji">🇲🇽</span>
+          <!-- Mexico flag: green / white / red vertical stripes -->
+          <svg class="ctc-flag-svg" xmlns="http://www.w3.org/2000/svg" width="84" height="56" viewBox="0 0 84 56">
+            <rect width="28" height="56" fill="#006847"/>
+            <rect x="28" width="28" height="56" fill="#fff"/>
+            <rect x="56" width="28" height="56" fill="#CE1126"/>
+            <circle cx="42" cy="28" r="7" fill="none" stroke="#8B6914" stroke-width="1.4"/>
+            <circle cx="42" cy="28" r="2.5" fill="#8B6914"/>
+          </svg>
           <span>México</span>
         </button>
         <button class="ctc-flag-btn" type="button">
-          <span class="ctc-flag-emoji">🇨🇴</span>
+          <!-- Colombia flag: yellow top half, blue quarter, red quarter -->
+          <svg class="ctc-flag-svg" xmlns="http://www.w3.org/2000/svg" width="84" height="56" viewBox="0 0 84 56">
+            <rect width="84" height="28" fill="#FCD116"/>
+            <rect y="28" width="84" height="14" fill="#003087"/>
+            <rect y="42" width="84" height="14" fill="#CE1126"/>
+          </svg>
           <span>Colombia</span>
         </button>
         <button class="ctc-flag-btn" type="button">
-          <span class="ctc-flag-emoji">🇨🇱</span>
+          <!-- Chile flag: top-left blue with star, top-right white, bottom red -->
+          <svg class="ctc-flag-svg" xmlns="http://www.w3.org/2000/svg" width="84" height="56" viewBox="0 0 84 56">
+            <rect width="84" height="28" fill="#fff"/>
+            <rect y="28" width="84" height="28" fill="#D52B1E"/>
+            <rect width="28" height="28" fill="#0032A0"/>
+            <polygon points="14,6 16.5,14 24,14 18.2,18.6 20.6,26.6 14,22 7.4,26.6 9.8,18.6 4,14 11.5,14" fill="#fff"/>
+          </svg>
           <span>Chile</span>
         </button>
       </div>
