@@ -483,13 +483,222 @@
     </div>
   </section>
 
-  <!-- COLABORADORES PLACEHOLDER -->
-  <section class="section-sm" style="background:var(--navy);">
-    <div class="container">
-      <div style="border:2px dashed rgba(255,255,255,.15);border-radius:var(--radius-lg);padding:6rem 2rem;text-align:center;">
-        <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;opacity:.28;">Fotos de los colaboradores</p>
+  <!-- TEAM PHOTO CAROUSEL -->
+  <section class="section-sm tg-section" id="equipo" style="background:var(--navy);overflow:hidden;">
+    <style>
+      .tg-section { padding:4rem 0 3rem; }
+      .tg-header  { text-align:center; padding:0 1.5rem; margin-bottom:2.25rem; }
+      .tg-header .pillar-group-label { color:var(--blue); margin-bottom:.35rem; }
+      .tg-header h2 { color:#fff; margin-bottom:0; }
+
+      /* Carousel wrapper */
+      .tg-wrap {
+        position:relative;
+        width:100%;
+        overflow:hidden;
+        padding:1.5rem 0 2.25rem;
+        cursor:grab;
+        user-select:none;
+      }
+      .tg-wrap:active { cursor:grabbing; }
+
+      .tg-track {
+        display:flex;
+        will-change:transform;
+        transition:transform .6s cubic-bezier(.4,0,.2,1);
+      }
+
+      .tg-slide {
+        flex-shrink:0;
+        width:clamp(280px,58vw,780px);
+        padding:0 .75rem;
+        transition:transform .5s cubic-bezier(.4,0,.2,1),
+                    opacity  .5s cubic-bezier(.4,0,.2,1);
+        transform:scale(.82);
+        opacity:.45;
+      }
+      .tg-slide.is-active {
+        transform:scale(1);
+        opacity:1;
+      }
+      .tg-slide img {
+        width:100%;
+        aspect-ratio:4/3;
+        object-fit:cover;
+        border-radius:16px;
+        display:block;
+        box-shadow:0 24px 64px rgba(0,0,0,.55), 0 0 0 1px rgba(0,172,255,.12);
+        transition:box-shadow .5s;
+      }
+      .tg-slide.is-active img {
+        box-shadow:0 28px 80px rgba(0,0,0,.6), 0 0 0 1.5px rgba(0,172,255,.35), 0 0 40px rgba(0,172,255,.12);
+      }
+
+      /* Arrows */
+      .tg-arrow {
+        position:absolute;
+        top:50%; transform:translateY(-50%);
+        z-index:10;
+        width:46px; height:46px;
+        border-radius:50%;
+        background:rgba(0,172,255,.15);
+        border:1.5px solid rgba(0,172,255,.35);
+        color:#fff;
+        display:flex; align-items:center; justify-content:center;
+        cursor:pointer;
+        transition:background .2s, border-color .2s, box-shadow .2s;
+        -webkit-tap-highlight-color:transparent;
+      }
+      .tg-arrow:hover {
+        background:rgba(0,172,255,.3);
+        border-color:#00acff;
+        box-shadow:0 0 18px rgba(0,172,255,.4);
+      }
+      .tg-arrow--prev { left:clamp(.75rem,2vw,2.5rem); }
+      .tg-arrow--next { right:clamp(.75rem,2vw,2.5rem); }
+      .tg-arrow svg { pointer-events:none; }
+
+      /* Dots */
+      .tg-dots {
+        display:flex; justify-content:center; gap:.55rem;
+        margin-top:.25rem;
+      }
+      .tg-dot {
+        width:7px; height:7px;
+        border-radius:50%;
+        background:rgba(255,255,255,.2);
+        border:none; padding:0; cursor:pointer;
+        transition:background .3s, transform .3s, box-shadow .3s;
+      }
+      .tg-dot.is-active {
+        background:#00acff;
+        transform:scale(1.35);
+        box-shadow:0 0 10px rgba(0,172,255,.6);
+      }
+
+      /* Entrance animation */
+      .tg-section.tg-hidden .tg-header,
+      .tg-section.tg-hidden .tg-wrap,
+      .tg-section.tg-hidden .tg-dots {
+        opacity:0;
+        transform:translateY(32px);
+      }
+      .tg-section .tg-header,
+      .tg-section .tg-wrap,
+      .tg-section .tg-dots {
+        transition:opacity .7s cubic-bezier(.4,0,.2,1),
+                   transform .7s cubic-bezier(.4,0,.2,1);
+      }
+      .tg-section .tg-wrap  { transition-delay:.1s; }
+      .tg-section .tg-dots  { transition-delay:.18s; }
+
+      @media(max-width:600px){
+        .tg-slide { width:88vw; }
+        .tg-arrow { width:38px; height:38px; }
+      }
+    </style>
+
+    <div class="tg-header">
+      <div class="pillar-group-label">Nuestro equipo</div>
+      <h2 class="section-title">Las personas detrás de Copayment</h2>
+    </div>
+
+    <div class="tg-wrap" id="tgWrap">
+      <button class="tg-arrow tg-arrow--prev" id="tgPrev" aria-label="Anterior">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="tg-arrow tg-arrow--next" id="tgNext" aria-label="Siguiente">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+
+      <div class="tg-track" id="tgTrack">
+        <div class="tg-slide"><img src="https://res.cloudinary.com/dvoqn12u5/image/upload/v1780887108/copayment/team/team_01.jpg" alt="Equipo Copayment" loading="lazy"></div>
+        <div class="tg-slide"><img src="https://res.cloudinary.com/dvoqn12u5/image/upload/v1780887110/copayment/team/team_02.jpg" alt="Equipo Copayment" loading="lazy"></div>
+        <div class="tg-slide"><img src="https://res.cloudinary.com/dvoqn12u5/image/upload/v1780887111/copayment/team/team_03.jpg" alt="Equipo Copayment" loading="lazy"></div>
+        <div class="tg-slide"><img src="https://res.cloudinary.com/dvoqn12u5/image/upload/v1780887112/copayment/team/team_04.jpg" alt="Equipo Copayment" loading="lazy"></div>
+        <div class="tg-slide"><img src="https://res.cloudinary.com/dvoqn12u5/image/upload/v1780887113/copayment/team/team_05.jpg" alt="Equipo Copayment" loading="lazy"></div>
       </div>
     </div>
+
+    <div class="tg-dots" id="tgDots">
+      <button class="tg-dot" aria-label="Foto 1"></button>
+      <button class="tg-dot" aria-label="Foto 2"></button>
+      <button class="tg-dot" aria-label="Foto 3"></button>
+      <button class="tg-dot" aria-label="Foto 4"></button>
+      <button class="tg-dot" aria-label="Foto 5"></button>
+    </div>
+
+    <script>
+    (function(){
+      var wrap   = document.getElementById('tgWrap');
+      var track  = document.getElementById('tgTrack');
+      var slides = Array.from(track.querySelectorAll('.tg-slide'));
+      var dots   = Array.from(document.getElementById('tgDots').querySelectorAll('.tg-dot'));
+      var N      = slides.length;
+      var cur    = 0;
+      var timer  = null;
+
+      function offset(i) {
+        var ww = wrap.offsetWidth;
+        var sw = slides[0].offsetWidth;
+        return (ww - sw) / 2 - i * sw;
+      }
+
+      function goTo(i, animate) {
+        cur = ((i % N) + N) % N;
+        if (animate === false) track.style.transition = 'none';
+        else track.style.transition = 'transform .6s cubic-bezier(.4,0,.2,1)';
+        track.style.transform = 'translateX(' + offset(cur) + 'px)';
+        slides.forEach(function(s, idx){ s.classList.toggle('is-active', idx === cur); });
+        dots.forEach(function(d, idx){ d.classList.toggle('is-active', idx === cur); });
+      }
+
+      function startAuto(){ timer = setInterval(function(){ goTo(cur + 1); }, 4000); }
+      function stopAuto(){ clearInterval(timer); }
+
+      document.getElementById('tgPrev').addEventListener('click', function(){ stopAuto(); goTo(cur - 1); startAuto(); });
+      document.getElementById('tgNext').addEventListener('click', function(){ stopAuto(); goTo(cur + 1); startAuto(); });
+      dots.forEach(function(d, i){ d.addEventListener('click', function(){ stopAuto(); goTo(i); startAuto(); }); });
+
+      wrap.addEventListener('mouseenter', stopAuto);
+      wrap.addEventListener('mouseleave', startAuto);
+
+      /* Touch/drag swipe */
+      var startX = 0, dragging = false;
+      wrap.addEventListener('pointerdown', function(e){ startX = e.clientX; dragging = true; stopAuto(); });
+      wrap.addEventListener('pointermove', function(e){
+        if (!dragging) return;
+        var dx = e.clientX - startX;
+        track.style.transition = 'none';
+        track.style.transform = 'translateX(' + (offset(cur) + dx) + 'px)';
+      });
+      wrap.addEventListener('pointerup', function(e){
+        if (!dragging) return; dragging = false;
+        var dx = e.clientX - startX;
+        if (Math.abs(dx) > 60) goTo(dx < 0 ? cur + 1 : cur - 1);
+        else goTo(cur);
+        startAuto();
+      });
+      wrap.addEventListener('pointercancel', function(){ dragging = false; goTo(cur); startAuto(); });
+
+      /* Recalc on resize */
+      window.addEventListener('resize', function(){ goTo(cur, false); });
+
+      /* Entrance IntersectionObserver */
+      var section = document.getElementById('equipo');
+      section.classList.add('tg-hidden');
+      var io = new IntersectionObserver(function(entries){
+        if (entries[0].isIntersecting){
+          section.classList.remove('tg-hidden');
+          io.disconnect();
+        }
+      }, { threshold: 0.15 });
+      io.observe(section);
+
+      goTo(0);
+      startAuto();
+    })();
+    </script>
   </section>
 
   <!-- OFFICES MAP – WORLD CANVAS -->
