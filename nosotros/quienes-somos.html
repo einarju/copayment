@@ -711,11 +711,11 @@
         <div id="officesMap"></div>
       </div>
       <div class="city-tabs">
-        <button class="city-tab" data-fly="cdmx">🇲🇽 Ciudad de México</button>
-        <button class="city-tab" data-fly="mty">🇲🇽 Monterrey</button>
-        <button class="city-tab" data-fly="arr">🇲🇽 Arriaga</button>
-        <button class="city-tab" data-fly="bog">🇨🇴 Bogotá</button>
-        <button class="city-tab" data-fly="stg">🇨🇱 Santiago</button>
+        <button class="city-tab ctab-mx" data-fly="cdmx"><img class="ctab-flag" src="https://flagcdn.com/w20/mx.png" alt="MX"> Ciudad de México</button>
+        <button class="city-tab ctab-mx" data-fly="mty"><img class="ctab-flag" src="https://flagcdn.com/w20/mx.png" alt="MX"> Monterrey</button>
+        <button class="city-tab ctab-mx" data-fly="arr"><img class="ctab-flag" src="https://flagcdn.com/w20/mx.png" alt="MX"> Arriaga</button>
+        <button class="city-tab ctab-co" data-fly="bog"><img class="ctab-flag" src="https://flagcdn.com/w20/co.png" alt="CO"> Bogotá</button>
+        <button class="city-tab ctab-cl" data-fly="stg"><img class="ctab-flag" src="https://flagcdn.com/w20/cl.png" alt="CL"> Santiago</button>
         <button class="city-tab city-tab-all" data-fly="world">🌎 Ver todo</button>
       </div>
     </div>
@@ -723,14 +723,23 @@
       .wmap-wrap{max-width:800px;margin:0 auto 1.25rem;border-radius:14px;overflow:hidden;border:1px solid rgba(0,172,255,.2);box-shadow:0 0 50px rgba(0,30,120,.5);}
       #officesMap{display:block;width:100%;height:400px;}
       .city-tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:.45rem;max-width:800px;margin:0 auto;}
-      .city-tab{background:rgba(255,255,255,.06);border:1px solid rgba(0,172,255,.22);color:rgba(255,255,255,.68);font-family:'Montserrat',sans-serif;font-size:.78rem;font-weight:600;padding:.42rem 1rem;border-radius:2rem;cursor:pointer;transition:background .18s,color .18s,border-color .18s,box-shadow .18s;}
+      .city-tab{background:rgba(255,255,255,.06);border:1px solid rgba(0,172,255,.22);color:rgba(255,255,255,.68);font-family:'Montserrat',sans-serif;font-size:.78rem;font-weight:600;padding:.42rem 1rem;border-radius:2rem;cursor:pointer;transition:background .18s,color .18s,border-color .18s,box-shadow .18s;display:inline-flex;align-items:center;gap:.4rem;}
       .city-tab:hover,.city-tab.active{background:rgba(0,172,255,.18);border-color:#00acff;color:#fff;box-shadow:0 0 14px rgba(0,172,255,.35);}
+      .ctab-mx:hover,.ctab-mx.active{background:rgba(244,127,32,.18)!important;border-color:rgba(244,127,32,.8)!important;box-shadow:0 0 14px rgba(244,127,32,.3)!important;}
+      .ctab-co:hover,.ctab-co.active{background:rgba(6,142,80,.18)!important;border-color:rgba(6,142,80,.8)!important;box-shadow:0 0 14px rgba(6,142,80,.3)!important;}
+      .ctab-cl:hover,.ctab-cl.active{background:rgba(32,133,126,.18)!important;border-color:rgba(32,133,126,.8)!important;box-shadow:0 0 14px rgba(32,133,126,.3)!important;}
       .city-tab-all{opacity:.58;}
       .city-tab-all:hover{opacity:1;}
+      .ctab-flag{width:18px;height:auto;border-radius:2px;box-shadow:0 1px 3px rgba(0,0,0,.5);flex-shrink:0;}
       /* Leaflet custom markers */
-      .map-pin{width:20px;height:20px;border-radius:50%;background:rgba(0,172,255,.18);display:flex;align-items:center;justify-content:center;animation:pinPulse 2.2s ease-in-out infinite;}
-      .map-pin-dot{width:10px;height:10px;border-radius:50%;background:#00acff;box-shadow:0 0 8px rgba(0,172,255,.8);}
-      @keyframes pinPulse{0%,100%{box-shadow:0 0 0 0 rgba(0,172,255,.45);}50%{box-shadow:0 0 0 10px rgba(0,172,255,0);}}
+      .map-pin{width:20px;height:20px;border-radius:50%;background:rgba(0,172,255,.15);display:flex;align-items:center;justify-content:center;animation:pinPulse 2.2s ease-in-out infinite;}
+      .map-pin-dot{width:10px;height:10px;border-radius:50%;}
+      .map-pin--mx{animation-name:pinPulseMX;}
+      .map-pin--co{animation-name:pinPulseCO;}
+      .map-pin--cl{animation-name:pinPulseCL;}
+      @keyframes pinPulseMX{0%,100%{box-shadow:0 0 0 0 rgba(244,127,32,.5);}50%{box-shadow:0 0 0 10px rgba(244,127,32,0);}}
+      @keyframes pinPulseCO{0%,100%{box-shadow:0 0 0 0 rgba(6,142,80,.5);}50%{box-shadow:0 0 0 10px rgba(6,142,80,0);}}
+      @keyframes pinPulseCL{0%,100%{box-shadow:0 0 0 0 rgba(32,133,126,.5);}50%{box-shadow:0 0 0 10px rgba(32,133,126,0);}}
       .leaflet-popup-content-wrapper{background:rgba(0,25,70,.92)!important;border:1px solid rgba(0,172,255,.35)!important;color:#fff!important;border-radius:8px!important;box-shadow:0 4px 20px rgba(0,0,0,.5)!important;}
       .leaflet-popup-tip{background:rgba(0,25,70,.92)!important;}
       .leaflet-popup-content{font-family:'Montserrat',sans-serif;font-size:.8rem;font-weight:600;color:#fff!important;margin:.5rem .75rem!important;}
@@ -740,31 +749,32 @@
     <script>
     (function(){
       var cities=[
-        {key:'cdmx',lat:19.43,lon:-99.13,label:'Ciudad de México'},
-        {key:'mty', lat:25.67,lon:-100.31,label:'Monterrey'},
-        {key:'arr', lat:16.24,lon:-93.90,label:'Arriaga'},
-        {key:'bog', lat:4.71, lon:-74.07,label:'Bogotá'},
-        {key:'stg', lat:-33.45,lon:-70.67,label:'Santiago'}
+        {key:'cdmx',lat:19.43,lon:-99.13,label:'Ciudad de México',country:'mx',color:'#f47f20',glow:'rgba(244,127,32,.85)'},
+        {key:'mty', lat:25.67,lon:-100.31,label:'Monterrey',        country:'mx',color:'#f47f20',glow:'rgba(244,127,32,.85)'},
+        {key:'arr', lat:16.24,lon:-93.90, label:'Arriaga',          country:'mx',color:'#f47f20',glow:'rgba(244,127,32,.85)'},
+        {key:'bog', lat:4.71, lon:-74.07, label:'Bogotá',           country:'co',color:'#068e50',glow:'rgba(6,142,80,.85)'},
+        {key:'stg', lat:-33.45,lon:-70.67,label:'Santiago',         country:'cl',color:'#20857e',glow:'rgba(32,133,126,.85)'}
       ];
 
-      var pinIcon = L.divIcon({
-        className:'',
-        html:'<div class="map-pin"><div class="map-pin-dot"></div></div>',
-        iconSize:[20,20], iconAnchor:[10,10]
-      });
+      var allBounds = L.latLngBounds(cities.map(function(c){return [c.lat,c.lon];}));
 
       var map = L.map('officesMap',{
-        center:[8,-84], zoom:3.5,
         zoomControl:false, attributionControl:false,
         dragging:true, scrollWheelZoom:false, doubleClickZoom:false
       });
+      map.fitBounds(allBounds, {padding:[40,40]});
 
       L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png',{
         subdomains:'abcd', maxZoom:19
       }).addTo(map);
 
       cities.forEach(function(c){
-        L.marker([c.lat,c.lon],{icon:pinIcon}).addTo(map)
+        var icon = L.divIcon({
+          className:'',
+          html:'<div class="map-pin map-pin--'+c.country+'"><div class="map-pin-dot" style="background:'+c.color+';box-shadow:0 0 8px '+c.glow+'"></div></div>',
+          iconSize:[20,20], iconAnchor:[10,10]
+        });
+        L.marker([c.lat,c.lon],{icon:icon}).addTo(map)
           .bindPopup('<strong>'+c.label+'</strong>',{maxWidth:160});
       });
 
@@ -778,7 +788,10 @@
         function go(){
           var key=btn.dataset.fly;
           setTabs(key);
-          if(key==='world'){ map.flyTo([8,-84],3.5,{duration:1.3}); return; }
+          if(key==='world'){
+            map.flyToBounds(allBounds,{padding:[40,40],maxZoom:5,duration:1.3});
+            return;
+          }
           for(var i=0;i<cities.length;i++){
             if(cities[i].key===key){
               map.flyTo([cities[i].lat,cities[i].lon],7,{duration:1.3});
