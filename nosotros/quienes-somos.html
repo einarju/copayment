@@ -712,8 +712,8 @@
       </div>
       <div class="city-tabs">
         <button class="city-tab" data-fly="cdmx">🇲🇽 Ciudad de México</button>
-        <button class="city-tab" data-fly="mty">📍 Monterrey</button>
-        <button class="city-tab" data-fly="arr">📍 Arriaga</button>
+        <button class="city-tab" data-fly="mty">🇲🇽 Monterrey</button>
+        <button class="city-tab" data-fly="arr">🇲🇽 Arriaga</button>
         <button class="city-tab" data-fly="bog">🇨🇴 Bogotá</button>
         <button class="city-tab" data-fly="stg">🇨🇱 Santiago</button>
         <button class="city-tab city-tab-all" data-fly="world">🌎 Ver todo</button>
@@ -759,7 +759,7 @@
         dragging:true, scrollWheelZoom:false, doubleClickZoom:false
       });
 
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png',{
         subdomains:'abcd', maxZoom:19
       }).addTo(map);
 
@@ -1092,18 +1092,6 @@
       .ctc-flag-svg {
         border-radius:4px; overflow:hidden;
         box-shadow:0 3px 12px rgba(0,0,0,.4), 0 0 0 1px rgba(255,255,255,.12);
-        transform-origin:left center;
-        animation:svgFlagWave 3s ease-in-out infinite;
-      }
-      .ctc-flag-btn:nth-child(1) .ctc-flag-svg { animation-delay:0s; }
-      .ctc-flag-btn:nth-child(2) .ctc-flag-svg { animation-delay:.5s; }
-      .ctc-flag-btn:nth-child(3) .ctc-flag-svg { animation-delay:1s; }
-      @keyframes svgFlagWave {
-        0%,100% { transform:perspective(220px) rotateY(0deg) skewX(0deg); }
-        25%     { transform:perspective(220px) rotateY(12deg) skewX(1.5deg); }
-        75%     { transform:perspective(220px) rotateY(-8deg) skewX(-1deg); }
-        60%     { transform:rotate(6deg); }
-        80%     { transform:rotate(-3deg); }
       }
 
       /* Sumsub-style pill form */
@@ -1114,7 +1102,8 @@
       .ctc-form-title { font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.5rem; color:#fff; margin-bottom:.4rem; }
       .ctc-form-sub   { color:rgba(255,255,255,.5); font-size:.85rem; margin-bottom:1.5rem; }
       .ctc-form-label { font-family:'Montserrat',sans-serif; font-size:.75rem; font-weight:700; color:rgba(255,255,255,.55); letter-spacing:.1em; text-transform:uppercase; margin-bottom:.65rem; display:block; }
-      .ctc-pills-wrap { display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:1.5rem; }
+      .ctc-pills-wrap { display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:1.5rem; justify-content:center; }
+      .ctc-form-label { text-align:center; }
       .ctc-pill-btn {
         background:rgba(255,255,255,.08); border:1.5px solid rgba(255,255,255,.18);
         border-radius:100px; padding:.42rem 1rem; font-family:'Montserrat',sans-serif;
@@ -1208,6 +1197,15 @@
           <button class="ctc-pill-btn" type="button">Consultoría y cursos</button>
           <button class="ctc-pill-btn" type="button">Capacitaciones</button>
           <button class="ctc-pill-btn" type="button">Otros</button>
+        </div>
+
+        <span class="ctc-form-label">Número de empleados</span>
+        <div class="ctc-pills-wrap">
+          <button class="ctc-pill-btn" type="button">1–10</button>
+          <button class="ctc-pill-btn" type="button">11–50</button>
+          <button class="ctc-pill-btn" type="button">51–200</button>
+          <button class="ctc-pill-btn" type="button">201–500</button>
+          <button class="ctc-pill-btn" type="button">500+</button>
         </div>
 
         <span class="ctc-form-label">Correo empresarial</span>
