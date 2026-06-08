@@ -733,8 +733,8 @@
       if(!canvas||!canvas.getContext)return;
       var ctx=canvas.getContext('2d');
       var W=0,H=0,pulse=0,raf;
-      var cam={lon:-30,lat:15,zoom:1.0};
-      var tgt={lon:-30,lat:15,zoom:1.0};
+      var cam={lon:-75,lat:2,zoom:1.8};
+      var tgt={lon:-75,lat:2,zoom:1.8};
       var activeKey=null;
 
       var cities=[
@@ -745,44 +745,53 @@
         {key:'stg', lon:-70.6,lat:-33.5,label:'Santiago'}
       ];
 
-      /* Simplified world continent polygons [lon, lat] */
+      /* LATAM country polygons [lon, lat] */
       var lands=[
-        /* North America */
-        [[-168,66],[-141,60],[-127,50],[-117,32],[-106,23],
-         [-90,16],[-83,10],[-79,8],[-76,9],[-65,18],
-         [-80,24],[-82,30],[-88,29],[-97,26],[-104,29],
-         [-124,46],[-90,46],[-70,44],[-52,47],[-64,47],
-         [-56,50],[-60,58],[-78,62],[-100,73],[-78,74],
-         [-60,68],[-65,55],[-100,58],[-110,62],[-130,57],[-150,60],[-168,66]],
-        /* Greenland */
-        [[-44,83],[-20,83],[-17,70],[-22,65],[-44,60],[-52,66],[-44,83]],
-        /* South America */
-        [[-75,12],[-60,12],[-50,5],[-35,-5],[-35,-10],
-         [-40,-22],[-50,-30],[-55,-35],[-65,-55],
-         [-75,-50],[-78,-40],[-80,-30],[-80,-5],[-75,12]],
-        /* Europe */
-        [[-10,36],[30,37],[28,46],[35,47],[30,60],
-         [20,65],[15,70],[0,68],[-10,62],[-25,66],
-         [-23,65],[-15,58],[-5,44],[-9,38],[-10,36]],
-        /* Africa */
-        [[-18,16],[0,16],[15,5],[42,12],[52,11],
-         [50,5],[42,-5],[35,-8],[30,-35],[18,-35],
-         [15,-28],[8,-10],[0,5],[-18,16]],
-        /* Asia (Eurasia excl. Europe) */
-        [[26,70],[70,72],[100,75],[140,72],[170,65],
-         [180,62],[150,50],[145,43],[140,35],[125,30],
-         [120,20],[105,10],[100,5],[100,10],
-         [80,20],[70,15],[60,23],[50,35],[40,38],
-         [28,47],[25,68],[26,70]],
-        /* Indian subcontinent */
-        [[68,23],[80,28],[90,27],[92,22],[80,8],[72,8],[68,23]],
-        /* SE Asia blob */
-        [[100,5],[105,2],[110,-5],[105,-8],[108,-6],[120,10],[120,20],[105,10],[100,5]],
-        /* Australia */
-        [[114,-22],[130,-15],[150,-22],[153,-28],
-         [150,-40],[135,-39],[125,-33],[115,-35],[114,-25],[114,-22]],
-        /* New Zealand */
-        [[167,-45],[172,-45],[174,-38],[170,-38],[167,-45]]
+        /* Mexico */
+        [[-117,32],[-114,31],[-111,26],[-109,23],[-110,24],
+         [-105,20],[-100,18],[-97,19],[-94,18],[-92,15],
+         [-90,15],[-89,16],[-90,21],[-88,16],[-87,21],
+         [-90,18],[-94,18],[-97,22],[-100,19],[-104,19],
+         [-110,24],[-114,29],[-117,31],[-117,32]],
+        /* Baja California */
+        [[-117,32],[-110,23],[-109,23],[-113,28],[-117,30],[-117,32]],
+        /* Central America */
+        [[-92,18],[-90,18],[-89,16],[-88,16],[-87,14],[-85,11],
+         [-83,10],[-79,8],[-77,8],[-77,9],[-83,11],[-85,12],
+         [-88,16],[-90,15],[-92,15],[-92,18]],
+        /* Colombia */
+        [[-77,8],[-72,12],[-67,11],[-63,10],[-62,6],[-63,4],
+         [-67,2],[-69,1],[-72,2],[-76,-1],[-78,0],
+         [-78,2],[-77,5],[-76,8],[-77,8]],
+        /* Venezuela */
+        [[-72,12],[-63,11],[-62,11],[-60,11],[-61,9],
+         [-63,4],[-63,6],[-67,2],[-72,4],[-72,12]],
+        /* Guyana + Suriname simplified */
+        [[-60,11],[-57,6],[-52,4],[-57,2],[-63,3],[-63,6],[-60,11]],
+        /* Ecuador */
+        [[-78,0],[-76,-1],[-72,2],[-75,-4],[-79,-4],[-80,-2],[-78,0]],
+        /* Peru */
+        [[-81,-4],[-75,-2],[-72,2],[-69,1],[-70,-4],
+         [-70,-18],[-75,-15],[-78,-8],[-81,-4]],
+        /* Bolivia */
+        [[-69,1],[-67,2],[-63,4],[-60,-5],[-58,-20],
+         [-68,-22],[-70,-18],[-70,-4],[-69,1]],
+        /* Brazil */
+        [[-34,-8],[-35,-5],[-50,4],[-52,3],[-57,2],[-60,5],
+         [-63,4],[-62,6],[-60,11],[-63,10],[-67,11],[-72,12],
+         [-72,4],[-69,1],[-69,-4],[-70,-18],[-60,-5],
+         [-58,-20],[-54,-32],[-53,-35],[-44,-23],[-39,-15],[-34,-8]],
+        /* Paraguay */
+        [[-62,-20],[-58,-20],[-60,-24],[-62,-22],[-62,-20]],
+        /* Uruguay */
+        [[-53,-35],[-54,-32],[-58,-35],[-58,-34],[-53,-35]],
+        /* Argentina */
+        [[-68,-22],[-58,-20],[-54,-32],[-53,-35],[-57,-38],
+         [-62,-42],[-65,-46],[-68,-54],[-75,-52],
+         [-72,-42],[-70,-30],[-70,-18],[-68,-22]],
+        /* Chile */
+        [[-70,-18],[-68,-22],[-68,-54],[-75,-52],
+         [-74,-42],[-72,-30],[-70,-18]]
       ];
 
       function project(lon,lat){
@@ -883,7 +892,7 @@
       }
 
       function resetWorld(){
-        activeKey=null;tgt.lon=-30;tgt.lat=15;tgt.zoom=1.0;setTabs('world');
+        activeKey=null;tgt.lon=-75;tgt.lat=2;tgt.zoom=1.8;setTabs('world');
       }
 
       function resize(){
@@ -1008,13 +1017,13 @@
         from { transform: rotate(var(--a)) translateX(120px) rotate(calc(-1 * var(--a))); }
         to   { transform: rotate(calc(var(--a) + 360deg)) translateX(120px) rotate(calc(-1 * var(--a) - 360deg)); }
       }
-      /* 6 nodes — starting angles + stagger via negative delay */
-      .val-node:nth-child(1) { --a:0deg;    animation-delay:0s;      background:rgba(0,50,122,.9);   border-color:#00acff; }
-      .val-node:nth-child(2) { --a:60deg;   animation-delay:-1.67s;  background:rgba(0,88,200,.85);  border-color:rgba(0,172,255,.6); }
-      .val-node:nth-child(3) { --a:120deg;  animation-delay:-3.33s;  background:rgba(0,50,122,.9);   border-color:#00acff; }
-      .val-node:nth-child(4) { --a:180deg;  animation-delay:-5s;     background:rgba(0,88,200,.85);  border-color:rgba(0,172,255,.6); }
-      .val-node:nth-child(5) { --a:240deg;  animation-delay:-6.67s;  background:rgba(0,50,122,.9);   border-color:#00acff; }
-      .val-node:nth-child(6) { --a:300deg;  animation-delay:-8.33s;  background:rgba(0,88,200,.85);  border-color:rgba(0,172,255,.6); }
+      /* 6 nodes — nth-child(3-8) because val-ring and val-hub are children 1-2 */
+      .val-node:nth-child(3) { --a:0deg;    animation-delay:0s;      background:rgba(0,50,122,.9);   border-color:#00acff; }
+      .val-node:nth-child(4) { --a:60deg;   animation-delay:-1.67s;  background:rgba(0,88,200,.85);  border-color:rgba(0,172,255,.6); }
+      .val-node:nth-child(5) { --a:120deg;  animation-delay:-3.33s;  background:rgba(0,50,122,.9);   border-color:#00acff; }
+      .val-node:nth-child(6) { --a:180deg;  animation-delay:-5s;     background:rgba(0,88,200,.85);  border-color:rgba(0,172,255,.6); }
+      .val-node:nth-child(7) { --a:240deg;  animation-delay:-6.67s;  background:rgba(0,50,122,.9);   border-color:#00acff; }
+      .val-node:nth-child(8) { --a:300deg;  animation-delay:-8.33s;  background:rgba(0,88,200,.85);  border-color:rgba(0,172,255,.6); }
       /* Diagram + content grid */
       .vacantes-grid { display:grid; grid-template-columns:300px 1fr; gap:4rem; align-items:center; }
       @media(max-width:900px){ .vacantes-grid{grid-template-columns:1fr;gap:2.5rem;} .val-orbit-wrap{order:-1;} }
@@ -1056,30 +1065,256 @@
   </section>
 
   <!-- ══════════════════════════════════════
+       PILARES COPAYMENT
+  ══════════════════════════════════════ -->
+  <section class="section" id="pilares">
+    <style>
+      .pilares-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
+      @media(max-width:900px){ .pilares-grid{grid-template-columns:1fr;gap:2.5rem;} }
+
+      /* Venn diagram */
+      .pilares-venn { position:relative; width:300px; height:260px; margin:0 auto; }
+      .pv-circle {
+        position:absolute; width:150px; height:150px; border-radius:50%;
+        display:flex; align-items:center; justify-content:center;
+        font-family:'Montserrat',sans-serif; font-weight:700; font-size:.62rem;
+        text-align:center; line-height:1.3; padding:1rem;
+        animation:pvPulse 4s ease-in-out infinite;
+      }
+      .pv-circle:nth-child(1){ background:rgba(0,50,118,.22); border:2px solid rgba(0,107,255,.5);  color:var(--navy); top:0;   left:20px;  animation-delay:0s;   }
+      .pv-circle:nth-child(2){ background:rgba(244,127,32,.15); border:2px solid rgba(244,127,32,.5); color:#7a3c00; top:0;   right:20px; animation-delay:-1.3s; }
+      .pv-circle:nth-child(3){ background:rgba(0,50,118,.18); border:2px solid rgba(0,107,255,.4);  color:var(--navy); bottom:0; left:50%; transform:translateX(-50%); animation-delay:-2.6s; }
+      @keyframes pvPulse {
+        0%,100%{ box-shadow:0 0 0 0 rgba(0,107,255,.1); }
+        50%    { box-shadow:0 0 0 12px rgba(0,107,255,.0); }
+      }
+      .pv-circle:nth-child(2) { animation-name:pvPulseOrange; }
+      @keyframes pvPulseOrange {
+        0%,100%{ box-shadow:0 0 0 0 rgba(244,127,32,.1); }
+        50%    { box-shadow:0 0 0 12px rgba(244,127,32,.0); }
+      }
+
+      /* Pillar cards 2×2 */
+      .pilares-cards { display:grid; grid-template-columns:1fr 1fr; gap:.85rem; margin-top:1.5rem; }
+      .pilares-card {
+        border-radius:12px; padding:1.1rem 1.25rem;
+        display:flex; align-items:center; gap:.75rem;
+        animation:pcardIn .5s ease both;
+      }
+      .pilares-card--orange { background:#f47f20; color:#fff; }
+      .pilares-card--navy   { background:var(--navy); color:#fff; }
+      .pilares-card-icon { flex-shrink:0; width:32px; height:32px; opacity:.9; }
+      .pilares-card-icon svg { width:100%; height:100%; stroke:currentColor; }
+      .pilares-card-text { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.78rem; line-height:1.3; }
+      @keyframes pcardIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:none} }
+    </style>
+
+    <div class="container">
+      <div class="pillar-group-label" style="margin-bottom:.5rem;">Pilares Copayment</div>
+      <h2 class="section-title" style="margin-bottom:2.5rem;">Las bases de nuestra organización</h2>
+
+      <div class="pilares-grid">
+
+        <!-- Left: Venn animation -->
+        <div>
+          <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--silver);margin-bottom:1.25rem;">Validación de los Pilares</p>
+          <div class="pilares-venn">
+            <div class="pv-circle">Pilares<br>Empresariales</div>
+            <div class="pv-circle">Brindan soporte<br>a la visión</div>
+            <div class="pv-circle">Ayudan a confirmar<br>que la visión<br>es alcanzable</div>
+          </div>
+          <p style="color:var(--silver);font-size:.82rem;margin-top:1.5rem;max-width:280px;">Los pilares se traducen en <strong>Iniciativas y Proyectos</strong> que dan lugar a acciones concretas en la organización.</p>
+        </div>
+
+        <!-- Right: 4 pillar cards -->
+        <div>
+          <p style="color:var(--silver);margin-bottom:1.5rem;font-size:.88rem;">Consideraciones estratégicas que definen las líneas de acción para alcanzar las metas y objetivos de Copayment.</p>
+          <div class="pilares-cards">
+            <div class="pilares-card pilares-card--orange">
+              <div class="pilares-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+              <div class="pilares-card-text">Seguridad y control del riesgo</div>
+            </div>
+            <div class="pilares-card pilares-card--navy">
+              <div class="pilares-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+              <div class="pilares-card-text">Talento organizacional</div>
+            </div>
+            <div class="pilares-card pilares-card--navy">
+              <div class="pilares-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+              <div class="pilares-card-text">Mejora continua</div>
+            </div>
+            <div class="pilares-card pilares-card--orange">
+              <div class="pilares-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49M7.76 7.76a6 6 0 0 0 0 8.49"/></svg></div>
+              <div class="pilares-card-text">Eficiencia</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
        CONTACTO SECTION
   ══════════════════════════════════════ -->
   <section class="section" id="contacto" style="background:var(--navy);">
-    <div class="container">
-      <div class="pillar-group-label" style="margin-bottom:.5rem;color:var(--blue);">Contacto</div>
-      <h2 class="section-title" style="margin-bottom:.75rem;color:#fff;">¿Hablamos?</h2>
-      <p style="color:rgba(255,255,255,.6);margin-bottom:3rem;max-width:600px;">Estamos aquí para resolver tus dudas, explorar cómo podemos trabajar juntos y ayudarte a encontrar la solución de pagos que tu negocio necesita.</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;margin-bottom:3rem;">
-        <div style="background:rgba(0,172,255,.1);border:1px solid rgba(0,172,255,.25);border-radius:var(--radius-lg);padding:1.75rem;">
-          <p style="font-family:'Montserrat',sans-serif;font-weight:700;color:#fff;margin-bottom:.5rem;">¿Ya eres cliente?</p>
-          <a href="mailto:operaciones@copayment.com.mx" style="color:var(--blue);font-size:.88rem;word-break:break-all;">operaciones@copayment.com.mx</a>
+    <style>
+      /* Animated country flags */
+      .ctc-flags { display:flex; justify-content:center; gap:1.5rem; margin:2rem 0 2.5rem; flex-wrap:wrap; }
+      .ctc-flag-btn {
+        display:flex; flex-direction:column; align-items:center; gap:.5rem;
+        background:rgba(255,255,255,.07); border:1.5px solid rgba(255,255,255,.15);
+        border-radius:14px; padding:1rem 1.5rem; cursor:pointer;
+        transition:background .2s, border-color .2s, transform .2s, box-shadow .2s;
+        color:#fff; font-family:'Montserrat',sans-serif; font-size:.72rem; font-weight:700;
+        letter-spacing:.08em; text-transform:uppercase;
+      }
+      .ctc-flag-btn:hover,.ctc-flag-btn.active {
+        background:rgba(0,172,255,.18); border-color:#00acff;
+        transform:translateY(-4px); box-shadow:0 8px 24px rgba(0,172,255,.25);
+      }
+      .ctc-flag-emoji {
+        font-size:2.4rem; line-height:1;
+        animation:flagWave 3s ease-in-out infinite;
+        transform-origin:bottom center;
+        display:inline-block;
+      }
+      .ctc-flag-btn:nth-child(1) .ctc-flag-emoji { animation-delay:0s; }
+      .ctc-flag-btn:nth-child(2) .ctc-flag-emoji { animation-delay:.4s; }
+      .ctc-flag-btn:nth-child(3) .ctc-flag-emoji { animation-delay:.8s; }
+      @keyframes flagWave {
+        0%,100% { transform:rotate(0deg); }
+        20%     { transform:rotate(8deg); }
+        40%     { transform:rotate(-5deg); }
+        60%     { transform:rotate(6deg); }
+        80%     { transform:rotate(-3deg); }
+      }
+
+      /* Sumsub-style pill form */
+      .ctc-form-card {
+        background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12);
+        border-radius:20px; padding:2.5rem 2rem; max-width:560px; margin:0 auto;
+      }
+      .ctc-form-title { font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.5rem; color:#fff; margin-bottom:.4rem; }
+      .ctc-form-sub   { color:rgba(255,255,255,.5); font-size:.85rem; margin-bottom:1.5rem; }
+      .ctc-form-label { font-family:'Montserrat',sans-serif; font-size:.75rem; font-weight:700; color:rgba(255,255,255,.55); letter-spacing:.1em; text-transform:uppercase; margin-bottom:.65rem; display:block; }
+      .ctc-pills-wrap { display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:1.5rem; }
+      .ctc-pill-btn {
+        background:rgba(255,255,255,.08); border:1.5px solid rgba(255,255,255,.18);
+        border-radius:100px; padding:.42rem 1rem; font-family:'Montserrat',sans-serif;
+        font-size:.8rem; font-weight:600; color:rgba(255,255,255,.7); cursor:pointer;
+        transition:background .18s, border-color .18s, color .18s, box-shadow .18s;
+      }
+      .ctc-pill-btn:hover { background:rgba(0,172,255,.15); border-color:rgba(0,172,255,.5); color:#fff; }
+      .ctc-pill-btn.selected { background:rgba(0,172,255,.25); border-color:#00acff; color:#fff; box-shadow:0 0 14px rgba(0,172,255,.3); }
+      .ctc-email-input {
+        width:100%; background:rgba(255,255,255,.07); border:1.5px solid rgba(255,255,255,.2);
+        border-radius:10px; padding:.7rem 1rem; font-size:.9rem; color:#fff;
+        font-family:'Montserrat',sans-serif; outline:none; margin-bottom:1.25rem;
+        transition:border-color .2s, box-shadow .2s;
+        box-sizing:border-box;
+      }
+      .ctc-email-input::placeholder { color:rgba(255,255,255,.35); }
+      .ctc-email-input:focus { border-color:#00acff; box-shadow:0 0 0 3px rgba(0,172,255,.15); }
+      .ctc-submit-btn {
+        width:100%; background:#0abf6e; border:none; border-radius:10px;
+        padding:.8rem; font-family:'Montserrat',sans-serif; font-weight:700;
+        font-size:.95rem; color:#fff; cursor:pointer; display:flex;
+        align-items:center; justify-content:center; gap:.5rem;
+        transition:background .2s, box-shadow .2s, transform .15s;
+        animation:ctcPulse 2.5s ease-in-out infinite;
+      }
+      .ctc-submit-btn:hover { background:#08a85f; transform:translateY(-1px); box-shadow:0 8px 24px rgba(10,191,110,.35); animation:none; }
+      @keyframes ctcPulse {
+        0%,100%{ box-shadow:0 0 0 0 rgba(10,191,110,.4); }
+        50%    { box-shadow:0 0 0 8px rgba(10,191,110,.0); }
+      }
+
+      /* Email info grid */
+      .ctc-info-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-top:2.5rem; }
+      @media(max-width:700px){ .ctc-info-grid{grid-template-columns:1fr;} }
+      .ctc-info-card { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:12px; padding:1.25rem; }
+      .ctc-info-q { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.8rem; color:#fff; margin-bottom:.4rem; }
+      .ctc-info-email { color:#00acff; font-size:.8rem; word-break:break-all; text-decoration:none; }
+      .ctc-info-email:hover { text-decoration:underline; }
+    </style>
+
+    <div class="container" style="text-align:center;">
+      <div class="pillar-group-label" style="color:var(--blue);margin-bottom:.4rem;">Contacto</div>
+      <h2 class="section-title" style="color:#fff;margin-bottom:.5rem;">Estamos aquí para ti</h2>
+      <p style="color:rgba(255,255,255,.55);margin-bottom:.25rem;">Siempre nos alegra saber de ti.</p>
+      <p style="color:rgba(255,255,255,.55);margin-bottom:1.5rem;">Cuéntanos qué necesitas y te conectamos con la persona correcta.</p>
+
+      <!-- Animated country flags -->
+      <div class="ctc-flags">
+        <button class="ctc-flag-btn active" type="button">
+          <span class="ctc-flag-emoji">🇲🇽</span>
+          <span>México</span>
+        </button>
+        <button class="ctc-flag-btn" type="button">
+          <span class="ctc-flag-emoji">🇨🇴</span>
+          <span>Colombia</span>
+        </button>
+        <button class="ctc-flag-btn" type="button">
+          <span class="ctc-flag-emoji">🇨🇱</span>
+          <span>Chile</span>
+        </button>
+      </div>
+
+      <!-- Pill-based contact form -->
+      <div class="ctc-form-card anim-fade-up">
+        <div class="ctc-form-title">Comencemos</div>
+        <div class="ctc-form-sub">¿Cómo podemos ayudarte?</div>
+
+        <span class="ctc-form-label">¿Qué necesitas?</span>
+        <div class="ctc-pills-wrap">
+          <button class="ctc-pill-btn" type="button">Switch emisor</button>
+          <button class="ctc-pill-btn" type="button">Switch adquirente</button>
+          <button class="ctc-pill-btn" type="button">BIN Sponsor</button>
+          <button class="ctc-pill-btn" type="button">Consultoría y cursos</button>
+          <button class="ctc-pill-btn" type="button">Capacitaciones</button>
+          <button class="ctc-pill-btn" type="button">Otros</button>
         </div>
-        <div style="background:rgba(0,172,255,.1);border:1px solid rgba(0,172,255,.25);border-radius:var(--radius-lg);padding:1.75rem;">
-          <p style="font-family:'Montserrat',sans-serif;font-weight:700;color:#fff;margin-bottom:.5rem;">¿Sigues investigando?</p>
-          <a href="mailto:hola@copayment.com.mx" style="color:var(--blue);font-size:.88rem;word-break:break-all;">hola@copayment.com.mx</a>
+
+        <span class="ctc-form-label">Correo empresarial</span>
+        <input class="ctc-email-input" type="email" placeholder="tu@empresa.com">
+
+        <button class="ctc-submit-btn" type="button">
+          Enviar
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+
+      <!-- Email grid -->
+      <div class="ctc-info-grid">
+        <div class="ctc-info-card">
+          <div class="ctc-info-q">¿Ya eres cliente?</div>
+          <a href="mailto:operaciones@copayment.com.mx" class="ctc-info-email">operaciones@copayment.com.mx</a>
         </div>
-        <div style="background:rgba(0,172,255,.1);border:1px solid rgba(0,172,255,.25);border-radius:var(--radius-lg);padding:1.75rem;">
-          <p style="font-family:'Montserrat',sans-serif;font-weight:700;color:#fff;margin-bottom:.5rem;">¿Te interesa algún evento?</p>
-          <a href="mailto:foro@copayment.com.mx" style="color:var(--blue);font-size:.88rem;word-break:break-all;">foro@copayment.com.mx</a>
+        <div class="ctc-info-card">
+          <div class="ctc-info-q">¿Quieres integrarte al sistema de medios de pagos?</div>
+          <a href="mailto:hola@copayment.com.mx" class="ctc-info-email">hola@copayment.com.mx</a>
+        </div>
+        <div class="ctc-info-card">
+          <div class="ctc-info-q">¿Te interesa algún evento?</div>
+          <a href="mailto:foro@copayment.com.mx" class="ctc-info-email">foro@copayment.com.mx</a>
         </div>
       </div>
-      <div style="text-align:center;">
-        <a href="../comencemos.html" class="btn btn-primary">Ir a Comencemos<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-left:.5rem"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      </div>
+
+      <script>
+      (function(){
+        /* Pill toggle */
+        document.querySelectorAll('.ctc-pill-btn').forEach(function(b){
+          b.addEventListener('click', function(){ b.classList.toggle('selected'); });
+        });
+        /* Flag active state */
+        document.querySelectorAll('.ctc-flag-btn').forEach(function(b){
+          b.addEventListener('click', function(){
+            document.querySelectorAll('.ctc-flag-btn').forEach(function(x){ x.classList.remove('active'); });
+            b.classList.add('active');
+          });
+        });
+      })();
+      </script>
     </div>
   </section>
 
