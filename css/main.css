@@ -3902,3 +3902,60 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
 [style*="background:var(--navy)"] .pillar-group-label { color: var(--blue); }
 /* Partners section heading on dark */
 [style*="background:var(--navy)"] .partners-label { color: rgba(255,255,255,.55); }
+
+/* ═══════════════════════════════════════
+   NETWORK DIAGRAM — SECONDARY COLOR BRANCHES
+   Left branch = Orange #f47f20
+   Right branch = Green #068e50
+   Hub = Blue Bolt #00acff
+═══════════════════════════════════════ */
+
+/* Main hub — stronger Blue Bolt with glow */
+.nn--main rect {
+  fill: rgba(0,172,255,.22);
+  stroke: #00acff;
+  stroke-width: 2.2;
+  filter: drop-shadow(0 0 7px rgba(0,172,255,.55));
+}
+
+/* Left branch nodes — Orange */
+.nn--n1 rect { fill: rgba(244,127,32,.14); stroke: rgba(244,127,32,.9);  stroke-width: 1.6; }
+.nn--n3 rect { fill: rgba(244,127,32,.1);  stroke: rgba(244,127,32,.68); stroke-width: 1.3; }
+.nn--n4 rect { fill: rgba(244,127,32,.1);  stroke: rgba(244,127,32,.68); stroke-width: 1.3; }
+
+/* Right branch nodes — Green */
+.nn--n2 rect { fill: rgba(6,142,80,.14); stroke: rgba(6,142,80,.9);  stroke-width: 1.6; }
+.nn--n5 rect { fill: rgba(6,142,80,.1);  stroke: rgba(6,142,80,.68); stroke-width: 1.3; }
+.nn--n6 rect { fill: rgba(6,142,80,.1);  stroke: rgba(6,142,80,.68); stroke-width: 1.3; }
+
+/* Connector lines follow branch color */
+.nl--1, .nl--3, .nl--4 { stroke: rgba(244,127,32,.5); }
+.nl--2, .nl--5, .nl--6 { stroke: rgba(6,142,80,.5); }
+
+/* Flow particles match their branch color */
+.net-wrap.net-flow .nl--1,
+.net-wrap.net-flow .nl--3,
+.net-wrap.net-flow .nl--4 {
+  stroke: rgba(244,127,32,.92) !important;
+  filter: drop-shadow(0 0 3px rgba(244,127,32,.65)) !important;
+}
+.net-wrap.net-flow .nl--2,
+.net-wrap.net-flow .nl--5,
+.net-wrap.net-flow .nl--6 {
+  stroke: rgba(6,142,80,.92) !important;
+  filter: drop-shadow(0 0 3px rgba(6,142,80,.65)) !important;
+}
+
+/* Ops row pills — one secondary color each */
+.net-op-pill:nth-child(1) { border-color: rgba(204,0,44,.5);    color: rgba(255,125,145,.88); }
+.net-op-pill:nth-child(2) { border-color: rgba(244,127,32,.5);  color: rgba(255,188,120,.88); }
+.net-op-pill:nth-child(3) { border-color: rgba(32,133,126,.5);  color: rgba(55,215,205,.88); }
+.net-op-pill:nth-child(4) { border-color: rgba(46,23,161,.5);   color: rgba(155,128,255,.88); }
+.net-op-pill:nth-child(5) { border-color: rgba(6,142,80,.5);    color: rgba(45,215,130,.88); }
+
+/* Industries pills — cycling secondary border accents */
+.ind-pill:nth-child(5n+1) { border-color: rgba(244,127,32,.45); }
+.ind-pill:nth-child(5n+2) { border-color: rgba(6,142,80,.45); }
+.ind-pill:nth-child(5n+3) { border-color: rgba(32,133,126,.45); }
+.ind-pill:nth-child(5n+4) { border-color: rgba(46,23,161,.45); }
+.ind-pill:nth-child(5n)   { border-color: rgba(204,0,44,.4); }
