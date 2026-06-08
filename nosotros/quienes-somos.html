@@ -721,9 +721,8 @@
     </div>
     <style>
       .wmap-wrap{max-width:800px;margin:0 auto 1.25rem;border-radius:14px;overflow:hidden;border:1px solid rgba(0,172,255,.3);box-shadow:0 0 60px rgba(0,50,122,.6);}
-      #officesMap{display:block;width:100%;height:480px;background:#00327a!important;}
-      /* multiply: white land × #00327a = exact navy; light-blue ocean × #00327a = deeper indigo — all brand */
-      #officesMap .leaflet-tile-pane{mix-blend-mode:multiply;}
+      #officesMap{display:block;width:100%;height:480px;background:#00acff!important;}
+      /* No raster tiles — GeoJSON land layer gives exact brand colors, no grid seams */
       .city-tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:.45rem;max-width:800px;margin:0 auto;}
       .city-tab{background:rgba(255,255,255,.06);border:1px solid rgba(0,172,255,.22);color:rgba(255,255,255,.68);font-family:'Montserrat',sans-serif;font-size:.78rem;font-weight:600;padding:.42rem 1rem;border-radius:2rem;cursor:pointer;transition:background .18s,color .18s,border-color .18s,box-shadow .18s;display:inline-flex;align-items:center;gap:.4rem;}
       .city-tab:hover,.city-tab.active{background:rgba(0,172,255,.18);border-color:#00acff;color:#fff;box-shadow:0 0 14px rgba(0,172,255,.35);}
@@ -748,6 +747,7 @@
       .leaflet-container{font-family:'Montserrat',sans-serif;}
     </style>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/topojson@3/dist/topojson.min.js"></script>
     <script>
     (function(){
       var cities=[
@@ -767,10 +767,20 @@
       });
       map.setMaxBounds([[-68,-143],[38,-25]]);
 
-      /* light_nolabels: white land × navy (multiply) = #00327a; ocean = deeper indigo */
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png',{
-        subdomains:'abcd', maxZoom:19
-      }).addTo(map);
+      /* Load world countries as GeoJSON — navy land on Blue Bolt ocean, no tile grid */
+      fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json')
+        .then(function(r){ return r.json(); })
+        .then(function(world){
+          var countries = topojson.feature(world, world.objects.countries);
+          L.geoJSON(countries,{
+            style:{
+              fillColor:'#00327a',
+              fillOpacity:1,
+              color:'rgba(0,172,255,0.35)',
+              weight:0.7
+            }
+          }).addTo(map);
+        });
 
       cities.forEach(function(c){
         var icon = L.divIcon({
