@@ -4199,9 +4199,37 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
 /* ═══════════════════════════════════════
    WIZARD — ¿QUÉ QUIERES HACER POSIBLE?
 ═══════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   WIZARD — ¿QUÉ QUIERES HACER POSIBLE?
+═══════════════════════════════════════ */
 .wiz-section {
-  background: var(--light-bg);
+  background: linear-gradient(160deg, #001640 0%, var(--navy) 45%, #001f52 100%);
   padding: 5.5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+/* Ambient glow orbs */
+.wiz-section::before {
+  content: '';
+  position: absolute;
+  width: 500px; height: 500px;
+  top: -160px; right: -80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(244,127,32,.1) 0%, transparent 65%);
+  pointer-events: none;
+}
+.wiz-section::after {
+  content: '';
+  position: absolute;
+  width: 380px; height: 380px;
+  bottom: -100px; left: -60px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(6,142,80,.1) 0%, transparent 65%);
+  pointer-events: none;
+}
+.wiz-section .section-label {
+  color: #f47f20;
+  opacity: 1;
 }
 .wiz-header {
   display: grid;
@@ -4211,18 +4239,29 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
   margin-bottom: 2.5rem;
 }
 .wiz-title {
-  color: var(--navy);
+  color: #fff;
   margin: .4rem 0 1rem;
 }
 .wiz-sub {
   max-width: 440px;
   font-size: 1.02rem;
+  color: rgba(255,255,255,.7);
 }
+/* Floating card animation */
 .wiz-cards-svg {
   width: 100%;
   max-width: 300px;
-  filter: drop-shadow(0 14px 30px rgba(0,50,122,.25));
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,.45)) drop-shadow(0 0 40px rgba(244,127,32,.2));
+  animation: wizCardFloat 4s ease-in-out infinite;
+  transform-origin: center;
 }
+@keyframes wizCardFloat {
+  0%,100% { transform: translateY(0) rotate(0deg); }
+  33%      { transform: translateY(-8px) rotate(.8deg); }
+  66%      { transform: translateY(-4px) rotate(-.5deg); }
+}
+
+/* Step indicator */
 .wiz-steps {
   display: flex;
   align-items: center;
@@ -4232,48 +4271,81 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
   font-family: 'Montserrat', sans-serif;
   font-size: .84rem;
   font-weight: 600;
-  color: var(--silver);
+  color: rgba(255,255,255,.38);
 }
 .wiz-step {
   display: inline-flex;
   align-items: center;
   gap: .45rem;
   white-space: nowrap;
+  transition: color .3s;
 }
 .wiz-step-dot {
-  width: 24px;
-  height: 24px;
+  width: 26px; height: 26px;
   border-radius: 50%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #d6dce6;
-  color: #fff;
+  background: rgba(255,255,255,.15);
+  color: rgba(255,255,255,.5);
   font-size: .76rem;
   font-weight: 700;
-  transition: background .25s;
+  transition: background .3s, box-shadow .3s, transform .3s;
 }
-.wiz-step.active { color: var(--navy); }
-.wiz-step.active .wiz-step-dot { background: #068e50; }
+.wiz-step.active {
+  color: #fff;
+}
+.wiz-step.active .wiz-step-dot {
+  background: #f47f20;
+  color: #fff;
+  box-shadow: 0 0 0 4px rgba(244,127,32,.25), 0 0 18px rgba(244,127,32,.35);
+  transform: scale(1.1);
+}
+.wiz-step.done .wiz-step-dot {
+  background: #068e50;
+  color: #fff;
+  box-shadow: 0 0 0 4px rgba(6,142,80,.2);
+}
+.wiz-step.done { color: rgba(255,255,255,.65); }
 .wiz-step-line {
-  width: 46px;
-  height: 1px;
-  background: #c9d1dd;
+  width: 46px; height: 2px;
+  background: rgba(255,255,255,.12);
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
 }
+.wiz-step-line::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #f47f20, #068e50);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .4s ease;
+  border-radius: 2px;
+}
+.wiz-step-line.done::after { transform: scaleX(1); }
+
+/* Wizard box */
 .wiz-box {
-  background: #fff;
-  border: 1px solid rgba(0,50,122,.08);
+  background: rgba(255,255,255,.97);
+  border: 1px solid rgba(255,255,255,.12);
   border-radius: 20px;
   padding: 2.5rem;
-  box-shadow: 0 10px 40px rgba(0,50,122,.07);
+  box-shadow: 0 32px 80px rgba(0,0,0,.35), 0 0 0 1px rgba(255,255,255,.06);
   max-width: 880px;
   margin: 0 auto;
 }
-.wiz-pane { display: none; animation: wizPaneIn .25s ease; }
-.wiz-pane.active { display: block; }
+
+/* Pane transitions */
+.wiz-pane { display: none; }
+.wiz-pane.active {
+  display: block;
+  animation: wizPaneIn .3s cubic-bezier(.34,1.2,.64,1);
+}
 @keyframes wizPaneIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateX(20px) scale(.98); }
+  to   { opacity: 1; transform: translateX(0) scale(1); }
 }
 .wiz-question {
   font-family: 'Montserrat', sans-serif;
@@ -4284,29 +4356,62 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
   color: var(--navy);
   margin: 0 0 1.4rem;
 }
+
+/* Card grid */
 .wiz-options {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: .9rem;
+  perspective: 800px;
 }
+
+/* Scroll-reveal: cards start at scale/tilt and land */
 .wiz-card {
   display: flex;
   flex-direction: column;
   gap: .3rem;
   text-align: left;
   background: #fff;
-  border: 1.5px solid rgba(0,50,122,.14);
+  border: 1.5px solid rgba(0,50,122,.12);
   border-radius: 12px;
-  padding: 1.05rem 1.3rem;
+  padding: 1.1rem 1.4rem;
   font-family: inherit;
   cursor: pointer;
-  transition: border-color .18s, box-shadow .18s, transform .18s;
+  transition: border-color .2s, box-shadow .2s, transform .2s, background .2s;
+  /* Initial hidden state for entrance animation */
+  opacity: 0;
+  transform: scale(1.18) rotateX(12deg) translateY(-18px);
+}
+.wiz-card.wiz-in {
+  animation: wizCardLand .5s cubic-bezier(.34,1.3,.64,1) both;
 }
 .wiz-card:hover {
-  border-color: #068e50;
-  box-shadow: 0 6px 18px rgba(6,142,80,.14);
-  transform: translateY(-2px);
+  border-color: #f47f20;
+  box-shadow: 0 8px 28px rgba(244,127,32,.2);
+  transform: translateY(-3px) scale(1.01);
 }
+/* Click: orange flash → green settle */
+.wiz-card.wiz-pick {
+  animation: wizCardPick .4s cubic-bezier(.34,1.4,.64,1) forwards;
+}
+@keyframes wizCardLand {
+  from { opacity: 0; transform: scale(1.18) rotateX(12deg) translateY(-18px); }
+  to   { opacity: 1; transform: scale(1) rotateX(0deg) translateY(0); }
+}
+@keyframes wizCardPick {
+  0%   { transform: scale(1);    border-color: rgba(0,50,122,.12); box-shadow: none; }
+  35%  { transform: scale(1.08); border-color: #f47f20;            box-shadow: 0 0 0 4px rgba(244,127,32,.22), 0 8px 30px rgba(244,127,32,.3); }
+  65%  { transform: scale(1.04); border-color: #068e50;            box-shadow: 0 0 0 3px rgba(6,142,80,.2), 0 8px 24px rgba(6,142,80,.22); background: rgba(6,142,80,.04); }
+  100% { transform: scale(1);    border-color: #068e50;            box-shadow: 0 4px 16px rgba(6,142,80,.15); }
+}
+
+/* Card entrance stagger delays */
+.wiz-card.wiz-in:nth-child(1) { animation-delay: .05s; }
+.wiz-card.wiz-in:nth-child(2) { animation-delay: .13s; }
+.wiz-card.wiz-in:nth-child(3) { animation-delay: .21s; }
+.wiz-card.wiz-in:nth-child(4) { animation-delay: .29s; }
+.wiz-card.wiz-in:nth-child(5) { animation-delay: .37s; }
+
 .wiz-card-title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
@@ -4332,21 +4437,44 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
   transition: color .18s, background .18s;
 }
 .wiz-back:hover { color: var(--navy); background: rgba(0,50,122,.06); }
+
+/* Solution reveal */
 .wiz-solution {
-  background: var(--gradient);
+  background: linear-gradient(135deg, var(--navy) 0%, #004499 60%, #006b29 100%);
   border-radius: 16px;
   padding: 2.2rem 2.4rem;
   color: #fff;
+  animation: wizSolReveal .5s cubic-bezier(.34,1.2,.64,1);
+  position: relative;
+  overflow: hidden;
+}
+.wiz-solution::before {
+  content: '';
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(244,127,32,.25) 0%, transparent 65%);
+  pointer-events: none;
+}
+@keyframes wizSolReveal {
+  from { opacity: 0; transform: scale(.94) translateY(12px); }
+  50%  { transform: scale(1.02); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
 }
 .wiz-solution-badge {
-  display: inline-block;
-  background: rgba(255,255,255,.14);
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  background: rgba(6,142,80,.3);
+  border: 1px solid rgba(6,142,80,.5);
   border-radius: 100px;
   font-family: 'Montserrat', sans-serif;
   font-size: .74rem;
   font-weight: 700;
   padding: .3rem .95rem;
   margin-bottom: 1.1rem;
+  color: #6effc0;
 }
 .wiz-solution-title {
   font-size: 1.45rem;
@@ -4369,7 +4497,7 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
 }
 .wiz-sol-pill {
   display: inline-block;
-  border: 1.5px solid rgba(255,255,255,.45);
+  border: 1.5px solid rgba(255,255,255,.4);
   border-radius: 100px;
   color: #fff;
   font-family: 'Montserrat', sans-serif;
@@ -4381,6 +4509,7 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
 }
 .wiz-sol-pill:hover { background: rgba(255,255,255,.14); border-color: #fff; }
 .wiz-solution-cta { font-size: .9rem; }
+
 @media (max-width: 768px) {
   .wiz-header { grid-template-columns: 1fr; }
   .wiz-header-visual { display: none; }

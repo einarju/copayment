@@ -450,21 +450,29 @@
           <p class="wiz-sub">Dinos qué tipo de institución eres y a qué segmento quieres llegar. Te mostramos exactamente cómo conectarte al ecosistema.</p>
         </div>
         <div class="wiz-header-visual" aria-hidden="true">
-          <svg viewBox="0 0 260 170" class="wiz-cards-svg">
-            <rect x="95" y="12" width="150" height="95" rx="10" fill="#068e50" transform="rotate(8 170 60)"/>
-            <rect x="30" y="30" width="160" height="100" rx="10" fill="url(#wizCardGrad)"/>
+          <svg viewBox="0 0 280 185" class="wiz-cards-svg">
             <defs>
               <linearGradient id="wizCardGrad" x1="0" y1="0" x2="1" y2="1">
                 <stop offset="0" stop-color="#00327a"/>
                 <stop offset="1" stop-color="#00acff"/>
               </linearGradient>
+              <filter id="wizGlow">
+                <feGaussianBlur stdDeviation="3" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
             </defs>
-            <rect x="44" y="44" width="26" height="20" rx="4" fill="rgba(255,255,255,.85)"/>
-            <text x="44" y="92" fill="#fff" font-size="11" font-weight="700" font-family="Montserrat, sans-serif" letter-spacing="2">•••• •••• •••• 4281</text>
-            <text x="44" y="112" fill="rgba(255,255,255,.7)" font-size="7" font-family="Montserrat, sans-serif">VÁLIDA HASTA 12/29</text>
-            <text x="44" y="122" fill="#fff" font-size="8" font-weight="700" font-family="Montserrat, sans-serif">TU INSTITUCIÓN</text>
-            <circle cx="166" cy="112" r="9" fill="rgba(255,255,255,.45)"/>
-            <circle cx="178" cy="112" r="9" fill="rgba(255,255,255,.3)"/>
+            <!-- Orange card (back) -->
+            <rect x="100" y="6" width="150" height="92" rx="10" fill="#f47f20" transform="rotate(-12 175 52)" opacity=".9"/>
+            <!-- Green card (middle) -->
+            <rect x="88" y="18" width="150" height="92" rx="10" fill="#068e50" transform="rotate(6 163 64)"/>
+            <!-- Main blue card (front) -->
+            <rect x="28" y="36" width="162" height="102" rx="10" fill="url(#wizCardGrad)" filter="url(#wizGlow)"/>
+            <rect x="44" y="50" width="26" height="18" rx="4" fill="rgba(255,255,255,.85)"/>
+            <text x="44" y="96" fill="#fff" font-size="11" font-weight="700" font-family="Montserrat, sans-serif" letter-spacing="2">•••• •••• •••• 4281</text>
+            <text x="44" y="114" fill="rgba(255,255,255,.7)" font-size="7" font-family="Montserrat, sans-serif">VÁLIDA HASTA 12/29</text>
+            <text x="44" y="125" fill="#fff" font-size="8" font-weight="700" font-family="Montserrat, sans-serif">TU INSTITUCIÓN</text>
+            <circle cx="168" cy="116" r="9" fill="rgba(255,255,255,.45)"/>
+            <circle cx="180" cy="116" r="9" fill="rgba(255,255,255,.28)"/>
           </svg>
         </div>
       </div>
@@ -1200,13 +1208,49 @@
     var goalWrap = document.getElementById('wizGoalOptions');
     var selInst = null;
 
+    /* Stagger-animate cards into view when .wiz-box enters viewport */
+    function animateCards(container) {
+      var cards = container.querySelectorAll('.wiz-card');
+      cards.forEach(function(c) {
+        c.classList.remove('wiz-in');
+        c.style.opacity = '0';
+      });
+      requestAnimationFrame(function() {
+        requestAnimationFrame(function() {
+          cards.forEach(function(c) { c.classList.add('wiz-in'); });
+        });
+      });
+    }
+
+    /* Observe wizard section scroll-in once */
+    var wizObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          animateCards(instWrap);
+          wizObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.2 });
+    wizObserver.observe(box);
+
     function goStep(n) {
       box.querySelectorAll('.wiz-pane').forEach(function(p) {
         p.classList.toggle('active', p.dataset.wpane === String(n));
       });
       document.querySelectorAll('.wiz-step').forEach(function(s) {
-        s.classList.toggle('active', Number(s.dataset.wstep) <= n);
+        var sn = Number(s.dataset.wstep);
+        s.classList.toggle('active', sn === n);
+        s.classList.toggle('done',   sn < n);
       });
+      /* Animate connector lines */
+      document.querySelectorAll('.wiz-step-line').forEach(function(line, idx) {
+        line.classList.toggle('done', idx < n - 1);
+      });
+      /* Stagger-animate the new pane's cards */
+      var activePane = box.querySelector('.wiz-pane[data-wpane="' + n + '"]');
+      if (activePane && activePane.querySelector('.wiz-card')) {
+        setTimeout(function() { animateCards(activePane); }, 30);
+      }
     }
 
     function makeCard(title, hint, onClick) {
@@ -1215,7 +1259,11 @@
       b.type = 'button';
       b.innerHTML = '<span class="wiz-card-title">' + title + '</span>' +
                     (hint ? '<span class="wiz-card-hint">' + hint + '</span>' : '');
-      b.addEventListener('click', onClick);
+      b.addEventListener('click', function() {
+        /* Flash the pick animation, then proceed */
+        b.classList.add('wiz-pick');
+        setTimeout(function() { onClick(); }, 360);
+      });
       return b;
     }
 
