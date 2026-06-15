@@ -1,13 +1,147 @@
 /* ── Navbar scroll effect ── */
 const navbar = document.querySelector('.navbar');
-window.addEventListener('scroll', () => {
+function updateNavHeight() {
+  const h = window.scrollY > 40 ? 64 : 72;
+  document.documentElement.style.setProperty('--nav-h', h + 'px');
   navbar?.classList.toggle('scrolled', window.scrollY > 40);
-});
+}
+window.addEventListener('scroll', updateNavHeight, { passive: true });
+updateNavHeight();
+
+/* ── MEGA MENU ── */
+(function () {
+  /* Derive asset base path from the logo src (works at any folder depth) */
+  const logoEl = document.querySelector('.navbar-logo img');
+  const assetBase = logoEl ? logoEl.getAttribute('src').replace('assets/logo-horizontal.svg', '') : '';
+
+  const megaConfig = {
+    'Nosotros': {
+      img: 'assets/team.jpg',
+      overlay: 'linear-gradient(180deg, rgba(0,30,80,.25) 0%, rgba(0,30,80,.82) 100%)',
+      tag: 'Conoce el equipo',
+      label: 'Las personas detrás de la infraestructura de pagos de México'
+    },
+    'Lo que hacemos': {
+      gradient: 'linear-gradient(145deg, #00327a 0%, #003f99 55%, #00acff 100%)',
+      tag: 'Plataforma',
+      label: 'Infraestructura de pagos de clase mundial'
+    },
+    'Soluciones': {
+      gradient: 'linear-gradient(145deg, #002255 0%, #00327a 50%, #068e50 100%)',
+      tag: 'Herramientas',
+      label: 'Seguridad y operación para el ecosistema de pagos'
+    },
+    'Novedades': {
+      img: 'assets/foro-gallery-01.jpg',
+      overlay: 'linear-gradient(180deg, rgba(0,20,70,.2) 0%, rgba(0,20,70,.88) 100%)',
+      tag: 'Comunidad',
+      label: 'Foros, capacitaciones y recursos del sector'
+    }
+  };
+
+  /* Inject backdrop */
+  const backdrop = document.createElement('div');
+  backdrop.id = 'nav-backdrop';
+  document.body.appendChild(backdrop);
+
+  const navInner = document.querySelector('.navbar-inner');
+
+  function positionDropdown(dropdown) {
+    if (!navInner) return;
+    const r = navInner.getBoundingClientRect();
+    const navH = navbar ? navbar.getBoundingClientRect().height : 72;
+    dropdown.style.top = navH + 'px';
+    dropdown.style.left = r.left + 'px';
+    dropdown.style.right = (window.innerWidth - r.right) + 'px';
+  }
+
+  document.querySelectorAll('.nav-item').forEach(item => {
+    const navLink = item.querySelector('.nav-link');
+    const dropdown = item.querySelector('.dropdown');
+    if (!navLink || !dropdown) return;
+
+    /* Get section name — text node before the SVG arrow */
+    const sectionName = Array.from(navLink.childNodes)
+      .filter(n => n.nodeType === Node.TEXT_NODE)
+      .map(n => n.textContent.trim())
+      .join('');
+
+    const cfg = megaConfig[sectionName];
+    if (!cfg) return;
+
+    /* Wrap existing dropdown children in .mega-links */
+    const isWide = dropdown.classList.contains('dropdown-wide');
+    const megaLinks = document.createElement('div');
+    megaLinks.className = 'mega-links ' + (isWide ? 'mega-links-2col' : 'mega-links-1col');
+    while (dropdown.firstChild) megaLinks.appendChild(dropdown.firstChild);
+
+    /* Build .mega-left panel */
+    const megaLeft = document.createElement('div');
+    megaLeft.className = 'mega-left';
+
+    if (cfg.img) {
+      megaLeft.innerHTML =
+        '<img class="mega-left-img" src="' + assetBase + cfg.img + '" alt="" aria-hidden="true">' +
+        '<div class="mega-left-overlay" style="background:' + cfg.overlay + '"></div>' +
+        '<div class="mega-left-text">' +
+          '<span class="mega-left-tag">' + cfg.tag + '</span>' +
+          '<p class="mega-left-label">' + cfg.label + '</p>' +
+        '</div>';
+    } else {
+      megaLeft.style.background = cfg.gradient;
+      megaLeft.innerHTML =
+        '<div class="mega-left-text">' +
+          '<span class="mega-left-tag">' + cfg.tag + '</span>' +
+          '<p class="mega-left-label">' + cfg.label + '</p>' +
+        '</div>';
+    }
+
+    dropdown.appendChild(megaLeft);
+    dropdown.appendChild(megaLinks);
+
+    /* Position + backdrop on hover */
+    item.addEventListener('mouseenter', () => {
+      positionDropdown(dropdown);
+      backdrop.classList.add('is-visible');
+    });
+    item.addEventListener('mouseleave', () => {
+      backdrop.classList.remove('is-visible');
+    });
+    item.addEventListener('focusin', () => {
+      positionDropdown(dropdown);
+      backdrop.classList.add('is-visible');
+    });
+    item.addEventListener('focusout', (e) => {
+      setTimeout(() => {
+        if (!item.contains(document.activeElement))
+          backdrop.classList.remove('is-visible');
+      }, 80);
+    });
+  });
+
+  /* Reposition on resize */
+  window.addEventListener('resize', () => {
+    document.querySelectorAll('.nav-item:hover .dropdown, .nav-item:focus-within .dropdown').forEach(d => {
+      positionDropdown(d);
+    });
+  });
+})();
 
 /* ── Mobile toggle ── */
 const toggle = document.querySelector('.navbar-toggle');
 const nav    = document.querySelector('.navbar-nav');
 toggle?.addEventListener('click', () => nav?.classList.toggle('open'));
+
+/* Mobile: tap nav-link to expand dropdown inline */
+document.querySelectorAll('.nav-link[aria-haspopup]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      const item = link.closest('.nav-item');
+      item?.classList.toggle('open');
+    }
+  });
+});
 
 /* ── Animate on scroll ── */
 const observer = new IntersectionObserver((entries) => {

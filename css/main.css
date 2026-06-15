@@ -249,40 +249,60 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
 .nav-item:hover .nav-arrow,
 .nav-item:focus-within .nav-arrow { transform: rotate(180deg); color: var(--navy); }
 
-/* Dropdown */
-.dropdown {
-  position: absolute;
-  top: 100%;            /* flush to nav-item — no gap */
-  left: 50%;
-  transform: translateX(-50%) translateY(6px);
-  background: var(--white);
-  border-radius: var(--radius);
-  box-shadow: 0 20px 60px rgba(0,50,122,.18), 0 0 0 1px rgba(0,50,122,.06);
-  padding: 1rem 1.5rem 1.5rem;   /* extra top padding bridges the visual gap */
-  padding-top: 1.5rem;
-  min-width: 240px;
+/* ── NAV BACKDROP ── */
+#nav-backdrop {
+  position: fixed;
+  inset: 0;
+  top: var(--nav-h, 72px);
+  background: rgba(0,10,35,.5);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   opacity: 0;
   visibility: hidden;
-  transition: all var(--transition);
+  transition: opacity .22s ease, visibility .22s ease;
+  z-index: 999;
   pointer-events: none;
 }
-/* Invisible hover bridge — extends the hover zone from nav-item down into gap */
+#nav-backdrop.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ── MEGA DROPDOWN ── */
+.dropdown {
+  position: fixed;
+  top: 72px;
+  left: 0;               /* set precisely by JS */
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  background: var(--white);
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 24px 60px rgba(0,50,122,.22), 0 0 0 1px rgba(0,50,122,.06);
+  padding: 0;
+  min-width: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .18s ease, visibility .18s ease;
+  pointer-events: none;
+  z-index: 1001;
+}
+/* Hover bridge so cursor can travel from nav-item to dropdown */
 .nav-item::after {
   content: '';
   position: absolute;
   bottom: 0;
   left: -1rem;
   right: -1rem;
-  height: 20px;
+  height: 16px;
   transform: translateY(100%);
   background: transparent;
 }
-.dropdown-wide { min-width: 480px; display: grid; grid-template-columns: 1fr 1fr; gap: 0 2rem; }
+.dropdown-wide { /* legacy class — layout now handled by .mega-links */ }
 .nav-item:hover .dropdown,
 .nav-item:focus-within .dropdown {
   opacity: 1;
   visibility: visible;
-  transform: translateX(-50%) translateY(0);
   pointer-events: auto;
 }
 .dropdown-group { margin-bottom: 1.25rem; }
@@ -301,9 +321,9 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
 .dropdown-link {
   display: flex;
   align-items: center;
-  padding: .6rem .75rem;
-  min-height: 44px;
-  font-size: .88rem;
+  padding: .55rem .75rem;
+  min-height: 40px;
+  font-size: .875rem;
   color: var(--text-primary);
   border-radius: 6px;
   transition: all var(--transition);
@@ -313,19 +333,67 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
   color: var(--navy);
   padding-left: 1rem;
 }
+/* No arrow pointer on mega menu */
+.dropdown::before { display: none; }
 
-/* Dropdown arrow pointer */
-.dropdown::before {
-  content: '';
-  position: absolute;
-  top: 6px;             /* sits at the top of the padding area */
-  left: 50%;
-  transform: translateX(-50%) rotate(45deg);
-  width: 12px; height: 12px;
-  background: var(--white);
-  border-left: 1px solid rgba(0,50,122,.06);
-  border-top: 1px solid rgba(0,50,122,.06);
+/* ── MEGA LEFT PANEL ── */
+.mega-left {
+  width: 220px;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.75rem 1.5rem;
+  min-height: 260px;
 }
+.mega-left-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+.mega-left-overlay {
+  position: absolute;
+  inset: 0;
+}
+.mega-left-text { position: relative; z-index: 1; }
+.mega-left-label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: .88rem;
+  color: #fff;
+  line-height: 1.4;
+}
+.mega-left-tag {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--blue);
+  background: rgba(0,172,255,.15);
+  border: 1px solid rgba(0,172,255,.3);
+  border-radius: 20px;
+  padding: .2rem .65rem;
+  margin-bottom: .6rem;
+}
+
+/* ── MEGA LINKS AREA ── */
+.mega-links {
+  flex: 1;
+  padding: 1.75rem 2rem;
+  display: grid;
+  gap: 0 2.5rem;
+  align-content: start;
+  min-width: 260px;
+}
+.mega-links-1col { grid-template-columns: 1fr; }
+.mega-links-2col { grid-template-columns: 1fr 1fr; }
 
 /* CTA button in nav */
 .navbar-cta {
@@ -1192,14 +1260,14 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
 .hero-actions  { animation: heroFadeUp .5s cubic-bezier(0,0,.2,1) .44s both; }
 .hero-visual   { animation: heroFadeUp .6s cubic-bezier(0,0,.2,1) .32s both; }
 
-/* Dropdown slide-in (ease-out enter) */
+/* Dropdown slide-in */
 @keyframes dropdownIn {
-  from { opacity: 0; transform: translateX(-50%) translateY(10px); }
-  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 .nav-item:hover .dropdown,
 .nav-item:focus-within .dropdown {
-  animation: dropdownIn .2s cubic-bezier(0,0,.2,1) both;
+  animation: dropdownIn .18s cubic-bezier(0,0,.2,1) both;
 }
 
 /* ═══════════════════════════════════════
@@ -1850,7 +1918,29 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
     padding: 1.5rem;
     box-shadow: var(--shadow-md);
     transform: none;
+    max-height: calc(100vh - 72px);
+    overflow-y: auto;
   }
+  /* On mobile: reset mega menu to inline static layout */
+  #nav-backdrop { display: none !important; }
+  .dropdown {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    box-shadow: none;
+    border-radius: 0;
+    flex-direction: column;
+    pointer-events: auto;
+    z-index: auto;
+    display: none;
+    border-top: 1px solid rgba(0,50,122,.08);
+    margin-top: .5rem;
+  }
+  .nav-item.open .dropdown { display: flex; }
+  .mega-left { display: none; }
+  .mega-links { padding: .75rem 0; }
+  .mega-links-2col { grid-template-columns: 1fr; }
+  .dropdown-link { padding: .5rem .5rem; min-height: 36px; }
 }
 
 /* ══════════════════════════════════════════════
