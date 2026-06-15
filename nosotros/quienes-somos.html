@@ -14,7 +14,7 @@
        TIMELINE — KINETIC VERTICAL SCROLL
     ════════════════════════════════════════════ */
 
-    .tl-section  { background: linear-gradient(135deg, #001e4d 0%, #00327a 50%, #0058c8 100%); }
+    .tl-section  { background: #00327a; }
     .tl-wrapper  { height: 500vh; position: relative; }
 
     .tl-sticky {
@@ -48,7 +48,7 @@
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 0%;
-      background: linear-gradient(180deg, #00acff 0%, #0058c8 100%);
+      background: linear-gradient(180deg, #00acff 0%, #00327a 100%);
       will-change: height;
     }
     .tl-nav { display: flex; flex-direction: column; gap: 2.75rem; position: relative; z-index: 1; }
@@ -222,6 +222,64 @@
     .tl-hint svg { animation: bounce 1.8s ease-in-out infinite; }
     @keyframes bounce { 0%,100%{transform:translateY(0)} 55%{transform:translateY(6px)} }
 
+    /* ── Two-column panel layout ── */
+    .tl-panel-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    /* ── Achievement cards (right column) ── */
+    .tl-ach-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: .8rem;
+    }
+    .tl-ach-card {
+      border-radius: 14px;
+      padding: 1.1rem 1.4rem;
+      border: 1px solid rgba(255,255,255,.1);
+      opacity: 0;
+      transform: translateX(28px);
+      transition: opacity .5s cubic-bezier(.4,0,.2,1),
+                  transform .5s cubic-bezier(.34,1.45,.64,1);
+    }
+    .tl-panel.is-active .tl-ach-card { opacity: 1; transform: translateX(0); }
+    .tl-panel.is-active .tl-ach-card:nth-child(1) { transition-delay: .2s; }
+    .tl-panel.is-active .tl-ach-card:nth-child(2) { transition-delay: .33s; }
+    .tl-panel.is-active .tl-ach-card:nth-child(3) { transition-delay: .46s; }
+    .tl-ach-card--orange { background: rgba(244,127,32,.10); border-color: rgba(244,127,32,.28); }
+    .tl-ach-card--green  { background: rgba(6,142,80,.10);  border-color: rgba(6,142,80,.32); }
+    .tl-ach-card--blue   { background: rgba(0,172,255,.07); border-color: rgba(0,172,255,.22); }
+    .tl-ach-badge {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .16rem .55rem;
+      border-radius: 50px;
+      margin-bottom: .45rem;
+    }
+    .tl-ach-card--orange .tl-ach-badge { background: rgba(244,127,32,.22); color: #f47f20; }
+    .tl-ach-card--green  .tl-ach-badge { background: rgba(6,142,80,.22);  color: #0fc870; }
+    .tl-ach-card--blue   .tl-ach-badge { background: rgba(0,172,255,.18); color: #00acff; }
+    .tl-ach-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: .88rem;
+      color: #fff;
+      line-height: 1.4;
+    }
+    .tl-ach-sub {
+      font-size: .76rem;
+      color: rgba(255,255,255,.4);
+      margin-top: .2rem;
+      line-height: 1.45;
+    }
+
     /* ── Mobile ── */
     @media (max-width: 768px) {
       .tl-wrapper { height: auto; }
@@ -235,6 +293,8 @@
       .tl-watermark { font-size: 4rem; }
       .tl-era-year  { font-size: 2rem; }
       .tl-counter, .tl-hint { display: none; }
+      .tl-panel-body { grid-template-columns: 1fr; }
+      .tl-ach-wrap { display: none; }
     }
 
     /* ── Offices ── */
@@ -364,89 +424,163 @@
             <!-- ── ERA 0 ── -->
             <div class="tl-panel" id="tlP0">
               <div class="tl-watermark" id="tlW0">2017</div>
-              <div class="tl-era-year" id="tlY0">2017 – 2019</div>
-              <ul class="tl-items">
-                <li class="tl-item">
-                  <span class="tl-num">01</span>
-                  <span class="tl-text">Iniciamos con el propósito de fortalecer el ecosistema de medios de pago, ofreciendo consultorías en operaciones y <mark class="h">prevención de fraudes</mark>.</span>
-                </li>
-                <li class="tl-item">
-                  <span class="tl-num">02</span>
-                  <span class="tl-text">Obtuvimos nuestra primera certificación <mark class="h">PCI DSS</mark>.</span>
-                </li>
-                <li class="tl-item">
-                  <span class="tl-num">03</span>
-                  <span class="tl-text">Fortalecimos nuestro propósito impulsando foros de encuentro e intercambio.</span>
-                </li>
-                <li class="tl-item">
-                  <span class="tl-num">04</span>
-                  <span class="tl-text">Impulsamos a más clientes con nuestros servicios de <mark class="h">Switch Emisor</mark> y <mark class="h">BIN Sponsor</mark>.</span>
-                </li>
-              </ul>
+              <div class="tl-panel-body">
+                <div>
+                  <div class="tl-era-year" id="tlY0">2017 – 2019</div>
+                  <ul class="tl-items">
+                    <li class="tl-item">
+                      <span class="tl-num">01</span>
+                      <span class="tl-text">Iniciamos con el propósito de fortalecer el ecosistema de medios de pago, ofreciendo consultorías en operaciones y <mark class="h">prevención de fraudes</mark>.</span>
+                    </li>
+                    <li class="tl-item">
+                      <span class="tl-num">02</span>
+                      <span class="tl-text">Obtuvimos nuestra primera certificación <mark class="h">PCI DSS</mark>.</span>
+                    </li>
+                    <li class="tl-item">
+                      <span class="tl-num">03</span>
+                      <span class="tl-text">Fortalecimos nuestro propósito impulsando foros de encuentro e intercambio.</span>
+                    </li>
+                    <li class="tl-item">
+                      <span class="tl-num">04</span>
+                      <span class="tl-text">Impulsamos a más clientes con nuestros servicios de <mark class="h">Switch Emisor</mark> y <mark class="h">BIN Sponsor</mark>.</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="tl-ach-wrap">
+                  <div class="tl-ach-card tl-ach-card--orange">
+                    <span class="tl-ach-badge">Certificación</span>
+                    <div class="tl-ach-title">Primera certificación PCI DSS</div>
+                    <div class="tl-ach-sub">Estándar global de seguridad en transacciones de pago</div>
+                  </div>
+                  <div class="tl-ach-card tl-ach-card--blue">
+                    <span class="tl-ach-badge">Servicios</span>
+                    <div class="tl-ach-title">Switch Emisor &amp; BIN Sponsor activos</div>
+                    <div class="tl-ach-sub">Inicio del portafolio de infraestructura de pagos</div>
+                  </div>
+                  <div class="tl-ach-card tl-ach-card--green">
+                    <span class="tl-ach-badge">Comunidad</span>
+                    <div class="tl-ach-title">Foros de encuentro e intercambio</div>
+                    <div class="tl-ach-sub">Construcción del ecosistema de medios de pago en México</div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <!-- ── ERA 1 ── -->
             <div class="tl-panel" id="tlP1">
               <div class="tl-watermark" id="tlW1">2020</div>
-              <div class="tl-era-year" id="tlY1">2020 – 2021</div>
-              <ul class="tl-items">
-                <li class="tl-item">
-                  <span class="tl-num">05</span>
-                  <span class="tl-text">Impulsamos a más clientes con nuestros servicios de <mark class="h">Switch Emisor</mark> y <mark class="h">BIN Sponsor</mark>.</span>
-                </li>
-                <li class="tl-item">
-                  <span class="tl-num">06</span>
-                  <span class="tl-text">Nos consolidamos como <mark class="h">procesador de pagos VISA</mark> integrando nuestro primer cliente emisor.</span>
-                </li>
-              </ul>
+              <div class="tl-panel-body">
+                <div>
+                  <div class="tl-era-year" id="tlY1">2020 – 2021</div>
+                  <ul class="tl-items">
+                    <li class="tl-item">
+                      <span class="tl-num">05</span>
+                      <span class="tl-text">Impulsamos a más clientes con nuestros servicios de <mark class="h">Switch Emisor</mark> y <mark class="h">BIN Sponsor</mark>.</span>
+                    </li>
+                    <li class="tl-item">
+                      <span class="tl-num">06</span>
+                      <span class="tl-text">Nos consolidamos como <mark class="h">procesador de pagos VISA</mark> integrando nuestro primer cliente emisor.</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="tl-ach-wrap">
+                  <div class="tl-ach-card tl-ach-card--orange">
+                    <span class="tl-ach-badge">Certificación</span>
+                    <div class="tl-ach-title">Procesador de pagos VISA certificado</div>
+                    <div class="tl-ach-sub">Integración directa con la red de pagos VISA global</div>
+                  </div>
+                  <div class="tl-ach-card tl-ach-card--blue">
+                    <span class="tl-ach-badge">Hito</span>
+                    <div class="tl-ach-title">Primer cliente emisor integrado</div>
+                    <div class="tl-ach-sub">Consolidación como plataforma de procesamiento de tarjetas</div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <!-- ── ERA 2 ── -->
             <div class="tl-panel" id="tlP2">
               <div class="tl-watermark" id="tlW2">2022</div>
-              <div class="tl-era-year" id="tlY2">2022 – 2023</div>
-              <ul class="tl-items">
-                <li class="tl-item">
-                  <span class="tl-num">07</span>
-                  <span class="tl-text">Desarrollamos e implementamos el primer <mark class="h">robot de aclaraciones y contracargos</mark> de México.</span>
-                </li>
-                <li class="tl-item">
-                  <span class="tl-num">08</span>
-                  <span class="tl-text">Nos convertimos en el primer emisor certificado para operar con la <mark class="h">Cámara Doméstica VISA</mark>.</span>
-                </li>
-                <li class="tl-item">
-                  <span class="tl-num">09</span>
-                  <span class="tl-text">Implementamos la certificación <mark class="h">Switch Agregador Productivo Copayment</mark>.</span>
-                </li>
-                <li class="tl-item">
-                  <span class="tl-num">10</span>
-                  <span class="tl-text">Obtuvimos la aprobación de la licencia principal de <mark class="h">emisor con VISA</mark>.</span>
-                </li>
-              </ul>
+              <div class="tl-panel-body">
+                <div>
+                  <div class="tl-era-year" id="tlY2">2022 – 2023</div>
+                  <ul class="tl-items">
+                    <li class="tl-item">
+                      <span class="tl-num">07</span>
+                      <span class="tl-text">Desarrollamos e implementamos el primer <mark class="h">robot de aclaraciones y contracargos</mark> de México.</span>
+                    </li>
+                    <li class="tl-item">
+                      <span class="tl-num">08</span>
+                      <span class="tl-text">Nos convertimos en el primer emisor certificado para operar con la <mark class="h">Cámara Doméstica VISA</mark>.</span>
+                    </li>
+                    <li class="tl-item">
+                      <span class="tl-num">09</span>
+                      <span class="tl-text">Implementamos la certificación <mark class="h">Switch Agregador Productivo Copayment</mark>.</span>
+                    </li>
+                    <li class="tl-item">
+                      <span class="tl-num">10</span>
+                      <span class="tl-text">Obtuvimos la aprobación de la licencia principal de <mark class="h">emisor con VISA</mark>.</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="tl-ach-wrap">
+                  <div class="tl-ach-card tl-ach-card--orange">
+                    <span class="tl-ach-badge">Innovación · Primero en México</span>
+                    <div class="tl-ach-title">Robot de aclaraciones y contracargos</div>
+                    <div class="tl-ach-sub">Automatización inédita en el mercado mexicano de pagos</div>
+                  </div>
+                  <div class="tl-ach-card tl-ach-card--blue">
+                    <span class="tl-ach-badge">Certificación</span>
+                    <div class="tl-ach-title">Primer emisor certificado — Cámara Doméstica VISA</div>
+                    <div class="tl-ach-sub">Liderazgo técnico en el ecosistema nacional de pagos</div>
+                  </div>
+                  <div class="tl-ach-card tl-ach-card--green">
+                    <span class="tl-ach-badge">Licencia</span>
+                    <div class="tl-ach-title">Licencia principal de emisor con VISA aprobada</div>
+                    <div class="tl-ach-sub">Habilitación para operar como emisor directo en México</div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <!-- ── ERA 3 ── -->
             <div class="tl-panel" id="tlP3">
               <div class="tl-watermark" id="tlW3">2024</div>
-              <div class="tl-era-year" id="tlY3">2024 – 2025</div>
-              <ul class="tl-items">
-                <li class="tl-item">
-                  <span class="tl-num">11</span>
-                  <span class="tl-text">Fuimos el primer emisor certificado para operar con la <mark class="h">Cámara Doméstica VISA</mark>.</span>
-                </li>
-                <li class="tl-item">
-                  <span class="tl-num">12</span>
-                  <span class="tl-text">Implementamos la certificación <mark class="h">Switch Agregador Productivo Copayment</mark>.</span>
-                </li>
-                <li class="tl-item">
-                  <span class="tl-num">13</span>
-                  <span class="tl-text">Logramos nuestra certificación <mark class="h">PCI 2.0.1</mark> por 5° año consecutivo.</span>
-                </li>
-                <li class="tl-item">
-                  <span class="tl-num">14</span>
-                  <span class="tl-text">Primer Procesador mexicano en desarrollar e implementar <mark class="h">CVV Dinámico en Tarjeta Física sin Batería</mark>.</span>
-                </li>
-              </ul>
+              <div class="tl-panel-body">
+                <div>
+                  <div class="tl-era-year" id="tlY3">2024 – 2025</div>
+                  <ul class="tl-items">
+                    <li class="tl-item">
+                      <span class="tl-num">11</span>
+                      <span class="tl-text">Fuimos el primer emisor certificado para operar con la <mark class="h">Cámara Doméstica VISA</mark>.</span>
+                    </li>
+                    <li class="tl-item">
+                      <span class="tl-num">12</span>
+                      <span class="tl-text">Implementamos la certificación <mark class="h">Switch Agregador Productivo Copayment</mark>.</span>
+                    </li>
+                    <li class="tl-item">
+                      <span class="tl-num">13</span>
+                      <span class="tl-text">Logramos nuestra certificación <mark class="h">PCI 2.0.1</mark> por 5° año consecutivo.</span>
+                    </li>
+                    <li class="tl-item">
+                      <span class="tl-num">14</span>
+                      <span class="tl-text">Primer Procesador mexicano en desarrollar e implementar <mark class="h">CVV Dinámico en Tarjeta Física sin Batería</mark>.</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="tl-ach-wrap">
+                  <div class="tl-ach-card tl-ach-card--orange">
+                    <span class="tl-ach-badge">5° Año Consecutivo</span>
+                    <div class="tl-ach-title">Certificación PCI 2.0.1</div>
+                    <div class="tl-ach-sub">Compromiso sostenido con los más altos estándares de seguridad</div>
+                  </div>
+                  <div class="tl-ach-card tl-ach-card--green">
+                    <span class="tl-ach-badge">Primero en México</span>
+                    <div class="tl-ach-title">CVV Dinámico en Tarjeta Física sin Batería</div>
+                    <div class="tl-ach-sub">Tecnología pionera a nivel nacional en emisión de tarjetas seguras</div>
+                  </div>
+                </div>
+              </div>
             </div>
 
           </div><!-- /tl-panels -->
@@ -929,11 +1063,11 @@
       }
       /* 6 nodes — nth-child(3-8) because val-ring and val-hub are children 1-2 */
       .val-node:nth-child(3) { --a:0deg;    animation-delay:0s;      background:rgba(0,50,122,.9);   border-color:#00acff; }
-      .val-node:nth-child(4) { --a:60deg;   animation-delay:-1.67s;  background:rgba(0,88,200,.85);  border-color:rgba(0,172,255,.6); }
+      .val-node:nth-child(4) { --a:60deg;   animation-delay:-1.67s;  background:rgba(0,50,122,.9);  border-color:rgba(0,172,255,.6); }
       .val-node:nth-child(5) { --a:120deg;  animation-delay:-3.33s;  background:rgba(0,50,122,.9);   border-color:#00acff; }
-      .val-node:nth-child(6) { --a:180deg;  animation-delay:-5s;     background:rgba(0,88,200,.85);  border-color:rgba(0,172,255,.6); }
+      .val-node:nth-child(6) { --a:180deg;  animation-delay:-5s;     background:rgba(0,50,122,.9);  border-color:rgba(0,172,255,.6); }
       .val-node:nth-child(7) { --a:240deg;  animation-delay:-6.67s;  background:rgba(0,50,122,.9);   border-color:#00acff; }
-      .val-node:nth-child(8) { --a:300deg;  animation-delay:-8.33s;  background:rgba(0,88,200,.85);  border-color:rgba(0,172,255,.6); }
+      .val-node:nth-child(8) { --a:300deg;  animation-delay:-8.33s;  background:rgba(0,50,122,.9);  border-color:rgba(0,172,255,.6); }
       /* Diagram + content grid */
       .vacantes-grid { display:grid; grid-template-columns:300px 1fr; gap:4rem; align-items:center; }
       @media(max-width:900px){ .vacantes-grid{grid-template-columns:1fr;gap:2.5rem;} .val-orbit-wrap{order:-1;} }
@@ -985,7 +1119,7 @@
       /* Venn diagram – modern glassmorphism */
       .pilares-venn {
         position:relative; width:320px; height:295px; margin:0 auto;
-        filter:drop-shadow(0 0 40px rgba(0,107,255,.12));
+        filter:drop-shadow(0 0 40px rgba(0,172,255,.12));
       }
       .pv-circle {
         position:absolute; width:168px; height:168px; border-radius:50%;
@@ -995,7 +1129,7 @@
         backdrop-filter:blur(2px);
       }
       .pv-circle:nth-child(1){
-        background:radial-gradient(circle at 55% 45%, rgba(0,88,200,.65), rgba(0,30,100,.35));
+        background:radial-gradient(circle at 55% 45%, rgba(0,50,122,.65), rgba(0,50,122,.25));
         border:1.5px solid rgba(0,172,255,.45);
         color:#cce8ff;
         top:0; left:8px;
@@ -1155,17 +1289,17 @@
       .ctc-email-input::placeholder { color:rgba(255,255,255,.35); }
       .ctc-email-input:focus { border-color:#00acff; box-shadow:0 0 0 3px rgba(0,172,255,.15); }
       .ctc-submit-btn {
-        width:100%; background:#0abf6e; border:none; border-radius:10px;
+        width:100%; background:#068e50; border:none; border-radius:10px;
         padding:.8rem; font-family:'Montserrat',sans-serif; font-weight:700;
         font-size:.95rem; color:#fff; cursor:pointer; display:flex;
         align-items:center; justify-content:center; gap:.5rem;
         transition:background .2s, box-shadow .2s, transform .15s;
         animation:ctcPulse 2.5s ease-in-out infinite;
       }
-      .ctc-submit-btn:hover { background:#08a85f; transform:translateY(-1px); box-shadow:0 8px 24px rgba(10,191,110,.35); animation:none; }
+      .ctc-submit-btn:hover { background:#056b3a; transform:translateY(-1px); box-shadow:0 8px 24px rgba(6,142,80,.35); animation:none; }
       @keyframes ctcPulse {
-        0%,100%{ box-shadow:0 0 0 0 rgba(10,191,110,.4); }
-        50%    { box-shadow:0 0 0 8px rgba(10,191,110,.0); }
+        0%,100%{ box-shadow:0 0 0 0 rgba(6,142,80,.4); }
+        50%    { box-shadow:0 0 0 8px rgba(6,142,80,.0); }
       }
 
       /* Email info grid */

@@ -24,7 +24,7 @@
   --transition: .25s cubic-bezier(.4,0,.2,1);
   --text-primary:   #1a1a2e;
   --text-secondary: #3d3d4e;
-  --blue-hover:     #0056e0;
+  --blue-hover:     #0090d9;
 }
 
 /* ── Reset ── */
@@ -2205,9 +2205,9 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
 .emision-lifecycle-detail {
   margin-top: 1.25rem;
   padding: 1.25rem 1.5rem;
-  background: rgba(10,191,110,.05);
+  background: rgba(6,142,80,.05);
   border-radius: var(--radius);
-  border-left: 3px solid #0abf6e;
+  border-left: 3px solid #068e50;
   animation: listReveal .25s ease;
 }
 .emision-lifecycle-detail p {
@@ -2318,9 +2318,9 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
 .proc-sub-detail {
   margin-top: 1rem;
   padding: 1.25rem 1.5rem;
-  background: rgba(10,191,110,.05);
+  background: rgba(6,142,80,.05);
   border-radius: var(--radius);
-  border-left: 3px solid #0abf6e;
+  border-left: 3px solid #068e50;
   animation: listReveal .25s ease;
 }
 .proc-sub-detail p { font-size: .9rem; color: var(--silver); line-height: 1.7; }
@@ -2492,8 +2492,8 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
   align-items: center;
   padding: .55rem 1.75rem;
   background: transparent;
-  color: #0abf6e;
-  border: 2px solid #0abf6e;
+  color: #068e50;
+  border: 2px solid #068e50;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: .88rem;
@@ -2502,10 +2502,10 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
   transition: all var(--transition);
 }
 .btn-vacantes-join:hover {
-  background: #0abf6e;
+  background: #068e50;
   color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(10,191,110,.3);
+  box-shadow: 0 6px 20px rgba(6,142,80,.3);
 }
 
 .vacantes-team-photo {
@@ -2578,9 +2578,9 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
 .valores-bubble {
   position: absolute;
   border-radius: 50%;
-  background: linear-gradient(135deg, #0abf6e 0%, #059e5b 100%); /* teal per diagram */
+  background: linear-gradient(135deg, #068e50 0%, #056b3a 100%);
   border: 2px solid rgba(255,255,255,.35);
-  box-shadow: 0 0 14px rgba(10,191,110,.4);
+  box-shadow: 0 0 14px rgba(6,142,80,.4);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2595,7 +2595,7 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
   animation-delay: var(--del,0s);
   width: var(--sz,64px); height: var(--sz,64px);
 }
-.valores-bubble:hover { background: linear-gradient(135deg,#0fd47a 0%,#0abf6e 100%); box-shadow: 0 0 20px rgba(10,191,110,.6); }
+.valores-bubble:hover { background: linear-gradient(135deg,#07a35b 0%,#068e50 100%); box-shadow: 0 0 20px rgba(6,142,80,.6); }
 .valores-bubble--1 { top: 12%;  left: 50%; transform: translateX(-50%); --sz:68px; --dur:5.5s; --del:0s; }
 .valores-bubble--2 { top: 28%;  right: 10%; --sz:62px; --dur:6.5s; --del:-1s; }
 .valores-bubble--3 { bottom: 28%; right: 10%; --sz:64px; --dur:7s;   --del:-2s; }
@@ -2798,7 +2798,7 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
   display: inline-flex;
   align-items: center;
   padding: .65rem 2.5rem;
-  background: #0abf6e;
+  background: #068e50;
   color: #fff;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
@@ -2806,14 +2806,14 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
   border-radius: 50px;
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 16px rgba(10,191,110,.3);
+  box-shadow: 0 4px 16px rgba(6,142,80,.3);
   transition: all var(--transition);
   animation: emisionPulse 3s ease-in-out infinite;
   margin-top: .5rem;
 }
 .btn-contacto-send:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(10,191,110,.45);
+  box-shadow: 0 8px 24px rgba(6,142,80,.45);
 }
 .contacto-emails {
   display: grid;
@@ -3006,12 +3006,12 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
   border-radius: 50px;
   text-decoration: none;
   transition: all var(--transition);
-  box-shadow: 0 2px 10px rgba(10,191,110,.15);
+  box-shadow: 0 2px 10px rgba(6,142,80,.15);
 }
 .foros-btn-mint:hover {
   background: #b8edce;
   transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(10,191,110,.3);
+  box-shadow: 0 6px 20px rgba(6,142,80,.3);
 }
 
 .risk-day {
@@ -3415,8 +3415,8 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
   border: 1px solid rgba(0,172,255,.3);
 }
 .eventos-vcall-tile--active {
-  background: rgba(10,191,110,.12);
-  border: 1px solid rgba(10,191,110,.25);
+  background: rgba(6,142,80,.12);
+  border: 1px solid rgba(6,142,80,.25);
 }
 
 /* Featured webinar card */
