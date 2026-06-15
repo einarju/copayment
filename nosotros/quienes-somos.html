@@ -855,7 +855,7 @@
     </div>
     <style>
       .wmap-wrap{max-width:800px;margin:0 auto 1.25rem;border-radius:14px;overflow:hidden;border:1px solid rgba(0,172,255,.3);box-shadow:0 0 60px rgba(0,50,122,.6);}
-      #officesMap{display:block;width:100%;height:480px;background:#00acff!important;}
+      #officesMap{display:block;width:100%;height:480px;background:#00327a!important;}
       /* No raster tiles — GeoJSON land layer gives exact brand colors, no grid seams */
       .city-tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:.45rem;max-width:800px;margin:0 auto;}
       .city-tab{background:rgba(255,255,255,.06);border:1px solid rgba(0,172,255,.22);color:rgba(255,255,255,.68);font-family:'Montserrat',sans-serif;font-size:.78rem;font-weight:600;padding:.42rem 1rem;border-radius:2rem;cursor:pointer;transition:background .18s,color .18s,border-color .18s,box-shadow .18s;display:inline-flex;align-items:center;gap:.4rem;}
@@ -875,8 +875,8 @@
       @keyframes pinPulseMX{0%,100%{box-shadow:0 0 0 0 rgba(244,127,32,.5);}50%{box-shadow:0 0 0 10px rgba(244,127,32,0);}}
       @keyframes pinPulseCO{0%,100%{box-shadow:0 0 0 0 rgba(6,142,80,.5);}50%{box-shadow:0 0 0 10px rgba(6,142,80,0);}}
       @keyframes pinPulseCL{0%,100%{box-shadow:0 0 0 0 rgba(32,133,126,.5);}50%{box-shadow:0 0 0 10px rgba(32,133,126,0);}}
-      .leaflet-popup-content-wrapper{background:rgba(0,25,70,.92)!important;border:1px solid rgba(0,172,255,.35)!important;color:#fff!important;border-radius:8px!important;box-shadow:0 4px 20px rgba(0,0,0,.5)!important;}
-      .leaflet-popup-tip{background:rgba(0,25,70,.92)!important;}
+      .leaflet-popup-content-wrapper{background:rgba(0,50,122,.96)!important;border:1px solid rgba(0,172,255,.35)!important;color:#fff!important;border-radius:8px!important;box-shadow:0 4px 20px rgba(0,0,0,.5)!important;}
+      .leaflet-popup-tip{background:rgba(0,50,122,.96)!important;}
       .leaflet-popup-content{font-family:'Montserrat',sans-serif;font-size:.8rem;font-weight:600;color:#fff!important;margin:.5rem .75rem!important;}
       .leaflet-container{font-family:'Montserrat',sans-serif;}
     </style>
@@ -901,17 +901,17 @@
       });
       map.setMaxBounds([[-68,-143],[38,-25]]);
 
-      /* Load world countries as GeoJSON — navy land on Blue Bolt ocean, no tile grid */
+      /* Load world countries as GeoJSON — Blue Bolt land on navy ocean, no tile grid */
       fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json')
         .then(function(r){ return r.json(); })
         .then(function(world){
           var countries = topojson.feature(world, world.objects.countries);
           L.geoJSON(countries,{
             style:{
-              fillColor:'#00327a',
-              fillOpacity:1,
-              color:'rgba(0,172,255,0.35)',
-              weight:0.7
+              fillColor:'#00acff',
+              fillOpacity:0.28,
+              color:'rgba(0,172,255,0.65)',
+              weight:1
             }
           }).addTo(map);
         });
