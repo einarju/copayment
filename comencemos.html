@@ -46,7 +46,7 @@
                 <a href="lo-que-hacemos.html#procesamiento" class="dropdown-link">Procesamiento de pagos</a>
                 <a href="lo-que-hacemos.html#emision" class="dropdown-link">Emisión</a>
                 <a href="lo-que-hacemos.html#adquirencia" class="dropdown-link">Adquirencia</a>
-                <a href="lo-que-hacemos.html#gestion" class="dropdown-link">Gestión de Operaciones (GOE)</a>
+                <a href="lo-que-hacemos.html#gestion" class="dropdown-link">Gestión de operaciones</a>
                 <a href="lo-que-hacemos.html#robot" class="dropdown-link">Robot de aclaraciones</a>
               </div>
               <div class="dropdown-group">
@@ -58,7 +58,6 @@
             <div>
               <div class="dropdown-group">
                 <div class="dropdown-heading">Cumplimiento sin complicaciones</div>
-                <a href="lo-que-hacemos.html#pci" class="dropdown-link">Cumplimiento</a>
                 <a href="lo-que-hacemos.html#consultorias" class="dropdown-link">Consultor&#237;as</a>
               </div>
             </div>
@@ -135,8 +134,8 @@
           <span class="breadcrumb-sep">›</span>
           <span>Comencemos</span>
         </nav>
-        <h1>Cuéntanos sobre<br>tu proyecto</h1>
-        <p>Respondemos en menos de 24 horas. Sin ventas genéricas: una conversación real con alguien que conoce la infraestructura de pagos en México.</p>
+        <h1>Estamos aquí para ti</h1>
+        <p>Siempre nos alegra saber de ti.<br>Cuéntanos qué necesitas y te conectamos con la persona correcta.</p>
       </div>
     </div>
   </section>
@@ -144,6 +143,7 @@
   <!-- CONTACT FORM + INFO -->
   <section class="section" id="contacto">
     <div class="container">
+      <h2 class="section-title" style="text-align:center; margin-bottom:3rem;">¿Cómo podemos ayudarte?</h2>
       <div class="contact-split">
 
         <!-- FORM LEFT -->
@@ -169,7 +169,7 @@
             </div>
             <div class="form-row">
               <div class="form-group">
-                <label class="form-label" for="c-email">Correo electrónico</label>
+                <label class="form-label" for="c-email">Correo empresarial</label>
                 <input class="form-input" type="email" id="c-email" name="email" placeholder="tu@empresa.com" required>
               </div>
               <div class="form-group">
@@ -178,16 +178,15 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="form-label" for="c-interes">¿Qué te interesa explorar?</label>
+              <label class="form-label" for="c-interes">Cuéntanos qué necesitas:</label>
               <select class="form-input" id="c-interes" name="interes">
                 <option value="" disabled selected>Selecciona una opción</option>
-                <option value="procesamiento">Procesamiento de pagos</option>
-                <option value="emision">Emisión de tarjetas</option>
-                <option value="adquirencia">Adquirencia</option>
-                <option value="fraude">Prevención de fraude</option>
-                <option value="pci">Cumplimiento PCI DSS / EMV / SAS</option>
-                <option value="capacitacion">Capacitación y certificaciones</option>
-                <option value="otro">Otro</option>
+                <option value="switch-emisor">Switch emisor</option>
+                <option value="switch-adquirente">Switch adquirente</option>
+                <option value="bin-sponsor">BIN Sponsor</option>
+                <option value="consultoria">Consultoría y cursos</option>
+                <option value="capacitaciones">Capacitaciones</option>
+                <option value="otro">Otros</option>
               </select>
             </div>
             <div class="form-group">
@@ -278,6 +277,37 @@
     </div>
   </section>
 
+  <!-- EMAIL CHANNELS -->
+  <section class="section-sm" style="background:var(--light-bg);">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;text-align:center;">
+        <div>
+          <p style="font-family:'Montserrat',sans-serif;font-weight:700;color:var(--silver);font-size:.85rem;margin-bottom:.5rem;">¿Ya eres cliente?</p>
+          <a href="mailto:operaciones@copayment.com.mx" class="contact-info-value" style="color:var(--navy);font-family:'Montserrat',sans-serif;font-weight:600;font-size:.9rem;text-decoration:none;">operaciones@copayment.com.mx</a>
+        </div>
+        <div>
+          <p style="font-family:'Montserrat',sans-serif;font-weight:700;color:var(--silver);font-size:.85rem;margin-bottom:.5rem;">¿Quieres integrarte al sistema de medios de pagos?</p>
+          <a href="mailto:hola@copayment.com.mx" class="contact-info-value" style="color:var(--navy);font-family:'Montserrat',sans-serif;font-weight:600;font-size:.9rem;text-decoration:none;">hola@copayment.com.mx</a>
+        </div>
+        <div>
+          <p style="font-family:'Montserrat',sans-serif;font-weight:700;color:var(--silver);font-size:.85rem;margin-bottom:.5rem;">¿Te interesa algun evento?</p>
+          <a href="mailto:foro@copayment.com.mx" class="contact-info-value" style="color:var(--navy);font-family:'Montserrat',sans-serif;font-weight:600;font-size:.9rem;text-decoration:none;">foro@copayment.com.mx</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HABLAMOS CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>¿Hablamos?</h2>
+      <p>Estamos aquí para resolver tus dudas, explorar cómo podemos trabajar juntos y ayudarte a encontrar la solución de pagos que tu negocio necesita.</p>
+      <div class="cta-actions">
+        <a href="mailto:hola@copayment.com.mx" class="btn-cta-white">hola@copayment.com.mx</a>
+      </div>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
@@ -304,7 +334,7 @@
             <a href="lo-que-hacemos.html#procesamiento" class="footer-link">Procesamiento de pagos</a>
             <a href="lo-que-hacemos.html#emision" class="footer-link">Emisión</a>
             <a href="lo-que-hacemos.html#adquirencia" class="footer-link">Adquirencia</a>
-            <a href="lo-que-hacemos.html#gestion" class="footer-link">Gestión de Operaciones (GOE)</a>
+            <a href="lo-que-hacemos.html#gestion" class="footer-link">Gestión de operaciones</a>
             <a href="lo-que-hacemos.html#robot" class="footer-link">Robot de aclaraciones</a>
           </div>
           <div class="footer-col-group">
