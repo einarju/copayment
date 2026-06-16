@@ -308,7 +308,8 @@
   </section>
 
   <!-- ═══════════════════════ LO QUE HACEMOS ═══════════════════════ -->
-  <section class="section" style="background:var(--light-bg);">
+  <section class="section pillars-section" style="background:var(--light-bg);">
+    <canvas id="pillarsCanvas" data-r="0" data-g="50" data-b="122" data-mul=".6" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
     <div class="container">
       <h2 class="section-title text-center anim-fade-up">Lo que hacemos</h2>
       <div class="pillars-grid">
@@ -475,33 +476,34 @@
           </div>
         </div>
 
-        <div class="eco-platform anim-fade-up" style="transition-delay:540ms">
-          <span class="eco-platform-label">Plataforma Operativa</span>
-          <div class="eco-platform-pills">
-            <span class="eco-p-pill">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-              Monitoreo
-            </span>
-            <span class="eco-p-pill">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-              Back Office
-            </span>
-            <span class="eco-p-pill">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-              Compensación y liquidación
-            </span>
-            <span class="eco-p-pill">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-              Análisis transaccional
-            </span>
-            <span class="eco-p-pill">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
-              Plataformas Operativas
-            </span>
-          </div>
-        </div>
-
       </div>
+
+      <div class="eco-platform anim-fade-up" style="transition-delay:540ms">
+        <span class="eco-platform-label">Plataforma Operativa</span>
+        <div class="eco-platform-pills">
+          <span class="eco-p-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            Monitoreo
+          </span>
+          <span class="eco-p-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            Back Office
+          </span>
+          <span class="eco-p-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            Compensación y liquidación
+          </span>
+          <span class="eco-p-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            Análisis transaccional
+          </span>
+          <span class="eco-p-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+            Plataformas Operativas
+          </span>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -515,11 +517,19 @@
           <p class="wiz-sub">Dinos qué tipo de institución eres y a qué segmento quieres llegar. Te mostramos exactamente cómo conectarte al ecosistema.</p>
         </div>
         <div class="wiz-header-visual" aria-hidden="true">
-          <svg viewBox="0 0 280 185" class="wiz-cards-svg">
+          <svg viewBox="-10 -10 300 205" class="wiz-cards-svg" id="wizCardsSvg">
             <defs>
-              <linearGradient id="wizCardGrad" x1="0" y1="0" x2="1" y2="1">
+              <linearGradient id="wizGradBlue" x1="0" y1="0" x2="1" y2="1">
                 <stop offset="0" stop-color="#00327a"/>
                 <stop offset="1" stop-color="#00acff"/>
+              </linearGradient>
+              <linearGradient id="wizGradOrange" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#d96d12"/>
+                <stop offset="1" stop-color="#f47f20"/>
+              </linearGradient>
+              <linearGradient id="wizGradGreen" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#056b3a"/>
+                <stop offset="1" stop-color="#068e50"/>
               </linearGradient>
               <filter id="wizGlow">
                 <feGaussianBlur stdDeviation="3" result="blur"/>
@@ -530,14 +540,25 @@
             <rect x="100" y="6" width="150" height="92" rx="10" fill="#f47f20" transform="rotate(-12 175 52)" opacity=".9"/>
             <!-- Green card (middle) -->
             <rect x="88" y="18" width="150" height="92" rx="10" fill="#068e50" transform="rotate(6 163 64)"/>
-            <!-- Main blue card (front) -->
-            <rect x="28" y="36" width="162" height="102" rx="10" fill="url(#wizCardGrad)" filter="url(#wizGlow)"/>
-            <rect x="44" y="50" width="26" height="18" rx="4" fill="rgba(255,255,255,.85)"/>
-            <text x="44" y="96" fill="#fff" font-size="11" font-weight="700" font-family="Montserrat, sans-serif" letter-spacing="2">•••• •••• •••• 4281</text>
-            <text x="44" y="114" fill="rgba(255,255,255,.7)" font-size="7" font-family="Montserrat, sans-serif">VÁLIDA HASTA 12/29</text>
-            <text x="44" y="125" fill="#fff" font-size="8" font-weight="700" font-family="Montserrat, sans-serif">TU INSTITUCIÓN</text>
-            <circle cx="168" cy="116" r="9" fill="rgba(255,255,255,.45)"/>
-            <circle cx="180" cy="116" r="9" fill="rgba(255,255,255,.28)"/>
+            <!-- Main front card: builds up as the wizard progresses -->
+            <g id="wizFrontCard">
+              <rect class="wfc-outline" x="28" y="36" width="162" height="102" rx="10" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <rect class="wfc-fill wfc-fill--orange" x="28" y="36" width="162" height="102" rx="10" fill="url(#wizGradOrange)" filter="url(#wizGlow)"/>
+              <rect class="wfc-fill wfc-fill--blue"   x="28" y="36" width="162" height="102" rx="10" fill="url(#wizGradBlue)"   filter="url(#wizGlow)"/>
+              <rect class="wfc-fill wfc-fill--green"  x="28" y="36" width="162" height="102" rx="10" fill="url(#wizGradGreen)" filter="url(#wizGlow)"/>
+              <g class="wfc-detail">
+                <rect x="44" y="50" width="26" height="18" rx="4" fill="rgba(255,255,255,.85)"/>
+                <text x="44" y="96" fill="#fff" font-size="11" font-weight="700" font-family="Montserrat, sans-serif" letter-spacing="2">•••• •••• •••• 4281</text>
+                <text x="44" y="114" fill="rgba(255,255,255,.7)" font-size="7" font-family="Montserrat, sans-serif">VÁLIDA HASTA 12/29</text>
+                <text x="44" y="125" fill="#fff" font-size="8" font-weight="700" font-family="Montserrat, sans-serif">TU INSTITUCIÓN</text>
+                <circle cx="168" cy="116" r="9" fill="rgba(255,255,255,.45)"/>
+                <circle cx="180" cy="116" r="9" fill="rgba(255,255,255,.28)"/>
+              </g>
+              <g class="wfc-check" transform="translate(178,30)">
+                <circle r="11" fill="#068e50"/>
+                <path d="M-5,0 L-1.5,4 L5,-5" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
+            </g>
           </svg>
         </div>
       </div>
@@ -922,12 +943,12 @@
           <a href="novedades.html" class="footer-link">Novedades</a>
           <a href="comencemos.html" class="footer-link">Comencemos</a>
         </div>
-      </div>
-      <div class="footer-certs-row">
-        <div class="footer-certs-box">
-          <img src="assets/pci-dss.jpg" alt="PCI DSS Certified" class="footer-cert-logo">
-          <img src="assets/service-badge.png" alt="Visa Service Provider" class="footer-cert-logo">
-          <img src="assets/pci-tested.jpg" alt="PCI Tested" class="footer-cert-logo">
+        <div class="footer-certs-row">
+          <div class="footer-certs-box">
+            <img src="assets/pci-dss.jpg" alt="PCI DSS Certified" class="footer-cert-logo">
+            <img src="assets/service-badge.png" alt="Visa Service Provider" class="footer-cert-logo">
+            <img src="assets/pci-tested.jpg" alt="PCI Tested" class="footer-cert-logo">
+          </div>
         </div>
       </div>
       <div class="footer-bottom">
@@ -1433,11 +1454,23 @@
       }
     }
 
-    function makeCard(title, hint, onClick) {
+    var WIZ_COLORS = ['orange', 'blue', 'green'];
+    var cardSvg = document.getElementById('wizCardsSvg');
+
+    function setCardBuild(step, color) {
+      if (!cardSvg) return;
+      cardSvg.classList.remove('wiz-cstep-2', 'wiz-cstep-3', 'wiz-ccolor-orange', 'wiz-ccolor-blue', 'wiz-ccolor-green');
+      if (step >= 2 && color) cardSvg.classList.add('wiz-cstep-2', 'wiz-ccolor-' + color);
+      if (step >= 3 && color) cardSvg.classList.add('wiz-cstep-3');
+    }
+
+    function makeCard(title, hint, idx, onClick) {
       var b = document.createElement('button');
-      b.className = 'wiz-card';
+      var color = WIZ_COLORS[idx % WIZ_COLORS.length];
+      b.className = 'wiz-card wiz-card--' + color;
       b.type = 'button';
-      b.innerHTML = '<span class="wiz-card-title">' + title + '</span>' +
+      b.innerHTML = '<span class="wiz-card-badge">' + (idx + 1) + '</span>' +
+                    '<span class="wiz-card-title">' + title + '</span>' +
                     (hint ? '<span class="wiz-card-hint">' + hint + '</span>' : '');
       b.addEventListener('click', function() {
         /* Flash the pick animation, then proceed */
@@ -1448,11 +1481,12 @@
     }
 
     DATA.forEach(function(inst, i) {
-      instWrap.appendChild(makeCard(inst.name, inst.hint, function() {
+      var instColor = WIZ_COLORS[i % WIZ_COLORS.length];
+      instWrap.appendChild(makeCard(inst.name, inst.hint, i, function() {
         selInst = i;
         goalWrap.innerHTML = '';
-        inst.goals.forEach(function(goal) {
-          goalWrap.appendChild(makeCard(goal.g, null, function() {
+        inst.goals.forEach(function(goal, gi) {
+          goalWrap.appendChild(makeCard(goal.g, null, gi, function() {
             document.getElementById('wizSolTitle').textContent = goal.t;
             document.getElementById('wizSolDesc').textContent  = goal.d;
             var pills = document.getElementById('wizSolPills');
@@ -1464,15 +1498,17 @@
               a.innerHTML = s + ' &#8594;';
               pills.appendChild(a);
             });
+            setCardBuild(3, instColor);
             goStep(3);
           }));
         });
+        setCardBuild(2, instColor);
         goStep(2);
       }));
     });
 
-    document.getElementById('wizBack2').addEventListener('click', function() { goStep(1); });
-    document.getElementById('wizRestart').addEventListener('click', function() { selInst = null; goStep(1); });
+    document.getElementById('wizBack2').addEventListener('click', function() { setCardBuild(1); goStep(1); });
+    document.getElementById('wizRestart').addEventListener('click', function() { selInst = null; setCardBuild(1); goStep(1); });
   })();
 
   /* ── Industries interactive tabs ── */
@@ -1664,6 +1700,7 @@
 
     startPCB('ecoCanvas');
     startPCB('industriesCanvas');
+    startPCB('pillarsCanvas');
   })();
   </script>
 </body>
