@@ -48,7 +48,7 @@
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 0%;
-      background: linear-gradient(180deg, #00acff 0%, #00327a 100%);
+      background: linear-gradient(180deg, #f47f20 0%, #00acff 55%, #0fc870 100%);
       will-change: height;
     }
     .tl-nav { display: flex; flex-direction: column; gap: 2.75rem; position: relative; z-index: 1; }
@@ -61,12 +61,11 @@
       flex-shrink: 0;
       transition: background .4s, border-color .4s, box-shadow .4s, transform .4s;
     }
-    .tl-nav-item.is-active .tl-nav-dot {
-      background: #00acff;
-      border-color: #00acff;
-      box-shadow: 0 0 0 5px rgba(0,172,255,.2);
-      transform: scale(1.3);
-    }
+    /* Era dot colors: orange for 2017, blue for 2020/2022, green for 2024 */
+    #tlN0.is-active .tl-nav-dot { background: #f47f20; border-color: #f47f20; box-shadow: 0 0 0 5px rgba(244,127,32,.22); transform: scale(1.3); }
+    #tlN1.is-active .tl-nav-dot { background: #00acff; border-color: #00acff; box-shadow: 0 0 0 5px rgba(0,172,255,.2);  transform: scale(1.3); }
+    #tlN2.is-active .tl-nav-dot { background: #00acff; border-color: #00acff; box-shadow: 0 0 0 5px rgba(0,172,255,.2);  transform: scale(1.3); }
+    #tlN3.is-active .tl-nav-dot { background: #0fc870; border-color: #0fc870; box-shadow: 0 0 0 5px rgba(15,200,112,.2); transform: scale(1.3); }
     .tl-nav-year {
       font-family: 'Montserrat', sans-serif;
       font-size: .68rem;
@@ -75,10 +74,10 @@
       color: rgba(255,255,255,.2);
       transition: color .4s, letter-spacing .4s;
     }
-    .tl-nav-item.is-active .tl-nav-year {
-      color: #00acff;
-      letter-spacing: .1em;
-    }
+    #tlN0.is-active .tl-nav-year { color: #f47f20; letter-spacing: .1em; }
+    #tlN1.is-active .tl-nav-year { color: #00acff; letter-spacing: .1em; }
+    #tlN2.is-active .tl-nav-year { color: #00acff; letter-spacing: .1em; }
+    #tlN3.is-active .tl-nav-year { color: #0fc870; letter-spacing: .1em; }
 
     /* ── Main panel area ── */
     .tl-main {
@@ -301,6 +300,145 @@
     .offices-wrap { display:flex; flex-wrap:wrap; gap:1.25rem 3rem; justify-content:center; margin-top:1.5rem; }
     .office-tag { font-family:'Montserrat',sans-serif; font-weight:600; font-size:.95rem; color:var(--navy); display:flex; align-items:center; gap:.5rem; }
     .office-tag::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--blue); flex-shrink:0; }
+
+    /* ═══════════════════════════════════════
+       QS — PAGE-SPECIFIC ENHANCEMENTS
+    ══════════════════════════════════════ */
+
+    /* Orange accent tag in hero */
+    .qs-hero-accent {
+      display: inline-block;
+      background: rgba(244,127,32,.15);
+      color: #f47f20;
+      border: 1px solid rgba(244,127,32,.4);
+      border-radius: 100px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: .72rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .3rem 1rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Hero bottom stats row */
+    .qs-hero-stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+    .qs-hero-stat {
+      display: flex;
+      flex-direction: column;
+      gap: .15rem;
+    }
+    .qs-hero-stat-num {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      line-height: 1;
+    }
+    .qs-hero-stat-num--orange { color: #f47f20; text-shadow: 0 0 24px rgba(244,127,32,.45); }
+    .qs-hero-stat-num--green  { color: #0fc870; text-shadow: 0 0 20px rgba(15,200,112,.35); }
+    .qs-hero-stat-num--blue   { color: #00acff; text-shadow: 0 0 20px rgba(0,172,255,.35); }
+    .qs-hero-stat-label {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: .7rem;
+      color: rgba(255,255,255,.5);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    /* Navy stats section redesign */
+    .qs-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      max-width: 820px;
+      margin: 2.5rem auto 0;
+    }
+    .qs-stat-card {
+      text-align: center;
+      padding: 1.75rem 1.25rem;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.04);
+      transition: transform .25s ease, border-color .25s ease;
+    }
+    .qs-stat-card:hover { transform: translateY(-4px); }
+    .qs-stat-card:nth-child(1) { border-color: rgba(244,127,32,.2); }
+    .qs-stat-card:nth-child(1):hover { border-color: rgba(244,127,32,.45); }
+    .qs-stat-card:nth-child(2) { border-color: rgba(15,200,112,.2); }
+    .qs-stat-card:nth-child(2):hover { border-color: rgba(15,200,112,.45); }
+    .qs-stat-card:nth-child(3) { border-color: rgba(0,172,255,.2); }
+    .qs-stat-card:nth-child(3):hover { border-color: rgba(0,172,255,.35); }
+    .qs-stat-num {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+      line-height: 1;
+      margin-bottom: .5rem;
+    }
+    .qs-stat-num--orange { color: #f47f20; text-shadow: 0 0 32px rgba(244,127,32,.5); }
+    .qs-stat-num--green  { color: #0fc870; text-shadow: 0 0 28px rgba(15,200,112,.4); }
+    .qs-stat-num--blue   { color: #00acff; text-shadow: 0 0 28px rgba(0,172,255,.38); }
+    .qs-stat-card-label {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: .78rem;
+      color: rgba(255,255,255,.45);
+      line-height: 1.4;
+    }
+    @media(max-width:640px) { .qs-stat-grid { grid-template-columns: 1fr; } }
+
+    /* Gradient divider navy → white */
+    .sect-fade-navy-white {
+      height: 110px;
+      background: linear-gradient(180deg, #00327a 0%, #ffffff 100%);
+      margin: 0; padding: 0;
+    }
+
+    /* Mission section left-border quote accent */
+    .qs-mission-quote {
+      border-left: 4px solid #f47f20;
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Ambient glow section (white sections) */
+    .qs-amb-section { position: relative; overflow: hidden; }
+    .qs-amb-section::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -100px;
+      width: 420px; height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(244,127,32,.06) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .qs-amb-section::after {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: -80px;
+      width: 360px; height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(6,142,80,.055) 0%, transparent 68%);
+      pointer-events: none;
+    }
+
+    /* Navy team section orange accent line */
+    .qs-section-tag {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: .68rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #f47f20;
+      margin-bottom: .6rem;
+    }
   </style>
 </head>
 <body>
@@ -377,8 +515,23 @@
         <nav class="breadcrumb" aria-label="Ruta de navegación">
           <span>Nosotros</span><span class="breadcrumb-sep">›</span><span>Quiénes somos</span>
         </nav>
+        <span class="qs-hero-accent">25 años impulsando el ecosistema de pagos en México</span>
         <h1>Impulsando el ecosistema de medios de pago</h1>
         <p>Somos expertos en el mercado mexicano de pagos y nuestro compromiso es claro: transformar la forma en que el mundo paga.</p>
+        <div class="qs-hero-stats">
+          <div class="qs-hero-stat">
+            <span class="qs-hero-stat-num qs-hero-stat-num--orange"><span data-target="100" data-suffix="+"></span></span>
+            <span class="qs-hero-stat-label">Expertos en pagos</span>
+          </div>
+          <div class="qs-hero-stat">
+            <span class="qs-hero-stat-num qs-hero-stat-num--green"><span data-target="25" data-suffix="+"></span></span>
+            <span class="qs-hero-stat-label">Años de experiencia</span>
+          </div>
+          <div class="qs-hero-stat">
+            <span class="qs-hero-stat-num qs-hero-stat-num--blue"><span data-target="3" data-suffix=""></span></span>
+            <span class="qs-hero-stat-label">Países en LATAM</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -391,6 +544,7 @@
           <img src="../assets/team.jpg" alt="Equipo Copayment" loading="lazy">
         </div>
         <div class="anim-fade-right anim-delay-1">
+          <span class="qs-section-tag">Quiénes somos</span>
           <h2 class="section-title" style="color:#fff;">Impulsando el ecosistema de medios de pago</h2>
           <p style="color:rgba(255,255,255,.65);line-height:1.7;">Somos expertos en el mercado mexicano de pagos y nuestro compromiso es claro: transformar la forma en que el mundo paga.</p>
         </div>
@@ -595,24 +749,26 @@
     </div><!-- /tl-wrapper -->
   </section>
 
-  <!-- CERTIFICATIONS -->
-  <section class="section-sm certs-section">
-    <div class="container">
-      <p class="partners-label">Tecnología certificada por los más altos estándares de la industria</p>
-      <div class="certs-flex">
-        <div class="cert-item"><img src="../assets/pci-dss.jpg" alt="PCI DSS" loading="lazy" class="cert-img-blend"></div>
-        <div class="cert-item"><img src="../assets/service-badge.png" alt="Visa Service Provider" loading="lazy"></div>
-        <div class="cert-item"><img src="../assets/pci-tested.jpg" alt="PCI Tested" loading="lazy" class="cert-img-blend"></div>
-      </div>
-    </div>
-  </section>
-
   <!-- STAT -->
   <section class="section-sm" style="background:var(--navy);text-align:center;">
     <div class="container">
-      <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(1.1rem,2vw,1.5rem);color:var(--white);max-width:700px;margin:0 auto;line-height:1.5;">
-        Más de 100 expertos en medios de pago, tecnología financiera y prevención de fraudes trabajando en tu proyecto
+      <p class="anim-fade-up" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(1.1rem,2vw,1.5rem);color:var(--white);max-width:700px;margin:0 auto;line-height:1.6;">
+        Más de <span style="color:#f47f20;text-shadow:0 0 20px rgba(244,127,32,.4);">100 expertos</span> en medios de pago, tecnología financiera y prevención de fraudes trabajando en tu proyecto
       </p>
+      <div class="qs-stat-grid">
+        <div class="qs-stat-card anim-fade-up anim-delay-1">
+          <div class="qs-stat-num qs-stat-num--orange"><span data-target="100" data-suffix="+"></span></div>
+          <div class="qs-stat-card-label">Expertos en pagos y fintech</div>
+        </div>
+        <div class="qs-stat-card anim-fade-up anim-delay-2">
+          <div class="qs-stat-num qs-stat-num--green"><span data-target="40" data-suffix="+"></span></div>
+          <div class="qs-stat-card-label">Clientes activos en LATAM</div>
+        </div>
+        <div class="qs-stat-card anim-fade-up anim-delay-3">
+          <div class="qs-stat-num qs-stat-num--blue"><span data-target="5" data-suffix="°"></span></div>
+          <div class="qs-stat-card-label">Año consecutivo certificación PCI DSS</div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -732,7 +888,7 @@
     </style>
 
     <div class="tg-header">
-      <div class="pillar-group-label">Nuestro equipo</div>
+      <div class="pillar-group-label" style="color:#0fc870;">Nuestro equipo</div>
       <h2 class="section-title">Las personas detrás de Copayment</h2>
     </div>
 
@@ -959,16 +1115,33 @@
     </script>
   </section>
 
+  <!-- GRADIENT DIVIDER navy → white -->
+  <div class="sect-fade-navy-white"></div>
+
+  <!-- CERTIFICATIONS -->
+  <section class="section-sm" style="background:#fff;text-align:center;padding-top:3rem;">
+    <div class="container">
+      <p class="partners-label anim-fade-up" style="margin-bottom:0;">Tecnología certificada por los más altos estándares de la industria</p>
+      <div class="certs-flex">
+        <div class="cert-item anim-fade-up anim-delay-1"><img src="../assets/pci-dss.jpg" alt="PCI DSS" loading="lazy" class="cert-img-blend"></div>
+        <div class="cert-item anim-fade-up anim-delay-2"><img src="../assets/service-badge.png" alt="Visa Service Provider" loading="lazy"></div>
+        <div class="cert-item anim-fade-up anim-delay-3"><img src="../assets/pci-tested.jpg" alt="PCI Tested" loading="lazy" class="cert-img-blend"></div>
+      </div>
+    </div>
+  </section>
+
   <!-- MISSION + CTA -->
-  <section class="section" style="background:#fff;">
+  <section class="section qs-amb-section" style="background:#fff;">
     <div class="container" style="max-width:700px;">
-      <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.25rem;color:var(--navy);margin-bottom:1.25rem;line-height:1.4;">
-        Detrás de cada transacción hay un equipo que se preocupa de verdad.
-      </p>
-      <p style="color:var(--silver);line-height:1.7;margin-bottom:2.5rem;">
+      <div class="qs-mission-quote anim-fade-up">
+        <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.25rem;color:var(--navy);margin-bottom:0;line-height:1.4;">
+          Detrás de cada transacción hay un equipo que se preocupa de verdad.
+        </p>
+      </div>
+      <p class="anim-fade-up anim-delay-1" style="color:var(--silver);line-height:1.7;margin-bottom:2.5rem;margin-top:1.25rem;">
         En Copayment somos un equipo comprometido con sus clientes, con su seguridad y totalmente convencidos de que la mejor tecnología se construye con colaboración, experiencia y confianza.
       </p>
-      <a href="#vacantes" class="btn btn-aux">
+      <a href="#vacantes" class="btn btn-aux anim-fade-up anim-delay-2">
         Súmate a Copayment
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-left:.5rem"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
@@ -978,14 +1151,14 @@
   <!-- ══════════════════════════════════════
        SOCIOS / PARTNERS SECTION
   ══════════════════════════════════════ -->
-  <section class="section" id="partners" style="background:var(--light-bg);">
+  <section class="section qs-amb-section" id="partners" style="background:var(--light-bg);">
     <div class="container">
-      <div class="pillar-group-label" style="margin-bottom:.5rem;">Socios</div>
-      <h2 class="section-title" style="margin-bottom:.75rem;">Juntos, construimos una red para llegar más lejos</h2>
-      <p style="color:var(--silver);margin-bottom:3rem;max-width:640px;">Cada alianza que construimos tiene un propósito: transformar la forma en la que el mundo paga.</p>
+      <div class="pillar-group-label anim-fade-up" style="margin-bottom:.5rem;color:#f47f20;">Socios</div>
+      <h2 class="section-title anim-fade-up anim-delay-1" style="margin-bottom:.75rem;">Juntos, construimos una red para llegar más lejos</h2>
+      <p class="anim-fade-up anim-delay-2" style="color:var(--silver);margin-bottom:3rem;max-width:640px;">Cada alianza que construimos tiene un propósito: transformar la forma en la que el mundo paga.</p>
 
       <!-- Main partner logos -->
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1.5rem;margin-bottom:2.5rem;">
+      <div class="anim-fade-up anim-delay-3" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1.5rem;margin-bottom:2.5rem;">
         <div style="border:1px solid rgba(0,50,120,.12);border-radius:var(--radius);padding:1.5rem 1rem;display:flex;align-items:center;justify-content:center;background:#fff;">
           <img src="../assets/visa.svg" alt="Visa" style="max-height:32px;max-width:90px;object-fit:contain;filter:brightness(0);" loading="lazy">
         </div>
@@ -1060,7 +1233,7 @@
   <!-- ══════════════════════════════════════
        VACANTES SECTION
   ══════════════════════════════════════ -->
-  <section class="section" id="vacantes">
+  <section class="section qs-amb-section" id="vacantes">
     <style>
       /* ── Values mosaic ── */
       .vacantes-grid { display:grid; grid-template-columns:300px 1fr; gap:4rem; align-items:center; }
@@ -1133,9 +1306,9 @@
 
         <!-- Right: vacantes content -->
         <div>
-          <div class="pillar-group-label" style="margin-bottom:.5rem;">Únete al equipo</div>
-          <h2 class="section-title" style="margin-bottom:.75rem;">¿Te interesa formar parte de una compañía referente en el sector de pagos?</h2>
-          <p style="color:var(--silver);margin-bottom:2rem;">Trabajamos con los mejores especialistas en medios de pago de México.</p>
+          <div class="pillar-group-label anim-fade-right" style="margin-bottom:.5rem;color:#068e50;">Únete al equipo</div>
+          <h2 class="section-title anim-fade-right anim-delay-1" style="margin-bottom:.75rem;">¿Te interesa formar parte de una compañía referente en el sector de pagos?</h2>
+          <p class="anim-fade-right anim-delay-2" style="color:var(--silver);margin-bottom:2rem;">Trabajamos con los mejores especialistas en medios de pago de México.</p>
 
           <!-- Job placeholder -->
           <div style="border:2px dashed rgba(0,50,122,.15);border-radius:var(--radius-lg);padding:2rem;text-align:center;margin-bottom:1.75rem;">
@@ -1154,7 +1327,7 @@
   <!-- ══════════════════════════════════════
        PILARES COPAYMENT
   ══════════════════════════════════════ -->
-  <section class="section" id="pilares">
+  <section class="section qs-amb-section" id="pilares">
     <style>
       .pilares-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
       @media(max-width:900px){ .pilares-grid{grid-template-columns:1fr;gap:2.5rem;} }
@@ -1202,8 +1375,8 @@
     </style>
 
     <div class="container">
-      <div class="pillar-group-label" style="margin-bottom:.5rem;">Pilares Copayment</div>
-      <h2 class="section-title" style="margin-bottom:2.5rem;">Las bases de nuestra organización</h2>
+      <div class="pillar-group-label anim-fade-up" style="margin-bottom:.5rem;color:#f47f20;">Pilares Copayment</div>
+      <h2 class="section-title anim-fade-up anim-delay-1" style="margin-bottom:2.5rem;">Las bases de nuestra organización</h2>
 
       <div class="pilares-grid">
 

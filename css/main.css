@@ -4204,8 +4204,8 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
 }
 [style*="background:var(--navy)"] .value-title { color: #fff; }
 [style*="background:var(--navy)"] .value-desc  { color: rgba(255,255,255,.6); }
-/* Certs section on white — ensure white bg override holds */
-.certs-section { background: #fff !important; }
+/* Certs section now positioned in the white block — no override needed */
+/* .certs-section { background: #fff !important; } */
 /* Stat labels on dark (nosotros.html stats inline section) */
 [style*="background:var(--navy)"] .stat-label  { color: rgba(255,255,255,.65); }
 [style*="background:var(--navy)"] .stat-number { color: #fff; }
