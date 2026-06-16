@@ -47,12 +47,8 @@ updateNavHeight();
   const navInner = document.querySelector('.navbar-inner');
 
   function positionDropdown(dropdown) {
-    if (!navInner) return;
-    const r = navInner.getBoundingClientRect();
     const navH = navbar ? navbar.getBoundingClientRect().height : 72;
     dropdown.style.top = navH + 'px';
-    dropdown.style.left = r.left + 'px';
-    dropdown.style.right = (window.innerWidth - r.right) + 'px';
   }
 
   document.querySelectorAll('.nav-item').forEach(item => {

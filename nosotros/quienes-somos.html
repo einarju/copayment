@@ -1062,73 +1062,73 @@
   ══════════════════════════════════════ -->
   <section class="section" id="vacantes">
     <style>
-      /* ── Values orbit diagram ── */
-      .val-orbit-wrap { position:relative; width:290px; height:290px; flex-shrink:0; margin:0 auto; }
-      .val-hub {
-        position:absolute; top:50%; left:50%;
-        transform:translate(-50%,-50%);
-        width:86px; height:86px; border-radius:50%;
-        background:var(--gradient);
-        display:flex; align-items:center; justify-content:center;
-        box-shadow:0 0 0 10px rgba(0,172,255,.12), var(--shadow-md);
-        z-index:2;
-        animation: valFloat 3s ease-in-out infinite;
-      }
-      @keyframes valFloat { 0%,100%{transform:translate(-50%,-50%) translateY(0)} 50%{transform:translate(-50%,-50%) translateY(-6px)} }
-      .val-hub-text { font-family:'Montserrat',sans-serif; font-weight:800; font-size:.75rem; color:var(--white); text-align:center; letter-spacing:.06em; text-transform:uppercase; }
-      /* Orbit ring */
-      .val-ring {
-        position:absolute; top:50%; left:50%;
-        width:240px; height:240px;
-        margin:-120px 0 0 -120px;
-        border-radius:50%;
-        border:1.5px dashed rgba(0,172,255,.25);
-        animation:valRing 18s linear infinite;
-      }
-      @keyframes valRing { to{transform:rotate(360deg)} }
-      /* Each orbit node */
-      .val-node {
-        position:absolute; top:50%; left:50%;
-        width:72px; height:72px;
-        margin:-36px 0 0 -36px;
-        border-radius:50%;
-        display:flex; align-items:center; justify-content:center;
-        font-family:'Montserrat',sans-serif; font-weight:700; font-size:.62rem;
-        text-align:center; line-height:1.25; color:#fff;
-        border:2px solid;
-        animation: valOrbit 10s linear infinite;
-        will-change:transform;
-      }
-      /* Orbit using rotate+translate+counter-rotate so text stays upright */
-      @keyframes valOrbit {
-        from { transform: rotate(var(--a)) translateX(120px) rotate(calc(-1 * var(--a))); }
-        to   { transform: rotate(calc(var(--a) + 360deg)) translateX(120px) rotate(calc(-1 * var(--a) - 360deg)); }
-      }
-      /* 6 nodes — nth-child(3-8) because val-ring and val-hub are children 1-2 */
-      .val-node:nth-child(3) { --a:0deg;    animation-delay:0s;      background:rgba(0,50,122,.9);   border-color:#00acff; }
-      .val-node:nth-child(4) { --a:60deg;   animation-delay:-1.67s;  background:rgba(0,50,122,.9);  border-color:rgba(0,172,255,.6); }
-      .val-node:nth-child(5) { --a:120deg;  animation-delay:-3.33s;  background:rgba(0,50,122,.9);   border-color:#00acff; }
-      .val-node:nth-child(6) { --a:180deg;  animation-delay:-5s;     background:rgba(0,50,122,.9);  border-color:rgba(0,172,255,.6); }
-      .val-node:nth-child(7) { --a:240deg;  animation-delay:-6.67s;  background:rgba(0,50,122,.9);   border-color:#00acff; }
-      .val-node:nth-child(8) { --a:300deg;  animation-delay:-8.33s;  background:rgba(0,50,122,.9);  border-color:rgba(0,172,255,.6); }
-      /* Diagram + content grid */
+      /* ── Values mosaic ── */
       .vacantes-grid { display:grid; grid-template-columns:300px 1fr; gap:4rem; align-items:center; }
-      @media(max-width:900px){ .vacantes-grid{grid-template-columns:1fr;gap:2.5rem;} .val-orbit-wrap{order:-1;} }
+      @media(max-width:900px){ .vacantes-grid{grid-template-columns:1fr;gap:2.5rem;} .val-mosaic{order:-1;} }
+
+      .val-mosaic { width:100%; max-width:300px; margin:0 auto; }
+      .val-mosaic-label {
+        font-family:'Montserrat',sans-serif; font-weight:800; font-size:.68rem;
+        letter-spacing:.15em; text-transform:uppercase; color:var(--blue);
+        text-align:center; margin-bottom:1.1rem;
+      }
+      .val-tiles { display:grid; grid-template-columns:repeat(3,1fr); gap:.65rem; }
+      .val-tile {
+        background:rgba(0,50,122,.07);
+        border:1.5px solid var(--vc, rgba(0,172,255,.25));
+        border-radius:14px; padding:1rem .7rem;
+        display:flex; flex-direction:column; align-items:center; gap:.55rem;
+        text-align:center; cursor:default;
+        transition:transform .25s ease, box-shadow .25s ease, background .25s;
+      }
+      .val-tile:hover {
+        background:rgba(0,50,122,.13);
+        transform:translateY(-5px) scale(1.06);
+        box-shadow:0 10px 28px rgba(0,0,0,.12), 0 0 0 1.5px var(--vc), 0 0 22px var(--vc);
+      }
+      .val-tile-icon svg { width:22px; height:22px; stroke:var(--vc,#00acff); fill:none; stroke-width:2; display:block; }
+      .val-tile-name { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.62rem; color:var(--navy); line-height:1.3; }
     </style>
 
     <div class="container">
       <div class="vacantes-grid">
 
-        <!-- Left: animated values orbit -->
-        <div class="val-orbit-wrap">
-          <div class="val-ring"></div>
-          <div class="val-hub"><span class="val-hub-text">Nuestros<br>Valores</span></div>
-          <div class="val-node">Colaboración</div>
-          <div class="val-node">Compromiso</div>
-          <div class="val-node">Empatía</div>
-          <div class="val-node">Pasión</div>
-          <div class="val-node">Versátil</div>
-          <div class="val-node">Profesionalismo</div>
+        <!-- Left: values mosaic -->
+        <div class="val-mosaic">
+          <p class="val-mosaic-label">Nuestros Valores</p>
+          <div class="val-tiles">
+
+            <div class="val-tile anim-fade-up" style="--vc:rgba(0,172,255,.55);transition-delay:0ms">
+              <div class="val-tile-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+              <div class="val-tile-name">Colaboración</div>
+            </div>
+
+            <div class="val-tile anim-fade-up" style="--vc:rgba(244,127,32,.7);transition-delay:80ms">
+              <div class="val-tile-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="val-tile-name">Compromiso</div>
+            </div>
+
+            <div class="val-tile anim-fade-up" style="--vc:rgba(6,142,80,.7);transition-delay:160ms">
+              <div class="val-tile-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+              <div class="val-tile-name">Empatía</div>
+            </div>
+
+            <div class="val-tile anim-fade-up" style="--vc:rgba(244,127,32,.7);transition-delay:240ms">
+              <div class="val-tile-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+              <div class="val-tile-name">Pasión</div>
+            </div>
+
+            <div class="val-tile anim-fade-up" style="--vc:rgba(0,172,255,.55);transition-delay:320ms">
+              <div class="val-tile-icon"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div>
+              <div class="val-tile-name">Versátil</div>
+            </div>
+
+            <div class="val-tile anim-fade-up" style="--vc:rgba(6,142,80,.7);transition-delay:400ms">
+              <div class="val-tile-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+              <div class="val-tile-name">Profesionalismo</div>
+            </div>
+
+          </div>
         </div>
 
         <!-- Right: vacantes content -->
@@ -1159,80 +1159,46 @@
       .pilares-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
       @media(max-width:900px){ .pilares-grid{grid-template-columns:1fr;gap:2.5rem;} }
 
-      /* Venn diagram – modern glassmorphism */
-      .pilares-venn {
-        position:relative; width:320px; height:295px; margin:0 auto;
-        filter:drop-shadow(0 0 40px rgba(0,172,255,.12));
+      /* ── Three pillar concept cards ── */
+      .pp-stack { display:flex; flex-direction:column; gap:.75rem; }
+      .pp-item {
+        display:flex; align-items:center; gap:1rem;
+        background:rgba(0,50,122,.04);
+        border:1px solid rgba(0,50,122,.1);
+        border-left:3px solid var(--pc, #00acff);
+        border-radius:12px; padding:1rem 1.2rem;
+        transition:transform .25s ease, box-shadow .25s ease, background .25s;
+        cursor:default;
       }
-      .pv-circle {
-        position:absolute; width:168px; height:168px; border-radius:50%;
-        display:flex; align-items:center; justify-content:center;
-        font-family:'Montserrat',sans-serif; font-weight:700; font-size:.6rem;
-        text-align:center; line-height:1.35; padding:1.2rem;
-        backdrop-filter:blur(2px);
+      .pp-item:hover {
+        transform:translateX(5px);
+        background:rgba(0,50,122,.07);
+        box-shadow:0 4px 20px rgba(0,50,122,.1), -3px 0 0 var(--pc);
       }
-      .pv-circle:nth-child(1){
-        background:radial-gradient(circle at 55% 45%, rgba(0,50,122,.65), rgba(0,50,122,.25));
-        border:1.5px solid rgba(0,172,255,.45);
-        color:#cce8ff;
-        top:0; left:8px;
-        animation:pvFloat1 5.5s ease-in-out infinite;
-        box-shadow:0 8px 32px rgba(0,80,200,.25), inset 0 1px 0 rgba(255,255,255,.1);
+      .pp-item--blue   { --pc:#00acff; }
+      .pp-item--orange { --pc:#f47f20; }
+      .pp-item--green  { --pc:#068e50; }
+      .pp-num {
+        font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.6rem;
+        color:var(--pc); opacity:.22; flex-shrink:0; line-height:1; min-width:2.2rem;
       }
-      .pv-circle:nth-child(2){
-        background:radial-gradient(circle at 45% 55%, rgba(46,23,161,.6), rgba(25,10,100,.4));
-        border:1.5px solid rgba(120,80,255,.45);
-        color:#d5ccff;
-        top:0; right:8px;
-        animation:pvFloat2 6s ease-in-out infinite;
-        box-shadow:0 8px 32px rgba(46,23,161,.25), inset 0 1px 0 rgba(255,255,255,.08);
-      }
-      .pv-circle:nth-child(3){
-        background:radial-gradient(circle at 50% 45%, rgba(6,142,80,.55), rgba(2,80,50,.4));
-        border:1.5px solid rgba(0,191,110,.4);
-        color:#b8f0d8;
-        bottom:0; left:50%; transform:translateX(-50%);
-        animation:pvFloat3 5s ease-in-out infinite;
-        box-shadow:0 8px 32px rgba(6,142,80,.22), inset 0 1px 0 rgba(255,255,255,.08);
-      }
-      /* Center intersection glow */
-      .pv-center-glow {
-        position:absolute; width:54px; height:54px; border-radius:50%;
-        top:50%; left:50%; transform:translate(-50%,-48%);
-        background:radial-gradient(circle, rgba(255,255,255,.18) 0%, transparent 70%);
-        animation:pvGlow 2.8s ease-in-out infinite alternate;
-        pointer-events:none;
-      }
-      @keyframes pvFloat1 {
-        0%,100%{ transform:translate(0,0); }
-        50%    { transform:translate(4px,-10px); }
-      }
-      @keyframes pvFloat2 {
-        0%,100%{ transform:translate(0,0); }
-        50%    { transform:translate(-4px,-8px); }
-      }
-      @keyframes pvFloat3 {
-        0%,100%{ transform:translateX(-50%) translateY(0); }
-        50%    { transform:translateX(-50%) translateY(9px); }
-      }
-      @keyframes pvGlow {
-        from{ opacity:.45; transform:translate(-50%,-48%) scale(1); }
-        to  { opacity:1;   transform:translate(-50%,-48%) scale(1.5); }
-      }
+      .pp-ico { flex-shrink:0; }
+      .pp-ico svg { width:22px; height:22px; stroke:var(--pc); fill:none; stroke-width:2; display:block; }
+      .pp-text { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.8rem; color:var(--navy); line-height:1.35; }
 
-      /* Pillar cards 2×2 */
+      /* Pillar outcome cards 2×2 */
       .pilares-cards { display:grid; grid-template-columns:1fr 1fr; gap:.85rem; margin-top:1.5rem; }
       .pilares-card {
         border-radius:12px; padding:1.1rem 1.25rem;
         display:flex; align-items:center; gap:.75rem;
-        animation:pcardIn .5s ease both;
+        transition:transform .25s, box-shadow .25s;
       }
-      .pilares-card--orange { background:#f47f20; color:#fff; }
-      .pilares-card--navy   { background:var(--navy); color:#fff; }
+      .pilares-card:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(0,0,0,.18); }
+      .pilares-card--orange { background:linear-gradient(145deg,rgba(255,255,255,.12) 0%,transparent 55%),#f47f20; color:#fff; }
+      .pilares-card--navy   { background:linear-gradient(145deg,#00327a 0%,#00327a 55%,rgba(0,172,255,.3) 100%); color:#fff; }
       .pilares-card-icon { flex-shrink:0; width:32px; height:32px; opacity:.9; }
       .pilares-card-icon svg { width:100%; height:100%; stroke:currentColor; }
       .pilares-card-text { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.78rem; line-height:1.3; }
-      @keyframes pcardIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:none} }
     </style>
 
     <div class="container">
@@ -1241,14 +1207,29 @@
 
       <div class="pilares-grid">
 
-        <!-- Left: Venn animation -->
+        <!-- Left: Three pillar concept cards -->
         <div>
-          <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--silver);margin-bottom:1.25rem;">Validación de los Pilares</p>
-          <div class="pilares-venn">
-            <div class="pv-circle">Pilares<br>Empresariales</div>
-            <div class="pv-circle">Brindan soporte<br>a la visión</div>
-            <div class="pv-circle">Ayudan a confirmar<br>que la visión<br>es alcanzable</div>
-            <div class="pv-center-glow"></div>
+          <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--silver);margin-bottom:1.25rem;">Validación de los Pilares</p>
+          <div class="pp-stack">
+
+            <div class="pp-item pp-item--blue anim-fade-up">
+              <span class="pp-num">01</span>
+              <div class="pp-ico"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+              <div class="pp-text">Pilares Empresariales</div>
+            </div>
+
+            <div class="pp-item pp-item--orange anim-fade-up" style="transition-delay:100ms">
+              <span class="pp-num">02</span>
+              <div class="pp-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+              <div class="pp-text">Brindan soporte a la visión</div>
+            </div>
+
+            <div class="pp-item pp-item--green anim-fade-up" style="transition-delay:200ms">
+              <span class="pp-num">03</span>
+              <div class="pp-ico"><svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+              <div class="pp-text">Ayudan a confirmar que la visión es alcanzable</div>
+            </div>
+
           </div>
           <p style="color:var(--silver);font-size:.82rem;margin-top:1.5rem;max-width:280px;">Los pilares se traducen en <strong>Iniciativas y Proyectos</strong> que dan lugar a acciones concretas en la organización.</p>
         </div>
