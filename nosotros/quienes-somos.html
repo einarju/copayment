@@ -510,6 +510,7 @@
 
   <!-- HERO -->
   <section class="page-hero" id="quienes">
+    <canvas id="heroCanvas" data-r="0" data-g="172" data-b="255" data-mul="1" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
     <div class="container">
       <div class="page-hero-content">
         <nav class="breadcrumb" aria-label="Ruta de navegación">
@@ -537,8 +538,9 @@
   </section>
 
   <!-- TEAM PHOTO -->
-  <section class="section" style="background:var(--navy);">
-    <div class="container">
+  <section class="section" style="background:var(--navy);position:relative;overflow:hidden;">
+    <canvas id="teamCanvas" data-r="0" data-g="172" data-b="255" data-mul="1" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
+    <div class="container" style="position:relative;">
       <div class="about-grid">
         <div class="about-img-wrap anim-fade-left">
           <img src="../assets/team.jpg" alt="Equipo Copayment" loading="lazy">
@@ -556,6 +558,7 @@
   <section class="tl-section" id="historia">
     <div class="tl-wrapper" id="tlWrapper">
       <div class="tl-sticky">
+        <canvas id="tlCanvas" data-r="0" data-g="172" data-b="255" data-mul="1" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
 
         <!-- Left vertical progress -->
         <div class="tl-sidebar">
@@ -750,8 +753,9 @@
   </section>
 
   <!-- STAT -->
-  <section class="section-sm" style="background:var(--navy);text-align:center;">
-    <div class="container">
+  <section class="section-sm" style="background:var(--navy);text-align:center;position:relative;overflow:hidden;">
+    <canvas id="statsCanvas" data-r="0" data-g="172" data-b="255" data-mul="1" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
+    <div class="container" style="position:relative;">
       <p class="anim-fade-up" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(1.1rem,2vw,1.5rem);color:var(--white);max-width:700px;margin:0 auto;line-height:1.6;">
         Más de <span style="color:#f47f20;text-shadow:0 0 20px rgba(244,127,32,.4);">100 expertos</span> en medios de pago, tecnología financiera y prevención de fraudes trabajando en tu proyecto
       </p>
@@ -773,7 +777,8 @@
   </section>
 
   <!-- TEAM PHOTO CAROUSEL -->
-  <section class="section-sm tg-section" id="equipo" style="background:var(--navy);overflow:hidden;">
+  <section class="section-sm tg-section" id="equipo" style="background:var(--navy);overflow:hidden;position:relative;">
+    <canvas id="carouselCanvas" data-r="0" data-g="172" data-b="255" data-mul="0.9" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
     <style>
       .tg-section { padding:4rem 0 3rem; }
       .tg-header  { text-align:center; padding:0 1.5rem; margin-bottom:2.25rem; }
@@ -991,9 +996,10 @@
   </section>
 
   <!-- OFFICES MAP – LEAFLET -->
-  <section class="section-sm offices-map-section" style="background:var(--navy);text-align:center;">
+  <section class="section-sm offices-map-section" style="background:var(--navy);text-align:center;position:relative;overflow:hidden;">
+    <canvas id="officesCanvas" data-r="0" data-g="172" data-b="255" data-mul="0.85" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-    <div class="container">
+    <div class="container" style="position:relative;">
       <h2 class="section-title" style="color:#fff;margin-bottom:.4rem;">Oficinas</h2>
       <p style="color:rgba(255,255,255,.45);font-size:.85rem;margin-bottom:1.4rem;font-family:'Montserrat',sans-serif;">Presentes en 3 países de Latinoamérica</p>
       <div class="wmap-wrap">
@@ -1115,12 +1121,10 @@
     </script>
   </section>
 
-  <!-- GRADIENT DIVIDER navy → white -->
-  <div class="sect-fade-navy-white"></div>
-
   <!-- CERTIFICATIONS -->
-  <section class="section-sm" style="background:#fff;text-align:center;padding-top:3rem;">
-    <div class="container">
+  <section class="section-sm" style="background:#fff;text-align:center;padding-top:3rem;position:relative;overflow:hidden;">
+    <canvas id="certsCanvas" data-r="0" data-g="50" data-b="122" data-mul="0.5" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
+    <div class="container" style="position:relative;">
       <p class="partners-label anim-fade-up" style="margin-bottom:0;">Tecnología certificada por los más altos estándares de la industria</p>
       <div class="certs-flex">
         <div class="cert-item anim-fade-up anim-delay-1"><img src="../assets/pci-dss.jpg" alt="PCI DSS" loading="lazy" class="cert-img-blend"></div>
@@ -1130,15 +1134,16 @@
     </div>
   </section>
 
-  <!-- MISSION + CTA -->
-  <section class="section qs-amb-section" style="background:#fff;">
-    <div class="container" style="max-width:700px;">
+  <!-- MISSION + CTA — navy to break up white block -->
+  <section class="section" style="background:var(--navy);position:relative;overflow:hidden;">
+    <canvas id="missionCanvas" data-r="0" data-g="172" data-b="255" data-mul="1" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
+    <div class="container" style="max-width:700px;position:relative;z-index:1;">
       <div class="qs-mission-quote anim-fade-up">
-        <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.25rem;color:var(--navy);margin-bottom:0;line-height:1.4;">
+        <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.25rem;color:#fff;margin-bottom:0;line-height:1.4;">
           Detrás de cada transacción hay un equipo que se preocupa de verdad.
         </p>
       </div>
-      <p class="anim-fade-up anim-delay-1" style="color:var(--silver);line-height:1.7;margin-bottom:2.5rem;margin-top:1.25rem;">
+      <p class="anim-fade-up anim-delay-1" style="color:rgba(255,255,255,.65);line-height:1.7;margin-bottom:2.5rem;margin-top:1.25rem;">
         En Copayment somos un equipo comprometido con sus clientes, con su seguridad y totalmente convencidos de que la mejor tecnología se construye con colaboración, experiencia y confianza.
       </p>
       <a href="#vacantes" class="btn btn-aux anim-fade-up anim-delay-2">
@@ -1151,8 +1156,9 @@
   <!-- ══════════════════════════════════════
        SOCIOS / PARTNERS SECTION
   ══════════════════════════════════════ -->
-  <section class="section qs-amb-section" id="partners" style="background:var(--light-bg);">
-    <div class="container">
+  <section class="section qs-amb-section" id="partners" style="background:var(--light-bg);position:relative;overflow:hidden;">
+    <canvas id="partnersCanvas" data-r="0" data-g="50" data-b="122" data-mul="0.45" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
+    <div class="container" style="position:relative;">
       <div class="pillar-group-label anim-fade-up" style="margin-bottom:.5rem;color:#f47f20;">Socios</div>
       <h2 class="section-title anim-fade-up anim-delay-1" style="margin-bottom:.75rem;">Juntos, construimos una red para llegar más lejos</h2>
       <p class="anim-fade-up anim-delay-2" style="color:var(--silver);margin-bottom:3rem;max-width:640px;">Cada alianza que construimos tiene un propósito: transformar la forma en la que el mundo paga.</p>
@@ -1233,7 +1239,8 @@
   <!-- ══════════════════════════════════════
        VACANTES SECTION
   ══════════════════════════════════════ -->
-  <section class="section qs-amb-section" id="vacantes">
+  <section class="section qs-amb-section" id="vacantes" style="position:relative;overflow:hidden;">
+    <canvas id="vacantesCanvas" data-r="244" data-g="127" data-b="32" data-mul="0.48" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
     <style>
       /* ── Values mosaic ── */
       .vacantes-grid { display:grid; grid-template-columns:300px 1fr; gap:4rem; align-items:center; }
@@ -1263,7 +1270,7 @@
       .val-tile-name { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.62rem; color:var(--navy); line-height:1.3; }
     </style>
 
-    <div class="container">
+    <div class="container" style="position:relative;">
       <div class="vacantes-grid">
 
         <!-- Left: values mosaic -->
@@ -1327,7 +1334,8 @@
   <!-- ══════════════════════════════════════
        PILARES COPAYMENT
   ══════════════════════════════════════ -->
-  <section class="section qs-amb-section" id="pilares">
+  <section class="section qs-amb-section" id="pilares" style="position:relative;overflow:hidden;">
+    <canvas id="pilaresCanvas" data-r="0" data-g="50" data-b="122" data-mul="0.45" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
     <style>
       .pilares-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
       @media(max-width:900px){ .pilares-grid{grid-template-columns:1fr;gap:2.5rem;} }
@@ -1374,7 +1382,7 @@
       .pilares-card-text { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.78rem; line-height:1.3; }
     </style>
 
-    <div class="container">
+    <div class="container" style="position:relative;">
       <div class="pillar-group-label anim-fade-up" style="margin-bottom:.5rem;color:#f47f20;">Pilares Copayment</div>
       <h2 class="section-title anim-fade-up anim-delay-1" style="margin-bottom:2.5rem;">Las bases de nuestra organización</h2>
 
@@ -1437,7 +1445,8 @@
   <!-- ══════════════════════════════════════
        CONTACTO SECTION
   ══════════════════════════════════════ -->
-  <section class="section" id="contacto" style="background:var(--navy);">
+  <section class="section" id="contacto" style="background:var(--navy);position:relative;overflow:hidden;">
+    <canvas id="contactoCanvas" data-r="0" data-g="172" data-b="255" data-mul="0.9" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
     <style>
       /* Animated country SVG flags */
       .ctc-flags { display:flex; justify-content:center; gap:1.5rem; margin:2rem 0 2.5rem; flex-wrap:wrap; }
@@ -1508,7 +1517,7 @@
       .ctc-info-email:hover { text-decoration:underline; }
     </style>
 
-    <div class="container" style="text-align:center;">
+    <div class="container" style="text-align:center;position:relative;">
       <div class="pillar-group-label" style="color:var(--blue);margin-bottom:.4rem;">Contacto</div>
       <h2 class="section-title" style="color:#fff;margin-bottom:.5rem;">Estamos aquí para ti</h2>
       <p style="color:rgba(255,255,255,.55);margin-bottom:.25rem;">Siempre nos alegra saber de ti.</p>
@@ -1661,6 +1670,117 @@
   </footer>
 
   <script src="../js/main.js"></script>
+
+  <!-- PCB circuit-board canvas — shared animation for all sections, colors via data-* -->
+  <script>
+  (function() {
+    /* Read color from canvas data attrs: data-r data-g data-b data-mul */
+    function startPCB(canvasId) {
+      var canvas = document.getElementById(canvasId);
+      if (!canvas) return;
+      var ctx = canvas.getContext('2d');
+      var r   = parseInt(canvas.dataset.r   || '0');
+      var g   = parseInt(canvas.dataset.g   || '172');
+      var b   = parseInt(canvas.dataset.b   || '255');
+      var mul = parseFloat(canvas.dataset.mul || '1');
+      var rc  = r+','+g+','+b;
+      var bgPaths = [], active = [];
+
+      function makePath() {
+        var segs=[], x=Math.random()*canvas.width, y=Math.random()*canvas.height;
+        var hz=Math.random()<.5, n=1+Math.floor(Math.random()*3);
+        for(var i=0;i<n;i++){
+          var len=35+Math.random()*170, dir=Math.random()<.5?1:-1;
+          var x2=x+(hz?dir*len:0), y2=y+(hz?0:dir*len);
+          segs.push({x1:x,y1:y,x2:x2,y2:y2}); x=x2; y=y2; hz=!hz;
+        }
+        return segs;
+      }
+      function buildBg(){
+        bgPaths=[];
+        var n=Math.max(18,Math.floor((canvas.width*canvas.height)/11000));
+        for(var i=0;i<n;i++) bgPaths.push(makePath());
+      }
+      function totalLen(segs){ return segs.reduce(function(s,g){ return s+Math.abs(g.x2-g.x1)+Math.abs(g.y2-g.y1); },0); }
+      function headAt(segs,t){
+        var rem=t*totalLen(segs);
+        for(var i=0;i<segs.length;i++){
+          var sl=Math.abs(segs[i].x2-segs[i].x1)+Math.abs(segs[i].y2-segs[i].y1);
+          if(rem<=sl||i===segs.length-1){ var f=sl>0?Math.min(rem/sl,1):1; return{x:segs[i].x1+(segs[i].x2-segs[i].x1)*f,y:segs[i].y1+(segs[i].y2-segs[i].y1)*f}; }
+          rem-=sl;
+        }
+        var ls=segs[segs.length-1]; return{x:ls.x2,y:ls.y2};
+      }
+      function spawn(){ active.push({segs:makePath(),p:0,spd:.0035+Math.random()*.006,life:0,max:160+Math.floor(Math.random()*130)}); }
+      function resize(){ canvas.width=canvas.offsetWidth; canvas.height=canvas.offsetHeight; buildBg(); }
+      resize(); window.addEventListener('resize',resize);
+      for(var i=0;i<4;i++) spawn();
+
+      function draw(){
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        /* Static faint traces */
+        ctx.save(); ctx.lineWidth=.75;
+        bgPaths.forEach(function(path){
+          path.forEach(function(s){
+            ctx.beginPath(); ctx.moveTo(s.x1,s.y1); ctx.lineTo(s.x2,s.y2);
+            ctx.strokeStyle='rgba('+rc+','+(0.07*mul)+')'; ctx.stroke();
+            ctx.beginPath(); ctx.arc(s.x1,s.y1,1.4,0,Math.PI*2);
+            ctx.fillStyle='rgba('+rc+','+(0.14*mul)+')'; ctx.fill();
+          });
+          var ls=path[path.length-1]; ctx.beginPath(); ctx.arc(ls.x2,ls.y2,1.6,0,Math.PI*2);
+          ctx.fillStyle='rgba('+rc+','+(0.18*mul)+')'; ctx.fill();
+        });
+        ctx.restore();
+        /* Animated traveling traces */
+        if(active.length<5&&Math.random()<.022) spawn();
+        active=active.filter(function(tr){
+          tr.life++; tr.p=Math.min(1,tr.p+tr.spd);
+          var t=tr.life/tr.max, a=t<.15?t/.15:t>.75?(1-t)/.25:1;
+          var tlen=totalLen(tr.segs),drawn=tr.p*tlen,acc=0;
+          ctx.save(); ctx.lineWidth=1.2; ctx.shadowBlur=5; ctx.shadowColor='rgba('+rc+','+(0.85*mul)+')';
+          for(var i=0;i<tr.segs.length;i++){
+            var s=tr.segs[i],slen=Math.abs(s.x2-s.x1)+Math.abs(s.y2-s.y1);
+            if(acc>=drawn) break;
+            var frac=Math.min((drawn-acc)/slen,1),ex=s.x1+(s.x2-s.x1)*frac,ey=s.y1+(s.y2-s.y1)*frac;
+            ctx.beginPath(); ctx.moveTo(s.x1,s.y1); ctx.lineTo(ex,ey);
+            ctx.strokeStyle='rgba('+rc+','+(a*0.55*mul)+')'; ctx.stroke();
+            ctx.beginPath(); ctx.arc(s.x1,s.y1,2,0,Math.PI*2);
+            ctx.fillStyle='rgba('+rc+','+(a*mul)+')'; ctx.shadowBlur=9; ctx.fill(); ctx.shadowBlur=5;
+            if(frac>=1){
+              ctx.beginPath(); ctx.arc(s.x2,s.y2,2.5,0,Math.PI*2);
+              ctx.fillStyle='rgba('+rc+','+(a*mul)+')'; ctx.shadowBlur=10; ctx.fill(); ctx.shadowBlur=5;
+            }
+            acc+=slen;
+          }
+          var h=headAt(tr.segs,tr.p);
+          ctx.beginPath(); ctx.arc(h.x,h.y,3.2,0,Math.PI*2);
+          ctx.fillStyle='rgba('+rc+','+(a*mul)+')'; ctx.shadowBlur=18; ctx.shadowColor='rgba('+rc+',1)';
+          ctx.fill(); ctx.restore();
+          return tr.life<tr.max;
+        });
+        requestAnimationFrame(draw);
+      }
+      draw();
+    }
+
+    /* Navy sections — Blue Bolt particles */
+    startPCB('heroCanvas');
+    startPCB('teamCanvas');
+    startPCB('tlCanvas');
+    startPCB('statsCanvas');
+    startPCB('carouselCanvas');
+    startPCB('officesCanvas');
+    startPCB('missionCanvas');
+    startPCB('contactoCanvas');
+    /* White/light sections — adapted particles */
+    startPCB('certsCanvas');
+    startPCB('partnersCanvas');
+    startPCB('pilaresCanvas');
+    /* Vacantes — orange particles */
+    startPCB('vacantesCanvas');
+  })();
+  </script>
+
   <script>
   (function () {
     if (window.innerWidth <= 768) return;

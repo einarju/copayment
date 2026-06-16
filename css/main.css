@@ -881,7 +881,7 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
 .partners-track:hover { animation-play-state: paused; }
 @keyframes marqueeScroll {
   from { transform: translateX(0); }
-  to   { transform: translateX(-25%); }
+  to   { transform: translateX(-12.5%); }
 }
 .partner-logo {
   height: 38px;
