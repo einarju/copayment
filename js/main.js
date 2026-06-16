@@ -51,6 +51,16 @@ updateNavHeight();
     dropdown.style.top = navH + 'px';
   }
 
+  /* Shared close timer — prevents backdrop flicker when moving between nav items */
+  let backdropCloseTimer = null;
+
+  function cancelClose() { clearTimeout(backdropCloseTimer); backdropCloseTimer = null; }
+  function scheduleClose() {
+    backdropCloseTimer = setTimeout(() => {
+      if (!document.querySelector('.nav-item:hover')) backdrop.classList.remove('is-visible');
+    }, 120);
+  }
+
   document.querySelectorAll('.nav-item').forEach(item => {
     const navLink = item.querySelector('.nav-link');
     const dropdown = item.querySelector('.dropdown');
@@ -68,8 +78,14 @@ updateNavHeight();
     /* Wrap existing dropdown children in .mega-links */
     const isWide = dropdown.classList.contains('dropdown-wide');
     const megaLinks = document.createElement('div');
-    megaLinks.className = 'mega-links ' + (isWide ? 'mega-links-2col' : 'mega-links-1col');
+    megaLinks.className = 'mega-links ' + (isWide ? 'mega-links-wide' : 'mega-links-narrow');
     while (dropdown.firstChild) megaLinks.appendChild(dropdown.firstChild);
+
+    /* Flatten anonymous wrapper divs (wide dropdowns wrap groups in bare <div>s) */
+    Array.from(megaLinks.querySelectorAll(':scope > div:not(.dropdown-group)')).forEach(wrapper => {
+      while (wrapper.firstChild) megaLinks.insertBefore(wrapper.firstChild, wrapper);
+      megaLinks.removeChild(wrapper);
+    });
 
     /* Build .mega-left panel */
     const megaLeft = document.createElement('div');
@@ -95,22 +111,21 @@ updateNavHeight();
     dropdown.appendChild(megaLeft);
     dropdown.appendChild(megaLinks);
 
-    /* Position + backdrop on hover */
+    /* Position + backdrop on hover — shared timer prevents close/reopen between items */
     item.addEventListener('mouseenter', () => {
+      cancelClose();
       positionDropdown(dropdown);
       backdrop.classList.add('is-visible');
     });
-    item.addEventListener('mouseleave', () => {
-      backdrop.classList.remove('is-visible');
-    });
+    item.addEventListener('mouseleave', scheduleClose);
     item.addEventListener('focusin', () => {
+      cancelClose();
       positionDropdown(dropdown);
       backdrop.classList.add('is-visible');
     });
-    item.addEventListener('focusout', (e) => {
+    item.addEventListener('focusout', () => {
       setTimeout(() => {
-        if (!item.contains(document.activeElement))
-          backdrop.classList.remove('is-visible');
+        if (!item.contains(document.activeElement)) scheduleClose();
       }, 80);
     });
   });
