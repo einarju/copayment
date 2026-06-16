@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="assets/logo-icon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Copayment – Sistemas de pagos | La infraestructura de pagos más completa de México</title>
   <meta name="description" content="Una sola conexión a Copayment es todo lo que necesitas para acceder a la infraestructura de pagos más completa de México. Rápido, seguro y diseñado para escalar contigo.">
@@ -32,7 +33,7 @@
               <a href="nosotros/quienes-somos.html#vacantes" class="dropdown-link">Vacantes</a>
               <a href="nosotros/quienes-somos.html#contacto" class="dropdown-link">Contacto</a>
               <a href="nosotros/quienes-somos.html#contacto" class="dropdown-link">Redes Sociales</a>
-            </div>
+            </div><div class="dropdown-group dropdown-group--social"><div class="dropdown-heading">S&#237;guenos</div><p class="dropdown-social-text">Mant&#233;nte al d&#237;a con noticias y novedades del ecosistema de pagos.</p><div class="dropdown-social"><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a><a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#fff"/></svg></a><a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
           </div>
         </li>
         <li class="nav-item">
@@ -112,7 +113,7 @@
               <a href="novedades.html#eventos" class="dropdown-link">Eventos</a>
               <a href="novedades.html#clientes" class="dropdown-link">Clientes</a>
               <a href="novedades.html#recursos" class="dropdown-link">Recursos</a>
-            </div>
+            </div><div class="dropdown-group dropdown-group--social"><div class="dropdown-heading">S&#237;guenos</div><p class="dropdown-social-text">Mant&#233;nte al d&#237;a con noticias y novedades del ecosistema de pagos.</p><div class="dropdown-social"><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a><a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#fff"/></svg></a><a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
           </div>
         </li>
       </ul>
@@ -381,6 +382,7 @@
 
   <!-- ═══════════════════════ ECOSYSTEM DIAGRAM ═══════════════════════ -->
   <section class="eco-section" id="red-copayment">
+    <canvas id="ecoCanvas" data-r="0" data-g="172" data-b="255" data-mul="1" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
     <div class="container">
       <div class="net-intro anim-fade-up">
         <h2 class="section-title">Estamos contigo en cada etapa de tu operación de pagos.</h2>
@@ -585,6 +587,7 @@
 
   <!-- ═══════════════════════ INDUSTRIES ═══════════════════════ -->
   <section class="industries-section" id="industrias">
+    <canvas id="industriesCanvas" data-r="0" data-g="172" data-b="255" data-mul="1" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
     <div class="container">
       <div class="industries-header anim-fade-up">
         <span class="section-label">Sectores que servimos</span>
@@ -788,8 +791,8 @@
           </div>
           <h3 class="prod-card-title">Emite tarjetas</h3>
           <div class="prod-card-pills">
-            <a href="lo-que-hacemos.html#emision" class="prod-card-pill prod-card-pill--link">Switch Emisor</a>
-            <a href="lo-que-hacemos.html#emision" class="prod-card-pill prod-card-pill--link">BIN Sponsor</a>
+            <a href="lo-que-hacemos.html#emision" class="prod-card-pill prod-card-pill--link">Switch Emisor<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <a href="lo-que-hacemos.html#emision" class="prod-card-pill prod-card-pill--link">BIN Sponsor<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
           </div>
           <p class="prod-card-desc">Ponle tu marca a cada transacción con infraestructura lista para operar.</p>
         </div>
@@ -800,7 +803,7 @@
           </div>
           <h3 class="prod-card-title">Procesa pagos</h3>
           <div class="prod-card-pills">
-            <span class="prod-card-pill">Switch Adquirente</span>
+            <a href="lo-que-hacemos.html#adquirencia" class="prod-card-pill prod-card-pill--link">Switch Adquirente<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
           </div>
           <p class="prod-card-desc">Conecta tu operación a las redes de pago más importantes de México.</p>
         </div>
@@ -810,6 +813,9 @@
             <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
           </div>
           <h3 class="prod-card-title">Todo integrado</h3>
+          <div class="prod-card-pills">
+            <a href="lo-que-hacemos.html" class="prod-card-pill prod-card-pill--link">Plataforma completa<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
           <p class="prod-card-desc">Con Copayment tienes todo en un mismo lugar hecho a la medida de tu negocio.</p>
         </div>
 
@@ -917,10 +923,12 @@
           <a href="comencemos.html" class="footer-link">Comencemos</a>
         </div>
       </div>
-      <div class="footer-certs-bar">
-        <img src="assets/pci-dss.jpg" alt="PCI DSS Certified" class="footer-cert-logo">
-        <img src="assets/service-badge.png" alt="Visa Service Provider" class="footer-cert-logo">
-        <img src="assets/pci-tested.jpg" alt="PCI Tested" class="footer-cert-logo">
+      <div class="footer-certs-row">
+        <div class="footer-certs-box">
+          <img src="assets/pci-dss.jpg" alt="PCI DSS Certified" class="footer-cert-logo">
+          <img src="assets/service-badge.png" alt="Visa Service Provider" class="footer-cert-logo">
+          <img src="assets/pci-tested.jpg" alt="PCI Tested" class="footer-cert-logo">
+        </div>
       </div>
       <div class="footer-bottom">
         <span>© 2026 Copayment – Sistemas de pagos. Todos los derechos reservados.</span>
@@ -1562,6 +1570,100 @@
     }
 
     requestAnimationFrame(tick);
+  })();
+  </script>
+
+  <!-- PCB circuit-board canvas — shared animation, colors via data-* (see nosotros/quienes-somos.html) -->
+  <script>
+  (function() {
+    function startPCB(canvasId) {
+      var canvas = document.getElementById(canvasId);
+      if (!canvas) return;
+      var ctx = canvas.getContext('2d');
+      var r   = parseInt(canvas.dataset.r   || '0');
+      var g   = parseInt(canvas.dataset.g   || '172');
+      var b   = parseInt(canvas.dataset.b   || '255');
+      var mul = parseFloat(canvas.dataset.mul || '1');
+      var rc  = r+','+g+','+b;
+      var bgPaths = [], active = [];
+
+      function makePath() {
+        var segs=[], x=Math.random()*canvas.width, y=Math.random()*canvas.height;
+        var hz=Math.random()<.5, n=1+Math.floor(Math.random()*3);
+        for(var i=0;i<n;i++){
+          var len=35+Math.random()*170, dir=Math.random()<.5?1:-1;
+          var x2=x+(hz?dir*len:0), y2=y+(hz?0:dir*len);
+          segs.push({x1:x,y1:y,x2:x2,y2:y2}); x=x2; y=y2; hz=!hz;
+        }
+        return segs;
+      }
+      function buildBg(){
+        bgPaths=[];
+        var n=Math.max(18,Math.floor((canvas.width*canvas.height)/11000));
+        for(var i=0;i<n;i++) bgPaths.push(makePath());
+      }
+      function totalLen(segs){ return segs.reduce(function(s,g){ return s+Math.abs(g.x2-g.x1)+Math.abs(g.y2-g.y1); },0); }
+      function headAt(segs,t){
+        var rem=t*totalLen(segs);
+        for(var i=0;i<segs.length;i++){
+          var sl=Math.abs(segs[i].x2-segs[i].x1)+Math.abs(segs[i].y2-segs[i].y1);
+          if(rem<=sl||i===segs.length-1){ var f=sl>0?Math.min(rem/sl,1):1; return{x:segs[i].x1+(segs[i].x2-segs[i].x1)*f,y:segs[i].y1+(segs[i].y2-segs[i].y1)*f}; }
+          rem-=sl;
+        }
+        var ls=segs[segs.length-1]; return{x:ls.x2,y:ls.y2};
+      }
+      function spawn(){ active.push({segs:makePath(),p:0,spd:.0035+Math.random()*.006,life:0,max:160+Math.floor(Math.random()*130)}); }
+      function resize(){ canvas.width=canvas.offsetWidth; canvas.height=canvas.offsetHeight; buildBg(); }
+      resize(); window.addEventListener('resize',resize);
+      for(var i=0;i<4;i++) spawn();
+
+      function draw(){
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        ctx.save(); ctx.lineWidth=.75;
+        bgPaths.forEach(function(path){
+          path.forEach(function(s){
+            ctx.beginPath(); ctx.moveTo(s.x1,s.y1); ctx.lineTo(s.x2,s.y2);
+            ctx.strokeStyle='rgba('+rc+','+(0.07*mul)+')'; ctx.stroke();
+            ctx.beginPath(); ctx.arc(s.x1,s.y1,1.4,0,Math.PI*2);
+            ctx.fillStyle='rgba('+rc+','+(0.14*mul)+')'; ctx.fill();
+          });
+          var ls=path[path.length-1]; ctx.beginPath(); ctx.arc(ls.x2,ls.y2,1.6,0,Math.PI*2);
+          ctx.fillStyle='rgba('+rc+','+(0.18*mul)+')'; ctx.fill();
+        });
+        ctx.restore();
+        if(active.length<5&&Math.random()<.022) spawn();
+        active=active.filter(function(tr){
+          tr.life++; tr.p=Math.min(1,tr.p+tr.spd);
+          var t=tr.life/tr.max, a=t<.15?t/.15:t>.75?(1-t)/.25:1;
+          var tlen=totalLen(tr.segs),drawn=tr.p*tlen,acc=0;
+          ctx.save(); ctx.lineWidth=1.2; ctx.shadowBlur=5; ctx.shadowColor='rgba('+rc+','+(0.85*mul)+')';
+          for(var i=0;i<tr.segs.length;i++){
+            var s=tr.segs[i],slen=Math.abs(s.x2-s.x1)+Math.abs(s.y2-s.y1);
+            if(acc>=drawn) break;
+            var frac=Math.min((drawn-acc)/slen,1),ex=s.x1+(s.x2-s.x1)*frac,ey=s.y1+(s.y2-s.y1)*frac;
+            ctx.beginPath(); ctx.moveTo(s.x1,s.y1); ctx.lineTo(ex,ey);
+            ctx.strokeStyle='rgba('+rc+','+(a*0.55*mul)+')'; ctx.stroke();
+            ctx.beginPath(); ctx.arc(s.x1,s.y1,2,0,Math.PI*2);
+            ctx.fillStyle='rgba('+rc+','+(a*mul)+')'; ctx.shadowBlur=9; ctx.fill(); ctx.shadowBlur=5;
+            if(frac>=1){
+              ctx.beginPath(); ctx.arc(s.x2,s.y2,2.5,0,Math.PI*2);
+              ctx.fillStyle='rgba('+rc+','+(a*mul)+')'; ctx.shadowBlur=10; ctx.fill(); ctx.shadowBlur=5;
+            }
+            acc+=slen;
+          }
+          var h=headAt(tr.segs,tr.p);
+          ctx.beginPath(); ctx.arc(h.x,h.y,3.2,0,Math.PI*2);
+          ctx.fillStyle='rgba('+rc+','+(a*mul)+')'; ctx.shadowBlur=18; ctx.shadowColor='rgba('+rc+',1)';
+          ctx.fill(); ctx.restore();
+          return tr.life<tr.max;
+        });
+        requestAnimationFrame(draw);
+      }
+      draw();
+    }
+
+    startPCB('ecoCanvas');
+    startPCB('industriesCanvas');
   })();
   </script>
 </body>

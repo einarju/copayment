@@ -58,7 +58,7 @@ updateNavHeight();
   function scheduleClose() {
     backdropCloseTimer = setTimeout(() => {
       if (!document.querySelector('.nav-item:hover')) backdrop.classList.remove('is-visible');
-    }, 120);
+    }, 350);
   }
 
   document.querySelectorAll('.nav-item').forEach(item => {
