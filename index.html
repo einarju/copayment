@@ -512,8 +512,8 @@
       <div class="wiz-header anim-fade-up">
         <div class="wiz-header-text">
           <span class="section-label">Tu puerta al ecosistema de pagos</span>
-          <h2 class="wiz-title">¿Qué quieres<br>hacer posible?</h2>
-          <p class="wiz-sub">Dinos qué tipo de institución eres y a qué segmento quieres llegar. Te mostramos exactamente cómo conectarte al ecosistema.</p>
+          <h2 class="wiz-title">Emite, procesa y adquiere.<br>Más simple de lo que crees.</h2>
+          <p class="wiz-sub">Dinos qué tipo de institución eres y qué quieres lograr. Te mostramos exactamente cómo conectarte al ecosistema.</p>
         </div>
         <div class="wiz-header-visual" aria-hidden="true">
           <svg viewBox="-10 -10 300 205" class="wiz-cards-svg" id="wizCardsSvg">
@@ -566,7 +566,7 @@
       <div class="wiz-steps anim-fade-up" aria-hidden="true">
         <span class="wiz-step active" data-wstep="1"><span class="wiz-step-dot">1</span> Tu institución</span>
         <span class="wiz-step-line"></span>
-        <span class="wiz-step" data-wstep="2"><span class="wiz-step-dot">2</span> Tu segmento objetivo</span>
+        <span class="wiz-step" data-wstep="2"><span class="wiz-step-dot">2</span> ¿Qué quieres lograr?</span>
         <span class="wiz-step-line"></span>
         <span class="wiz-step" data-wstep="3"><span class="wiz-step-dot">3</span> La solución que necesitas</span>
       </div>
@@ -582,7 +582,7 @@
 
         <!-- STEP 2: goal -->
         <div class="wiz-pane" data-wpane="2">
-          <p class="wiz-question">¿A qué segmento quieres llegar?</p>
+          <p class="wiz-question">¿Qué quieres lograr?</p>
           <div class="wiz-options" id="wizGoalOptions"></div>
           <button class="wiz-back" id="wizBack2">&#8592; Atrás</button>
         </div>
@@ -1307,99 +1307,62 @@
     var SOL_LINKS = {
       'Switch Emisor':      'lo-que-hacemos.html#emision',
       'BIN Sponsor':        'lo-que-hacemos.html#emision',
-      'Procesamiento':      'lo-que-hacemos.html#procesamiento',
       'Switch Adquirente':  'lo-que-hacemos.html#adquirencia'
     };
 
     var DATA = [
       {
-        name: 'Empresa Digital de Servicios Financieros',
-        hint: 'Fintechs, wallets y plataformas digitales',
-        goals: [
-          { g: 'Lanzar mi primer programa de tarjetas', sols: ['Switch Emisor','BIN Sponsor'],
-            t: 'Lanza tu primer programa de tarjetas sin fricción',
-            d: 'Emite bajo nuestro BIN y procesa con nuestro switch emisor: infraestructura regulada y lista para operar, sin construir desde cero.' },
-          { g: 'Escalar mi operación actual', sols: ['Switch Emisor'],
-            t: 'Escala tu operación con un switch emisor de clase mundial',
-            d: 'Autorización en tiempo real, alta disponibilidad y capacidad de crecimiento sin límites de volumen.' },
-          { g: 'Ofrecer tarjetas a mis usuarios digitales', sols: ['Switch Emisor'],
-            t: 'Pon una tarjeta en manos de cada usuario digital',
-            d: 'Tarjetas físicas y virtuales integradas a tu app, con APIs ágiles y gestión completa del ciclo de vida.' },
-          { g: 'Acceder a redes internacionales', sols: ['Switch Emisor','Procesamiento'],
-            t: 'Conéctate a las redes internacionales de pago',
-            d: 'Acceso directo a Visa, Mastercard y CARNET con procesamiento de alta disponibilidad y respaldo regulatorio.' }
-        ]
-      },
-      {
-        name: 'Institución de Ahorro y Crédito Popular',
-        hint: 'Sofipos, cajas de ahorro y cooperativas',
-        goals: [
-          { g: 'Emitir tarjetas para mis socios', sols: ['Switch Emisor'],
-            t: 'Emite tarjetas para tus socios',
-            d: 'Tarjetas de débito con tu marca, conectadas a las redes de pago, para que tus socios dispongan de su dinero en cualquier lugar.' },
-          { g: 'Modernizar mis medios de pago', sols: ['Switch Emisor'],
-            t: 'Moderniza tus medios de pago',
-            d: 'Lleva tu operación a estándares EMV con infraestructura segura y acompañamiento en cada paso.' },
-          { g: 'Digitalizar mi operación', sols: ['Switch Emisor'],
-            t: 'Digitaliza tu operación financiera',
-            d: 'Integra canales digitales, gestión de NIP y autorización en tiempo real sin reemplazar tu core.' },
-          { g: 'Ampliar mis servicios financieros', sols: ['Switch Emisor','BIN Sponsor'],
-            t: 'Amplía tus servicios financieros',
-            d: 'Suma nuevos productos de pago bajo un BIN respaldado, con cumplimiento normativo integrado.' }
-        ]
-      },
-      {
-        name: 'SOFOM',
-        hint: 'Instituciones de crédito y financiamiento',
-        goals: [
-          { g: 'Emitir sin membresía directa', sols: ['BIN Sponsor'],
-            t: 'Emite tarjetas sin membresía directa',
-            d: 'Opera bajo nuestro BIN y lanza productos de pago sin los costos ni los tiempos de una membresía propia.' },
-          { g: 'Dar tarjeta a mis acreditados', sols: ['Switch Emisor','BIN Sponsor'],
-            t: 'Dale una tarjeta a cada acreditado',
-            d: 'Dispersa créditos directamente a tarjetas con tu marca, con emisión y procesamiento integrados.' },
-          { g: 'Lanzar un producto de crédito con tarjeta', sols: ['BIN Sponsor'],
-            t: 'Lanza tu producto de crédito con tarjeta',
-            d: 'Del concepto a la emisión en semanas, con cumplimiento regulatorio y prevención de fraude incluidos.' },
-          { g: 'Operar bajo BIN de tercero', sols: ['BIN Sponsor'],
-            t: 'Opera bajo un BIN de tercero confiable',
-            d: 'Infraestructura emisora completa y regulada, lista para que te concentres en tu negocio.' }
-        ]
-      },
-      {
-        name: 'Adquirente / Agregador',
+        name: 'Soy agregador o adquirente',
         hint: 'Conectan comercios al ecosistema de pagos',
         goals: [
-          { g: 'Ampliar mi red de comercios', sols: ['Switch Adquirente'],
-            t: 'Amplía tu red de comercios',
-            d: 'Conecta más comercios a las redes de pago con un switch adquirente de alta disponibilidad.' },
-          { g: 'Procesar más volumen de transacciones', sols: ['Switch Adquirente','Procesamiento'],
+          { g: 'Construir mi propia infraestructura de pagos', sols: ['Switch Adquirente'],
+            t: 'Construye tu propia infraestructura de pagos',
+            d: 'Implementa un switch adquirente robusto y conecta comercios a las redes de pago sin depender de terceros.' },
+          { g: 'Procesar más volumen de transacciones', sols: ['Switch Adquirente'],
             t: 'Procesa más volumen sin perder el control',
             d: 'Escala tu capacidad transaccional con monitoreo en tiempo real y compensación automatizada.' },
-          { g: 'Conectarme a nuevas redes de pago', sols: ['Switch Adquirente','Procesamiento'],
-            t: 'Conéctate a nuevas redes de pago',
-            d: 'Una sola integración para llegar a las redes más importantes de México y la región.' },
-          { g: 'Mejorar mi infraestructura de procesamiento', sols: ['Switch Adquirente'],
-            t: 'Mejora tu infraestructura de procesamiento',
-            d: 'Tecnología robusta, trazabilidad completa y soporte experto para tu operación adquirente.' }
+          { g: 'Mejorar la seguridad y conectividad', sols: ['Switch Adquirente'],
+            t: 'Mejora tu seguridad y conectividad',
+            d: 'Tecnología robusta con trazabilidad completa y los más altos estándares de seguridad transaccional.' },
+          { g: 'Gestionar mejor mis operaciones', sols: ['Switch Adquirente'],
+            t: 'Gestiona mejor tus operaciones',
+            d: 'Visibilidad y control de cada transacción, con soporte experto para tu operación adquirente.' }
         ]
       },
       {
-        name: 'Retail',
-        hint: 'Comercios y cadenas con visión financiera',
+        name: 'Soy una institución financiera digital',
+        hint: 'Fintech, bancos, neo bancos, billeteras digitales, programas de beneficios',
         goals: [
-          { g: 'Emitir mi propia tarjeta de marca', sols: ['BIN Sponsor'],
-            t: 'Emite tu propia tarjeta de marca',
-            d: 'Convierte tu marca en un medio de pago: tarjetas propias sin construir infraestructura bancaria.' },
-          { g: 'Aceptar más medios de pago', sols: ['Switch Adquirente'],
-            t: 'Acepta más medios de pago',
-            d: 'Integra pagos en tienda, en línea y en app con liquidación rápida y seguridad transaccional.' },
-          { g: 'Fidelizar a mis tarjetahabientes', sols: ['BIN Sponsor'],
-            t: 'Fideliza a tus tarjetahabientes',
-            d: 'Programas de pago con tu marca que convierten cada compra en una razón para volver.' },
-          { g: 'Lanzar un programa de beneficios', sols: ['BIN Sponsor','Switch Adquirente'],
-            t: 'Lanza tu programa de beneficios',
-            d: 'Emisión y aceptación integradas para recompensar a tus clientes en todo tu ecosistema.' }
+          { g: 'Lanzar mi primer programa de tarjetas', sols: ['Switch Emisor'],
+            t: 'Lanza tu primer programa de tarjetas',
+            d: 'Infraestructura emisora regulada y lista para operar, sin construirla desde cero.' },
+          { g: 'Cumplir con las regulaciones', sols: ['Switch Emisor'],
+            t: 'Cumple con las regulaciones del sector',
+            d: 'Procesamiento autorizado y respaldado por los más altos estándares de cumplimiento normativo.' },
+          { g: 'Administrar el ciclo de vida de las tarjetas', sols: ['Switch Emisor'],
+            t: 'Administra el ciclo de vida de tus tarjetas',
+            d: 'Desde la emisión hasta la reposición, gestiona cada etapa con un switch emisor de clase mundial.' },
+          { g: 'Acceder a redes de pago', sols: ['Switch Emisor','BIN Sponsor'],
+            t: 'Accede a las redes de pago',
+            d: 'Conéctate a Visa, Mastercard y CARNET bajo un BIN respaldado y procesamiento de alta disponibilidad.' }
+        ]
+      },
+      {
+        name: 'Soy entidad de crédito o ahorro popular',
+        hint: 'SAPIS, Sofomes, Sofipos, cajas de ahorro',
+        goals: [
+          { g: 'Emitir tarjetas para mis socios o acreditados', sols: ['Switch Emisor','BIN Sponsor'],
+            t: 'Emite tarjetas para tus socios o acreditados',
+            d: 'Tarjetas con tu marca, conectadas a las redes de pago, para que tus socios dispongan de su dinero en cualquier lugar.' },
+          { g: 'Digitalizar o modernizar mis medios de pago', sols: ['Switch Emisor','BIN Sponsor'],
+            t: 'Digitaliza o moderniza tus medios de pago',
+            d: 'Lleva tu operación a estándares EMV con infraestructura segura y acompañamiento en cada paso.' },
+          { g: 'Ampliar los servicios financieros que ofrezco', sols: ['Switch Emisor','BIN Sponsor'],
+            t: 'Amplía los servicios financieros que ofreces',
+            d: 'Suma nuevos productos de pago bajo un BIN respaldado, con cumplimiento normativo integrado.' },
+          { g: 'Procesar de forma ágil y con costos accesibles', sols: ['Switch Emisor','BIN Sponsor'],
+            t: 'Procesa de forma ágil y con costos accesibles',
+            d: 'Infraestructura emisora completa y regulada, optimizada para mantener tus costos bajo control.' }
         ]
       }
     ];
