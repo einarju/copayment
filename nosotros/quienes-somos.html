@@ -53,7 +53,7 @@
       will-change: height;
     }
     .tl-nav { display: flex; flex-direction: column; gap: 2.75rem; position: relative; z-index: 1; }
-    .tl-nav-item { display: flex; align-items: center; gap: .85rem; cursor: default; }
+    .tl-nav-item { display: flex; align-items: center; gap: .85rem; cursor: pointer; }
     .tl-nav-dot {
       width: 11px; height: 11px;
       border-radius: 50%;
@@ -93,9 +93,9 @@
 
     .tl-label {
       position: absolute;
-      top: 2.5rem; left: 2.5rem;
+      top: 6rem; left: 2.5rem;
       font-family: 'Montserrat', sans-serif;
-      font-size: .65rem;
+      font-size: 1rem;
       font-weight: 700;
       letter-spacing: .18em;
       text-transform: uppercase;
@@ -147,7 +147,7 @@
     .tl-era-year {
       font-family: 'Montserrat', sans-serif;
       font-weight: 900;
-      font-size: clamp(3.5rem, 7vw, 6.5rem);
+      font-size: clamp(2.25rem, 4.5vw, 4rem);
       color: #ffffff;
       line-height: 1;
       margin-bottom: 1.75rem;
@@ -157,21 +157,30 @@
       text-shadow: 0 0 60px rgba(0,172,255,.55), 0 2px 0 rgba(0,0,0,.2);
     }
 
-    /* ── Milestone items ── */
-    .tl-items { list-style: none; padding: 0; margin: 0; }
+    /* ── Milestone cards ── */
+    .tl-items { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .8rem; }
 
     .tl-item {
-      display: flex;
-      gap: 1.1rem;
-      padding: .7rem 0;
-      border-bottom: 1px solid rgba(255,255,255,.06);
+      border-radius: 14px;
+      padding: 1.1rem 1.4rem 1.1rem 1.6rem;
+      border: 1px solid rgba(255,255,255,.1);
+      border-left: 4px solid rgba(255,255,255,.18);
       /* entrance animation via CSS when panel becomes active */
       opacity: 0;
-      transform: translateX(-32px) scale(.9);
+      transform: translateX(-32px) scale(.95);
       transition: opacity .5s cubic-bezier(.4,0,.2,1),
                   transform .5s cubic-bezier(.34,1.45,.64,1); /* spring */
     }
-    .tl-item:last-child { border-bottom: none; }
+    .tl-item--orange { background: rgba(244,127,32,.16); border-color: rgba(244,127,32,.3); border-left-color: #f47f20; }
+    .tl-item--blue   { background: rgba(0,172,255,.13);  border-color: rgba(0,172,255,.28); border-left-color: #00acff; }
+    .tl-item--green  { background: rgba(6,142,80,.16);   border-color: rgba(6,142,80,.34); border-left-color: #0fc870; }
+    .tl-item--quote  { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.18); }
+    .tl-item--quote .tl-text {
+      font-weight: 700;
+      font-style: italic;
+      font-size: clamp(1rem, 1.6vw, 1.2rem);
+      color: #fff;
+    }
 
     /* Stagger delays applied when is-active */
     .tl-panel.is-active .tl-item:nth-child(1) { transition-delay: .07s; }
@@ -183,16 +192,6 @@
       transform: translateX(0) scale(1);
     }
 
-    .tl-num {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 800;
-      font-size: .65rem;
-      color: rgba(0,172,255,.6);
-      flex-shrink: 0;
-      margin-top: .4rem;
-      min-width: 1.4rem;
-      letter-spacing: .04em;
-    }
     .tl-text {
       color: rgba(255,255,255,.65);
       font-size: clamp(.88rem, 1.2vw, 1rem);
@@ -222,62 +221,10 @@
     .tl-hint svg { animation: bounce 1.8s ease-in-out infinite; }
     @keyframes bounce { 0%,100%{transform:translateY(0)} 55%{transform:translateY(6px)} }
 
-    /* ── Two-column panel layout ── */
+    /* ── Panel layout ── */
     .tl-panel-body {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    /* ── Achievement cards (right column) ── */
-    .tl-ach-wrap {
-      display: flex;
-      flex-direction: column;
-      gap: .8rem;
-    }
-    .tl-ach-card {
-      border-radius: 14px;
-      padding: 1.1rem 1.4rem;
-      border: 1px solid rgba(255,255,255,.1);
-      opacity: 0;
-      transform: translateX(28px);
-      transition: opacity .5s cubic-bezier(.4,0,.2,1),
-                  transform .5s cubic-bezier(.34,1.45,.64,1);
-    }
-    .tl-panel.is-active .tl-ach-card { opacity: 1; transform: translateX(0); }
-    .tl-panel.is-active .tl-ach-card:nth-child(1) { transition-delay: .2s; }
-    .tl-panel.is-active .tl-ach-card:nth-child(2) { transition-delay: .33s; }
-    .tl-panel.is-active .tl-ach-card:nth-child(3) { transition-delay: .46s; }
-    .tl-ach-card--orange { background: rgba(244,127,32,.10); border-color: rgba(244,127,32,.28); }
-    .tl-ach-card--green  { background: rgba(6,142,80,.10);  border-color: rgba(6,142,80,.32); }
-    .tl-ach-card--blue   { background: rgba(0,172,255,.07); border-color: rgba(0,172,255,.22); }
-    .tl-ach-badge {
-      display: inline-block;
-      font-family: 'Montserrat', sans-serif;
-      font-size: .6rem;
-      font-weight: 700;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      padding: .16rem .55rem;
-      border-radius: 50px;
-      margin-bottom: .45rem;
-    }
-    .tl-ach-card--orange .tl-ach-badge { background: rgba(244,127,32,.22); color: #f47f20; }
-    .tl-ach-card--green  .tl-ach-badge { background: rgba(6,142,80,.22);  color: #0fc870; }
-    .tl-ach-card--blue   .tl-ach-badge { background: rgba(0,172,255,.18); color: #00acff; }
-    .tl-ach-title {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: .88rem;
-      color: #fff;
-      line-height: 1.4;
-    }
-    .tl-ach-sub {
-      font-size: .76rem;
-      color: rgba(255,255,255,.4);
-      margin-top: .2rem;
-      line-height: 1.45;
+      grid-template-columns: 1fr;
     }
 
     /* ── Mobile ── */
@@ -293,8 +240,6 @@
       .tl-watermark { font-size: 4rem; }
       .tl-era-year  { font-size: 2rem; }
       .tl-counter, .tl-hint { display: none; }
-      .tl-panel-body { grid-template-columns: 1fr; }
-      .tl-ach-wrap { display: none; }
     }
 
     /* ── Offices ── */
@@ -401,13 +346,6 @@
       margin: 0; padding: 0;
     }
 
-    /* Mission section left-border quote accent */
-    .qs-mission-quote {
-      border-left: 4px solid #f47f20;
-      padding-left: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-
     /* Ambient glow section (white sections) */
     .qs-amb-section { position: relative; overflow: hidden; }
     .qs-amb-section::before {
@@ -511,7 +449,6 @@
 
   <!-- HERO -->
   <section class="page-hero" id="quienes">
-    <canvas id="heroCanvas" data-r="0" data-g="172" data-b="255" data-mul="1" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
     <div class="container">
       <div class="page-hero-content">
         <nav class="breadcrumb" aria-label="Ruta de navegación">
@@ -540,7 +477,6 @@
 
   <!-- TEAM PHOTO -->
   <section class="section" style="background:var(--navy);position:relative;overflow:hidden;">
-    <canvas id="teamCanvas" data-r="0" data-g="172" data-b="255" data-mul="1" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
     <div class="container" style="position:relative;">
       <div class="about-grid">
         <div class="about-img-wrap anim-fade-left">
@@ -548,8 +484,8 @@
         </div>
         <div class="anim-fade-right anim-delay-1">
           <span class="qs-section-tag">Quiénes somos</span>
-          <h2 class="section-title" style="color:#fff;">Impulsando el ecosistema de medios de pago</h2>
-          <p style="color:rgba(255,255,255,.65);line-height:1.7;">Somos expertos en el mercado mexicano de pagos y nuestro compromiso es claro: transformar la forma en que el mundo paga.</p>
+          <h2 class="section-title" style="color:#fff;">La tecnología correcta para quienes quieren transformarse.</h2>
+          <p style="color:rgba(255,255,255,.65);line-height:1.7;">Ayudamos a personas y negocios a acceder al sistema financiero a través de soluciones digitales de pago simples y accesibles.</p>
         </div>
       </div>
     </div>
@@ -559,7 +495,6 @@
   <section class="tl-section" id="historia">
     <div class="tl-wrapper" id="tlWrapper">
       <div class="tl-sticky">
-        <canvas id="tlCanvas" data-r="0" data-g="172" data-b="255" data-mul="1" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
 
         <!-- Left vertical progress -->
         <div class="tl-sidebar">
@@ -585,40 +520,19 @@
                 <div>
                   <div class="tl-era-year" id="tlY0">2017 – 2019</div>
                   <ul class="tl-items">
-                    <li class="tl-item">
-                      <span class="tl-num">01</span>
-                      <span class="tl-text">Iniciamos con el propósito de fortalecer el ecosistema de medios de pago, ofreciendo consultorías en operaciones y <mark class="h">prevención de fraudes</mark>.</span>
+                    <li class="tl-item tl-item--quote">
+                      <span class="tl-text">Comenzamos con un propósito: &ldquo;Transformar la forma en que el mundo paga&rdquo;.</span>
                     </li>
-                    <li class="tl-item">
-                      <span class="tl-num">02</span>
-                      <span class="tl-text">Obtuvimos nuestra primera certificación <mark class="h">PCI DSS</mark>.</span>
+                    <li class="tl-item tl-item--orange">
+                      <span class="tl-text">Primera certificación <mark class="h">PCI DSS</mark>.</span>
                     </li>
-                    <li class="tl-item">
-                      <span class="tl-num">03</span>
-                      <span class="tl-text">Fortalecimos nuestro propósito impulsando foros de encuentro e intercambio.</span>
+                    <li class="tl-item tl-item--blue">
+                      <span class="tl-text">Desarrollamos los primeros <mark class="h">foros</mark>.</span>
                     </li>
-                    <li class="tl-item">
-                      <span class="tl-num">04</span>
-                      <span class="tl-text">Impulsamos a más clientes con nuestros servicios de <mark class="h">Switch Emisor</mark> y <mark class="h">BIN Sponsor</mark>.</span>
+                    <li class="tl-item tl-item--green">
+                      <span class="tl-text">Sumamos <mark class="h">Switch Emisor</mark> y <mark class="h">BIN Sponsor</mark>.</span>
                     </li>
                   </ul>
-                </div>
-                <div class="tl-ach-wrap">
-                  <div class="tl-ach-card tl-ach-card--orange">
-                    <span class="tl-ach-badge">Certificación</span>
-                    <div class="tl-ach-title">Primera certificación PCI DSS</div>
-                    <div class="tl-ach-sub">Estándar global de seguridad en transacciones de pago</div>
-                  </div>
-                  <div class="tl-ach-card tl-ach-card--blue">
-                    <span class="tl-ach-badge">Servicios</span>
-                    <div class="tl-ach-title">Switch Emisor &amp; BIN Sponsor activos</div>
-                    <div class="tl-ach-sub">Inicio del portafolio de infraestructura de pagos</div>
-                  </div>
-                  <div class="tl-ach-card tl-ach-card--green">
-                    <span class="tl-ach-badge">Comunidad</span>
-                    <div class="tl-ach-title">Foros de encuentro e intercambio</div>
-                    <div class="tl-ach-sub">Construcción del ecosistema de medios de pago en México</div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -630,27 +544,13 @@
                 <div>
                   <div class="tl-era-year" id="tlY1">2020 – 2021</div>
                   <ul class="tl-items">
-                    <li class="tl-item">
-                      <span class="tl-num">05</span>
-                      <span class="tl-text">Impulsamos a más clientes con nuestros servicios de <mark class="h">Switch Emisor</mark> y <mark class="h">BIN Sponsor</mark>.</span>
+                    <li class="tl-item tl-item--orange">
+                      <span class="tl-text">Agregamos <mark class="h">Switch Emisor</mark> y <mark class="h">BIN Sponsor</mark> a nuestra oferta.</span>
                     </li>
-                    <li class="tl-item">
-                      <span class="tl-num">06</span>
-                      <span class="tl-text">Nos consolidamos como <mark class="h">procesador de pagos VISA</mark> integrando nuestro primer cliente emisor.</span>
+                    <li class="tl-item tl-item--blue">
+                      <span class="tl-text">Nos convertimos en <mark class="h">procesador de pagos VISA</mark> con nuestro primer cliente emisor.</span>
                     </li>
                   </ul>
-                </div>
-                <div class="tl-ach-wrap">
-                  <div class="tl-ach-card tl-ach-card--orange">
-                    <span class="tl-ach-badge">Certificación</span>
-                    <div class="tl-ach-title">Procesador de pagos VISA certificado</div>
-                    <div class="tl-ach-sub">Integración directa con la red de pagos VISA global</div>
-                  </div>
-                  <div class="tl-ach-card tl-ach-card--blue">
-                    <span class="tl-ach-badge">Hito</span>
-                    <div class="tl-ach-title">Primer cliente emisor integrado</div>
-                    <div class="tl-ach-sub">Consolidación como plataforma de procesamiento de tarjetas</div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -662,40 +562,19 @@
                 <div>
                   <div class="tl-era-year" id="tlY2">2022 – 2023</div>
                   <ul class="tl-items">
-                    <li class="tl-item">
-                      <span class="tl-num">07</span>
-                      <span class="tl-text">Desarrollamos e implementamos el primer <mark class="h">robot de aclaraciones y contracargos</mark> de México.</span>
+                    <li class="tl-item tl-item--orange">
+                      <span class="tl-text">Primer <mark class="h">robot de aclaraciones y contracargos</mark> en México.</span>
                     </li>
-                    <li class="tl-item">
-                      <span class="tl-num">08</span>
-                      <span class="tl-text">Nos convertimos en el primer emisor certificado para operar con la <mark class="h">Cámara Doméstica VISA</mark>.</span>
+                    <li class="tl-item tl-item--blue">
+                      <span class="tl-text">Primer emisor certificado para operar con la <mark class="h">Cámara Doméstica VISA</mark>.</span>
                     </li>
-                    <li class="tl-item">
-                      <span class="tl-num">09</span>
-                      <span class="tl-text">Implementamos la certificación <mark class="h">Switch Agregador Productivo Copayment</mark>.</span>
+                    <li class="tl-item tl-item--green">
+                      <span class="tl-text">Certificación <mark class="h">Switch Agregador Productivo Copayment</mark>.</span>
                     </li>
-                    <li class="tl-item">
-                      <span class="tl-num">10</span>
-                      <span class="tl-text">Obtuvimos la aprobación de la licencia principal de <mark class="h">emisor con VISA</mark>.</span>
+                    <li class="tl-item tl-item--orange">
+                      <span class="tl-text">Licencia principal de emisor con <mark class="h">VISA</mark>.</span>
                     </li>
                   </ul>
-                </div>
-                <div class="tl-ach-wrap">
-                  <div class="tl-ach-card tl-ach-card--orange">
-                    <span class="tl-ach-badge">Innovación · Primero en México</span>
-                    <div class="tl-ach-title">Robot de aclaraciones y contracargos</div>
-                    <div class="tl-ach-sub">Automatización inédita en el mercado mexicano de pagos</div>
-                  </div>
-                  <div class="tl-ach-card tl-ach-card--blue">
-                    <span class="tl-ach-badge">Certificación</span>
-                    <div class="tl-ach-title">Primer emisor certificado — Cámara Doméstica VISA</div>
-                    <div class="tl-ach-sub">Liderazgo técnico en el ecosistema nacional de pagos</div>
-                  </div>
-                  <div class="tl-ach-card tl-ach-card--green">
-                    <span class="tl-ach-badge">Licencia</span>
-                    <div class="tl-ach-title">Licencia principal de emisor con VISA aprobada</div>
-                    <div class="tl-ach-sub">Habilitación para operar como emisor directo en México</div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -707,35 +586,13 @@
                 <div>
                   <div class="tl-era-year" id="tlY3">2024 – 2025</div>
                   <ul class="tl-items">
-                    <li class="tl-item">
-                      <span class="tl-num">11</span>
-                      <span class="tl-text">Fuimos el primer emisor certificado para operar con la <mark class="h">Cámara Doméstica VISA</mark>.</span>
+                    <li class="tl-item tl-item--orange">
+                      <span class="tl-text">Quinta renovación consecutiva de certificación <mark class="h">PCI DSS</mark>.</span>
                     </li>
-                    <li class="tl-item">
-                      <span class="tl-num">12</span>
-                      <span class="tl-text">Implementamos la certificación <mark class="h">Switch Agregador Productivo Copayment</mark>.</span>
-                    </li>
-                    <li class="tl-item">
-                      <span class="tl-num">13</span>
-                      <span class="tl-text">Logramos nuestra certificación <mark class="h">PCI 2.0.1</mark> por 5° año consecutivo.</span>
-                    </li>
-                    <li class="tl-item">
-                      <span class="tl-num">14</span>
-                      <span class="tl-text">Primer Procesador mexicano en desarrollar e implementar <mark class="h">CVV Dinámico en Tarjeta Física sin Batería</mark>.</span>
+                    <li class="tl-item tl-item--blue">
+                      <span class="tl-text">Primer procesador mexicano en implementar <mark class="h">CVV Dinámico</mark> en tarjeta física sin batería.</span>
                     </li>
                   </ul>
-                </div>
-                <div class="tl-ach-wrap">
-                  <div class="tl-ach-card tl-ach-card--orange">
-                    <span class="tl-ach-badge">5° Año Consecutivo</span>
-                    <div class="tl-ach-title">Certificación PCI 2.0.1</div>
-                    <div class="tl-ach-sub">Compromiso sostenido con los más altos estándares de seguridad</div>
-                  </div>
-                  <div class="tl-ach-card tl-ach-card--green">
-                    <span class="tl-ach-badge">Primero en México</span>
-                    <div class="tl-ach-title">CVV Dinámico en Tarjeta Física sin Batería</div>
-                    <div class="tl-ach-sub">Tecnología pionera a nivel nacional en emisión de tarjetas seguras</div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -755,7 +612,6 @@
 
   <!-- STAT -->
   <section class="section-sm" style="background:var(--navy);text-align:center;position:relative;overflow:hidden;">
-    <canvas id="statsCanvas" data-r="0" data-g="172" data-b="255" data-mul="1" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
     <div class="container" style="position:relative;">
       <p class="anim-fade-up" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(1.1rem,2vw,1.5rem);color:var(--white);max-width:700px;margin:0 auto;line-height:1.6;">
         Más de <span style="color:#f47f20;text-shadow:0 0 20px rgba(244,127,32,.4);">100 expertos</span> en medios de pago, tecnología financiera y prevención de fraudes trabajando en tu proyecto
@@ -779,7 +635,6 @@
 
   <!-- TEAM PHOTO CAROUSEL -->
   <section class="section-sm tg-section" id="equipo" style="background:var(--navy);overflow:hidden;position:relative;">
-    <canvas id="carouselCanvas" data-r="0" data-g="172" data-b="255" data-mul="0.9" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
     <style>
       .tg-section { padding:4rem 0 3rem; }
       .tg-header  { text-align:center; padding:0 1.5rem; margin-bottom:2.25rem; }
@@ -998,7 +853,6 @@
 
   <!-- OFFICES MAP – LEAFLET -->
   <section class="section-sm offices-map-section" style="background:var(--navy);text-align:center;position:relative;overflow:hidden;">
-    <canvas id="officesCanvas" data-r="0" data-g="172" data-b="255" data-mul="0.85" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
     <div class="container" style="position:relative;">
       <h2 class="section-title" style="color:#fff;margin-bottom:.4rem;">Oficinas</h2>
@@ -1017,7 +871,7 @@
     </div>
     <style>
       .wmap-wrap{max-width:800px;margin:0 auto 1.25rem;border-radius:14px;overflow:hidden;border:1px solid rgba(0,172,255,.3);box-shadow:0 0 60px rgba(0,50,122,.6);}
-      #officesMap{display:block;width:100%;height:480px;background:#00327a!important;}
+      #officesMap{display:block;width:100%;height:480px;background:#fff!important;}
       /* No raster tiles — GeoJSON land layer gives exact brand colors, no grid seams */
       .city-tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:.45rem;max-width:800px;margin:0 auto;}
       .city-tab{background:rgba(255,255,255,.06);border:1px solid rgba(0,172,255,.22);color:rgba(255,255,255,.68);font-family:'Montserrat',sans-serif;font-size:.78rem;font-weight:600;padding:.42rem 1rem;border-radius:2rem;cursor:pointer;transition:background .18s,color .18s,border-color .18s,box-shadow .18s;display:inline-flex;align-items:center;gap:.4rem;}
@@ -1063,16 +917,39 @@
       });
       map.setMaxBounds([[-68,-143],[38,-25]]);
 
-      /* Load world countries as GeoJSON — Blue Bolt land on navy ocean, no tile grid */
-      fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json')
+      /* Strip degenerate slivers baked into the simplified topology (e.g. a thin
+         band spanning the full equator) — real landmasses don't span huge
+         longitude ranges while staying under ~2° of latitude. */
+      function isDegenerateRing(ring){
+        var minLon=Infinity,maxLon=-Infinity,minLat=Infinity,maxLat=-Infinity;
+        ring.forEach(function(pt){
+          if(pt[0]<minLon)minLon=pt[0]; if(pt[0]>maxLon)maxLon=pt[0];
+          if(pt[1]<minLat)minLat=pt[1]; if(pt[1]>maxLat)maxLat=pt[1];
+        });
+        return (maxLat-minLat) < 2 && (maxLon-minLon) > 60;
+      }
+      function stripDegenerateRings(geojson){
+        function clean(g){
+          if(g.type==='Polygon') g.coordinates = g.coordinates.filter(function(r){ return !isDegenerateRing(r); });
+          else if(g.type==='MultiPolygon') g.coordinates = g.coordinates
+            .map(function(rings){ return rings.filter(function(r){ return !isDegenerateRing(r); }); })
+            .filter(function(rings){ return rings.length > 0; });
+        }
+        if(geojson.type==='FeatureCollection') geojson.features.forEach(function(f){ clean(f.geometry); });
+        else clean(geojson);
+        return geojson;
+      }
+
+      /* Load simplified world landmass as GeoJSON — smaller file, faster pan/zoom, navy land on white ocean */
+      fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/land-110m.json')
         .then(function(r){ return r.json(); })
         .then(function(world){
-          var countries = topojson.feature(world, world.objects.countries);
-          L.geoJSON(countries,{
+          var land = stripDegenerateRings(topojson.feature(world, world.objects.land));
+          L.geoJSON(land,{
             style:{
-              fillColor:'#00acff',
-              fillOpacity:0.28,
-              color:'rgba(0,172,255,0.65)',
+              fillColor:'#00327a',
+              fillOpacity:0.85,
+              color:'#00acff',
               weight:1
             }
           }).addTo(map);
@@ -1124,7 +1001,6 @@
 
   <!-- CERTIFICATIONS -->
   <section class="section-sm" style="background:#fff;text-align:center;padding-top:3rem;position:relative;overflow:hidden;">
-    <canvas id="certsCanvas" data-r="0" data-g="50" data-b="122" data-mul="0.5" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
     <div class="container" style="position:relative;">
       <p class="partners-label anim-fade-up" style="margin-bottom:0;">Tecnología certificada por los más altos estándares de la industria</p>
       <div class="certs-flex">
@@ -1135,22 +1011,66 @@
     </div>
   </section>
 
-  <!-- MISSION + CTA — navy to break up white block -->
-  <section class="section" style="background:var(--navy);position:relative;overflow:hidden;">
-    <canvas id="missionCanvas" data-r="0" data-g="172" data-b="255" data-mul="1" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
-    <div class="container" style="max-width:700px;position:relative;z-index:1;">
-      <div class="qs-mission-quote anim-fade-up">
-        <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.25rem;color:#fff;margin-bottom:0;line-height:1.4;">
-          Detrás de cada transacción hay un equipo que se preocupa de verdad.
-        </p>
+  <!-- NUESTROS VALORES — navy to break up white block -->
+  <section class="section" id="valores" style="background:var(--navy);position:relative;overflow:hidden;">
+    <style>
+      .vals-grid { display:grid; grid-template-columns:1fr 1fr; gap:3.5rem; align-items:center; }
+      @media(max-width:900px){ .vals-grid{grid-template-columns:1fr;gap:2.5rem;} }
+      .vals-cards { display:grid; grid-template-columns:1fr 1fr; gap:.85rem; }
+      .vals-card {
+        border-radius:12px; padding:1.1rem 1.25rem;
+        display:flex; align-items:center; gap:.75rem;
+        transition:transform .25s, box-shadow .25s;
+      }
+      .vals-card:hover { transform:translateY(-3px); }
+      .vals-card-icon { flex-shrink:0; width:28px; height:28px; }
+      .vals-card-icon svg { width:100%; height:100%; stroke:currentColor; fill:none; stroke-width:2; display:block; }
+      .vals-card-text { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.82rem; line-height:1.3; color:#fff; }
+      .vals-card--fill-blue   { background:#00acff; }
+      .vals-card--fill-orange { background:#f47f20; }
+      .vals-card--fill-green  { background:#068e50; }
+      .vals-card--outline-blue   { background:rgba(255,255,255,.1); border:1.5px solid #00acff; }
+      .vals-card--outline-orange { background:rgba(255,255,255,.1); border:1.5px solid #f47f20; }
+      .vals-card--outline-green  { background:rgba(255,255,255,.1); border:1.5px solid #068e50; }
+      .vals-card--fill-blue .vals-card-icon, .vals-card--fill-orange .vals-card-icon, .vals-card--fill-green .vals-card-icon { color:#fff; }
+      .vals-card--outline-blue .vals-card-icon { color:#00acff; }
+      .vals-card--outline-orange .vals-card-icon { color:#f47f20; }
+      .vals-card--outline-green .vals-card-icon { color:#068e50; }
+    </style>
+    <div class="container" style="position:relative;">
+      <div class="vals-grid">
+        <div>
+          <div class="pillar-group-label anim-fade-left" style="margin-bottom:.5rem;color:var(--blue);">Nuestros valores</div>
+          <h2 class="section-title anim-fade-left anim-delay-1" style="color:#fff;margin-bottom:.75rem;">Lo que nos define en cada decisión</h2>
+          <p class="anim-fade-left anim-delay-2" style="color:rgba(255,255,255,.6);line-height:1.7;">Los principios que guían cómo trabajamos, cómo nos tratamos y cómo construimos la infraestructura de pagos en la que confían nuestros clientes.</p>
+        </div>
+        <div class="vals-cards">
+          <div class="vals-card vals-card--fill-blue anim-fade-up">
+            <div class="vals-card-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div class="vals-card-text">Colaboración</div>
+          </div>
+          <div class="vals-card vals-card--outline-orange anim-fade-up" style="transition-delay:80ms">
+            <div class="vals-card-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="vals-card-text">Compromiso</div>
+          </div>
+          <div class="vals-card vals-card--fill-green anim-fade-up" style="transition-delay:160ms">
+            <div class="vals-card-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+            <div class="vals-card-text">Empatía</div>
+          </div>
+          <div class="vals-card vals-card--outline-orange anim-fade-up" style="transition-delay:240ms">
+            <div class="vals-card-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <div class="vals-card-text">Pasión</div>
+          </div>
+          <div class="vals-card vals-card--fill-blue anim-fade-up" style="transition-delay:320ms">
+            <div class="vals-card-icon"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div>
+            <div class="vals-card-text">Versátil</div>
+          </div>
+          <div class="vals-card vals-card--outline-green anim-fade-up" style="transition-delay:400ms">
+            <div class="vals-card-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+            <div class="vals-card-text">Profesionalismo</div>
+          </div>
+        </div>
       </div>
-      <p class="anim-fade-up anim-delay-1" style="color:rgba(255,255,255,.65);line-height:1.7;margin-bottom:2.5rem;margin-top:1.25rem;">
-        En Copayment somos un equipo comprometido con sus clientes, con su seguridad y totalmente convencidos de que la mejor tecnología se construye con colaboración, experiencia y confianza.
-      </p>
-      <a href="#vacantes" class="btn btn-aux anim-fade-up anim-delay-2">
-        Súmate a Copayment
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-left:.5rem"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
     </div>
   </section>
 
@@ -1158,7 +1078,6 @@
        SOCIOS / PARTNERS SECTION
   ══════════════════════════════════════ -->
   <section class="section qs-amb-section" id="partners" style="background:var(--light-bg);position:relative;overflow:hidden;">
-    <canvas id="partnersCanvas" data-r="0" data-g="50" data-b="122" data-mul="0.45" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
     <div class="container" style="position:relative;">
       <div class="pillar-group-label anim-fade-up" style="margin-bottom:.5rem;color:#f47f20;">Socios</div>
       <h2 class="section-title anim-fade-up anim-delay-1" style="margin-bottom:.75rem;">Juntos, construimos una red para llegar más lejos</h2>
@@ -1241,91 +1160,31 @@
        VACANTES SECTION
   ══════════════════════════════════════ -->
   <section class="section qs-amb-section" id="vacantes" style="position:relative;overflow:hidden;">
-    <canvas id="vacantesCanvas" data-r="244" data-g="127" data-b="32" data-mul="0.48" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
     <style>
-      /* ── Values mosaic ── */
-      .vacantes-grid { display:grid; grid-template-columns:300px 1fr; gap:4rem; align-items:center; }
-      @media(max-width:900px){ .vacantes-grid{grid-template-columns:1fr;gap:2.5rem;} .val-mosaic{order:-1;} }
-
-      .val-mosaic { width:100%; max-width:300px; margin:0 auto; }
-      .val-mosaic-label {
-        font-family:'Montserrat',sans-serif; font-weight:800; font-size:.68rem;
-        letter-spacing:.15em; text-transform:uppercase; color:var(--blue);
-        text-align:center; margin-bottom:1.1rem;
-      }
-      .val-tiles { display:grid; grid-template-columns:repeat(3,1fr); gap:.65rem; }
-      .val-tile {
-        background:rgba(0,50,122,.07);
-        border:1.5px solid var(--vc, rgba(0,172,255,.25));
-        border-radius:14px; padding:1rem .7rem;
-        display:flex; flex-direction:column; align-items:center; gap:.55rem;
-        text-align:center; cursor:default;
-        transition:transform .25s ease, box-shadow .25s ease, background .25s;
-      }
-      .val-tile:hover {
-        background:rgba(0,50,122,.13);
-        transform:translateY(-5px) scale(1.06);
-        box-shadow:0 10px 28px rgba(0,0,0,.12), 0 0 0 1.5px var(--vc), 0 0 22px var(--vc);
-      }
-      .val-tile-icon svg { width:22px; height:22px; stroke:var(--vc,#00acff); fill:none; stroke-width:2; display:block; }
-      .val-tile-name { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.62rem; color:var(--navy); line-height:1.3; }
+      .vacantes-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
+      @media(max-width:900px){ .vacantes-grid{grid-template-columns:1fr;gap:2.5rem;} .vac-photo{order:-1;} }
+      .vac-photo { width:100%; border-radius:var(--radius-lg); overflow:hidden; }
+      .vac-photo img { width:100%; height:100%; object-fit:cover; display:block; }
     </style>
 
     <div class="container" style="position:relative;">
       <div class="vacantes-grid">
 
-        <!-- Left: values mosaic -->
-        <div class="val-mosaic">
-          <p class="val-mosaic-label">Nuestros Valores</p>
-          <div class="val-tiles">
-
-            <div class="val-tile anim-fade-up" style="--vc:rgba(0,172,255,.55);transition-delay:0ms">
-              <div class="val-tile-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-              <div class="val-tile-name">Colaboración</div>
-            </div>
-
-            <div class="val-tile anim-fade-up" style="--vc:rgba(244,127,32,.7);transition-delay:80ms">
-              <div class="val-tile-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-              <div class="val-tile-name">Compromiso</div>
-            </div>
-
-            <div class="val-tile anim-fade-up" style="--vc:rgba(6,142,80,.7);transition-delay:160ms">
-              <div class="val-tile-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-              <div class="val-tile-name">Empatía</div>
-            </div>
-
-            <div class="val-tile anim-fade-up" style="--vc:rgba(244,127,32,.7);transition-delay:240ms">
-              <div class="val-tile-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-              <div class="val-tile-name">Pasión</div>
-            </div>
-
-            <div class="val-tile anim-fade-up" style="--vc:rgba(0,172,255,.55);transition-delay:320ms">
-              <div class="val-tile-icon"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div>
-              <div class="val-tile-name">Versátil</div>
-            </div>
-
-            <div class="val-tile anim-fade-up" style="--vc:rgba(6,142,80,.7);transition-delay:400ms">
-              <div class="val-tile-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
-              <div class="val-tile-name">Profesionalismo</div>
-            </div>
-
-          </div>
+        <!-- Left: team photo -->
+        <div class="vac-photo anim-fade-left">
+          <img src="../assets/team.jpg" alt="Equipo Copayment" loading="lazy">
         </div>
 
         <!-- Right: vacantes content -->
         <div>
           <div class="pillar-group-label anim-fade-right" style="margin-bottom:.5rem;color:#068e50;">Únete al equipo</div>
-          <h2 class="section-title anim-fade-right anim-delay-1" style="margin-bottom:.75rem;">Nuestro propósito es claro: transformar la forma en la que el mundo paga</h2>
-          <p class="anim-fade-right anim-delay-2" style="color:var(--silver);margin-bottom:2rem;">Detrás de cada transacción hay una persona que antes no tenía acceso, un negocio pequeño que ahora puede crecer, una comunidad que se conecta a la economía formal. Aquí tu trabajo tiene impacto directo.</p>
+          <h2 class="section-title anim-fade-right anim-delay-1" style="margin-bottom:.75rem;">Detrás de cada transacción hay un equipo que se preocupa de verdad.</h2>
+          <p class="anim-fade-right anim-delay-2" style="color:var(--silver);margin-bottom:2rem;">En Copayment somos un equipo comprometido con sus clientes, con su seguridad y totalmente convencidos de que la mejor tecnología se construye con colaboración, experiencia y confianza.</p>
 
-          <!-- Job placeholder -->
-          <div style="border:2px dashed rgba(0,50,122,.15);border-radius:var(--radius-lg);padding:2rem;text-align:center;margin-bottom:1.75rem;">
-            <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.02em;color:var(--navy);">Quiero sumarme</p>
-            <p style="color:var(--silver);margin-top:.5rem;font-size:.88rem;">¿Te mueve la inclusión financiera? No importa si no hay una vacante exacta para ti hoy. Queremos conocer a personas que compartan nuestros valores y visión.</p>
-          </div>
-
-          <p style="font-family:'Montserrat',sans-serif;font-weight:700;color:var(--navy);margin-bottom:.75rem;">¿Quieres enviarnos tu CV?</p>
-          <a href="mailto:recursoshumanos@copayment.com.mx" class="btn btn-aux" style="text-decoration:none;">recursoshumanos@copayment.com.mx</a>
+          <a href="mailto:recursoshumanos@copayment.com.mx" class="btn btn-aux anim-fade-right anim-delay-3" style="text-decoration:none;">
+            Súmate a Copayment
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-left:.5rem"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
         </div>
 
       </div>
@@ -1336,7 +1195,6 @@
        PILARES COPAYMENT
   ══════════════════════════════════════ -->
   <section class="section qs-amb-section" id="pilares" style="position:relative;overflow:hidden;">
-    <canvas id="pilaresCanvas" data-r="0" data-g="50" data-b="122" data-mul="0.45" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
     <style>
       .pilares-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
       @media(max-width:900px){ .pilares-grid{grid-template-columns:1fr;gap:2.5rem;} }
@@ -1447,7 +1305,6 @@
        CONTACTO SECTION
   ══════════════════════════════════════ -->
   <section class="section" id="contacto" style="background:var(--navy);position:relative;overflow:hidden;">
-    <canvas id="contactoCanvas" data-r="0" data-g="172" data-b="255" data-mul="0.9" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
     <style>
       /* Animated country SVG flags */
       .ctc-flags { display:flex; justify-content:center; gap:1.5rem; margin:2rem 0 2.5rem; flex-wrap:wrap; }
@@ -1466,47 +1323,6 @@
       .ctc-flag-svg {
         border-radius:4px; overflow:hidden;
         box-shadow:0 3px 12px rgba(0,0,0,.4), 0 0 0 1px rgba(255,255,255,.12);
-      }
-
-      /* Sumsub-style pill form */
-      .ctc-form-card {
-        background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12);
-        border-radius:20px; padding:2.5rem 2rem; max-width:560px; margin:0 auto;
-      }
-      .ctc-form-title { font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.5rem; color:#fff; margin-bottom:.4rem; }
-      .ctc-form-sub   { color:rgba(255,255,255,.5); font-size:.85rem; margin-bottom:1.5rem; }
-      .ctc-form-label { font-family:'Montserrat',sans-serif; font-size:.75rem; font-weight:700; color:rgba(255,255,255,.55); letter-spacing:.1em; text-transform:uppercase; margin-bottom:.65rem; display:block; }
-      .ctc-pills-wrap { display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:1.5rem; justify-content:center; }
-      .ctc-form-label { text-align:center; }
-      .ctc-pill-btn {
-        background:rgba(255,255,255,.08); border:1.5px solid rgba(255,255,255,.18);
-        border-radius:100px; padding:.42rem 1rem; font-family:'Montserrat',sans-serif;
-        font-size:.8rem; font-weight:600; color:rgba(255,255,255,.7); cursor:pointer;
-        transition:background .18s, border-color .18s, color .18s, box-shadow .18s;
-      }
-      .ctc-pill-btn:hover { background:rgba(0,172,255,.15); border-color:rgba(0,172,255,.5); color:#fff; }
-      .ctc-pill-btn.selected { background:rgba(0,172,255,.25); border-color:#00acff; color:#fff; box-shadow:0 0 14px rgba(0,172,255,.3); }
-      .ctc-email-input {
-        width:100%; background:rgba(255,255,255,.07); border:1.5px solid rgba(255,255,255,.2);
-        border-radius:10px; padding:.7rem 1rem; font-size:.9rem; color:#fff;
-        font-family:'Montserrat',sans-serif; outline:none; margin-bottom:1.25rem;
-        transition:border-color .2s, box-shadow .2s;
-        box-sizing:border-box;
-      }
-      .ctc-email-input::placeholder { color:rgba(255,255,255,.35); }
-      .ctc-email-input:focus { border-color:#00acff; box-shadow:0 0 0 3px rgba(0,172,255,.15); }
-      .ctc-submit-btn {
-        width:100%; background:#068e50; border:none; border-radius:10px;
-        padding:.8rem; font-family:'Montserrat',sans-serif; font-weight:700;
-        font-size:.95rem; color:#fff; cursor:pointer; display:flex;
-        align-items:center; justify-content:center; gap:.5rem;
-        transition:background .2s, box-shadow .2s, transform .15s;
-        animation:ctcPulse 2.5s ease-in-out infinite;
-      }
-      .ctc-submit-btn:hover { background:#056b3a; transform:translateY(-1px); box-shadow:0 8px 24px rgba(6,142,80,.35); animation:none; }
-      @keyframes ctcPulse {
-        0%,100%{ box-shadow:0 0 0 0 rgba(6,142,80,.4); }
-        50%    { box-shadow:0 0 0 8px rgba(6,142,80,.0); }
       }
 
       /* Email info grid */
@@ -1558,39 +1374,6 @@
         </button>
       </div>
 
-      <!-- Pill-based contact form -->
-      <div class="ctc-form-card anim-fade-up">
-        <div class="ctc-form-title">Comencemos</div>
-        <div class="ctc-form-sub">¿Cómo podemos ayudarte?</div>
-
-        <span class="ctc-form-label">¿Qué necesitas?</span>
-        <div class="ctc-pills-wrap">
-          <button class="ctc-pill-btn" type="button">Switch emisor</button>
-          <button class="ctc-pill-btn" type="button">Switch adquirente</button>
-          <button class="ctc-pill-btn" type="button">BIN Sponsor</button>
-          <button class="ctc-pill-btn" type="button">Consultoría y cursos</button>
-          <button class="ctc-pill-btn" type="button">Capacitaciones</button>
-          <button class="ctc-pill-btn" type="button">Otros</button>
-        </div>
-
-        <span class="ctc-form-label">Número de empleados</span>
-        <div class="ctc-pills-wrap">
-          <button class="ctc-pill-btn" type="button">1–10</button>
-          <button class="ctc-pill-btn" type="button">11–50</button>
-          <button class="ctc-pill-btn" type="button">51–200</button>
-          <button class="ctc-pill-btn" type="button">201–500</button>
-          <button class="ctc-pill-btn" type="button">500+</button>
-        </div>
-
-        <span class="ctc-form-label">Correo empresarial</span>
-        <input class="ctc-email-input" type="email" placeholder="tu@empresa.com">
-
-        <button class="ctc-submit-btn" type="button">
-          Enviar
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </button>
-      </div>
-
       <!-- Email grid -->
       <div class="ctc-info-grid">
         <div class="ctc-info-card">
@@ -1609,10 +1392,6 @@
 
       <script>
       (function(){
-        /* Pill toggle */
-        document.querySelectorAll('.ctc-pill-btn').forEach(function(b){
-          b.addEventListener('click', function(){ b.classList.toggle('selected'); });
-        });
         /* Flag active state */
         document.querySelectorAll('.ctc-flag-btn').forEach(function(b){
           b.addEventListener('click', function(){
@@ -1647,14 +1426,64 @@
             <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
             <a href="#" aria-label="Twitter / X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
           </div>
+          <div class="footer-contact-quick">
+            <a href="mailto:hola@copayment.com.mx" class="footer-contact-quick-item">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              hola@copayment.com.mx
+            </a>
+          </div>
         </div>
         <div class="footer-col">
-          <h4>¿Tienes un proyecto en mente?</h4>
-          <a href="mailto:hola@copayment.com.mx" class="footer-link">hola@copayment.com.mx</a>
+          <h4>Nosotros</h4>
+          <a href="#quienes" class="footer-link">¿Quiénes somos?</a>
+          <a href="#partners" class="footer-link">Socios</a>
+          <a href="#vacantes" class="footer-link">Vacantes</a>
+          <a href="#contacto" class="footer-link">Contacto</a>
+          <a href="#" class="footer-link">Redes Sociales</a>
         </div>
         <div class="footer-col">
-          <h4>¿Necesitas ayuda?</h4>
-          <a href="mailto:operaciones@copayment.com.mx" class="footer-link">operaciones@copayment.com.mx</a>
+          <h4>Lo que hacemos</h4>
+          <div class="footer-col-group">
+            <div class="footer-col-group-label">Conecta y procesa</div>
+            <a href="../lo-que-hacemos.html#procesamiento" class="footer-link">Procesamiento de pagos</a>
+            <a href="../lo-que-hacemos.html#emision" class="footer-link">Emisión</a>
+            <a href="../lo-que-hacemos.html#adquirencia" class="footer-link">Adquirencia</a>
+            <a href="../lo-que-hacemos.html#gestion" class="footer-link">Gestión de operaciones</a>
+            <a href="../lo-que-hacemos.html#robot" class="footer-link">Robot de aclaraciones</a>
+          </div>
+          <div class="footer-col-group">
+            <div class="footer-col-group-label">Protege</div>
+            <a href="../lo-que-hacemos.html#fraude" class="footer-link">Prevención de fraude</a>
+            <a href="../lo-que-hacemos.html#cursos" class="footer-link">Cursos y herramientas</a>
+          </div>
+          <div class="footer-col-group">
+            <div class="footer-col-group-label">Cumplimiento</div>
+            <a href="../lo-que-hacemos.html#pci" class="footer-link">PCI DSS · EMV · SAS</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Novedades</h4>
+          <a href="../novedades.html#foros" class="footer-link">Foros</a>
+          <a href="../novedades.html#capacitacion" class="footer-link">Capacitación y certificaciones</a>
+          <a href="../novedades.html#eventos" class="footer-link">Eventos</a>
+          <a href="../novedades.html#clientes" class="footer-link">Clientes</a>
+          <a href="../novedades.html#recursos" class="footer-link">Recursos</a>
+        </div>
+        <div class="footer-col">
+          <h4>Mapa del sitio</h4>
+          <a href="../index.html" class="footer-link">Inicio</a>
+          <a href="quienes-somos.html" class="footer-link">Nosotros</a>
+          <a href="../lo-que-hacemos.html" class="footer-link">Lo que hacemos</a>
+          <a href="../soluciones.html" class="footer-link">Soluciones</a>
+          <a href="../novedades.html" class="footer-link">Novedades</a>
+          <a href="../comencemos.html" class="footer-link">Comencemos</a>
+        </div>
+        <div class="footer-certs-row">
+          <div class="footer-certs-box">
+            <img src="../assets/pci-dss.jpg" alt="PCI DSS Certified" class="footer-cert-logo">
+            <img src="../assets/service-badge.png" alt="Visa Service Provider" class="footer-cert-logo">
+            <img src="../assets/pci-tested.jpg" alt="PCI Tested" class="footer-cert-logo">
+          </div>
         </div>
       </div>
       <div class="footer-bottom">
@@ -1671,116 +1500,6 @@
   </footer>
 
   <script src="../js/main.js"></script>
-
-  <!-- PCB circuit-board canvas — shared animation for all sections, colors via data-* -->
-  <script>
-  (function() {
-    /* Read color from canvas data attrs: data-r data-g data-b data-mul */
-    function startPCB(canvasId) {
-      var canvas = document.getElementById(canvasId);
-      if (!canvas) return;
-      var ctx = canvas.getContext('2d');
-      var r   = parseInt(canvas.dataset.r   || '0');
-      var g   = parseInt(canvas.dataset.g   || '172');
-      var b   = parseInt(canvas.dataset.b   || '255');
-      var mul = parseFloat(canvas.dataset.mul || '1');
-      var rc  = r+','+g+','+b;
-      var bgPaths = [], active = [];
-
-      function makePath() {
-        var segs=[], x=Math.random()*canvas.width, y=Math.random()*canvas.height;
-        var hz=Math.random()<.5, n=1+Math.floor(Math.random()*3);
-        for(var i=0;i<n;i++){
-          var len=35+Math.random()*170, dir=Math.random()<.5?1:-1;
-          var x2=x+(hz?dir*len:0), y2=y+(hz?0:dir*len);
-          segs.push({x1:x,y1:y,x2:x2,y2:y2}); x=x2; y=y2; hz=!hz;
-        }
-        return segs;
-      }
-      function buildBg(){
-        bgPaths=[];
-        var n=Math.max(18,Math.floor((canvas.width*canvas.height)/11000));
-        for(var i=0;i<n;i++) bgPaths.push(makePath());
-      }
-      function totalLen(segs){ return segs.reduce(function(s,g){ return s+Math.abs(g.x2-g.x1)+Math.abs(g.y2-g.y1); },0); }
-      function headAt(segs,t){
-        var rem=t*totalLen(segs);
-        for(var i=0;i<segs.length;i++){
-          var sl=Math.abs(segs[i].x2-segs[i].x1)+Math.abs(segs[i].y2-segs[i].y1);
-          if(rem<=sl||i===segs.length-1){ var f=sl>0?Math.min(rem/sl,1):1; return{x:segs[i].x1+(segs[i].x2-segs[i].x1)*f,y:segs[i].y1+(segs[i].y2-segs[i].y1)*f}; }
-          rem-=sl;
-        }
-        var ls=segs[segs.length-1]; return{x:ls.x2,y:ls.y2};
-      }
-      function spawn(){ active.push({segs:makePath(),p:0,spd:.0035+Math.random()*.006,life:0,max:160+Math.floor(Math.random()*130)}); }
-      function resize(){ canvas.width=canvas.offsetWidth; canvas.height=canvas.offsetHeight; buildBg(); }
-      resize(); window.addEventListener('resize',resize);
-      for(var i=0;i<4;i++) spawn();
-
-      function draw(){
-        ctx.clearRect(0,0,canvas.width,canvas.height);
-        /* Static faint traces */
-        ctx.save(); ctx.lineWidth=.75;
-        bgPaths.forEach(function(path){
-          path.forEach(function(s){
-            ctx.beginPath(); ctx.moveTo(s.x1,s.y1); ctx.lineTo(s.x2,s.y2);
-            ctx.strokeStyle='rgba('+rc+','+(0.07*mul)+')'; ctx.stroke();
-            ctx.beginPath(); ctx.arc(s.x1,s.y1,1.4,0,Math.PI*2);
-            ctx.fillStyle='rgba('+rc+','+(0.14*mul)+')'; ctx.fill();
-          });
-          var ls=path[path.length-1]; ctx.beginPath(); ctx.arc(ls.x2,ls.y2,1.6,0,Math.PI*2);
-          ctx.fillStyle='rgba('+rc+','+(0.18*mul)+')'; ctx.fill();
-        });
-        ctx.restore();
-        /* Animated traveling traces */
-        if(active.length<5&&Math.random()<.022) spawn();
-        active=active.filter(function(tr){
-          tr.life++; tr.p=Math.min(1,tr.p+tr.spd);
-          var t=tr.life/tr.max, a=t<.15?t/.15:t>.75?(1-t)/.25:1;
-          var tlen=totalLen(tr.segs),drawn=tr.p*tlen,acc=0;
-          ctx.save(); ctx.lineWidth=1.2; ctx.shadowBlur=5; ctx.shadowColor='rgba('+rc+','+(0.85*mul)+')';
-          for(var i=0;i<tr.segs.length;i++){
-            var s=tr.segs[i],slen=Math.abs(s.x2-s.x1)+Math.abs(s.y2-s.y1);
-            if(acc>=drawn) break;
-            var frac=Math.min((drawn-acc)/slen,1),ex=s.x1+(s.x2-s.x1)*frac,ey=s.y1+(s.y2-s.y1)*frac;
-            ctx.beginPath(); ctx.moveTo(s.x1,s.y1); ctx.lineTo(ex,ey);
-            ctx.strokeStyle='rgba('+rc+','+(a*0.55*mul)+')'; ctx.stroke();
-            ctx.beginPath(); ctx.arc(s.x1,s.y1,2,0,Math.PI*2);
-            ctx.fillStyle='rgba('+rc+','+(a*mul)+')'; ctx.shadowBlur=9; ctx.fill(); ctx.shadowBlur=5;
-            if(frac>=1){
-              ctx.beginPath(); ctx.arc(s.x2,s.y2,2.5,0,Math.PI*2);
-              ctx.fillStyle='rgba('+rc+','+(a*mul)+')'; ctx.shadowBlur=10; ctx.fill(); ctx.shadowBlur=5;
-            }
-            acc+=slen;
-          }
-          var h=headAt(tr.segs,tr.p);
-          ctx.beginPath(); ctx.arc(h.x,h.y,3.2,0,Math.PI*2);
-          ctx.fillStyle='rgba('+rc+','+(a*mul)+')'; ctx.shadowBlur=18; ctx.shadowColor='rgba('+rc+',1)';
-          ctx.fill(); ctx.restore();
-          return tr.life<tr.max;
-        });
-        requestAnimationFrame(draw);
-      }
-      draw();
-    }
-
-    /* Navy sections — Blue Bolt particles */
-    startPCB('heroCanvas');
-    startPCB('teamCanvas');
-    startPCB('tlCanvas');
-    startPCB('statsCanvas');
-    startPCB('carouselCanvas');
-    startPCB('officesCanvas');
-    startPCB('missionCanvas');
-    startPCB('contactoCanvas');
-    /* White/light sections — adapted particles */
-    startPCB('certsCanvas');
-    startPCB('partnersCanvas');
-    startPCB('pilaresCanvas');
-    /* Vacantes — orange particles */
-    startPCB('vacantesCanvas');
-  })();
-  </script>
 
   <script>
   (function () {
@@ -1880,6 +1599,16 @@
         }
       });
     }
+
+    function goToEra(i) {
+      var totalScroll = wrapper.offsetHeight - window.innerHeight;
+      var wrapperTop  = wrapper.getBoundingClientRect().top + window.scrollY;
+      var targetY     = wrapperTop + (i / TOTAL + 0.005) * totalScroll;
+      window.scrollTo({ top: targetY, behavior: 'smooth' });
+    }
+    navItems.forEach(function(n, i) {
+      n.addEventListener('click', function() { goToEra(i); });
+    });
 
     // Init
     setActive(0);
