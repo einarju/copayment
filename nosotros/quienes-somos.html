@@ -12,18 +12,18 @@
   <style>
 
     /* ════════════════════════════════════════════
-       TIMELINE — KINETIC VERTICAL SCROLL
+       TIMELINE — STEP-BASED (auto-advance / click, no scroll-jacking)
     ════════════════════════════════════════════ */
 
-    .tl-section  { background: #00327a; }
-    .tl-wrapper  { height: 500vh; position: relative; }
+    .tl-section  { background: #00327a; padding: 7.5rem 0; }
 
-    .tl-sticky {
-      position: sticky;
-      top: 0;
-      height: 100vh;
+    .tl-shell {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
       display: flex;
-      overflow: hidden;
+      align-items: center;
+      gap: 3.5rem;
     }
 
     /* ── Left sidebar ── */
@@ -33,15 +33,15 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 0 0 0 3.5rem;
+      padding: 0 0 0 1.5rem;
       position: relative;
       z-index: 2;
     }
     .tl-line-track {
       position: absolute;
-      left: 4.5rem;
-      top: 18%;
-      bottom: 18%;
+      left: 2.5rem;
+      top: 12%;
+      bottom: 12%;
       width: 2px;
       background: rgba(255,255,255,.08);
     }
@@ -51,9 +51,16 @@
       height: 0%;
       background: linear-gradient(180deg, #f47f20 0%, #00acff 55%, #0fc870 100%);
       will-change: height;
+      transition: height .5s cubic-bezier(.4,0,.2,1);
     }
-    .tl-nav { display: flex; flex-direction: column; gap: 2.75rem; position: relative; z-index: 1; }
-    .tl-nav-item { display: flex; align-items: center; gap: .85rem; cursor: pointer; }
+    .tl-nav { display: flex; flex-direction: column; gap: 3.25rem; position: relative; z-index: 1; }
+    .tl-nav-item {
+      display: flex; align-items: center; gap: .85rem; cursor: pointer;
+      padding: .35rem .6rem; margin: -.35rem -.6rem;
+      border-radius: 8px;
+      transition: background .25s ease, transform .25s ease;
+    }
+    .tl-nav-item:hover { background: rgba(255,255,255,.06); transform: translateX(4px); }
     .tl-nav-dot {
       width: 11px; height: 11px;
       border-radius: 50%;
@@ -62,6 +69,7 @@
       flex-shrink: 0;
       transition: background .4s, border-color .4s, box-shadow .4s, transform .4s;
     }
+    .tl-nav-item:hover .tl-nav-dot { transform: scale(1.2); border-color: rgba(255,255,255,.4); }
     /* Era dot colors: orange for 2017, blue for 2020/2022, green for 2024 */
     #tlN0.is-active .tl-nav-dot { background: #f47f20; border-color: #f47f20; box-shadow: 0 0 0 5px rgba(244,127,32,.22); transform: scale(1.3); }
     #tlN1.is-active .tl-nav-dot { background: #00acff; border-color: #00acff; box-shadow: 0 0 0 5px rgba(0,172,255,.2);  transform: scale(1.3); }
@@ -75,6 +83,7 @@
       color: rgba(255,255,255,.2);
       transition: color .4s, letter-spacing .4s;
     }
+    .tl-nav-item:hover .tl-nav-year { color: rgba(255,255,255,.6); }
     #tlN0.is-active .tl-nav-year { color: #f47f20; letter-spacing: .1em; }
     #tlN1.is-active .tl-nav-year { color: #00acff; letter-spacing: .1em; }
     #tlN2.is-active .tl-nav-year { color: #00acff; letter-spacing: .1em; }
@@ -84,66 +93,59 @@
     .tl-main {
       flex: 1;
       position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 0 5rem 0 2.5rem;
-      overflow: hidden;
+      min-width: 0;
     }
 
     .tl-label {
-      position: absolute;
-      top: 6rem; left: 2.5rem;
       font-family: 'Montserrat', sans-serif;
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.22);
+      font-size: clamp(2rem, 3.6vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -.01em;
+      line-height: 1.15;
+      color: #fff;
+      margin-bottom: 3rem;
+      max-width: 620px;
     }
 
     .tl-counter {
-      position: absolute;
-      bottom: 2.5rem; right: 5rem;
+      margin-top: 2.5rem;
       font-family: 'Montserrat', sans-serif;
       font-size: .68rem;
       font-weight: 800;
       letter-spacing: .1em;
-      color: rgba(255,255,255,.18);
+      color: rgba(255,255,255,.22);
     }
     .tl-counter em { color: rgba(255,255,255,.5); font-style: normal; }
 
     /* ── Era panels ── */
-    .tl-panels { position: relative; }
+    .tl-panels { position: relative; min-height: clamp(340px, 34vw, 400px); }
 
     .tl-panel {
       position: absolute;
       top: 0; left: 0; right: 0;
       opacity: 0;
       pointer-events: none;
-      /* transform driven entirely by JS — no CSS transition on transform */
+      transition: opacity .45s cubic-bezier(.4,0,.2,1);
     }
     .tl-panel.is-active  { position: relative; opacity: 1; pointer-events: auto; }
     .tl-panel.is-past    { opacity: 0; }
 
-    /* Opacity transitions are CSS; transforms are JS */
-    .tl-panel { transition: opacity .45s cubic-bezier(.4,0,.2,1); }
-
-    /* ── Big scroll-driven watermark year ── */
+    /* ── Background watermark year — step-transitions on era change ── */
     .tl-watermark {
       font-family: 'Montserrat', sans-serif;
       font-weight: 900;
-      font-size: clamp(5rem, 16vw, 11rem);
+      font-size: clamp(4rem, 11vw, 7.5rem);
       color: rgba(255,255,255,.07);
       line-height: 1;
       user-select: none;
       pointer-events: none;
-      will-change: transform, opacity;
-      transform-origin: left center;
       margin-bottom: -.5rem;
+      transform: scale(.85);
+      transition: transform .6s cubic-bezier(.34,1.2,.64,1);
     }
+    .tl-panel.is-active .tl-watermark { transform: scale(1); }
 
-    /* ── Era year heading — JS-driven scale, large + punchy ── */
+    /* ── Era year heading ── */
     .tl-era-year {
       font-family: 'Montserrat', sans-serif;
       font-weight: 900;
@@ -151,18 +153,16 @@
       color: #ffffff;
       line-height: 1;
       margin-bottom: 1.75rem;
-      will-change: transform;
-      transform-origin: left center;
       letter-spacing: -.02em;
       text-shadow: 0 0 60px rgba(0,172,255,.55), 0 2px 0 rgba(0,0,0,.2);
     }
 
     /* ── Milestone cards ── */
-    .tl-items { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .8rem; }
+    .tl-items { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.1rem; }
 
     .tl-item {
       border-radius: 14px;
-      padding: 1.1rem 1.4rem 1.1rem 1.6rem;
+      padding: 1.3rem 1.6rem 1.3rem 1.8rem;
       border: 1px solid rgba(255,255,255,.1);
       border-left: 4px solid rgba(255,255,255,.18);
       /* entrance animation via CSS when panel becomes active */
@@ -206,21 +206,6 @@
       text-shadow: 0 0 18px rgba(0,172,255,.35);
     }
 
-    /* Scroll hint */
-    .tl-hint {
-      position: absolute;
-      bottom: 2.5rem; left: 2.5rem;
-      display: flex; align-items: center; gap: .5rem;
-      font-family: 'Montserrat', sans-serif;
-      font-size: .62rem; font-weight: 700;
-      letter-spacing: .12em; text-transform: uppercase;
-      color: rgba(255,255,255,.2);
-      transition: opacity .5s;
-    }
-    .tl-hint.gone { opacity: 0; pointer-events: none; }
-    .tl-hint svg { animation: bounce 1.8s ease-in-out infinite; }
-    @keyframes bounce { 0%,100%{transform:translateY(0)} 55%{transform:translateY(6px)} }
-
     /* ── Panel layout ── */
     .tl-panel-body {
       display: grid;
@@ -229,17 +214,14 @@
 
     /* ── Mobile ── */
     @media (max-width: 768px) {
-      .tl-wrapper { height: auto; }
-      .tl-sticky  { position: static; height: auto; flex-direction: column; }
-      .tl-sidebar { display: none; }
-      .tl-main    { padding: 3.5rem 1.5rem; }
-      .tl-label   { position: static; margin-bottom: 1.5rem; }
-      .tl-panels  { display: flex; flex-direction: column; gap: 3rem; }
-      .tl-panel, .tl-panel.is-active { position: static; opacity: 1; }
-      .tl-item    { opacity: 1; transform: none; }
-      .tl-watermark { font-size: 4rem; }
+      .tl-shell   { flex-direction: column; gap: 1.5rem; align-items: stretch; }
+      .tl-sidebar { width: 100%; padding: 0; }
+      .tl-line-track { display: none; }
+      .tl-nav     { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 1.25rem; }
+      .tl-label   { text-align: center; margin-bottom: 1.5rem; }
+      .tl-watermark { font-size: 3.5rem; }
       .tl-era-year  { font-size: 2rem; }
-      .tl-counter, .tl-hint { display: none; }
+      .tl-counter   { text-align: center; }
     }
 
     /* ── Offices ── */
@@ -491,27 +473,26 @@
     </div>
   </section>
 
-  <!-- ⚡ KINETIC VERTICAL SCROLL TIMELINE -->
+  <!-- ⚡ HISTORY TIMELINE — auto-advances every 4s, or click a year -->
   <section class="tl-section" id="historia">
-    <div class="tl-wrapper" id="tlWrapper">
-      <div class="tl-sticky">
+    <div class="tl-shell">
 
-        <!-- Left vertical progress -->
-        <div class="tl-sidebar">
-          <div class="tl-line-track"><div class="tl-line-fill" id="tlFill"></div></div>
-          <div class="tl-nav">
-            <div class="tl-nav-item" id="tlN0"><div class="tl-nav-dot"></div><span class="tl-nav-year">2017–2019</span></div>
-            <div class="tl-nav-item" id="tlN1"><div class="tl-nav-dot"></div><span class="tl-nav-year">2020–2021</span></div>
-            <div class="tl-nav-item" id="tlN2"><div class="tl-nav-dot"></div><span class="tl-nav-year">2022–2023</span></div>
-            <div class="tl-nav-item" id="tlN3"><div class="tl-nav-dot"></div><span class="tl-nav-year">2024–2025</span></div>
-          </div>
+      <!-- Left vertical progress -->
+      <div class="tl-sidebar">
+        <div class="tl-line-track"><div class="tl-line-fill" id="tlFill"></div></div>
+        <div class="tl-nav">
+          <div class="tl-nav-item" id="tlN0"><div class="tl-nav-dot"></div><span class="tl-nav-year">2017–2019</span></div>
+          <div class="tl-nav-item" id="tlN1"><div class="tl-nav-dot"></div><span class="tl-nav-year">2020–2021</span></div>
+          <div class="tl-nav-item" id="tlN2"><div class="tl-nav-dot"></div><span class="tl-nav-year">2022–2023</span></div>
+          <div class="tl-nav-item" id="tlN3"><div class="tl-nav-dot"></div><span class="tl-nav-year">2024–2025</span></div>
         </div>
+      </div>
 
-        <!-- Main content -->
-        <div class="tl-main">
-          <div class="tl-label">Recorre la historia de Copayment</div>
+      <!-- Main content -->
+      <div class="tl-main">
+        <div class="tl-label">Recorre la historia de Copayment</div>
 
-          <div class="tl-panels" id="tlPanels">
+        <div class="tl-panels" id="tlPanels">
 
             <!-- ── ERA 0 ── -->
             <div class="tl-panel" id="tlP0">
@@ -597,17 +578,12 @@
               </div>
             </div>
 
-          </div><!-- /tl-panels -->
+        </div><!-- /tl-panels -->
 
-          <div class="tl-counter"><em id="tlCur">1</em> / 4</div>
-          <div class="tl-hint" id="tlHint">
-            Scroll para continuar
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
-          </div>
-        </div>
+        <div class="tl-counter"><em id="tlCur">1</em> / 4</div>
+      </div>
 
-      </div><!-- /tl-sticky -->
-    </div><!-- /tl-wrapper -->
+    </div><!-- /tl-shell -->
   </section>
 
   <!-- STAT -->
@@ -660,7 +636,7 @@
 
       .tg-slide {
         flex-shrink:0;
-        width:clamp(280px,58vw,780px);
+        width:clamp(182px,38vw,510px);
         padding:0 .75rem;
         transition:transform .5s cubic-bezier(.4,0,.2,1),
                     opacity  .5s cubic-bezier(.4,0,.2,1);
@@ -1192,116 +1168,6 @@
   </section>
 
   <!-- ══════════════════════════════════════
-       PILARES COPAYMENT
-  ══════════════════════════════════════ -->
-  <section class="section qs-amb-section" id="pilares" style="position:relative;overflow:hidden;">
-    <style>
-      .pilares-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
-      @media(max-width:900px){ .pilares-grid{grid-template-columns:1fr;gap:2.5rem;} }
-
-      /* ── Three pillar concept cards ── */
-      .pp-stack { display:flex; flex-direction:column; gap:.75rem; }
-      .pp-item {
-        display:flex; align-items:center; gap:1rem;
-        background:rgba(0,50,122,.04);
-        border:1px solid rgba(0,50,122,.1);
-        border-left:3px solid var(--pc, #00acff);
-        border-radius:12px; padding:1rem 1.2rem;
-        transition:transform .25s ease, box-shadow .25s ease, background .25s;
-        cursor:default;
-      }
-      .pp-item:hover {
-        transform:translateX(5px);
-        background:rgba(0,50,122,.07);
-        box-shadow:0 4px 20px rgba(0,50,122,.1), -3px 0 0 var(--pc);
-      }
-      .pp-item--blue   { --pc:#00acff; }
-      .pp-item--orange { --pc:#f47f20; }
-      .pp-item--green  { --pc:#068e50; }
-      .pp-num {
-        font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.6rem;
-        color:var(--pc); opacity:.22; flex-shrink:0; line-height:1; min-width:2.2rem;
-      }
-      .pp-ico { flex-shrink:0; }
-      .pp-ico svg { width:22px; height:22px; stroke:var(--pc); fill:none; stroke-width:2; display:block; }
-      .pp-text { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.8rem; color:var(--navy); line-height:1.35; }
-
-      /* Pillar outcome cards 2×2 */
-      .pilares-cards { display:grid; grid-template-columns:1fr 1fr; gap:.85rem; margin-top:1.5rem; }
-      .pilares-card {
-        border-radius:12px; padding:1.1rem 1.25rem;
-        display:flex; align-items:center; gap:.75rem;
-        transition:transform .25s, box-shadow .25s;
-      }
-      .pilares-card:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(0,0,0,.18); }
-      .pilares-card--orange { background:linear-gradient(145deg,rgba(255,255,255,.12) 0%,transparent 55%),#f47f20; color:#fff; }
-      .pilares-card--navy   { background:linear-gradient(145deg,#00327a 0%,#00327a 55%,rgba(0,172,255,.3) 100%); color:#fff; }
-      .pilares-card-icon { flex-shrink:0; width:32px; height:32px; opacity:.9; }
-      .pilares-card-icon svg { width:100%; height:100%; stroke:currentColor; }
-      .pilares-card-text { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.78rem; line-height:1.3; }
-    </style>
-
-    <div class="container" style="position:relative;">
-      <div class="pillar-group-label anim-fade-up" style="margin-bottom:.5rem;color:#f47f20;">Pilares Copayment</div>
-      <h2 class="section-title anim-fade-up anim-delay-1" style="margin-bottom:2.5rem;">Las bases de nuestra organización</h2>
-
-      <div class="pilares-grid">
-
-        <!-- Left: Three pillar concept cards -->
-        <div>
-          <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--silver);margin-bottom:1.25rem;">Validación de los Pilares</p>
-          <div class="pp-stack">
-
-            <div class="pp-item pp-item--blue anim-fade-up">
-              <span class="pp-num">01</span>
-              <div class="pp-ico"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-              <div class="pp-text">Pilares Empresariales</div>
-            </div>
-
-            <div class="pp-item pp-item--orange anim-fade-up" style="transition-delay:100ms">
-              <span class="pp-num">02</span>
-              <div class="pp-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
-              <div class="pp-text">Brindan soporte a la visión</div>
-            </div>
-
-            <div class="pp-item pp-item--green anim-fade-up" style="transition-delay:200ms">
-              <span class="pp-num">03</span>
-              <div class="pp-ico"><svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
-              <div class="pp-text">Ayudan a confirmar que la visión es alcanzable</div>
-            </div>
-
-          </div>
-          <p style="color:var(--silver);font-size:.82rem;margin-top:1.5rem;max-width:280px;">Los pilares se traducen en <strong>Iniciativas y Proyectos</strong> que dan lugar a acciones concretas en la organización.</p>
-        </div>
-
-        <!-- Right: 4 pillar cards -->
-        <div>
-          <p style="color:var(--silver);margin-bottom:1.5rem;font-size:.88rem;">Consideraciones estratégicas que definen las líneas de acción para alcanzar las metas y objetivos de Copayment.</p>
-          <div class="pilares-cards">
-            <div class="pilares-card pilares-card--orange">
-              <div class="pilares-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-              <div class="pilares-card-text">Seguridad y control del riesgo</div>
-            </div>
-            <div class="pilares-card pilares-card--navy">
-              <div class="pilares-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-              <div class="pilares-card-text">Talento organizacional</div>
-            </div>
-            <div class="pilares-card pilares-card--navy">
-              <div class="pilares-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
-              <div class="pilares-card-text">Mejora continua</div>
-            </div>
-            <div class="pilares-card pilares-card--orange">
-              <div class="pilares-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49M7.76 7.76a6 6 0 0 0 0 8.49"/></svg></div>
-              <div class="pilares-card-text">Eficiencia</div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════
        CONTACTO SECTION
   ══════════════════════════════════════ -->
   <section class="section" id="contacto" style="background:var(--navy);position:relative;overflow:hidden;">
@@ -1580,25 +1446,16 @@
 
   <script>
   (function () {
-    if (window.innerWidth <= 768) return;
-
-    var wrapper  = document.getElementById('tlWrapper');
-    var fillEl   = document.getElementById('tlFill');
-    var hint     = document.getElementById('tlHint');
-    var curEl    = document.getElementById('tlCur');
+    var fillEl  = document.getElementById('tlFill');
+    var curEl   = document.getElementById('tlCur');
 
     var TOTAL = 4;
-    var panels    = [0,1,2,3].map(function(i){ return document.getElementById('tlP'+i); });
-    var watermarks= [0,1,2,3].map(function(i){ return document.getElementById('tlW'+i); });
-    var years     = [0,1,2,3].map(function(i){ return document.getElementById('tlY'+i); });
-    var navItems  = [0,1,2,3].map(function(i){ return document.getElementById('tlN'+i); });
+    var INTERVAL = 4000;
+    var panels   = [0,1,2,3].map(function(i){ return document.getElementById('tlP'+i); });
+    var navItems = [0,1,2,3].map(function(i){ return document.getElementById('tlN'+i); });
 
     var activeIdx = -1;
-
-    function ease(t) {
-      // smooth step
-      return t * t * (3 - 2 * t);
-    }
+    var timer = null;
 
     function setActive(i) {
       if (i === activeIdx) return;
@@ -1611,86 +1468,26 @@
       navItems.forEach(function(n, idx) {
         n.classList.toggle('is-active', idx === i);
       });
-      if (curEl) curEl.textContent = i + 1;
+      if (curEl)  curEl.textContent = i + 1;
+      if (fillEl) fillEl.style.height = (((i + 1) / TOTAL) * 100) + '%';
     }
 
-    function onScroll() {
-      var rect        = wrapper.getBoundingClientRect();
-      var totalScroll = wrapper.offsetHeight - window.innerHeight;
-      var scrolled    = -rect.top;
-      var progress    = Math.max(0, Math.min(1, scrolled / totalScroll));
-
-      // Fill line
-      fillEl.style.height = (progress * 100) + '%';
-
-      // Hint
-      if (hint) hint.classList.toggle('gone', progress > 0.04);
-
-      // Active era index
-      var segSize = 1 / TOTAL;
-      var idx     = Math.min(TOTAL - 1, Math.floor(progress * TOTAL));
-      if (scrolled < 0) idx = 0;
-
-      // Progress within the current era (0 → 1)
-      var eraProgress = ease(Math.max(0, Math.min(1,
-        (progress - idx * segSize) / segSize
-      )));
-
-      setActive(idx);
-
-      // ── Kinetic transforms ──
-      panels.forEach(function(panel, i) {
-        var wm = watermarks[i];
-        var yr = years[i];
-
-        if (i === idx) {
-          // Active panel: watermark grows and brightens as you scroll through era
-          var wmScale   = 0.72 + eraProgress * 0.58;  // 0.72 → 1.30
-          var wmOpacity = 0.05 + eraProgress * 0.10;   // 0.05 → 0.15
-
-          // Year label grows subtly: 0.90 → 1.04
-          var yrScale = 0.90 + eraProgress * 0.14;
-
-          if (wm) {
-            wm.style.transform = 'scale(' + wmScale + ')';
-            wm.style.opacity   = wmOpacity;
-          }
-          if (yr) {
-            yr.style.transform = 'scale(' + yrScale + ')';
-          }
-
-          // Slide-in: panel comes from below when entering (eraProgress 0→0.2)
-          var panelY = (1 - Math.min(eraProgress / 0.2, 1)) * 55; // 55px → 0
-          panel.style.transform = 'translateY(' + panelY + 'px)';
-
-        } else if (i < idx) {
-          // Past panels: pushed up and shrunk
-          if (wm) { wm.style.transform = 'scale(1.3)'; wm.style.opacity = '0.01'; }
-          if (yr) yr.style.transform = 'scale(1.04)';
-          panel.style.transform = 'translateY(-55px)';
-        } else {
-          // Future panels: waiting below
-          if (wm) { wm.style.transform = 'scale(0.72)'; wm.style.opacity = '0.03'; }
-          if (yr) yr.style.transform = 'scale(0.90)';
-          panel.style.transform = 'translateY(55px)';
-        }
-      });
+    function startAutoAdvance() {
+      clearInterval(timer);
+      timer = setInterval(function() {
+        setActive((activeIdx + 1) % TOTAL);
+      }, INTERVAL);
     }
 
-    function goToEra(i) {
-      var totalScroll = wrapper.offsetHeight - window.innerHeight;
-      var wrapperTop  = wrapper.getBoundingClientRect().top + window.scrollY;
-      var targetY     = wrapperTop + (i / TOTAL + 0.005) * totalScroll;
-      window.scrollTo({ top: targetY, behavior: 'smooth' });
-    }
     navItems.forEach(function(n, i) {
-      n.addEventListener('click', function() { goToEra(i); });
+      n.addEventListener('click', function() {
+        setActive(i);
+        startAutoAdvance(); /* reset the 4s countdown after a manual pick */
+      });
     });
 
-    // Init
     setActive(0);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+    startAutoAdvance();
   })();
   </script>
 </body>
