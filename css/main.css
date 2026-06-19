@@ -4586,10 +4586,17 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
   font-size: 1.02rem;
   color: rgba(255,255,255,.7);
 }
+.wiz-header-visual {
+  transition: transform .5s cubic-bezier(.34,1.05,.64,1);
+}
+.wiz-header-visual.wiz-visual-shift {
+  transform: translateX(-130px);
+}
+
 /* Floating card animation */
 .wiz-cards-svg {
   width: 100%;
-  max-width: 300px;
+  max-width: 370px;
   filter: drop-shadow(0 20px 40px rgba(0,0,0,.45)) drop-shadow(0 0 40px rgba(244,127,32,.2));
   animation: wizCardFloat 4s ease-in-out infinite;
   transform-origin: center;
@@ -4603,6 +4610,8 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
 /* Front card "build-up": blank outline → brand-colored fill → full detail + checkmark */
 .wfc-outline { opacity: 1; transition: opacity .5s ease; }
 .wfc-fill { opacity: 0; transition: opacity .5s ease; }
+.wfc-chip { opacity: 0; transition: opacity .35s ease; }
+.wfc-wave { opacity: 0; transition: opacity .35s ease; }
 .wfc-detail { opacity: 0; transition: opacity .4s ease; }
 .wfc-check {
   opacity: 0;
@@ -4610,10 +4619,16 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
   transform-origin: 178px 30px;
   transition: opacity .25s ease, transform .35s cubic-bezier(.34,1.6,.64,1);
 }
+.wfc-spark-dot { fill: #fff; opacity: 0; transform: scale(0); transform-box: fill-box; transform-origin: center; }
 #wizFrontCard { transform-origin: 109px 87px; transition: transform .4s cubic-bezier(.34,1.4,.64,1); }
 
 .wiz-cards-svg.wiz-cstep-2 .wfc-outline,
 .wiz-cards-svg.wiz-cstep-3 .wfc-outline { opacity: 0; }
+
+.wiz-cards-svg.wiz-cstep-2 .wfc-chip,
+.wiz-cards-svg.wiz-cstep-3 .wfc-chip { opacity: 1; transition-delay: .12s; }
+.wiz-cards-svg.wiz-cstep-2 .wfc-wave { opacity: 1; transition-delay: .2s; }
+.wiz-cards-svg.wiz-cstep-3 .wfc-wave { opacity: 0; }
 
 .wiz-cards-svg.wiz-cstep-2.wiz-ccolor-orange .wfc-fill--orange,
 .wiz-cards-svg.wiz-cstep-3.wiz-ccolor-orange .wfc-fill--orange { opacity: 1; }
@@ -4628,14 +4643,49 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
   transform: translate(178px,30px) scale(1);
   transition-delay: .4s;
 }
+.wiz-cards-svg.wiz-cstep-3 .wfc-spark-dot {
+  animation: wfcSpark .65s cubic-bezier(.2,.8,.4,1) .42s both;
+}
+.wiz-cards-svg.wiz-cstep-3 .wfc-spark-dot:nth-child(2) { animation-delay: .46s; }
+.wiz-cards-svg.wiz-cstep-3 .wfc-spark-dot:nth-child(3) { animation-delay: .5s; }
+.wiz-cards-svg.wiz-cstep-3 .wfc-spark-dot:nth-child(4) { animation-delay: .54s; }
+.wiz-cards-svg.wiz-cstep-3 .wfc-spark-dot:nth-child(5) { animation-delay: .5s; }
+.wiz-cards-svg.wiz-cstep-3 .wfc-spark-dot:nth-child(6) { animation-delay: .46s; }
+@keyframes wfcSpark {
+  0%   { opacity: 1; transform: scale(0) translate(0,0); }
+  60%  { opacity: 1; transform: scale(1.3) translate(var(--sx,0),var(--sy,0)); }
+  100% { opacity: 0; transform: scale(.4) translate(var(--sx,0),var(--sy,0)); }
+}
 
-/* Card spins and lifts every time it moves between build steps */
-#wizFrontCard.wfc-build-spin { animation: wfcBuildSpin .75s cubic-bezier(.34,1.15,.64,1); }
-@keyframes wfcBuildSpin {
+/* Ambient orbit ring + satellite dots around the card */
+.wfc-orbit { transform-origin: 109px 87px; animation: wfcOrbitSpin 10s linear infinite; }
+.wfc-orbit-dot--orange { fill: #f47f20; }
+.wfc-orbit-dot--blue   { fill: #00acff; }
+.wfc-orbit-dot--green  { fill: #068e50; }
+@keyframes wfcOrbitSpin { to { transform: rotate(360deg); } }
+.wfc-orbit.wfc-orbit-burst { animation: wfcOrbitBurst .8s cubic-bezier(.3,1.3,.5,1); }
+@keyframes wfcOrbitBurst {
+  0%   { transform: rotate(0deg) scale(1); }
+  40%  { transform: rotate(230deg) scale(1.3); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+/* Card spins and lifts every time it moves between build steps — flip when picking an institution, bigger spin+settle when the solution lands */
+#wizFrontCard.wfc-spin-flip { animation: wfcSpinFlip .7s cubic-bezier(.34,1.15,.64,1); }
+@keyframes wfcSpinFlip {
+  0%   { transform: translateY(0) rotate(0deg) scaleX(1) scaleY(1); }
+  25%  { transform: translateY(-14px) rotate(80deg) scaleX(.55) scaleY(1.06); }
+  50%  { transform: translateY(-20px) rotate(180deg) scaleX(1.08) scaleY(.96); }
+  75%  { transform: translateY(-8px) rotate(330deg) scaleX(.92) scaleY(1.03); }
+  100% { transform: translateY(0) rotate(360deg) scaleX(1) scaleY(1); }
+}
+#wizFrontCard.wfc-spin-burst { animation: wfcSpinBurst .85s cubic-bezier(.3,1.3,.5,1); }
+@keyframes wfcSpinBurst {
   0%   { transform: translateY(0) rotate(0deg) scale(1); }
-  28%  { transform: translateY(-18px) rotate(190deg) scale(1.1); }
-  55%  { transform: translateY(-24px) rotate(360deg) scale(.94); }
-  78%  { transform: translateY(-6px) rotate(360deg) scale(1.04); }
+  20%  { transform: translateY(-22px) rotate(140deg) scale(1.12); }
+  45%  { transform: translateY(-30px) rotate(310deg) scale(.9); }
+  65%  { transform: translateY(-10px) rotate(430deg) scale(1.1); }
+  85%  { transform: translateY(-2px) rotate(395deg) scale(.97); }
   100% { transform: translateY(0) rotate(360deg) scale(1); }
 }
 
@@ -5098,3 +5148,75 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
   .feat-grid-3 { grid-template-columns: 1fr; }
   .proc-subcols { grid-template-columns: 1fr; }
 }
+
+/* ══════════════════════════════════════════════
+   COMENCEMOS — simple pill-based form (light theme)
+══════════════════════════════════════════════ */
+.cmz-form-card {
+  background: var(--white);
+  border: 1px solid rgba(0,50,122,.1);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 8px 30px rgba(0,0,0,.08);
+}
+.cmz-form-title { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.5rem; color: var(--navy); margin-bottom: .4rem; }
+.cmz-form-sub   { color: var(--silver); font-size: .9rem; margin-bottom: 1.75rem; }
+.cmz-form-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: .75rem;
+  font-weight: 700;
+  color: var(--silver);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: .65rem;
+  display: block;
+}
+.cmz-pills-wrap { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.5rem; }
+.cmz-pill-btn {
+  background: rgba(0,50,122,.04);
+  border: 1.5px solid rgba(0,50,122,.14);
+  border-radius: 100px;
+  padding: .42rem 1rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--navy);
+  cursor: pointer;
+  transition: background .18s, border-color .18s, color .18s, box-shadow .18s;
+}
+.cmz-pill-btn:hover { background: rgba(0,172,255,.1); border-color: #00acff; }
+.cmz-pill-btn.selected { background: var(--navy); border-color: var(--navy); color: #fff; box-shadow: 0 4px 14px rgba(0,50,122,.25); }
+.cmz-email-input {
+  width: 100%;
+  background: rgba(0,50,122,.03);
+  border: 1.5px solid rgba(0,50,122,.16);
+  border-radius: 10px;
+  padding: .7rem 1rem;
+  font-size: .9rem;
+  color: var(--navy);
+  font-family: 'Montserrat', sans-serif;
+  outline: none;
+  margin-bottom: 1.25rem;
+  transition: border-color .2s, box-shadow .2s;
+  box-sizing: border-box;
+}
+.cmz-email-input::placeholder { color: rgba(0,50,122,.35); }
+.cmz-email-input:focus { border-color: #00acff; box-shadow: 0 0 0 3px rgba(0,172,255,.15); }
+.cmz-submit-btn {
+  width: 100%;
+  background: #068e50;
+  border: none;
+  border-radius: 10px;
+  padding: .8rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: .95rem;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  transition: background .2s, box-shadow .2s, transform .15s;
+}
+.cmz-submit-btn:hover { background: #056b3a; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(6,142,80,.3); }
