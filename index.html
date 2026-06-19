@@ -516,7 +516,7 @@
           <p class="wiz-sub">Dinos qué tipo de institución eres y qué quieres lograr. Te mostramos exactamente cómo conectarte al ecosistema.</p>
         </div>
         <div class="wiz-header-visual" aria-hidden="true">
-          <svg viewBox="-10 -10 300 205" class="wiz-cards-svg" id="wizCardsSvg">
+          <svg viewBox="15 5 190 145" class="wiz-cards-svg" id="wizCardsSvg">
             <defs>
               <linearGradient id="wizGradBlue" x1="0" y1="0" x2="1" y2="1">
                 <stop offset="0" stop-color="#00327a"/>
@@ -535,11 +535,7 @@
                 <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
               </filter>
             </defs>
-            <!-- Orange card (back) -->
-            <rect x="100" y="6" width="150" height="92" rx="10" fill="#f47f20" transform="rotate(-12 175 52)" opacity=".9"/>
-            <!-- Green card (middle) -->
-            <rect x="88" y="18" width="150" height="92" rx="10" fill="#068e50" transform="rotate(6 163 64)"/>
-            <!-- Main front card: builds up as the wizard progresses -->
+            <!-- Single front card: builds up and spins as the wizard progresses -->
             <g id="wizFrontCard">
               <rect class="wfc-outline" x="28" y="36" width="162" height="102" rx="10" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="1.5" stroke-dasharray="5 4"/>
               <rect class="wfc-fill wfc-fill--orange" x="28" y="36" width="162" height="102" rx="10" fill="url(#wizGradOrange)" filter="url(#wizGlow)"/>
@@ -1418,12 +1414,20 @@
 
     var WIZ_COLORS = ['orange', 'blue', 'green'];
     var cardSvg = document.getElementById('wizCardsSvg');
+    var frontCard = document.getElementById('wizFrontCard');
+    var wizBuildStep = 1;
 
     function setCardBuild(step, color) {
       if (!cardSvg) return;
       cardSvg.classList.remove('wiz-cstep-2', 'wiz-cstep-3', 'wiz-ccolor-orange', 'wiz-ccolor-blue', 'wiz-ccolor-green');
       if (step >= 2 && color) cardSvg.classList.add('wiz-cstep-2', 'wiz-ccolor-' + color);
       if (step >= 3 && color) cardSvg.classList.add('wiz-cstep-3');
+      if (frontCard && step !== wizBuildStep) {
+        frontCard.classList.remove('wfc-build-spin');
+        void frontCard.offsetWidth; /* restart animation */
+        frontCard.classList.add('wfc-build-spin');
+      }
+      wizBuildStep = step;
     }
 
     function makeCard(title, hint, idx, onClick) {
@@ -1435,9 +1439,13 @@
                     '<span class="wiz-card-title">' + title + '</span>' +
                     (hint ? '<span class="wiz-card-hint">' + hint + '</span>' : '');
       b.addEventListener('click', function() {
-        /* Flash the pick animation, then proceed */
+        /* Flash the pick animation, then proceed and clear it so the card
+           can replay its entrance animation if the user navigates back */
         b.classList.add('wiz-pick');
-        setTimeout(function() { onClick(); }, 360);
+        setTimeout(function() {
+          b.classList.remove('wiz-pick');
+          onClick();
+        }, 360);
       });
       return b;
     }

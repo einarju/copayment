@@ -1498,15 +1498,16 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
   margin-top: 0;
 }
 .eco-track {
-  background: linear-gradient(165deg, rgba(0,50,122,.85) 0%, rgba(0,30,73,.92) 100%);
+  background: var(--white);
   border-radius: 14px;
   padding: 1.4rem 1.25rem;
-  border: 1px solid rgba(0,172,255,.1);
+  border: 1px solid rgba(0,50,122,.1);
+  box-shadow: 0 4px 18px rgba(0,0,0,.08);
   transition: transform .25s ease, box-shadow .25s ease;
 }
-.eco-track:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,.28); }
-.eco-track--emit { border-color: rgba(244,127,32,.22); }
-.eco-track--adq  { border-color: rgba(6,142,80,.22); }
+.eco-track:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,.16); }
+.eco-track--emit { border-color: rgba(244,127,32,.25); }
+.eco-track--adq  { border-color: rgba(6,142,80,.25); }
 .eco-track-header {
   display: flex;
   align-items: center;
@@ -1517,7 +1518,7 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
   font-size: .8rem;
   text-transform: uppercase;
   letter-spacing: .07em;
-  color: #fff;
+  color: var(--navy);
 }
 .eco-track-services { display: flex; flex-direction: column; gap: .45rem; }
 .eco-service-chip {
@@ -1528,13 +1529,13 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
   border-radius: 8px;
   font-size: .82rem;
   font-weight: 500;
-  color: rgba(255,255,255,.75);
+  color: var(--navy);
   text-decoration: none;
-  background: rgba(255,255,255,.04);
+  background: rgba(0,50,122,.04);
   border: 1px solid transparent;
   transition: color .18s, background .18s, border-color .18s;
 }
-.eco-service-chip:hover { background: rgba(255,255,255,.07); }
+.eco-service-chip:hover { background: rgba(0,50,122,.07); }
 .eco-chip--emit:hover { color: #f47f20; border-color: rgba(244,127,32,.28); }
 .eco-chip--adq:hover  { color: #068e50; border-color: rgba(6,142,80,.28); }
 .eco-chip-dot {
@@ -2213,6 +2214,17 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
   background: #056b3a;
   border-color: rgba(255,255,255,.4);
   box-shadow: 0 6px 22px rgba(6,142,80,.42);
+}
+.pillar-card-2 .pillar-toggle {
+  background: var(--white);
+  border-color: transparent;
+  color: var(--navy);
+  box-shadow: 0 4px 16px rgba(0,0,0,.18);
+}
+.pillar-card-2 .pillar-toggle:hover {
+  background: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(0,0,0,.24);
 }
 .pillar-toggle svg { transition: transform var(--transition); flex-shrink: 0; }
 .pillar-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
@@ -4616,11 +4628,15 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
   transform: translate(178px,30px) scale(1);
   transition-delay: .4s;
 }
-.wiz-cards-svg.wiz-cstep-3 #wizFrontCard { animation: wfcSettle .5s cubic-bezier(.34,1.4,.64,1) .3s both; }
-@keyframes wfcSettle {
-  0%   { transform: scale(1); }
-  45%  { transform: scale(1.05); }
-  100% { transform: scale(1); }
+
+/* Card spins and lifts every time it moves between build steps */
+#wizFrontCard.wfc-build-spin { animation: wfcBuildSpin .75s cubic-bezier(.34,1.15,.64,1); }
+@keyframes wfcBuildSpin {
+  0%   { transform: translateY(0) rotate(0deg) scale(1); }
+  28%  { transform: translateY(-18px) rotate(190deg) scale(1.1); }
+  55%  { transform: translateY(-24px) rotate(360deg) scale(.94); }
+  78%  { transform: translateY(-6px) rotate(360deg) scale(1.04); }
+  100% { transform: translateY(0) rotate(360deg) scale(1); }
 }
 
 /* Step indicator */
