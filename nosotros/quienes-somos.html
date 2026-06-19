@@ -1026,17 +1026,17 @@
       @media(max-width:900px){ .vals-grid{grid-template-columns:1fr;gap:2.5rem;} }
 
       /* Organic floating scatter — not a grid */
-      .vals-cards { position:relative; aspect-ratio:4/3.1; max-width:360px; margin-left:auto; margin-right:0; }
+      .vals-cards { position:relative; width:clamp(320px,34vw,380px); height:clamp(260px,30vw,320px); margin-left:auto; margin-right:0; }
       .vals-card-wrap {
         position:absolute;
-        transition:transform .25s ease-out;
+        transition:transform .55s cubic-bezier(.16,1,.3,1);
         will-change:transform;
       }
       .vals-card {
         width:100%; height:100%;
         border-radius:22px;
         display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.45rem;
-        padding:.65rem;
+        padding:.7rem;
         box-shadow:0 14px 28px rgba(0,0,0,.3);
         animation:valsFloat var(--fdur,6s) ease-in-out infinite;
         animation-delay:var(--fdel,0s);
@@ -1048,9 +1048,9 @@
         0%,100% { transform:translateY(0) rotate(var(--tilt,-2deg)); }
         50%     { transform:translateY(-16px) rotate(calc(var(--tilt,-2deg) * -1)); }
       }
-      .vals-card-icon { width:26px; height:26px; flex-shrink:0; }
+      .vals-card-icon { width:28px; height:28px; flex-shrink:0; }
       .vals-card-icon svg { width:100%; height:100%; stroke:#fff; fill:none; stroke-width:2; display:block; }
-      .vals-card-text { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.76rem; line-height:1.2; color:#fff; text-align:center; }
+      .vals-card-text { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.78rem; line-height:1.2; color:#fff; text-align:center; }
       .vals-card--navy   { background:linear-gradient(150deg,#0050b8 0%,#00327a 100%); }
       .vals-card--blue   { background:linear-gradient(150deg,#3dc6ff 0%,#00acff 100%); }
       .vals-card--orange { background:linear-gradient(150deg,#ff9d4f 0%,#f47f20 100%); }
@@ -1065,37 +1065,37 @@
           <p class="anim-fade-left anim-delay-2" style="color:rgba(255,255,255,.6);line-height:1.7;">Los principios que guían cómo trabajamos, cómo nos tratamos y cómo construimos la infraestructura de pagos en la que confían nuestros clientes.</p>
         </div>
         <div class="vals-cards" id="valsCards">
-          <div class="vals-card-wrap" data-depth="14" style="top:1%;left:3%;width:30%;height:40%;">
+          <div class="vals-card-wrap" data-depth="7" style="top:1%;left:3%;width:30%;height:38%;">
             <div class="vals-card vals-card--navy anim-fade-up" style="--tilt:-3deg;--fdur:6.4s;--fdel:0s;">
               <div class="vals-card-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
               <div class="vals-card-text">Colaboración</div>
             </div>
           </div>
-          <div class="vals-card-wrap" data-depth="22" style="top:0%;left:37%;width:24%;height:28%;">
+          <div class="vals-card-wrap" data-depth="10" style="top:0%;left:34%;width:29%;height:33%;">
             <div class="vals-card vals-card--orange anim-fade-up" style="--tilt:4deg;--fdur:5.2s;--fdel:.3s;">
               <div class="vals-card-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
               <div class="vals-card-text">Compromiso</div>
             </div>
           </div>
-          <div class="vals-card-wrap" data-depth="16" style="top:5%;left:66%;width:31%;height:36%;">
+          <div class="vals-card-wrap" data-depth="8" style="top:4%;left:65%;width:32%;height:36%;">
             <div class="vals-card vals-card--green anim-fade-up" style="--tilt:-2deg;--fdur:7.1s;--fdel:.6s;">
               <div class="vals-card-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
               <div class="vals-card-text">Empatía</div>
             </div>
           </div>
-          <div class="vals-card-wrap" data-depth="20" style="top:52%;left:0%;width:27%;height:38%;">
+          <div class="vals-card-wrap" data-depth="9" style="top:54%;left:0%;width:28%;height:38%;">
             <div class="vals-card vals-card--blue anim-fade-up" style="--tilt:3deg;--fdur:5.8s;--fdel:.15s;">
               <div class="vals-card-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
               <div class="vals-card-text">Pasión</div>
             </div>
           </div>
-          <div class="vals-card-wrap" data-depth="12" style="top:36%;left:33%;width:30%;height:42%;">
+          <div class="vals-card-wrap" data-depth="6" style="top:37%;left:32%;width:31%;height:40%;">
             <div class="vals-card vals-card--navy anim-fade-up" style="--tilt:-4deg;--fdur:6.7s;--fdel:.45s;">
               <div class="vals-card-icon"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div>
               <div class="vals-card-text">Versátil</div>
             </div>
           </div>
-          <div class="vals-card-wrap" data-depth="24" style="top:58%;left:69%;width:28%;height:32%;">
+          <div class="vals-card-wrap" data-depth="11" style="top:58%;left:66%;width:31%;height:35%;">
             <div class="vals-card vals-card--orange anim-fade-up" style="--tilt:2deg;--fdur:5.5s;--fdel:.7s;">
               <div class="vals-card-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
               <div class="vals-card-text">Profesionalismo</div>
