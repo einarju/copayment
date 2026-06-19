@@ -992,26 +992,33 @@
     <style>
       .vals-grid { display:grid; grid-template-columns:1fr 1fr; gap:3.5rem; align-items:center; }
       @media(max-width:900px){ .vals-grid{grid-template-columns:1fr;gap:2.5rem;} }
-      .vals-cards { display:grid; grid-template-columns:1fr 1fr; gap:.85rem; }
-      .vals-card {
-        border-radius:12px; padding:1.1rem 1.25rem;
-        display:flex; align-items:center; gap:.75rem;
-        transition:transform .25s, box-shadow .25s;
+      .vals-cards {
+        display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem 1.25rem;
+        padding:1rem;
       }
-      .vals-card:hover { transform:translateY(-3px); }
-      .vals-card-icon { flex-shrink:0; width:28px; height:28px; }
-      .vals-card-icon svg { width:100%; height:100%; stroke:currentColor; fill:none; stroke-width:2; display:block; }
-      .vals-card-text { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.82rem; line-height:1.3; color:#fff; }
-      .vals-card--fill-blue   { background:#00acff; }
-      .vals-card--fill-orange { background:#f47f20; }
-      .vals-card--fill-green  { background:#068e50; }
-      .vals-card--outline-blue   { background:rgba(255,255,255,.1); border:1.5px solid #00acff; }
-      .vals-card--outline-orange { background:rgba(255,255,255,.1); border:1.5px solid #f47f20; }
-      .vals-card--outline-green  { background:rgba(255,255,255,.1); border:1.5px solid #068e50; }
-      .vals-card--fill-blue .vals-card-icon, .vals-card--fill-orange .vals-card-icon, .vals-card--fill-green .vals-card-icon { color:#fff; }
-      .vals-card--outline-blue .vals-card-icon { color:#00acff; }
-      .vals-card--outline-orange .vals-card-icon { color:#f47f20; }
-      .vals-card--outline-green .vals-card-icon { color:#068e50; }
+      @media(max-width:560px){ .vals-cards{grid-template-columns:repeat(2,1fr);} }
+      .vals-card {
+        aspect-ratio:1/1;
+        border-radius:22px;
+        display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.6rem;
+        padding:1rem;
+        box-shadow:0 16px 32px rgba(0,0,0,.3);
+        transition:transform .4s cubic-bezier(.34,1.3,.64,1), box-shadow .4s;
+        cursor:default;
+      }
+      .vals-card:nth-child(odd)  { transform:translateY(-6px) rotate(-2deg); }
+      .vals-card:nth-child(even) { transform:translateY(6px) rotate(2deg); }
+      .vals-card:hover {
+        transform:translateY(-16px) scale(1.06) rotate(0deg) !important;
+        box-shadow:0 26px 50px rgba(0,0,0,.4);
+      }
+      .vals-card-icon { width:32px; height:32px; flex-shrink:0; }
+      .vals-card-icon svg { width:100%; height:100%; stroke:#fff; fill:none; stroke-width:2; display:block; }
+      .vals-card-text { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.82rem; line-height:1.25; color:#fff; text-align:center; }
+      .vals-card--navy   { background:linear-gradient(150deg,#0050b8 0%,#00327a 100%); }
+      .vals-card--blue   { background:linear-gradient(150deg,#3dc6ff 0%,#00acff 100%); }
+      .vals-card--orange { background:linear-gradient(150deg,#ff9d4f 0%,#f47f20 100%); }
+      .vals-card--green  { background:linear-gradient(150deg,#0fb567 0%,#068e50 100%); }
     </style>
     <div class="container" style="position:relative;">
       <div class="vals-grid">
@@ -1021,27 +1028,27 @@
           <p class="anim-fade-left anim-delay-2" style="color:rgba(255,255,255,.6);line-height:1.7;">Los principios que guían cómo trabajamos, cómo nos tratamos y cómo construimos la infraestructura de pagos en la que confían nuestros clientes.</p>
         </div>
         <div class="vals-cards">
-          <div class="vals-card vals-card--fill-blue anim-fade-up">
+          <div class="vals-card vals-card--navy anim-fade-up">
             <div class="vals-card-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
             <div class="vals-card-text">Colaboración</div>
           </div>
-          <div class="vals-card vals-card--outline-orange anim-fade-up" style="transition-delay:80ms">
+          <div class="vals-card vals-card--orange anim-fade-up" style="transition-delay:80ms">
             <div class="vals-card-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
             <div class="vals-card-text">Compromiso</div>
           </div>
-          <div class="vals-card vals-card--fill-green anim-fade-up" style="transition-delay:160ms">
+          <div class="vals-card vals-card--green anim-fade-up" style="transition-delay:160ms">
             <div class="vals-card-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
             <div class="vals-card-text">Empatía</div>
           </div>
-          <div class="vals-card vals-card--outline-orange anim-fade-up" style="transition-delay:240ms">
+          <div class="vals-card vals-card--blue anim-fade-up" style="transition-delay:240ms">
             <div class="vals-card-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
             <div class="vals-card-text">Pasión</div>
           </div>
-          <div class="vals-card vals-card--fill-blue anim-fade-up" style="transition-delay:320ms">
+          <div class="vals-card vals-card--navy anim-fade-up" style="transition-delay:320ms">
             <div class="vals-card-icon"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div>
             <div class="vals-card-text">Versátil</div>
           </div>
-          <div class="vals-card vals-card--outline-green anim-fade-up" style="transition-delay:400ms">
+          <div class="vals-card vals-card--orange anim-fade-up" style="transition-delay:400ms">
             <div class="vals-card-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
             <div class="vals-card-text">Profesionalismo</div>
           </div>
@@ -1135,34 +1142,31 @@
   <!-- ══════════════════════════════════════
        VACANTES SECTION
   ══════════════════════════════════════ -->
-  <section class="section qs-amb-section" id="vacantes" style="position:relative;overflow:hidden;">
+  <section class="section qs-amb-section" id="vacantes" style="position:relative;overflow:hidden;padding-top:0;">
     <style>
-      .vacantes-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
-      @media(max-width:900px){ .vacantes-grid{grid-template-columns:1fr;gap:2.5rem;} .vac-photo{order:-1;} }
-      .vac-photo { width:100%; border-radius:var(--radius-lg); overflow:hidden; }
-      .vac-photo img { width:100%; height:100%; object-fit:cover; display:block; }
+      .vac-banner { width:100%; height:clamp(220px,32vw,380px); margin-bottom:3rem; position:relative; }
+      .vac-banner img {
+        width:100%; height:100%; object-fit:cover; display:block;
+        -webkit-mask-image:linear-gradient(to bottom, #000 65%, transparent 100%);
+        mask-image:linear-gradient(to bottom, #000 65%, transparent 100%);
+      }
+      .vac-content { max-width:680px; margin:0 auto; text-align:center; }
     </style>
 
+    <div class="vac-banner anim-fade-up">
+      <img src="../assets/team.jpg" alt="Equipo Copayment" loading="lazy">
+    </div>
+
     <div class="container" style="position:relative;">
-      <div class="vacantes-grid">
+      <div class="vac-content">
+        <div class="pillar-group-label anim-fade-up" style="margin-bottom:.5rem;color:#068e50;">Únete al equipo</div>
+        <h2 class="section-title anim-fade-up anim-delay-1" style="margin-bottom:.75rem;">¿Te interesa formar parte de una compañía referente en el sector de pagos?</h2>
+        <p class="anim-fade-up anim-delay-2" style="color:var(--silver);margin-bottom:2rem;">Trabajamos con los mejores especialistas en medios de pago de México.</p>
 
-        <!-- Left: team photo -->
-        <div class="vac-photo anim-fade-left">
-          <img src="../assets/team.jpg" alt="Equipo Copayment" loading="lazy">
-        </div>
-
-        <!-- Right: vacantes content -->
-        <div>
-          <div class="pillar-group-label anim-fade-right" style="margin-bottom:.5rem;color:#068e50;">Únete al equipo</div>
-          <h2 class="section-title anim-fade-right anim-delay-1" style="margin-bottom:.75rem;">Detrás de cada transacción hay un equipo que se preocupa de verdad.</h2>
-          <p class="anim-fade-right anim-delay-2" style="color:var(--silver);margin-bottom:2rem;">En Copayment somos un equipo comprometido con sus clientes, con su seguridad y totalmente convencidos de que la mejor tecnología se construye con colaboración, experiencia y confianza.</p>
-
-          <a href="https://copayment.buk.mx/trabaja-con-nosotros" target="_blank" rel="noopener" class="btn btn-aux anim-fade-right anim-delay-3" style="text-decoration:none;">
-            Súmate a Copayment
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-left:.5rem"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-        </div>
-
+        <a href="https://copayment.buk.mx/trabaja-con-nosotros" target="_blank" rel="noopener" class="btn btn-aux anim-fade-up anim-delay-3" style="text-decoration:none;">
+          Súmate a Copayment
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-left:.5rem"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
       </div>
     </div>
   </section>
