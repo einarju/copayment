@@ -987,38 +987,75 @@
     </div>
   </section>
 
+  <!-- ══════════════════════════════════════
+       VACANTES SECTION — photo + intro, sits directly above Nuestros Valores
+  ══════════════════════════════════════ -->
+  <section class="section qs-amb-section" id="vacantes" style="position:relative;overflow:hidden;padding-top:0;">
+    <style>
+      .vac-banner { width:100%; height:clamp(220px,32vw,380px); margin-bottom:3rem; position:relative; }
+      .vac-banner img {
+        width:100%; height:100%; object-fit:cover; display:block;
+        -webkit-mask-image:linear-gradient(to bottom, #000 65%, transparent 100%);
+        mask-image:linear-gradient(to bottom, #000 65%, transparent 100%);
+      }
+      .vac-content { max-width:680px; margin:0 auto; text-align:center; }
+    </style>
+
+    <div class="vac-banner anim-fade-up">
+      <img src="../assets/team.jpg" alt="Equipo Copayment" loading="lazy">
+    </div>
+
+    <div class="container" style="position:relative;">
+      <div class="vac-content">
+        <div class="pillar-group-label anim-fade-up" style="margin-bottom:.5rem;color:#068e50;">Únete al equipo</div>
+        <h2 class="section-title anim-fade-up anim-delay-1" style="margin-bottom:.75rem;">¿Te interesa formar parte de una compañía referente en el sector de pagos?</h2>
+        <p class="anim-fade-up anim-delay-2" style="color:var(--silver);margin-bottom:2rem;">Trabajamos con los mejores especialistas en medios de pago de México.</p>
+
+        <a href="https://copayment.buk.mx/trabaja-con-nosotros" target="_blank" rel="noopener" class="btn btn-aux anim-fade-up anim-delay-3" style="text-decoration:none;">
+          Súmate a Copayment
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-left:.5rem"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- NUESTROS VALORES — navy to break up white block -->
   <section class="section" id="valores" style="background:var(--navy);position:relative;overflow:hidden;">
     <style>
       .vals-grid { display:grid; grid-template-columns:1fr 1fr; gap:3.5rem; align-items:center; }
       @media(max-width:900px){ .vals-grid{grid-template-columns:1fr;gap:2.5rem;} }
-      .vals-cards {
-        display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem 1.25rem;
-        padding:1rem;
+
+      /* Organic floating scatter — not a grid */
+      .vals-cards { position:relative; aspect-ratio:4/3.1; max-width:360px; margin-left:auto; margin-right:0; }
+      .vals-card-wrap {
+        position:absolute;
+        transition:transform .25s ease-out;
+        will-change:transform;
       }
-      @media(max-width:560px){ .vals-cards{grid-template-columns:repeat(2,1fr);} }
       .vals-card {
-        aspect-ratio:1/1;
+        width:100%; height:100%;
         border-radius:22px;
-        display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.6rem;
-        padding:1rem;
-        box-shadow:0 16px 32px rgba(0,0,0,.3);
-        transition:transform .4s cubic-bezier(.34,1.3,.64,1), box-shadow .4s;
+        display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.45rem;
+        padding:.65rem;
+        box-shadow:0 14px 28px rgba(0,0,0,.3);
+        animation:valsFloat var(--fdur,6s) ease-in-out infinite;
+        animation-delay:var(--fdel,0s);
         cursor:default;
+        transition:box-shadow .3s;
       }
-      .vals-card:nth-child(odd)  { transform:translateY(-6px) rotate(-2deg); }
-      .vals-card:nth-child(even) { transform:translateY(6px) rotate(2deg); }
-      .vals-card:hover {
-        transform:translateY(-16px) scale(1.06) rotate(0deg) !important;
-        box-shadow:0 26px 50px rgba(0,0,0,.4);
+      .vals-card:hover { box-shadow:0 24px 46px rgba(0,0,0,.42); }
+      @keyframes valsFloat {
+        0%,100% { transform:translateY(0) rotate(var(--tilt,-2deg)); }
+        50%     { transform:translateY(-16px) rotate(calc(var(--tilt,-2deg) * -1)); }
       }
-      .vals-card-icon { width:32px; height:32px; flex-shrink:0; }
+      .vals-card-icon { width:26px; height:26px; flex-shrink:0; }
       .vals-card-icon svg { width:100%; height:100%; stroke:#fff; fill:none; stroke-width:2; display:block; }
-      .vals-card-text { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.82rem; line-height:1.25; color:#fff; text-align:center; }
+      .vals-card-text { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.76rem; line-height:1.2; color:#fff; text-align:center; }
       .vals-card--navy   { background:linear-gradient(150deg,#0050b8 0%,#00327a 100%); }
       .vals-card--blue   { background:linear-gradient(150deg,#3dc6ff 0%,#00acff 100%); }
       .vals-card--orange { background:linear-gradient(150deg,#ff9d4f 0%,#f47f20 100%); }
       .vals-card--green  { background:linear-gradient(150deg,#0fb567 0%,#068e50 100%); }
+      @media(prefers-reduced-motion:reduce){ .vals-card{ animation:none; } }
     </style>
     <div class="container" style="position:relative;">
       <div class="vals-grid">
@@ -1027,34 +1064,66 @@
           <h2 class="section-title anim-fade-left anim-delay-1" style="color:#fff;margin-bottom:.75rem;">Lo que nos define en cada decisión</h2>
           <p class="anim-fade-left anim-delay-2" style="color:rgba(255,255,255,.6);line-height:1.7;">Los principios que guían cómo trabajamos, cómo nos tratamos y cómo construimos la infraestructura de pagos en la que confían nuestros clientes.</p>
         </div>
-        <div class="vals-cards">
-          <div class="vals-card vals-card--navy anim-fade-up">
-            <div class="vals-card-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-            <div class="vals-card-text">Colaboración</div>
+        <div class="vals-cards" id="valsCards">
+          <div class="vals-card-wrap" data-depth="14" style="top:1%;left:3%;width:30%;height:40%;">
+            <div class="vals-card vals-card--navy anim-fade-up" style="--tilt:-3deg;--fdur:6.4s;--fdel:0s;">
+              <div class="vals-card-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+              <div class="vals-card-text">Colaboración</div>
+            </div>
           </div>
-          <div class="vals-card vals-card--orange anim-fade-up" style="transition-delay:80ms">
-            <div class="vals-card-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-            <div class="vals-card-text">Compromiso</div>
+          <div class="vals-card-wrap" data-depth="22" style="top:0%;left:37%;width:24%;height:28%;">
+            <div class="vals-card vals-card--orange anim-fade-up" style="--tilt:4deg;--fdur:5.2s;--fdel:.3s;">
+              <div class="vals-card-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="vals-card-text">Compromiso</div>
+            </div>
           </div>
-          <div class="vals-card vals-card--green anim-fade-up" style="transition-delay:160ms">
-            <div class="vals-card-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-            <div class="vals-card-text">Empatía</div>
+          <div class="vals-card-wrap" data-depth="16" style="top:5%;left:66%;width:31%;height:36%;">
+            <div class="vals-card vals-card--green anim-fade-up" style="--tilt:-2deg;--fdur:7.1s;--fdel:.6s;">
+              <div class="vals-card-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+              <div class="vals-card-text">Empatía</div>
+            </div>
           </div>
-          <div class="vals-card vals-card--blue anim-fade-up" style="transition-delay:240ms">
-            <div class="vals-card-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-            <div class="vals-card-text">Pasión</div>
+          <div class="vals-card-wrap" data-depth="20" style="top:52%;left:0%;width:27%;height:38%;">
+            <div class="vals-card vals-card--blue anim-fade-up" style="--tilt:3deg;--fdur:5.8s;--fdel:.15s;">
+              <div class="vals-card-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+              <div class="vals-card-text">Pasión</div>
+            </div>
           </div>
-          <div class="vals-card vals-card--navy anim-fade-up" style="transition-delay:320ms">
-            <div class="vals-card-icon"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div>
-            <div class="vals-card-text">Versátil</div>
+          <div class="vals-card-wrap" data-depth="12" style="top:36%;left:33%;width:30%;height:42%;">
+            <div class="vals-card vals-card--navy anim-fade-up" style="--tilt:-4deg;--fdur:6.7s;--fdel:.45s;">
+              <div class="vals-card-icon"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div>
+              <div class="vals-card-text">Versátil</div>
+            </div>
           </div>
-          <div class="vals-card vals-card--orange anim-fade-up" style="transition-delay:400ms">
-            <div class="vals-card-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
-            <div class="vals-card-text">Profesionalismo</div>
+          <div class="vals-card-wrap" data-depth="24" style="top:58%;left:69%;width:28%;height:32%;">
+            <div class="vals-card vals-card--orange anim-fade-up" style="--tilt:2deg;--fdur:5.5s;--fdel:.7s;">
+              <div class="vals-card-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+              <div class="vals-card-text">Profesionalismo</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
+    <script>
+    (function(){
+      var cluster = document.getElementById('valsCards');
+      if (!cluster) return;
+      var wraps = Array.prototype.slice.call(cluster.querySelectorAll('.vals-card-wrap'));
+      cluster.addEventListener('mousemove', function(e){
+        var rect = cluster.getBoundingClientRect();
+        var mx = (e.clientX - rect.left) / rect.width  - 0.5;
+        var my = (e.clientY - rect.top)  / rect.height - 0.5;
+        wraps.forEach(function(w){
+          var depth = parseFloat(w.dataset.depth) || 16;
+          w.style.transform = 'translate(' + (mx * depth) + 'px,' + (my * depth) + 'px)';
+        });
+      });
+      cluster.addEventListener('mouseleave', function(){
+        wraps.forEach(function(w){ w.style.transform = 'translate(0,0)'; });
+      });
+    })();
+    </script>
   </section>
 
   <!-- ══════════════════════════════════════
@@ -1135,38 +1204,6 @@
       <!-- Video recopilación con aliados en foros -->
       <div style="border:1px solid rgba(0,50,120,.12);border-radius:var(--radius-lg);padding:3.5rem 2rem;text-align:center;background:#fff;">
         <p style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:.9rem;color:rgba(0,50,120,.35);">Video recopilación con aliados en foros</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════
-       VACANTES SECTION
-  ══════════════════════════════════════ -->
-  <section class="section qs-amb-section" id="vacantes" style="position:relative;overflow:hidden;padding-top:0;">
-    <style>
-      .vac-banner { width:100%; height:clamp(220px,32vw,380px); margin-bottom:3rem; position:relative; }
-      .vac-banner img {
-        width:100%; height:100%; object-fit:cover; display:block;
-        -webkit-mask-image:linear-gradient(to bottom, #000 65%, transparent 100%);
-        mask-image:linear-gradient(to bottom, #000 65%, transparent 100%);
-      }
-      .vac-content { max-width:680px; margin:0 auto; text-align:center; }
-    </style>
-
-    <div class="vac-banner anim-fade-up">
-      <img src="../assets/team.jpg" alt="Equipo Copayment" loading="lazy">
-    </div>
-
-    <div class="container" style="position:relative;">
-      <div class="vac-content">
-        <div class="pillar-group-label anim-fade-up" style="margin-bottom:.5rem;color:#068e50;">Únete al equipo</div>
-        <h2 class="section-title anim-fade-up anim-delay-1" style="margin-bottom:.75rem;">¿Te interesa formar parte de una compañía referente en el sector de pagos?</h2>
-        <p class="anim-fade-up anim-delay-2" style="color:var(--silver);margin-bottom:2rem;">Trabajamos con los mejores especialistas en medios de pago de México.</p>
-
-        <a href="https://copayment.buk.mx/trabaja-con-nosotros" target="_blank" rel="noopener" class="btn btn-aux anim-fade-up anim-delay-3" style="text-decoration:none;">
-          Súmate a Copayment
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-left:.5rem"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
       </div>
     </div>
   </section>
