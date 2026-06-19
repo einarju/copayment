@@ -1741,6 +1741,33 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
 .redes-box-icons a:hover { color: #fff; transform: translateY(-2px); }
 .redes-box-icons svg { width: 20px; height: 20px; fill: currentColor; }
 
+.cta-email-row {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,.15);
+}
+.cta-email-item { text-align: center; }
+.cta-email-label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: .85rem;
+  color: rgba(255,255,255,.6);
+  margin: 0 0 .5rem;
+}
+.cta-email-link {
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: .95rem;
+  text-decoration: none;
+  transition: opacity .2s;
+}
+.cta-email-link:hover { opacity: .8; text-decoration: underline; }
+
 /* Prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -2197,33 +2224,21 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
   align-items: center;
   gap: .4rem;
   margin: 1rem auto 0;
-  background: #068e50;
-  border: 1px solid rgba(255,255,255,.25);
+  background: var(--white);
+  border: 1px solid transparent;
   border-radius: 50px;
   padding: .35rem .9rem;
-  color: var(--white);
+  color: var(--navy);
   font-family: 'Montserrat', sans-serif;
   font-size: .82rem;
   font-weight: 600;
   position: relative;
   z-index: 1;
   cursor: pointer;
-  box-shadow: 0 4px 16px rgba(6,142,80,.32);
+  box-shadow: 0 4px 16px rgba(0,0,0,.18);
   transition: all var(--transition);
 }
 .pillar-toggle:hover {
-  background: #056b3a;
-  border-color: rgba(255,255,255,.4);
-  box-shadow: 0 6px 22px rgba(6,142,80,.42);
-}
-.pillar-card-2 .pillar-toggle {
-  background: var(--white);
-  border-color: transparent;
-  color: var(--navy);
-  box-shadow: 0 4px 16px rgba(0,0,0,.18);
-}
-.pillar-card-2 .pillar-toggle:hover {
-  background: var(--white);
   transform: translateY(-2px);
   box-shadow: 0 6px 22px rgba(0,0,0,.24);
 }
