@@ -15,7 +15,7 @@
        TIMELINE — STEP-BASED (auto-advance / click, no scroll-jacking)
     ════════════════════════════════════════════ */
 
-    .tl-section  { background: #00327a; padding: 7.5rem 0; }
+    .tl-section  { background: #00327a; padding: 3rem 0 7.5rem; }
 
     .tl-shell {
       max-width: 1200px;
@@ -96,6 +96,13 @@
       min-width: 0;
     }
 
+    .tl-label .tll {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(.4em);
+      transition: opacity .45s ease, transform .45s cubic-bezier(.2,.8,.3,1.2);
+    }
+    .tl-label.tl-reveal .tll { opacity: 1; transform: translateY(0); }
     .tl-label {
       font-family: 'Montserrat', sans-serif;
       font-size: clamp(2rem, 3.6vw, 3rem);
@@ -1340,6 +1347,30 @@
   <script src="../js/main.js"></script>
 
   <script>
+  (function () {
+    /* "Recorre la historia de Copayment" — letter-by-letter reveal on scroll */
+    var label = document.querySelector('.tl-label');
+    if (label) {
+      var text = label.textContent;
+      label.innerHTML = '';
+      text.split('').forEach(function(ch, i) {
+        var span = document.createElement('span');
+        span.className = 'tll';
+        span.style.transitionDelay = (i * 28) + 'ms';
+        span.textContent = ch === ' ' ? ' ' : ch;
+        label.appendChild(span);
+      });
+      var labelObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            label.classList.add('tl-reveal');
+            labelObserver.disconnect();
+          }
+        });
+      }, { threshold: 0.4 });
+      labelObserver.observe(label);
+    }
+  })();
   (function () {
     var fillEl  = document.getElementById('tlFill');
     var curEl   = document.getElementById('tlCur');
