@@ -78,6 +78,7 @@
   </nav>
 
   <section class="page-hero" id="main-content">
+    <canvas id="cursosHeroCanvas" data-r="0" data-g="172" data-b="255" data-mul="1" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
     <div class="container">
       <div class="page-hero-content">
         <nav class="breadcrumb" aria-label="Ruta de navegación">
@@ -92,16 +93,23 @@
   </section>
 
   <!-- CAPACITACIÓN -->
-  <section class="section" style="background:var(--light-bg);">
-    <div class="container">
+  <section class="section" style="background:var(--navy);position:relative;overflow:hidden;">
+    <canvas id="capPcbCanvas" data-r="0" data-g="172" data-b="255" data-mul="1" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
+    <div class="container" style="position:relative;z-index:1;">
 
       <div class="cap-courses-grid anim-fade-up">
         <div class="cap-course-card">
+          <div class="cap-course-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
           <h3 class="cap-course-title">Prevención de fraudes</h3>
           <p class="cap-course-desc">Regulaciones, prevención de fraude y controles efectivos para proteger tu empresa y clientes.</p>
           <a href="../comencemos.html" class="cap-course-link">Saber más →</a>
         </div>
         <div class="cap-course-card">
+          <div class="cap-course-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          </div>
           <h3 class="cap-course-title">Generalidades de Medios de Pago</h3>
           <p class="cap-course-desc">Una visión clara y práctica del ecosistema de pagos, sus operaciones y puntos críticos de riesgo.</p>
           <a href="../comencemos.html" class="cap-course-link">Saber más →</a>
@@ -298,5 +306,9 @@
     </div>
   </footer>
   <script src="../js/main.js"></script>
+  <script>
+    startPCB('cursosHeroCanvas');
+    startPCB('capPcbCanvas');
+  </script>
 </body>
 </html>

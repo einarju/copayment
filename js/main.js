@@ -1,3 +1,91 @@
+/* ── PCB particle-line "texture" canvas (shared, was duplicated per-page) ── */
+function startPCB(canvasId) {
+  var canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+  if (canvas.dataset.pcbStarted) return; /* guard in case a page calls this twice for the same canvas */
+  canvas.dataset.pcbStarted = '1';
+  var ctx = canvas.getContext('2d');
+  var r   = parseInt(canvas.dataset.r   || '0');
+  var g   = parseInt(canvas.dataset.g   || '172');
+  var b   = parseInt(canvas.dataset.b   || '255');
+  var mul = parseFloat(canvas.dataset.mul || '1');
+  var rc  = r+','+g+','+b;
+  var bgPaths = [], active = [];
+
+  function makePath() {
+    var segs=[], x=Math.random()*canvas.width, y=Math.random()*canvas.height;
+    var hz=Math.random()<.5, n=1+Math.floor(Math.random()*3);
+    for(var i=0;i<n;i++){
+      var len=35+Math.random()*170, dir=Math.random()<.5?1:-1;
+      var x2=x+(hz?dir*len:0), y2=y+(hz?0:dir*len);
+      segs.push({x1:x,y1:y,x2:x2,y2:y2}); x=x2; y=y2; hz=!hz;
+    }
+    return segs;
+  }
+  function buildBg(){
+    bgPaths=[];
+    var n=Math.max(18,Math.floor((canvas.width*canvas.height)/11000));
+    for(var i=0;i<n;i++) bgPaths.push(makePath());
+  }
+  function totalLen(segs){ return segs.reduce(function(s,g){ return s+Math.abs(g.x2-g.x1)+Math.abs(g.y2-g.y1); },0); }
+  function headAt(segs,t){
+    var rem=t*totalLen(segs);
+    for(var i=0;i<segs.length;i++){
+      var sl=Math.abs(segs[i].x2-segs[i].x1)+Math.abs(segs[i].y2-segs[i].y1);
+      if(rem<=sl||i===segs.length-1){ var f=sl>0?Math.min(rem/sl,1):1; return{x:segs[i].x1+(segs[i].x2-segs[i].x1)*f,y:segs[i].y1+(segs[i].y2-segs[i].y1)*f}; }
+      rem-=sl;
+    }
+    var ls=segs[segs.length-1]; return{x:ls.x2,y:ls.y2};
+  }
+  function spawn(){ active.push({segs:makePath(),p:0,spd:.0035+Math.random()*.006,life:0,max:160+Math.floor(Math.random()*130)}); }
+  function resize(){ canvas.width=canvas.offsetWidth; canvas.height=canvas.offsetHeight; buildBg(); }
+  resize(); window.addEventListener('resize',resize);
+  for(var i=0;i<4;i++) spawn();
+
+  function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.save(); ctx.lineWidth=.75;
+    bgPaths.forEach(function(path){
+      path.forEach(function(s){
+        ctx.beginPath(); ctx.moveTo(s.x1,s.y1); ctx.lineTo(s.x2,s.y2);
+        ctx.strokeStyle='rgba('+rc+','+(0.07*mul)+')'; ctx.stroke();
+        ctx.beginPath(); ctx.arc(s.x1,s.y1,1.4,0,Math.PI*2);
+        ctx.fillStyle='rgba('+rc+','+(0.14*mul)+')'; ctx.fill();
+      });
+      var ls=path[path.length-1]; ctx.beginPath(); ctx.arc(ls.x2,ls.y2,1.6,0,Math.PI*2);
+      ctx.fillStyle='rgba('+rc+','+(0.18*mul)+')'; ctx.fill();
+    });
+    ctx.restore();
+    if(active.length<5&&Math.random()<.022) spawn();
+    active=active.filter(function(tr){
+      tr.life++; tr.p=Math.min(1,tr.p+tr.spd);
+      var t=tr.life/tr.max, a=t<.15?t/.15:t>.75?(1-t)/.25:1;
+      var tlen=totalLen(tr.segs),drawn=tr.p*tlen,acc=0;
+      ctx.save(); ctx.lineWidth=1.2; ctx.shadowBlur=5; ctx.shadowColor='rgba('+rc+','+(0.85*mul)+')';
+      for(var i=0;i<tr.segs.length;i++){
+        var s=tr.segs[i],slen=Math.abs(s.x2-s.x1)+Math.abs(s.y2-s.y1);
+        if(acc>=drawn) break;
+        var frac=Math.min((drawn-acc)/slen,1),ex=s.x1+(s.x2-s.x1)*frac,ey=s.y1+(s.y2-s.y1)*frac;
+        ctx.beginPath(); ctx.moveTo(s.x1,s.y1); ctx.lineTo(ex,ey);
+        ctx.strokeStyle='rgba('+rc+','+(a*0.55*mul)+')'; ctx.stroke();
+        ctx.beginPath(); ctx.arc(s.x1,s.y1,2,0,Math.PI*2);
+        ctx.fillStyle='rgba('+rc+','+(a*mul)+')'; ctx.shadowBlur=9; ctx.fill(); ctx.shadowBlur=5;
+        if(frac>=1){
+          ctx.beginPath(); ctx.arc(s.x2,s.y2,2.5,0,Math.PI*2);
+          ctx.fillStyle='rgba('+rc+','+(a*mul)+')'; ctx.shadowBlur=10; ctx.fill(); ctx.shadowBlur=5;
+        }
+        acc+=slen;
+      }
+      var h=headAt(tr.segs,tr.p);
+      ctx.beginPath(); ctx.arc(h.x,h.y,3.2,0,Math.PI*2);
+      ctx.fillStyle='rgba('+rc+','+(a*mul)+')'; ctx.shadowBlur=18; ctx.shadowColor='rgba('+rc+',1)';
+      ctx.fill(); ctx.restore();
+      return tr.life<tr.max;
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
 /* ── Navbar scroll effect ── */
 const navbar = document.querySelector('.navbar');
 function updateNavHeight() {
