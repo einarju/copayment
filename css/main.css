@@ -1729,20 +1729,12 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
   padding: 1.1rem 2rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
+  justify-content: center;
   max-width: 480px;
   margin-left: auto;
   margin-right: auto;
 }
-.redes-box-label {
-  color: rgba(255,255,255,.65);
-  font-size: .82rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: .08em;
-}
-.redes-box-icons { display: flex; gap: .85rem; }
+.redes-box-icons { display: flex; gap: 1.5rem; }
 .redes-box-icons a {
   color: rgba(255,255,255,.65);
   transition: color .2s, transform .2s;
@@ -4648,6 +4640,7 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
   transition: opacity .25s ease, transform .35s cubic-bezier(.34,1.6,.64,1);
 }
 .wfc-spark-dot { fill: #fff; opacity: 0; transform: scale(0); transform-box: fill-box; transform-origin: center; }
+.wfc-sheen { opacity: 0; pointer-events: none; transition: opacity .6s ease; }
 #wizFrontCard { transform-origin: 109px 87px; transition: transform .4s cubic-bezier(.34,1.4,.64,1); }
 
 .wiz-cards-svg.wiz-cstep-2 .wfc-outline,
@@ -4664,6 +4657,9 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
 .wiz-cards-svg.wiz-cstep-3.wiz-ccolor-blue .wfc-fill--blue { opacity: 1; }
 .wiz-cards-svg.wiz-cstep-2.wiz-ccolor-green .wfc-fill--green,
 .wiz-cards-svg.wiz-cstep-3.wiz-ccolor-green .wfc-fill--green { opacity: 1; }
+
+.wiz-cards-svg.wiz-cstep-2 .wfc-sheen,
+.wiz-cards-svg.wiz-cstep-3 .wfc-sheen { opacity: 1; transition-delay: .3s; }
 
 .wiz-cards-svg.wiz-cstep-3 .wfc-detail { opacity: 1; transition-delay: .15s; }
 .wiz-cards-svg.wiz-cstep-3 .wfc-check {

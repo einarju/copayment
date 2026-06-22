@@ -534,6 +534,13 @@
                 <feGaussianBlur stdDeviation="3" result="blur"/>
                 <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
               </filter>
+              <linearGradient id="wizSheenGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0"    stop-color="#fff" stop-opacity="0"/>
+                <stop offset="0.22" stop-color="#fff" stop-opacity="0"/>
+                <stop offset="0.34" stop-color="#fff" stop-opacity=".28"/>
+                <stop offset="0.46" stop-color="#fff" stop-opacity="0"/>
+                <stop offset="1"    stop-color="#fff" stop-opacity="0"/>
+              </linearGradient>
             </defs>
 
             <!-- Orbiting ring + satellite dots: constant ambient motion around the card -->
@@ -561,8 +568,6 @@
                 <text x="44" y="96" fill="#fff" font-size="11" font-weight="700" font-family="Montserrat, sans-serif" letter-spacing="2">•••• •••• •••• 4281</text>
                 <text x="44" y="114" fill="rgba(255,255,255,.7)" font-size="7" font-family="Montserrat, sans-serif">VÁLIDA HASTA 12/29</text>
                 <text x="44" y="125" fill="#fff" font-size="8" font-weight="700" font-family="Montserrat, sans-serif">TU INSTITUCIÓN</text>
-                <circle cx="168" cy="116" r="9" fill="rgba(255,255,255,.45)"/>
-                <circle cx="180" cy="116" r="9" fill="rgba(255,255,255,.28)"/>
               </g>
               <g class="wfc-check" transform="translate(178,30)">
                 <circle r="11" fill="#068e50"/>
@@ -577,6 +582,8 @@
                 <circle class="wfc-spark-dot" cx="-14" cy="9"   r="2.1"/>
                 <circle class="wfc-spark-dot" cx="-14" cy="-9"  r="2.1"/>
               </g>
+              <!-- Soft diagonal glass sheen, sits above everything for a premium glossy finish -->
+              <rect class="wfc-sheen" x="28" y="36" width="162" height="102" rx="10" fill="url(#wizSheenGrad)" aria-hidden="true"/>
             </g>
           </svg>
         </div>
@@ -876,7 +883,6 @@
         <a href="comencemos.html" class="btn btn-outline">Hablar con un especialista</a>
       </div>
       <div class="redes-box">
-        <span class="redes-box-label">Redes Sociales</span>
         <div class="redes-box-icons">
           <a href="https://www.linkedin.com/company/copaymentmx/" target="_blank" rel="noopener" aria-label="LinkedIn">
             <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
