@@ -818,6 +818,27 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
   border-top: 1px solid rgba(0,50,122,.1);
 }
 /* ══════════════════════════════════════════════
+   LQH-MENU-TITLE — per-section heading matching the nav menu label
+══════════════════════════════════════════════ */
+.lqh-menu-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 1.75rem;
+  letter-spacing: -.01em;
+}
+.lqh-stub-stack { display: flex; flex-direction: column; }
+.lqh-stub {
+  padding: 1.75rem 0;
+  margin-bottom: 0;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+  opacity: .55;
+}
+.lqh-stub-stack .lqh-stub:last-child { border-bottom: none; }
+
+/* ══════════════════════════════════════════════
    SVC-GRID — card grid replacement for long .solution-row lists
 ══════════════════════════════════════════════ */
 .svc-grid {
