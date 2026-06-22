@@ -132,23 +132,27 @@
   <section class="section" id="main-content" style="background:var(--navy);position:relative;overflow:hidden;">
     <style>
       /* Animated country SVG flags */
-      .ctc-flags { display:flex; justify-content:center; gap:1.5rem; margin:2rem 0 2.5rem; flex-wrap:wrap; }
+      .ctc-flags { display:flex; justify-content:center; gap:1rem; margin:1.75rem 0 0; flex-wrap:wrap; }
       .ctc-flag-btn {
-        display:flex; flex-direction:column; align-items:center; gap:.6rem;
-        background:rgba(255,255,255,.07); border:1.5px solid rgba(255,255,255,.15);
-        border-radius:14px; padding:1.1rem 1.6rem; cursor:pointer;
-        transition:background .2s, border-color .2s, transform .2s, box-shadow .2s;
-        color:#fff; font-family:'Montserrat',sans-serif; font-size:.72rem; font-weight:700;
+        display:flex; flex-direction:column; align-items:center; gap:.4rem;
+        background:rgba(255,255,255,.05); border:1.5px solid rgba(255,255,255,.12);
+        border-radius:12px; padding:.7rem 1rem; cursor:pointer;
+        transition:background .2s, border-color .2s, transform .2s;
+        color:rgba(255,255,255,.55); font-family:'Montserrat',sans-serif; font-size:.65rem; font-weight:700;
         letter-spacing:.08em; text-transform:uppercase;
       }
       .ctc-flag-btn:hover,.ctc-flag-btn.active {
-        background:rgba(0,172,255,.18); border-color:#00acff;
-        transform:translateY(-4px); box-shadow:0 8px 24px rgba(0,172,255,.25);
+        background:rgba(255,255,255,.1); border-color:rgba(255,255,255,.3);
+        transform:translateY(-2px); color:#fff;
       }
       .ctc-flag-svg {
-        border-radius:4px; overflow:hidden;
-        box-shadow:0 3px 12px rgba(0,0,0,.4), 0 0 0 1px rgba(255,255,255,.12);
+        width:52px; height:35px; border-radius:4px; overflow:hidden;
+        box-shadow:0 2px 8px rgba(0,0,0,.35), 0 0 0 1px rgba(255,255,255,.1);
+        filter:grayscale(1) opacity(.7);
+        transition:filter .2s;
       }
+      .ctc-flag-btn:hover .ctc-flag-svg,
+      .ctc-flag-btn.active .ctc-flag-svg { filter:grayscale(0) opacity(1); }
 
       /* Sumsub-style pill form */
       .ctc-form-card {
@@ -210,46 +214,11 @@
       <p style="color:rgba(255,255,255,.55);margin-bottom:.25rem;">Siempre nos alegra saber de ti.</p>
       <p style="color:rgba(255,255,255,.55);margin-bottom:1.5rem;">Cuéntanos qué necesitas y te conectamos con la persona correcta.</p>
 
-      <!-- Animated country SVG flags -->
-      <div class="ctc-flags">
-        <button class="ctc-flag-btn active" type="button">
-          <!-- Mexico flag: green / white / red vertical stripes -->
-          <svg class="ctc-flag-svg" xmlns="http://www.w3.org/2000/svg" width="84" height="56" viewBox="0 0 84 56">
-            <rect width="28" height="56" fill="#006847"/>
-            <rect x="28" width="28" height="56" fill="#fff"/>
-            <rect x="56" width="28" height="56" fill="#CE1126"/>
-            <circle cx="42" cy="28" r="7" fill="none" stroke="#8B6914" stroke-width="1.4"/>
-            <circle cx="42" cy="28" r="2.5" fill="#8B6914"/>
-          </svg>
-          <span>México</span>
-        </button>
-        <button class="ctc-flag-btn" type="button">
-          <!-- Colombia flag: yellow top half, blue quarter, red quarter -->
-          <svg class="ctc-flag-svg" xmlns="http://www.w3.org/2000/svg" width="84" height="56" viewBox="0 0 84 56">
-            <rect width="84" height="28" fill="#FCD116"/>
-            <rect y="28" width="84" height="14" fill="#003087"/>
-            <rect y="42" width="84" height="14" fill="#CE1126"/>
-          </svg>
-          <span>Colombia</span>
-        </button>
-        <button class="ctc-flag-btn" type="button">
-          <!-- Chile flag: top-left blue with star, top-right white, bottom red -->
-          <svg class="ctc-flag-svg" xmlns="http://www.w3.org/2000/svg" width="84" height="56" viewBox="0 0 84 56">
-            <rect width="84" height="28" fill="#fff"/>
-            <rect y="28" width="84" height="28" fill="#D52B1E"/>
-            <rect width="28" height="28" fill="#0032A0"/>
-            <polygon points="14,6 16.5,14 24,14 18.2,18.6 20.6,26.6 14,22 7.4,26.6 9.8,18.6 4,14 11.5,14" fill="#fff"/>
-          </svg>
-          <span>Chile</span>
-        </button>
-      </div>
-
       <!-- Pill-based contact form -->
       <div class="ctc-form-card anim-fade-up">
         <div class="ctc-form-title">Comencemos</div>
-        <div class="ctc-form-sub">¿Cómo podemos ayudarte?</div>
 
-        <span class="ctc-form-label">¿Qué necesitas?</span>
+        <span class="ctc-form-label">¿Qué solución necesitas?</span>
         <div class="ctc-pills-wrap">
           <button class="ctc-pill-btn" type="button">Switch emisor</button>
           <button class="ctc-pill-btn" type="button">Switch adquirente</button>
@@ -275,6 +244,40 @@
           Enviar
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </button>
+
+        <!-- Animated country SVG flags -->
+        <div class="ctc-flags">
+          <button class="ctc-flag-btn active" type="button">
+            <!-- Mexico flag: green / white / red vertical stripes -->
+            <svg class="ctc-flag-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 56">
+              <rect width="28" height="56" fill="#006847"/>
+              <rect x="28" width="28" height="56" fill="#fff"/>
+              <rect x="56" width="28" height="56" fill="#CE1126"/>
+              <circle cx="42" cy="28" r="7" fill="none" stroke="#8B6914" stroke-width="1.4"/>
+              <circle cx="42" cy="28" r="2.5" fill="#8B6914"/>
+            </svg>
+            <span>México</span>
+          </button>
+          <button class="ctc-flag-btn" type="button">
+            <!-- Colombia flag: yellow top half, blue quarter, red quarter -->
+            <svg class="ctc-flag-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 56">
+              <rect width="84" height="28" fill="#FCD116"/>
+              <rect y="28" width="84" height="14" fill="#003087"/>
+              <rect y="42" width="84" height="14" fill="#CE1126"/>
+            </svg>
+            <span>Colombia</span>
+          </button>
+          <button class="ctc-flag-btn" type="button">
+            <!-- Chile flag: top-left blue with star, top-right white, bottom red -->
+            <svg class="ctc-flag-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 56">
+              <rect width="84" height="28" fill="#fff"/>
+              <rect y="28" width="84" height="28" fill="#D52B1E"/>
+              <rect width="28" height="28" fill="#0032A0"/>
+              <polygon points="14,6 16.5,14 24,14 18.2,18.6 20.6,26.6 14,22 7.4,26.6 9.8,18.6 4,14 11.5,14" fill="#fff"/>
+            </svg>
+            <span>Chile</span>
+          </button>
+        </div>
       </div>
 
       <!-- Email grid -->
