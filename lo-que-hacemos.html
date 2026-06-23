@@ -108,14 +108,16 @@
   </nav>
 
   <!-- PAGE HERO -->
-  <section class="page-hero" id="main-content" style="padding-bottom:8px;">
+  <section class="page-hero" id="main-content">
+    <canvas id="lqhHeroCanvas" data-r="0" data-g="172" data-b="255" data-mul="1" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
     <div class="container">
       <div class="page-hero-content">
-        <nav class="breadcrumb" aria-label="Ruta de navegación" style="margin-bottom:0;">
+        <nav class="breadcrumb" aria-label="Ruta de navegación">
           <a href="index.html">Inicio</a>
           <span class="breadcrumb-sep">›</span>
           <span>Lo que hacemos</span>
         </nav>
+        <h1>Procesamiento de pagos</h1>
       </div>
     </div>
   </section>
@@ -135,8 +137,6 @@
 
           <!-- ── PROCESAMIENTO DE PAGOS — rich section ── -->
           <div id="procesamiento" class="proc-section anim-fade-up">
-
-            <h2 class="lqh-menu-title anim-fade-up">Procesamiento de pagos</h2>
 
             <div class="proc-intro">
               <h3 class="proc-title">El procesamiento que usan los grandes, al alcance de todos</h3>
@@ -483,6 +483,7 @@
     </div>
   </footer>
   <script src="js/main.js"></script>
+  <script>startPCB('lqhHeroCanvas');</script>
   <script>
   (function(){
     [
