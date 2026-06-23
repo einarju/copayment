@@ -254,6 +254,38 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.anim-fade-up, .anim-fade-left, .anim-fade-right, .anim-scale-in').forEach(el => observer.observe(el));
 
+/* ── Letter-by-letter heading reveal (e.g. ".tl-label" on quienes-somos.html) ── */
+document.querySelectorAll('.letter-reveal').forEach(el => {
+  if (el.dataset.letterReady) return;
+  el.dataset.letterReady = '1';
+  var words = el.textContent.split(' ');
+  var li = 0;
+  el.innerHTML = '';
+  words.forEach(function (word, wi) {
+    var wordSpan = document.createElement('span');
+    wordSpan.className = 'lrw';
+    word.split('').forEach(function (ch) {
+      var span = document.createElement('span');
+      span.className = 'lrl';
+      span.style.transitionDelay = (li * 28) + 'ms';
+      span.textContent = ch;
+      wordSpan.appendChild(span);
+      li++;
+    });
+    el.appendChild(wordSpan);
+    if (wi < words.length - 1) el.appendChild(document.createTextNode(' '));
+  });
+  var letterObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        el.classList.add('letter-reveal-on');
+        letterObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.4 });
+  letterObserver.observe(el);
+});
+
 /* ── Active nav link ── */
 const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 document.querySelectorAll('.nav-link[href]').forEach(link => {

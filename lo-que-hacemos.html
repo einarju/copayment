@@ -139,42 +139,173 @@
           <div id="procesamiento" class="proc-section anim-fade-up">
 
             <div class="proc-intro">
-              <h3 class="proc-title">El procesamiento que usan los grandes, al alcance de todos</h3>
+              <h3 class="proc-title letter-reveal">El procesamiento que usan los grandes, al alcance de todos</h3>
               <p class="proc-subtitle">Infraestructura de procesamiento de pagos para conectarte a las redes, bajo el respaldo regulatorio que necesitas, sin que tengas que navegar la complejidad solo.</p>
               <a href="comencemos.html" class="btn-emision-cta">Comencemos</a>
             </div>
 
-            <!-- 2-col statement+link pairs (PDF: no body paragraph here, just statement + Saber más) -->
-            <div class="proc-subcols">
-              <div class="proc-subcol anim-fade-left">
-                <h4 class="proc-subcol-title">Conéctate con las redes y emite tarjetas</h4>
+            <!-- Flow section 1: card emission — simple linear flow + floating card -->
+            <div class="proc-flow-row">
+              <div class="proc-flow-text anim-fade-left">
+                <h4 class="proc-flow-title">Conéctate con las redes y emite tarjetas</h4>
                 <a href="lo-que-hacemos/emision.html" class="svc-card-link">Saber más<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
               </div>
-              <div class="proc-subcol anim-fade-right">
-                <h4 class="proc-subcol-title">Acepta medios de pago de forma segura, eficiente y cumpliente</h4>
-                <a href="lo-que-hacemos/adquirencia.html" class="svc-card-link">Saber más<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              <div class="proc-flow-diagram anim-fade-right" aria-hidden="true">
+                <svg viewBox="0 0 460 200" width="100%" height="100%">
+                  <defs>
+                    <linearGradient id="pfLine1" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0" stop-color="#00acff"/>
+                      <stop offset="1" stop-color="#068e50"/>
+                    </linearGradient>
+                  </defs>
+                  <!-- connecting line, animated dash flow -->
+                  <path d="M85 100 H375" stroke="url(#pfLine1)" stroke-width="2" stroke-dasharray="7 7" fill="none" opacity=".8">
+                    <animate attributeName="stroke-dashoffset" from="0" to="-28" dur="1.4s" repeatCount="indefinite"/>
+                  </path>
+                  <!-- node 1: institución -->
+                  <g>
+                    <rect x="20" y="76" width="65" height="48" rx="10" fill="rgba(0,172,255,.12)" stroke="#00acff" stroke-width="1.5"/>
+                    <path d="M44 100h17M52.5 91.5v17" stroke="#00acff" stroke-width="2" stroke-linecap="round"/>
+                  </g>
+                  <text x="52" y="138" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" font-weight="700" fill="rgba(255,255,255,.65)">Institución</text>
+                  <!-- node 2: copayment (hub) -->
+                  <g>
+                    <rect x="195" y="70" width="70" height="60" rx="12" fill="rgba(244,127,32,.14)" stroke="#f47f20" stroke-width="1.5"/>
+                    <circle cx="230" cy="100" r="13" fill="none" stroke="#f47f20" stroke-width="2"/>
+                    <path d="M230 93v14M223 100h14" stroke="#f47f20" stroke-width="2" stroke-linecap="round"/>
+                  </g>
+                  <text x="230" y="146" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" font-weight="700" fill="#fff">Copayment</text>
+                  <!-- node 3: red -->
+                  <g>
+                    <rect x="375" y="76" width="65" height="48" rx="10" fill="rgba(6,142,80,.14)" stroke="#068e50" stroke-width="1.5"/>
+                    <circle cx="398" cy="100" r="4" fill="#068e50"/>
+                    <circle cx="408" cy="92" r="4" fill="#068e50"/>
+                    <circle cx="418" cy="100" r="4" fill="#068e50"/>
+                    <circle cx="408" cy="108" r="4" fill="#068e50"/>
+                  </g>
+                  <text x="407" y="138" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" font-weight="700" fill="rgba(255,255,255,.65)">Red</text>
+                  <!-- floating card, drifts slowly -->
+                  <g transform="translate(206,18)">
+                    <animateTransform attributeName="transform" type="translate" values="206,18; 206,8; 206,18" dur="3.6s" repeatCount="indefinite" additive="sum"/>
+                    <rect x="0" y="0" width="48" height="31" rx="5" fill="#00327a" stroke="#00acff" stroke-width="1.2"/>
+                    <rect x="5" y="6" width="9" height="7" rx="1.5" fill="#00acff"/>
+                    <rect x="5" y="20" width="22" height="3" rx="1.5" fill="rgba(255,255,255,.55)"/>
+                  </g>
+                </svg>
               </div>
             </div>
 
-            <!-- 4-item feature grid (replaces orange floating circles) -->
-            <div class="feat-grid feat-grid-4">
-              <div class="feat-card anim-fade-up">
-                <div class="feat-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-                <span class="feat-card-title">Seguridad transaccional</span>
+            <!-- Flow section 2: payment acceptance — hub-and-spoke flow + pulsing shield -->
+            <div class="proc-flow-row">
+              <div class="proc-flow-text anim-fade-left">
+                <h4 class="proc-flow-title">Acepta medios de pago de forma segura, eficiente y cumpliente</h4>
+                <a href="lo-que-hacemos/adquirencia.html" class="svc-card-link">Saber más<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
               </div>
-              <div class="feat-card anim-fade-up anim-delay-1">
-                <div class="feat-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
-                <span class="feat-card-title">Integración sin fricciones</span>
-              </div>
-              <div class="feat-card anim-fade-up anim-delay-2">
-                <div class="feat-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-                <span class="feat-card-title">Conexión con las principales redes</span>
-              </div>
-              <div class="feat-card anim-fade-up anim-delay-3">
-                <div class="feat-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-                <span class="feat-card-title">Acompañamiento y capacitación</span>
+              <div class="proc-flow-diagram anim-fade-right" aria-hidden="true">
+                <svg viewBox="0 0 460 200" width="100%" height="100%">
+                  <!-- spokes from outer nodes into the central hub, animated dash flow -->
+                  <path d="M80 45 L230 100" stroke="#00acff" stroke-width="2" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="-24" dur="1.3s" repeatCount="indefinite"/></path>
+                  <path d="M80 155 L230 100" stroke="#00acff" stroke-width="2" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="-24" dur="1.5s" repeatCount="indefinite"/></path>
+                  <path d="M380 45 L230 100" stroke="#068e50" stroke-width="2" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="24" dur="1.4s" repeatCount="indefinite"/></path>
+                  <path d="M380 155 L230 100" stroke="#068e50" stroke-width="2" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="24" dur="1.6s" repeatCount="indefinite"/></path>
+                  <!-- outer node: comercio -->
+                  <g><rect x="35" y="22" width="60" height="46" rx="10" fill="rgba(0,172,255,.12)" stroke="#00acff" stroke-width="1.5"/><path d="M50 38h30M50 46h30M50 54h18" stroke="#00acff" stroke-width="2" stroke-linecap="round"/></g>
+                  <text x="65" y="80" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.5" font-weight="700" fill="rgba(255,255,255,.65)">Comercio</text>
+                  <!-- outer node: terminal -->
+                  <g><rect x="35" y="132" width="60" height="46" rx="10" fill="rgba(0,172,255,.12)" stroke="#00acff" stroke-width="1.5"/><rect x="52" y="144" width="26" height="18" rx="3" fill="none" stroke="#00acff" stroke-width="2"/><path d="M58 150h14" stroke="#00acff" stroke-width="2" stroke-linecap="round"/></g>
+                  <text x="65" y="190" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.5" font-weight="700" fill="rgba(255,255,255,.65)">Terminal</text>
+                  <!-- outer node: red -->
+                  <g><rect x="365" y="22" width="60" height="46" rx="10" fill="rgba(6,142,80,.14)" stroke="#068e50" stroke-width="1.5"/><circle cx="385" cy="45" r="3.5" fill="#068e50"/><circle cx="395" cy="38" r="3.5" fill="#068e50"/><circle cx="405" cy="45" r="3.5" fill="#068e50"/><circle cx="395" cy="52" r="3.5" fill="#068e50"/></g>
+                  <text x="395" y="80" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.5" font-weight="700" fill="rgba(255,255,255,.65)">Red</text>
+                  <!-- outer node: banco -->
+                  <g><rect x="365" y="132" width="60" height="46" rx="10" fill="rgba(6,142,80,.14)" stroke="#068e50" stroke-width="1.5"/><path d="M381 162v-14l14-8 14 8v14z" fill="none" stroke="#068e50" stroke-width="2" stroke-linejoin="round"/></g>
+                  <text x="395" y="190" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.5" font-weight="700" fill="rgba(255,255,255,.65)">Banco</text>
+                  <!-- central hub: copayment, with pulsing compliance ring -->
+                  <circle cx="230" cy="100" r="17" fill="none" stroke="#f47f20" stroke-width="2" opacity=".55">
+                    <animate attributeName="r" values="17;30;17" dur="2.6s" repeatCount="indefinite"/>
+                    <animate attributeName="opacity" values=".55;0;.55" dur="2.6s" repeatCount="indefinite"/>
+                  </circle>
+                  <circle cx="230" cy="100" r="26" fill="rgba(244,127,32,.14)" stroke="#f47f20" stroke-width="1.5"/>
+                  <path d="M230 89l9 4v9c0 6-4.5 9.5-9 11-4.5-1.5-9-5-9-11v-9z" fill="none" stroke="#f47f20" stroke-width="2" stroke-linejoin="round"/>
+                  <text x="230" y="142" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" font-weight="700" fill="#fff">Copayment</text>
+                </svg>
               </div>
             </div>
+
+            <!-- 4-item floating scatter cluster (replaces icon-grid; same composition/interaction as Nuestros Valores) -->
+            <style>
+              .proc-vals-cards { position:relative; width:100%; max-width:740px; height:clamp(300px,32vw,400px); margin:2.5rem auto 1.5rem; }
+              .proc-vals-card-wrap { position:absolute; transition:transform .55s cubic-bezier(.16,1,.3,1); will-change:transform; }
+              .proc-vals-card {
+                width:100%; height:100%; border-radius:22px;
+                display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.5rem;
+                padding:.7rem;
+                box-shadow:0 14px 28px rgba(0,0,0,.3);
+                animation:procValsFloat var(--fdur,6s) ease-in-out infinite;
+                animation-delay:var(--fdel,0s);
+                cursor:default;
+                transition:box-shadow .3s;
+              }
+              .proc-vals-card:hover { box-shadow:0 24px 46px rgba(0,0,0,.42); }
+              @keyframes procValsFloat {
+                0%,100% { transform:translateY(0) rotate(var(--tilt,-2deg)); }
+                50%     { transform:translateY(-16px) rotate(calc(var(--tilt,-2deg) * -1)); }
+              }
+              .proc-vals-card-icon { width:30px; height:30px; flex-shrink:0; }
+              .proc-vals-card-icon svg { width:100%; height:100%; stroke:#fff; fill:none; stroke-width:2; display:block; }
+              .proc-vals-card-text { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.85rem; line-height:1.25; color:#fff; text-align:center; padding:0 .4rem; }
+              .proc-vals-card--navy   { background:linear-gradient(150deg,#0050b8 0%,#00327a 100%); }
+              .proc-vals-card--blue   { background:linear-gradient(150deg,#3dc6ff 0%,#00acff 100%); }
+              .proc-vals-card--orange { background:linear-gradient(150deg,#ff9d4f 0%,#f47f20 100%); }
+              .proc-vals-card--green  { background:linear-gradient(150deg,#0fb567 0%,#068e50 100%); }
+              @media(prefers-reduced-motion:reduce){ .proc-vals-card{ animation:none; } }
+              @media (max-width: 640px) { .proc-vals-cards { max-width:300px; height:380px; } }
+            </style>
+            <div class="proc-vals-cards anim-fade-up" id="procValsCards">
+              <div class="proc-vals-card-wrap" data-depth="9" style="top:0%;left:1%;width:46%;height:46%;">
+                <div class="proc-vals-card proc-vals-card--navy" style="--tilt:-3deg;--fdur:6.4s;--fdel:0s;">
+                  <div class="proc-vals-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                  <div class="proc-vals-card-text">Seguridad transaccional</div>
+                </div>
+              </div>
+              <div class="proc-vals-card-wrap" data-depth="11" style="top:4%;left:53%;width:46%;height:42%;">
+                <div class="proc-vals-card proc-vals-card--orange" style="--tilt:4deg;--fdur:5.2s;--fdel:.3s;">
+                  <div class="proc-vals-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
+                  <div class="proc-vals-card-text">Integración sin fricciones</div>
+                </div>
+              </div>
+              <div class="proc-vals-card-wrap" data-depth="8" style="top:54%;left:0%;width:44%;height:44%;">
+                <div class="proc-vals-card proc-vals-card--green" style="--tilt:-2deg;--fdur:7.1s;--fdel:.6s;">
+                  <div class="proc-vals-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+                  <div class="proc-vals-card-text">Conexión con las principales redes</div>
+                </div>
+              </div>
+              <div class="proc-vals-card-wrap" data-depth="10" style="top:56%;left:52%;width:47%;height:42%;">
+                <div class="proc-vals-card proc-vals-card--blue" style="--tilt:3deg;--fdur:5.8s;--fdel:.15s;">
+                  <div class="proc-vals-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                  <div class="proc-vals-card-text">Acompañamiento y capacitación</div>
+                </div>
+              </div>
+            </div>
+            <script>
+            (function(){
+              var cluster = document.getElementById('procValsCards');
+              if (!cluster) return;
+              var wraps = Array.prototype.slice.call(cluster.querySelectorAll('.proc-vals-card-wrap'));
+              cluster.addEventListener('mousemove', function(e){
+                var rect = cluster.getBoundingClientRect();
+                var mx = (e.clientX - rect.left) / rect.width  - 0.5;
+                var my = (e.clientY - rect.top)  / rect.height - 0.5;
+                wraps.forEach(function(w){
+                  var depth = parseFloat(w.dataset.depth) || 16;
+                  w.style.transform = 'translate(' + (mx * depth) + 'px,' + (my * depth) + 'px)';
+                });
+              });
+              cluster.addEventListener('mouseleave', function(){
+                wraps.forEach(function(w){ w.style.transform = 'translate(0,0)'; });
+              });
+            })();
+            </script>
 
             <!-- ZENO case study -->
             <div class="proc-case">
@@ -225,7 +356,7 @@
 
             <!-- Intro -->
             <div class="emision-intro">
-              <h3 class="emision-title">Accede a la emisión de tarjetas, sin importar tu tamaño</h3>
+              <h3 class="emision-title letter-reveal">Accede a la emisión de tarjetas, sin importar tu tamaño</h3>
               <p class="emision-subtitle">Tanto si eres una fintech que quiere lanzar rápido su programa de tarjetas, como una institución que necesita modernizar su operación, tenemos la infraestructura y el acompañamiento para hacerlo posible.</p>
               <a href="comencemos.html" class="btn-emision-cta">Comencemos</a>
             </div>
