@@ -97,34 +97,152 @@
     <canvas id="capPcbCanvas" data-r="0" data-g="172" data-b="255" data-mul="1" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
     <div class="container" style="position:relative;z-index:1;">
 
-      <div class="cap-courses-grid anim-fade-up">
-        <div class="cap-course-card">
-          <div class="cap-course-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <h3 class="cap-course-title">Prevención de fraudes</h3>
-          <p class="cap-course-desc">Regulaciones, prevención de fraude y controles efectivos para proteger tu empresa y clientes.</p>
-          <a href="../comencemos.html" class="cap-course-link">Saber más →</a>
+      <!-- Course 1: flow diagram — fraud-prevention monitoring -->
+      <div class="proc-flow-row" style="border-top:none;">
+        <div class="proc-flow-text anim-fade-up">
+          <h4 class="proc-flow-title">Prevención de fraudes</h4>
+          <p style="font-size:.92rem;color:rgba(255,255,255,.65);line-height:1.65;margin:0 0 1rem;">Regulaciones, prevención de fraude y controles efectivos para proteger tu empresa y clientes.</p>
+          <a href="../comencemos.html" class="svc-card-link">Saber más<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
-        <div class="cap-course-card">
-          <div class="cap-course-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-          </div>
-          <h3 class="cap-course-title">Generalidades de Medios de Pago</h3>
-          <p class="cap-course-desc">Una visión clara y práctica del ecosistema de pagos, sus operaciones y puntos críticos de riesgo.</p>
-          <a href="../comencemos.html" class="cap-course-link">Saber más →</a>
+        <div class="proc-flow-diagram anim-fade-up" aria-hidden="true">
+          <svg viewBox="0 0 700 260" width="100%" height="100%">
+            <defs>
+              <linearGradient id="cf1NodeOrange" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff9d4f"/><stop offset="1" stop-color="#f47f20"/></linearGradient>
+              <linearGradient id="cf1NodeBlue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3dc6ff"/><stop offset="1" stop-color="#00acff"/></linearGradient>
+              <filter id="cf1Shadow" x="-60%" y="-60%" width="220%" height="220%"><feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000" flood-opacity=".35"/></filter>
+            </defs>
+            <path d="M134 80 L308 130" stroke="#00acff" stroke-width="2.5" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="-24" dur="1.3s" repeatCount="indefinite"/></path>
+            <path d="M134 180 L308 130" stroke="#00acff" stroke-width="2.5" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="-24" dur="1.5s" repeatCount="indefinite"/></path>
+            <path d="M566 130 L392 130" stroke="#00acff" stroke-width="2.5" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="-24" dur="1.4s" repeatCount="indefinite"/></path>
+            <g filter="url(#cf1Shadow)"><rect x="70" y="48" width="64" height="64" rx="16" fill="url(#cf1NodeBlue)"/>
+              <path d="M91 75h22l-2 21a4 4 0 0 1-4 3.6H97a4 4 0 0 1-4-3.6z" fill="#fff"/>
+              <path d="M97 75v-3a5 5 0 0 1 10 0v3" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+            </g>
+            <text x="102" y="127" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12" font-weight="700" fill="rgba(255,255,255,.7)">Transacción</text>
+            <g filter="url(#cf1Shadow)"><rect x="70" y="148" width="64" height="64" rx="16" fill="url(#cf1NodeBlue)"/>
+              <circle cx="102" cy="172" r="4" fill="#fff"/>
+              <path d="M88 195c0-8 6-13 14-13s14 5 14 13" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+            </g>
+            <text x="102" y="227" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12" font-weight="700" fill="rgba(255,255,255,.7)">Cliente</text>
+            <circle cx="350" cy="130" r="20" fill="none" stroke="#f47f20" stroke-width="2" opacity=".55">
+              <animate attributeName="r" values="20;36;20" dur="2.6s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values=".55;0;.55" dur="2.6s" repeatCount="indefinite"/>
+            </circle>
+            <g filter="url(#cf1Shadow)">
+              <circle cx="350" cy="130" r="32" fill="url(#cf1NodeOrange)"/>
+              <path d="M350 114l13 5.5v12c0 8.5-6.3 13.5-13 15.5-6.7-2-13-7-13-15.5v-12z" fill="#fff"/>
+              <path d="M344.5 130.5l3.7 3.8 7.3-8" stroke="#f47f20" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <text x="350" y="182" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="13" font-weight="700" fill="#fff">Prevención</text>
+            <g filter="url(#cf1Shadow)"><rect x="566" y="98" width="64" height="64" rx="16" fill="url(#cf1NodeBlue)"/>
+              <path d="M598 114l13 5.5v12c0 8.5-6.3 13.5-13 15.5-6.7-2-13-7-13-15.5v-12z" fill="#fff"/>
+              <path d="M592.5 130.5l3.7 3.8 7.3-8" stroke="url(#cf1NodeBlue)" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <text x="598" y="177" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12" font-weight="700" fill="rgba(255,255,255,.7)">Empresa protegida</text>
+          </svg>
         </div>
       </div>
 
-      <div class="cap-learn anim-fade-up">
-        <h2 class="cap-learn-title">Aprende a tu ritmo, cuando quieras y desde donde estés</h2>
-        <p class="cap-learn-sub">Tu decides el formato, desde una hora hasta programas de capacitación continua</p>
+      <!-- Course 2: flow diagram — payments ecosystem overview -->
+      <div class="proc-flow-row">
+        <div class="proc-flow-text anim-fade-up">
+          <h4 class="proc-flow-title">Generalidades de Medios de Pago</h4>
+          <p style="font-size:.92rem;color:rgba(255,255,255,.65);line-height:1.65;margin:0 0 1rem;">Una visión clara y práctica del ecosistema de pagos, sus operaciones y puntos críticos de riesgo.</p>
+          <a href="../comencemos.html" class="svc-card-link">Saber más<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+        <div class="proc-flow-diagram anim-fade-up" aria-hidden="true">
+          <svg viewBox="0 0 700 260" width="100%" height="100%">
+            <defs>
+              <linearGradient id="cf2NodeBlue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3dc6ff"/><stop offset="1" stop-color="#00acff"/></linearGradient>
+              <linearGradient id="cf2NodeOrange" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff9d4f"/><stop offset="1" stop-color="#f47f20"/></linearGradient>
+              <linearGradient id="cf2NodeGreen" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0fb567"/><stop offset="1" stop-color="#068e50"/></linearGradient>
+              <filter id="cf2Shadow" x="-60%" y="-60%" width="220%" height="220%"><feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000" flood-opacity=".35"/></filter>
+            </defs>
+            <path d="M104 160 H308" stroke="#00acff" stroke-width="2.5" stroke-dasharray="7 7" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="-28" dur="1.2s" repeatCount="indefinite"/></path>
+            <path d="M392 160 H596" stroke="#068e50" stroke-width="2.5" stroke-dasharray="7 7" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="-28" dur="1.2s" repeatCount="indefinite"/></path>
+            <circle r="5" fill="#fff"><animateMotion path="M104 160 H596" dur="2.6s" repeatCount="indefinite"/></circle>
+            <circle r="9" fill="#fff" opacity=".25"><animateMotion path="M104 160 H596" dur="2.6s" repeatCount="indefinite"/></circle>
+            <g filter="url(#cf2Shadow)">
+              <rect x="40" y="128" width="64" height="64" rx="16" fill="url(#cf2NodeBlue)"/>
+              <path d="M72 144l-13 7v3h26v-3z" fill="#fff"/>
+              <rect x="63" y="155" width="5" height="13" fill="#fff"/><rect x="70" y="155" width="5" height="13" fill="#fff"/><rect x="77" y="155" width="5" height="13" fill="#fff"/>
+              <rect x="59" y="168" width="26" height="3" fill="#fff"/>
+            </g>
+            <text x="72" y="207" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12" font-weight="700" fill="rgba(255,255,255,.7)">Institución</text>
+            <g filter="url(#cf2Shadow)">
+              <rect x="308" y="118" width="84" height="84" rx="20" fill="url(#cf2NodeOrange)"/>
+              <rect x="334" y="146" width="32" height="22" rx="4" fill="#fff"/>
+              <rect x="338" y="151" width="7" height="6" rx="1.4" fill="#f47f20"/>
+              <rect x="338" y="162" width="16" height="2.4" rx="1.2" fill="#f47f20" opacity=".6"/>
+            </g>
+            <text x="350" y="219" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12.5" font-weight="700" fill="#fff">Copayment</text>
+            <g filter="url(#cf2Shadow)">
+              <rect x="596" y="128" width="64" height="64" rx="16" fill="url(#cf2NodeGreen)"/>
+              <circle cx="617" cy="160" r="4.5" fill="#fff"/><circle cx="628" cy="151" r="4.5" fill="#fff"/><circle cx="639" cy="160" r="4.5" fill="#fff"/><circle cx="628" cy="169" r="4.5" fill="#fff"/>
+              <path d="M617 160l11-9M628 151l11 9M639 160l-11 9M628 169l-11-9" stroke="#fff" stroke-width="1.5" opacity=".6"/>
+            </g>
+            <text x="628" y="207" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12" font-weight="700" fill="rgba(255,255,255,.7)">Red</text>
+          </svg>
+        </div>
+      </div>
+
+      <div class="cap-learn anim-fade-up" style="border-top:none;">
+        <h2 class="cap-learn-title" style="font-size:clamp(1.7rem,3vw,2.4rem);max-width:30ch;">Aprende a tu ritmo, cuando quieras y desde donde estés</h2>
+        <p class="cap-learn-sub" style="font-size:1.05rem;max-width:50ch;margin:0 auto 2rem;">Tu decides el formato, desde una hora hasta programas de capacitación continua</p>
         <a href="../comencemos.html" class="btn-emision-cta">Empieza hoy</a>
       </div>
 
       <div class="cap-instructors-head anim-fade-up">
         <p class="cap-instructors-label">Formados en la industria, listos para enseñarte</p>
       </div>
+
+      <!-- Floating mouse-parallax scatter cluster: instructor specialties (verbatim PDF role titles) -->
+      <div class="proc-vals-cards proc-vals-cards--square anim-fade-up" id="capRolesCards">
+        <div class="proc-vals-card-wrap" data-depth="9" style="top:0%;left:1%;width:30%;aspect-ratio:1/1;">
+          <div class="proc-vals-card proc-vals-card--navy" style="--tilt:-3deg;--fdur:6.4s;--fdel:0s;">
+            <div class="proc-vals-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-3V5a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3v2H4a2 2 0 0 0-2 2v3a2 2 0 0 0 1.4 1.9l6.6 2v3a2 2 0 0 0 4 0v-3l6.6-2A2 2 0 0 0 22 12V9a2 2 0 0 0-2-2z"/><path d="M2 13h20"/></svg></div>
+            <div class="proc-vals-card-text">CEO de Copayment</div>
+          </div>
+        </div>
+        <div class="proc-vals-card-wrap" data-depth="11" style="top:6%;left:55%;width:32%;aspect-ratio:1/1;">
+          <div class="proc-vals-card proc-vals-card--blue" style="--tilt:4deg;--fdur:5.2s;--fdel:.3s;">
+            <div class="proc-vals-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+            <div class="proc-vals-card-text">Asesor de Dirección · TI</div>
+          </div>
+        </div>
+        <div class="proc-vals-card-wrap" data-depth="8" style="top:55%;left:2%;width:29%;aspect-ratio:1/1;">
+          <div class="proc-vals-card proc-vals-card--orange" style="--tilt:-2deg;--fdur:7.1s;--fdel:.6s;">
+            <div class="proc-vals-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <div class="proc-vals-card-text">Gerente de Prevención de Fraudes</div>
+          </div>
+        </div>
+        <div class="proc-vals-card-wrap" data-depth="10" style="top:58%;left:55%;width:31%;aspect-ratio:1/1;">
+          <div class="proc-vals-card proc-vals-card--green" style="--tilt:3deg;--fdur:5.8s;--fdel:.15s;">
+            <div class="proc-vals-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+            <div class="proc-vals-card-text">Gerente de Cumplimiento</div>
+          </div>
+        </div>
+      </div>
+      <script>
+      (function(){
+        var cluster = document.getElementById('capRolesCards');
+        if (!cluster) return;
+        var wraps = Array.prototype.slice.call(cluster.querySelectorAll('.proc-vals-card-wrap'));
+        cluster.addEventListener('mousemove', function(e){
+          var rect = cluster.getBoundingClientRect();
+          var mx = (e.clientX - rect.left) / rect.width  - 0.5;
+          var my = (e.clientY - rect.top)  / rect.height - 0.5;
+          wraps.forEach(function(w){
+            var depth = parseFloat(w.dataset.depth) || 16;
+            w.style.transform = 'translate(' + (mx * depth) + 'px,' + (my * depth) + 'px)';
+          });
+        });
+        cluster.addEventListener('mouseleave', function(){
+          wraps.forEach(function(w){ w.style.transform = 'translate(0,0)'; });
+        });
+      })();
+      </script>
+
       <div class="cap-instructors-grid">
         <div class="cap-instructor-card anim-fade-up">
           <div class="cap-instructor-photo" style="background:var(--navy);">PG</div>
@@ -171,8 +289,8 @@
         </div>
       </div>
 
-      <div class="cap-content-text anim-fade-up">
-        <p>Contenidos 100% configurables que se adaptan a tus necesidades operativas, regulatorias y estratégicas.</p>
+      <div class="cap-content-text anim-fade-up" style="text-align:center;">
+        <p style="max-width:46ch;margin:0 auto;font-size:clamp(1.1rem,1.9vw,1.4rem);">Contenidos 100% configurables que se adaptan a tus necesidades operativas, regulatorias y estratégicas.</p>
       </div>
 
     </div>

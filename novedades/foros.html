@@ -122,47 +122,64 @@
   <section class="section" id="servicios" style="position:relative;overflow:hidden;">
     <canvas id="forosTopicsCanvas" data-r="0" data-g="172" data-b="255" data-mul="1" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
     <div class="container" style="position:relative;z-index:1;">
-      <div class="pillar-group-label" style="margin-bottom:.5rem;">Agenda</div>
-      <h2 class="section-title" style="margin-bottom:2.5rem;">¿Qué temas se abordan?</h2>
-      <div class="pillar-group-showcase solutions-showcase">
-        <div class="solution-row anim-fade-up">
-          <span class="solution-row-num">01</span>
-          <div class="solution-row-body">
-            <h3 class="solution-row-title">Innovación en Medios de Pagos</h3>
-            <p class="solution-row-desc">Las últimas tendencias en procesamiento, emisión y adquirencia. Open Finance, pagos instantáneos y evolución del ecosistema de pagos en México y Latinoamérica.</p>
+      <div class="pillar-group-label" style="margin-bottom:.5rem;text-align:center;">Agenda</div>
+      <h2 class="section-title letter-reveal" style="margin-bottom:1rem;text-align:center;font-size:clamp(1.9rem,3.4vw,2.6rem);">¿Qué temas se abordan?</h2>
+      <p style="text-align:center;max-width:54ch;margin:0 auto 1rem;color:rgba(255,255,255,.65);font-size:1.02rem;line-height:1.65;">Innovación en medios de pago, seguridad, regulación, inteligencia artificial e inclusión financiera — cinco frentes que mueven al sector.</p>
+
+      <!-- Floating mouse-parallax scatter cluster: agenda topics -->
+      <div class="proc-vals-cards anim-fade-up" id="forosTopicsCards" style="max-width:780px;">
+        <div class="proc-vals-card-wrap" data-depth="9" style="top:2%;left:0%;width:21%;aspect-ratio:1/1;">
+          <div class="proc-vals-card proc-vals-card--navy" style="--tilt:-3deg;--fdur:6.2s;--fdel:0s;">
+            <div class="proc-vals-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+            <div class="proc-vals-card-text">Innovación en Medios de Pagos</div>
           </div>
         </div>
-        <div class="solution-row anim-fade-up anim-delay-1">
-          <span class="solution-row-num">02</span>
-          <div class="solution-row-body">
-            <h3 class="solution-row-title">Seguridad y Prevención de Fraudes</h3>
-            <p class="solution-row-desc">Casos reales, estrategias probadas y herramientas de vanguardia para combatir el fraude en todos los canales de pago.</p>
+        <div class="proc-vals-card-wrap" data-depth="11" style="top:0%;left:27%;width:22%;aspect-ratio:1/1;">
+          <div class="proc-vals-card proc-vals-card--orange" style="--tilt:4deg;--fdur:5.4s;--fdel:.25s;">
+            <div class="proc-vals-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <div class="proc-vals-card-text">Seguridad y Prevención de Fraudes</div>
           </div>
         </div>
-        <div class="solution-row anim-fade-up anim-delay-2">
-          <span class="solution-row-num">03</span>
-          <div class="solution-row-body">
-            <h3 class="solution-row-title">Regulación y cumplimiento normativo</h3>
-            <p class="solution-row-desc">Actualizaciones de CNBV, BANXICO, Ley Fintech y estándares internacionales PCI DSS. Cómo mantenerse en cumplimiento sin frenar la operación.</p>
+        <div class="proc-vals-card-wrap" data-depth="8" style="top:3%;left:54%;width:21%;aspect-ratio:1/1;">
+          <div class="proc-vals-card proc-vals-card--blue" style="--tilt:-2deg;--fdur:6.8s;--fdel:.5s;">
+            <div class="proc-vals-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+            <div class="proc-vals-card-text">Regulación y cumplimiento normativo</div>
           </div>
         </div>
-        <div class="solution-row anim-fade-up anim-delay-3">
-          <span class="solution-row-num">04</span>
-          <div class="solution-row-body">
-            <h3 class="solution-row-title">Inteligencia Artificial (IA)</h3>
-            <p class="solution-row-desc">Aplicaciones de IA y machine learning en la detección de fraude, optimización de autorizaciones y personalización de servicios financieros.</p>
+        <div class="proc-vals-card-wrap" data-depth="10" style="top:0%;left:80%;width:20%;aspect-ratio:1/1;">
+          <div class="proc-vals-card proc-vals-card--green" style="--tilt:3deg;--fdur:5.8s;--fdel:.15s;">
+            <div class="proc-vals-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.2 4.2l2.8 2.8M17 17l2.8 2.8M1 12h4M19 12h4M4.2 19.8 7 17M17 7l2.8-2.8"/></svg></div>
+            <div class="proc-vals-card-text">Inteligencia Artificial (IA)</div>
           </div>
         </div>
-        <div class="solution-row anim-fade-up">
-          <span class="solution-row-num">05</span>
-          <div class="solution-row-body">
-            <h3 class="solution-row-title">Inclusión Financiera</h3>
-            <p class="solution-row-desc">Estrategias para llevar servicios financieros a más mexicanos. Tecnología como habilitador de la inclusión y el desarrollo económico.</p>
+        <div class="proc-vals-card-wrap" data-depth="9" style="top:54%;left:38%;width:22%;aspect-ratio:1/1;">
+          <div class="proc-vals-card proc-vals-card--navy" style="--tilt:-4deg;--fdur:6.5s;--fdel:.35s;">
+            <div class="proc-vals-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div class="proc-vals-card-text">Inclusión Financiera</div>
           </div>
         </div>
       </div>
+      <script>
+      (function(){
+        var cluster = document.getElementById('forosTopicsCards');
+        if (!cluster) return;
+        var wraps = Array.prototype.slice.call(cluster.querySelectorAll('.proc-vals-card-wrap'));
+        cluster.addEventListener('mousemove', function(e){
+          var rect = cluster.getBoundingClientRect();
+          var mx = (e.clientX - rect.left) / rect.width  - 0.5;
+          var my = (e.clientY - rect.top)  / rect.height - 0.5;
+          wraps.forEach(function(w){
+            var depth = parseFloat(w.dataset.depth) || 16;
+            w.style.transform = 'translate(' + (mx * depth) + 'px,' + (my * depth) + 'px)';
+          });
+        });
+        cluster.addEventListener('mouseleave', function(){
+          wraps.forEach(function(w){ w.style.transform = 'translate(0,0)'; });
+        });
+      })();
+      </script>
 
-      <div class="anim-fade-up" style="display:flex;align-items:center;gap:1rem;margin-top:2.5rem;padding:1.25rem 1.5rem;background:rgba(255,255,255,.06);border:1px solid rgba(0,172,255,.14);border-radius:var(--radius-lg);">
+      <div class="anim-fade-up" style="display:flex;align-items:center;gap:1rem;margin-top:3rem;padding:1.25rem 1.5rem;background:rgba(255,255,255,.06);border:1px solid rgba(0,172,255,.14);border-radius:var(--radius-lg);max-width:480px;margin-left:auto;margin-right:auto;">
         <div style="width:48px;height:48px;border-radius:50%;background:var(--gradient);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><polygon points="6 4 20 12 6 20 6 4"/></svg>
         </div>
@@ -175,21 +192,46 @@
   <section class="section-sm" style="background:var(--navy);position:relative;overflow:hidden;">
     <canvas id="forosEventCanvas" data-r="244" data-g="127" data-b="32" data-mul="1" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
     <div class="container" style="position:relative;z-index:1;">
-      <p style="text-align:center;font-family:'Montserrat',sans-serif;font-weight:600;color:rgba(255,255,255,.65);margin-bottom:2rem;">Aprende, actualízate y genera networking de valor.</p>
+      <p style="text-align:center;font-family:'Montserrat',sans-serif;font-weight:700;color:rgba(255,255,255,.7);margin-bottom:2.5rem;font-size:clamp(1.1rem,2vw,1.4rem);">Aprende, actualízate y genera networking de valor.</p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;" class="about-grid">
         <div class="anim-fade-left">
           <div class="pillar-group-label" style="margin-bottom:.5rem;">FORO COPAYMENT MTY</div>
-          <h2 class="section-title" style="color:#fff;">Octubre 2026</h2>
-          <p style="color:rgba(255,255,255,.65);margin-bottom:2rem;">Monterrey</p>
-          <!-- PLACEHOLDER: logo del foro de mty o banner promocional -->
-          <div style="background:rgba(255,255,255,.06);border:1px dashed rgba(0,172,255,.3);border-radius:var(--radius);padding:2rem;text-align:center;margin-bottom:2rem;">
-            <p style="color:rgba(255,255,255,.5);font-size:.82rem;font-family:'Montserrat',sans-serif;">Logo del foro MTY · Banner promocional</p>
-          </div>
+          <h2 class="section-title letter-reveal" style="color:#fff;">Octubre 2026</h2>
+          <p style="color:rgba(255,255,255,.65);margin-bottom:0;">Monterrey</p>
         </div>
         <div class="anim-fade-right anim-delay-1" style="display:flex;flex-direction:column;gap:1rem;">
           <a href="../comencemos.html" class="btn btn-primary" style="text-align:center;text-transform:uppercase;letter-spacing:.06em;">FORO COPAYMENT MTY<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-left:.5rem"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
           <a href="../comencemos.html" class="btn btn-aux" style="text-align:center;text-transform:uppercase;letter-spacing:.06em;">FORO COPAYMENT CDMX<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-left:.5rem"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
+      </div>
+
+      <!-- Flow diagram: registration → conference → networking -->
+      <div class="proc-flow-diagram anim-fade-up" aria-hidden="true" style="margin-top:2.5rem;">
+        <svg viewBox="0 0 700 260" width="100%" height="100%">
+          <defs>
+            <linearGradient id="fe1NodeBlue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3dc6ff"/><stop offset="1" stop-color="#00acff"/></linearGradient>
+            <linearGradient id="fe1NodeOrange" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff9d4f"/><stop offset="1" stop-color="#f47f20"/></linearGradient>
+            <linearGradient id="fe1NodeGreen" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0fb567"/><stop offset="1" stop-color="#068e50"/></linearGradient>
+            <filter id="fe1Shadow" x="-60%" y="-60%" width="220%" height="220%"><feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000" flood-opacity=".35"/></filter>
+          </defs>
+          <path d="M104 130 H308" stroke="#00acff" stroke-width="2.5" stroke-dasharray="7 7" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="-28" dur="1.2s" repeatCount="indefinite"/></path>
+          <path d="M392 130 H596" stroke="#068e50" stroke-width="2.5" stroke-dasharray="7 7" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="-28" dur="1.2s" repeatCount="indefinite"/></path>
+          <circle r="5" fill="#fff"><animateMotion path="M104 130 H596" dur="2.6s" repeatCount="indefinite"/></circle>
+          <circle r="9" fill="#fff" opacity=".25"><animateMotion path="M104 130 H596" dur="2.6s" repeatCount="indefinite"/></circle>
+          <g filter="url(#fe1Shadow)"><rect x="40" y="98" width="64" height="64" rx="16" fill="url(#fe1NodeBlue)"/>
+            <rect x="56" y="114" width="32" height="22" rx="3" fill="none" stroke="#fff" stroke-width="2.2"/><path d="M56 119h32" stroke="#fff" stroke-width="2.2"/><circle cx="76" cy="127" r="2" fill="#fff"/>
+          </g>
+          <text x="72" y="177" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12" font-weight="700" fill="rgba(255,255,255,.7)">Regístrate</text>
+          <g filter="url(#fe1Shadow)"><rect x="308" y="88" width="84" height="84" rx="20" fill="url(#fe1NodeOrange)"/>
+            <path d="M338 130l12-12 12 12-12 12z" fill="#fff"/><circle cx="350" cy="130" r="4" fill="#f47f20"/>
+          </g>
+          <text x="350" y="189" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12.5" font-weight="700" fill="#fff">Asiste al foro</text>
+          <g filter="url(#fe1Shadow)"><rect x="596" y="98" width="64" height="64" rx="16" fill="url(#fe1NodeGreen)"/>
+            <circle cx="615" cy="122" r="6" fill="#fff"/><circle cx="639" cy="122" r="6" fill="#fff"/><circle cx="627" cy="142" r="6" fill="#fff"/>
+            <path d="M615 122l12 20M639 122l-12 20" stroke="#fff" stroke-width="1.6" opacity=".7"/>
+          </g>
+          <text x="628" y="177" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12" font-weight="700" fill="rgba(255,255,255,.7)">Genera networking</text>
+        </svg>
       </div>
     </div>
   </section>
@@ -403,9 +445,10 @@
   </section>
 
   <!-- RISK DAY -->
-  <section class="section" style="background:var(--navy);">
-    <div class="container" style="text-align:center;">
-      <h2 class="section-title" style="color:#fff;margin-bottom:1rem;">RISK DAY</h2>
+  <section class="section" style="background:var(--navy);position:relative;overflow:hidden;">
+    <canvas id="forosRiskCanvas" data-r="0" data-g="172" data-b="255" data-mul="1" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
+    <div class="container" style="text-align:center;position:relative;z-index:1;">
+      <h2 class="section-title letter-reveal" style="color:#fff;margin-bottom:1rem;">RISK DAY</h2>
       <p style="color:rgba(255,255,255,.8);font-size:1.1rem;max-width:600px;margin:0 auto 2rem;">¿Estás preparado para los nuevos retos en fraude, ciberseguridad y gestión de riesgos?</p>
       <a href="#riskday-archive" class="btn btn-aux">Ver anteriores</a>
     </div>
@@ -547,6 +590,7 @@
     startPCB('forosHeroCanvas');
     startPCB('forosTopicsCanvas');
     startPCB('forosEventCanvas');
+    startPCB('forosRiskCanvas');
   </script>
 </body>
 </html>

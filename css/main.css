@@ -5357,3 +5357,33 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
   .feat-grid-3 { grid-template-columns: 1fr; }
   .proc-subcols { grid-template-columns: 1fr; }
 }
+
+/* ── proc-vals-cards: floating mouse-parallax scatter cluster (shared, was duplicated per-page) ── */
+.proc-vals-cards { position:relative; width:100%; max-width:740px; height:clamp(300px,32vw,400px); margin:2.5rem auto 1.5rem; }
+.proc-vals-cards--square { max-width:640px; aspect-ratio:640/460; height:auto; margin-top:3rem; }
+@media (max-width:640px) { .proc-vals-cards--square { max-width:300px; aspect-ratio:300/430; } }
+.proc-vals-card-wrap { position:absolute; transition:transform .55s cubic-bezier(.16,1,.3,1); will-change:transform; }
+.proc-vals-card {
+  width:100%; height:100%; border-radius:22px;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.5rem;
+  padding:.7rem;
+  box-shadow:0 14px 28px rgba(0,0,0,.3);
+  animation:procValsFloat var(--fdur,6s) ease-in-out infinite;
+  animation-delay:var(--fdel,0s);
+  cursor:default;
+  transition:box-shadow .3s;
+}
+.proc-vals-card:hover { box-shadow:0 24px 46px rgba(0,0,0,.42); }
+@keyframes procValsFloat {
+  0%,100% { transform:translateY(0) rotate(var(--tilt,-2deg)); }
+  50%     { transform:translateY(-16px) rotate(calc(var(--tilt,-2deg) * -1)); }
+}
+.proc-vals-card-icon { width:30px; height:30px; flex-shrink:0; }
+.proc-vals-card-icon svg { width:100%; height:100%; stroke:#fff; fill:none; stroke-width:2; display:block; }
+.proc-vals-card-text { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.85rem; line-height:1.25; color:#fff; text-align:center; padding:0 .4rem; }
+.proc-vals-card--navy   { background:linear-gradient(150deg,#0050b8 0%,#00327a 100%); }
+.proc-vals-card--blue   { background:linear-gradient(150deg,#3dc6ff 0%,#00acff 100%); }
+.proc-vals-card--orange { background:linear-gradient(150deg,#ff9d4f 0%,#f47f20 100%); }
+.proc-vals-card--green  { background:linear-gradient(150deg,#0fb567 0%,#068e50 100%); }
+@media(prefers-reduced-motion:reduce){ .proc-vals-card{ animation:none; } }
+@media (max-width: 640px) { .proc-vals-cards { max-width:300px; height:380px; } }
