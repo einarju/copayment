@@ -80,19 +80,76 @@
     </div>
   </nav>
 
-  <!-- PAGE HERO -->
-  <section class="page-hero" id="main-content">
-    <canvas id="forosHeroCanvas" data-r="0" data-g="172" data-b="255" data-mul="1" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
+  <a id="main-content" aria-hidden="true" tabindex="-1"></a>
+  <!-- HERO -->
+  <section class="section">
     <div class="container">
-      <div class="page-hero-content">
-        <nav class="breadcrumb" aria-label="Ruta de navegación">
-          <a href="../index.html">Inicio</a><span class="breadcrumb-sep">›</span>
-          <a href="../novedades.html">Novedades</a><span class="breadcrumb-sep">›</span>
-          <span>Foros</span>
-        </nav>
-        <p class="pillar-group-label" style="margin-bottom:.5rem;">FORO COPAYMENT</p>
-        <h1>Un espacio para conectar y aprender</h1>
-        <p>Encuentro especializado que reúne a líderes, expertos y tomadores de decisión del sector financiero, tecnológico y de prevención de fraudes.</p>
+      <nav class="breadcrumb" aria-label="Ruta de navegación" style="margin-bottom:1.5rem;">
+        <a href="../index.html">Inicio</a><span class="breadcrumb-sep">›</span>
+        <a href="../novedades.html">Novedades</a><span class="breadcrumb-sep">›</span>
+        <span>Foros</span>
+      </nav>
+      <style>
+        .foros-hero-2col { display:grid; grid-template-columns:1fr 1fr; gap:3.5rem; align-items:center; }
+        .foros-hero-visual { border-radius:18px; background:linear-gradient(145deg,#00327a 0%,#001e50 100%); box-shadow:0 24px 56px rgba(0,30,80,.32); min-height:280px; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+        @media(max-width:768px){ .foros-hero-2col { grid-template-columns:1fr; } .foros-hero-visual { min-height:200px; } }
+      </style>
+      <div class="foros-hero-2col">
+        <div>
+          <p class="pillar-group-label" style="margin-bottom:.75rem;">FORO COPAYMENT</p>
+          <h1 class="letter-reveal" style="font-size:clamp(2.1rem,3.8vw,3.2rem);color:var(--navy);font-weight:800;margin-bottom:1.1rem;line-height:1.15;">Un espacio para conectar y aprender</h1>
+          <p style="font-size:1.05rem;color:#4a5a7a;line-height:1.7;margin-bottom:2rem;max-width:42ch;">Encuentro especializado que reúne a líderes, expertos y tomadores de decisión del sector financiero, tecnológico y de prevención de fraudes.</p>
+          <a href="../comencemos.html" class="btn-nav-cta">Regístrate<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+        <div class="foros-hero-visual" aria-hidden="true">
+          <svg viewBox="0 0 400 280" width="100%" style="max-height:260px;">
+            <defs>
+              <linearGradient id="fhNodeOrange" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff9d4f"/><stop offset="1" stop-color="#f47f20"/></linearGradient>
+              <filter id="fhGlow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <!-- Stage platform -->
+            <rect x="60" y="195" width="280" height="10" rx="4" fill="rgba(255,255,255,.12)"/>
+            <!-- Podium -->
+            <rect x="172" y="155" width="56" height="40" rx="6" fill="url(#fhNodeOrange)" filter="url(#fhGlow)"/>
+            <rect x="183" y="163" width="34" height="20" rx="3" fill="rgba(255,255,255,.2)"/>
+            <!-- Speaker -->
+            <circle cx="200" cy="128" r="13" fill="rgba(255,255,255,.85)"/>
+            <path d="M183 155 Q200 148 217 155" fill="rgba(255,255,255,.6)"/>
+            <line x1="200" y1="141" x2="200" y2="158" stroke="rgba(255,255,255,.7)" stroke-width="2.5"/>
+            <ellipse cx="200" cy="137" rx="7" ry="9" fill="rgba(255,255,255,.85)"/>
+            <!-- Audience row 1 -->
+            <circle cx="96"  cy="182" r="9" fill="rgba(255,255,255,.5)"/>
+            <circle cx="122" cy="182" r="9" fill="rgba(0,172,255,.65)"/>
+            <circle cx="148" cy="182" r="9" fill="rgba(255,255,255,.45)"/>
+            <circle cx="252" cy="182" r="9" fill="rgba(255,255,255,.45)"/>
+            <circle cx="278" cy="182" r="9" fill="rgba(0,172,255,.65)"/>
+            <circle cx="304" cy="182" r="9" fill="rgba(255,255,255,.5)"/>
+            <!-- Audience row 2 -->
+            <circle cx="85"  cy="166" r="7" fill="rgba(255,255,255,.28)"/>
+            <circle cx="108" cy="166" r="7" fill="rgba(255,255,255,.28)"/>
+            <circle cx="131" cy="166" r="7" fill="rgba(255,255,255,.22)"/>
+            <circle cx="160" cy="164" r="7" fill="rgba(255,255,255,.18)"/>
+            <circle cx="240" cy="164" r="7" fill="rgba(255,255,255,.18)"/>
+            <circle cx="269" cy="166" r="7" fill="rgba(255,255,255,.22)"/>
+            <circle cx="292" cy="166" r="7" fill="rgba(255,255,255,.28)"/>
+            <circle cx="315" cy="166" r="7" fill="rgba(255,255,255,.28)"/>
+            <!-- Spotlights -->
+            <path d="M140 55 L100 195" stroke="rgba(255,255,255,.05)" stroke-width="32" stroke-linecap="round"/>
+            <path d="M200 45 L200 195" stroke="rgba(255,255,255,.07)" stroke-width="26" stroke-linecap="round"/>
+            <path d="M260 55 L300 195" stroke="rgba(255,255,255,.05)" stroke-width="32" stroke-linecap="round"/>
+            <!-- Event badge -->
+            <rect x="55" y="45" width="85" height="56" rx="8" fill="rgba(255,255,255,.07)" stroke="rgba(0,172,255,.28)" stroke-width="1.2"/>
+            <text x="97" y="67" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8" font-weight="700" fill="rgba(0,172,255,.9)">FORO</text>
+            <text x="97" y="81" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9.5" font-weight="800" fill="#fff">COPAYMENT</text>
+            <text x="97" y="94" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="7.5" fill="rgba(255,255,255,.55)">OCTUBRE 2026</text>
+            <rect x="55" y="45" width="85" height="56" rx="8" fill="none" stroke="rgba(0,172,255,.5)" stroke-width="1.2"><animate attributeName="opacity" values="1;0;1" dur="2.8s" repeatCount="indefinite"/></rect>
+            <!-- City tags -->
+            <rect x="264" y="50" width="76" height="22" rx="5" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.18)" stroke-width="1"/>
+            <text x="302" y="65" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9" fill="rgba(255,255,255,.8)">Monterrey</text>
+            <rect x="264" y="78" width="76" height="22" rx="5" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.18)" stroke-width="1"/>
+            <text x="302" y="93" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9" fill="rgba(255,255,255,.8)">CDMX</text>
+          </svg>
+        </div>
       </div>
     </div>
   </section>
@@ -122,71 +179,40 @@
   </section>
 
   <!-- TOPICS -->
-  <section class="section" id="servicios" style="position:relative;overflow:hidden;">
-    <canvas id="forosTopicsCanvas" data-r="0" data-g="172" data-b="255" data-mul="1" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
-    <div class="container" style="position:relative;z-index:1;">
+  <section class="section" id="servicios">
+    <div class="container">
       <div class="pillar-group-label" style="margin-bottom:.5rem;text-align:center;">Agenda</div>
-      <h2 class="section-title letter-reveal" style="margin-bottom:1rem;text-align:center;font-size:clamp(1.9rem,3.4vw,2.6rem);">¿Qué temas se abordan?</h2>
-      <p style="text-align:center;max-width:54ch;margin:0 auto 1rem;color:rgba(255,255,255,.65);font-size:1.02rem;line-height:1.65;">Innovación en medios de pago, seguridad, regulación, inteligencia artificial e inclusión financiera — cinco frentes que mueven al sector.</p>
+      <h2 class="section-title letter-reveal" style="margin-bottom:1rem;text-align:center;font-size:clamp(1.9rem,3.4vw,2.6rem);color:var(--navy);">¿Qué temas se abordan?</h2>
+      <p style="text-align:center;max-width:54ch;margin:0 auto 2rem;color:#4a5a7a;font-size:1.02rem;line-height:1.65;">Innovación en medios de pago, seguridad, regulación, inteligencia artificial e inclusión financiera — cinco frentes que mueven al sector.</p>
 
-      <!-- Floating mouse-parallax scatter cluster: agenda topics -->
-      <div class="proc-vals-cards anim-fade-up" id="forosTopicsCards" style="max-width:780px;">
-        <div class="proc-vals-card-wrap" data-depth="9" style="top:2%;left:0%;width:21%;aspect-ratio:1/1;">
-          <div class="proc-vals-card proc-vals-card--navy" style="--tilt:-3deg;--fdur:6.2s;--fdel:0s;">
-            <div class="proc-vals-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-            <div class="proc-vals-card-text">Innovación en Medios de Pagos</div>
-          </div>
+      <div class="anim-fade-up" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1rem;margin-bottom:2.5rem;">
+        <div style="display:flex;align-items:center;gap:.75rem;padding:1rem 1.25rem;background:rgba(0,50,122,.04);border:1px solid rgba(0,50,122,.1);border-radius:10px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:.9rem;color:var(--navy);">Innovación en Medios de Pagos</span>
         </div>
-        <div class="proc-vals-card-wrap" data-depth="11" style="top:0%;left:27%;width:22%;aspect-ratio:1/1;">
-          <div class="proc-vals-card proc-vals-card--orange" style="--tilt:4deg;--fdur:5.4s;--fdel:.25s;">
-            <div class="proc-vals-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-            <div class="proc-vals-card-text">Seguridad y Prevención de Fraudes</div>
-          </div>
+        <div style="display:flex;align-items:center;gap:.75rem;padding:1rem 1.25rem;background:rgba(0,50,122,.04);border:1px solid rgba(0,50,122,.1);border-radius:10px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f47f20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:.9rem;color:var(--navy);">Seguridad y Prevención de Fraudes</span>
         </div>
-        <div class="proc-vals-card-wrap" data-depth="8" style="top:3%;left:54%;width:21%;aspect-ratio:1/1;">
-          <div class="proc-vals-card proc-vals-card--blue" style="--tilt:-2deg;--fdur:6.8s;--fdel:.5s;">
-            <div class="proc-vals-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
-            <div class="proc-vals-card-text">Regulación y cumplimiento normativo</div>
-          </div>
+        <div style="display:flex;align-items:center;gap:.75rem;padding:1rem 1.25rem;background:rgba(0,50,122,.04);border:1px solid rgba(0,50,122,.1);border-radius:10px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:.9rem;color:var(--navy);">Regulación y Cumplimiento Normativo</span>
         </div>
-        <div class="proc-vals-card-wrap" data-depth="10" style="top:0%;left:80%;width:20%;aspect-ratio:1/1;">
-          <div class="proc-vals-card proc-vals-card--green" style="--tilt:3deg;--fdur:5.8s;--fdel:.15s;">
-            <div class="proc-vals-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.2 4.2l2.8 2.8M17 17l2.8 2.8M1 12h4M19 12h4M4.2 19.8 7 17M17 7l2.8-2.8"/></svg></div>
-            <div class="proc-vals-card-text">Inteligencia Artificial (IA)</div>
-          </div>
+        <div style="display:flex;align-items:center;gap:.75rem;padding:1rem 1.25rem;background:rgba(0,50,122,.04);border:1px solid rgba(0,50,122,.1);border-radius:10px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.2 4.2l2.8 2.8M17 17l2.8 2.8M1 12h4M19 12h4M4.2 19.8 7 17M17 7l2.8-2.8"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:.9rem;color:var(--navy);">Inteligencia Artificial (IA)</span>
         </div>
-        <div class="proc-vals-card-wrap" data-depth="9" style="top:54%;left:38%;width:22%;aspect-ratio:1/1;">
-          <div class="proc-vals-card proc-vals-card--navy" style="--tilt:-4deg;--fdur:6.5s;--fdel:.35s;">
-            <div class="proc-vals-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-            <div class="proc-vals-card-text">Inclusión Financiera</div>
-          </div>
+        <div style="display:flex;align-items:center;gap:.75rem;padding:1rem 1.25rem;background:rgba(0,50,122,.04);border:1px solid rgba(0,50,122,.1);border-radius:10px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#068e50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:.9rem;color:var(--navy);">Inclusión Financiera</span>
         </div>
       </div>
-      <script>
-      (function(){
-        var cluster = document.getElementById('forosTopicsCards');
-        if (!cluster) return;
-        var wraps = Array.prototype.slice.call(cluster.querySelectorAll('.proc-vals-card-wrap'));
-        cluster.addEventListener('mousemove', function(e){
-          var rect = cluster.getBoundingClientRect();
-          var mx = (e.clientX - rect.left) / rect.width  - 0.5;
-          var my = (e.clientY - rect.top)  / rect.height - 0.5;
-          wraps.forEach(function(w){
-            var depth = parseFloat(w.dataset.depth) || 16;
-            w.style.transform = 'translate(' + (mx * depth) + 'px,' + (my * depth) + 'px)';
-          });
-        });
-        cluster.addEventListener('mouseleave', function(){
-          wraps.forEach(function(w){ w.style.transform = 'translate(0,0)'; });
-        });
-      })();
-      </script>
 
-      <div class="anim-fade-up" style="display:flex;align-items:center;gap:1rem;margin-top:3rem;padding:1.25rem 1.5rem;background:rgba(255,255,255,.06);border:1px solid rgba(0,172,255,.14);border-radius:var(--radius-lg);max-width:480px;margin-left:auto;margin-right:auto;">
+      <div class="anim-fade-up" style="display:flex;align-items:center;gap:1rem;padding:1.25rem 1.5rem;background:rgba(0,50,122,.04);border:1px solid rgba(0,50,122,.12);border-radius:var(--radius-lg);max-width:480px;margin-left:auto;margin-right:auto;">
         <div style="width:48px;height:48px;border-radius:50%;background:var(--gradient);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><polygon points="6 4 20 12 6 20 6 4"/></svg>
         </div>
-        <span style="font-family:'Montserrat',sans-serif;font-weight:700;color:#fff;">Viridiana Ponce</span>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:700;color:var(--navy);">Viridiana Ponce</span>
       </div>
     </div>
   </section>
@@ -590,8 +616,6 @@
   </footer>
   <script src="../js/main.js"></script>
   <script>
-    startPCB('forosHeroCanvas');
-    startPCB('forosTopicsCanvas');
     startPCB('forosEventCanvas');
     startPCB('forosRiskCanvas');
   </script>
