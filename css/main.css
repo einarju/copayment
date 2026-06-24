@@ -2524,15 +2524,15 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
   padding: .5rem 1.3rem;
   border: 2px solid #068e50;
   border-radius: 50px;
-  background: transparent;
+  background: #068e50;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: .85rem;
-  color: #068e50;
+  color: #fff;
   cursor: pointer;
   transition: background var(--transition), color var(--transition);
 }
-.btn-emision-saber:hover { background: #068e50; color: #fff; }
+.btn-emision-saber:hover { background: #056b3a; border-color: #056b3a; color: #fff; }
 .btn-emision-saber svg { transition: transform var(--transition); flex-shrink: 0; }
 .btn-emision-saber[aria-expanded="true"] svg { transform: rotate(180deg); }
 
@@ -2909,7 +2909,7 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
 
 /* Products row */
 .proc-products {
-  padding: 2.5rem 0 1rem;
+  padding: 2.5rem 0 2.5rem;
   border-top: 1px solid rgba(0,50,122,.07);
   text-align: center;
 }
@@ -2929,12 +2929,12 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
 .proc-product-badge {
   display: inline-flex;
   align-items: center;
-  padding: .55rem 1.6rem;
+  padding: .85rem 2.4rem;
   background: var(--orange);
   color: #fff;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: .88rem;
+  font-size: 1.05rem;
   border-radius: 50px;
   text-decoration: none;
   box-shadow: 0 4px 16px rgba(244,127,32,.3);

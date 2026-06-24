@@ -165,92 +165,76 @@
     </style>
     <div class="container">
 
-      <!-- Course 1: flow diagram — fraud-prevention monitoring -->
-      <div class="proc-flow-row" style="border-top:none;">
+      <!-- Course 1: curriculum topics — fraud prevention -->
+      <div class="proc-flow-row" style="border-top:none;align-items:flex-start;gap:2.5rem;">
+        <style>
+          .cf-topic{display:flex;align-items:flex-start;gap:1rem;padding:.9rem 1rem;border-radius:10px;background:rgba(255,255,255,.05);border-left:3px solid transparent;animation:cfIn .45s ease both}
+          .cf-topic--1{border-left-color:#f47f20;animation-delay:.05s}
+          .cf-topic--2{border-left-color:#00acff;animation-delay:.15s}
+          .cf-topic--3{border-left-color:#068e50;animation-delay:.25s}
+          .cf-topic--4{border-left-color:#cc002c;animation-delay:.35s}
+          @keyframes cfIn{from{opacity:0;transform:translateX(-10px)}to{opacity:1;transform:none}}
+          .cf-topic-ico{width:36px;height:36px;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+          .cf-topic-ico--1{background:rgba(244,127,32,.15)}
+          .cf-topic-ico--2{background:rgba(0,172,255,.12)}
+          .cf-topic-ico--3{background:rgba(6,142,80,.15)}
+          .cf-topic-ico--4{background:rgba(204,0,44,.12)}
+          .cf-topic-name{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.9rem;color:#fff;margin:0 0 .2rem}
+          .cf-topic-desc{font-size:.78rem;color:rgba(255,255,255,.5);margin:0;line-height:1.5}
+        </style>
         <div class="proc-flow-text anim-fade-up">
           <h4 class="proc-flow-title">Prevención de fraudes</h4>
           <p style="font-size:.92rem;color:rgba(255,255,255,.7);line-height:1.65;margin:0 0 1rem;">Regulaciones, prevención de fraude y controles efectivos para proteger tu empresa y clientes.</p>
           <a href="../comencemos.html" class="svc-card-link">Saber más<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
-        <div class="proc-flow-diagram anim-fade-up" aria-hidden="true">
-          <svg viewBox="0 0 700 260" width="100%" height="100%">
-            <defs>
-              <linearGradient id="cf1NodeOrange" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff9d4f"/><stop offset="1" stop-color="#f47f20"/></linearGradient>
-              <linearGradient id="cf1NodeBlue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3dc6ff"/><stop offset="1" stop-color="#00acff"/></linearGradient>
-              <filter id="cf1Shadow" x="-60%" y="-60%" width="220%" height="220%"><feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000" flood-opacity=".35"/></filter>
-            </defs>
-            <path d="M134 80 L308 130" stroke="#00acff" stroke-width="2.5" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="-24" dur="1.3s" repeatCount="indefinite"/></path>
-            <path d="M134 180 L308 130" stroke="#00acff" stroke-width="2.5" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="-24" dur="1.5s" repeatCount="indefinite"/></path>
-            <path d="M566 130 L392 130" stroke="#00acff" stroke-width="2.5" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="-24" dur="1.4s" repeatCount="indefinite"/></path>
-            <g filter="url(#cf1Shadow)"><rect x="70" y="48" width="64" height="64" rx="16" fill="url(#cf1NodeBlue)"/>
-              <path d="M91 75h22l-2 21a4 4 0 0 1-4 3.6H97a4 4 0 0 1-4-3.6z" fill="#fff"/>
-              <path d="M97 75v-3a5 5 0 0 1 10 0v3" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round"/>
-            </g>
-            <text x="102" y="127" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12" font-weight="700" fill="rgba(255,255,255,.7)">Transacción</text>
-            <g filter="url(#cf1Shadow)"><rect x="70" y="148" width="64" height="64" rx="16" fill="url(#cf1NodeBlue)"/>
-              <circle cx="102" cy="172" r="4" fill="#fff"/>
-              <path d="M88 195c0-8 6-13 14-13s14 5 14 13" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round"/>
-            </g>
-            <text x="102" y="227" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12" font-weight="700" fill="rgba(255,255,255,.7)">Cliente</text>
-            <circle cx="350" cy="130" r="20" fill="none" stroke="#f47f20" stroke-width="2" opacity=".55">
-              <animate attributeName="r" values="20;36;20" dur="2.6s" repeatCount="indefinite"/>
-              <animate attributeName="opacity" values=".55;0;.55" dur="2.6s" repeatCount="indefinite"/>
-            </circle>
-            <g filter="url(#cf1Shadow)">
-              <circle cx="350" cy="130" r="32" fill="url(#cf1NodeOrange)"/>
-              <path d="M350 114l13 5.5v12c0 8.5-6.3 13.5-13 15.5-6.7-2-13-7-13-15.5v-12z" fill="#fff"/>
-              <path d="M344.5 130.5l3.7 3.8 7.3-8" stroke="#f47f20" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            </g>
-            <text x="350" y="182" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="13" font-weight="700" fill="#fff">Prevención</text>
-            <g filter="url(#cf1Shadow)"><rect x="566" y="98" width="64" height="64" rx="16" fill="url(#cf1NodeBlue)"/>
-              <path d="M598 114l13 5.5v12c0 8.5-6.3 13.5-13 15.5-6.7-2-13-7-13-15.5v-12z" fill="#fff"/>
-              <path d="M592.5 130.5l3.7 3.8 7.3-8" stroke="url(#cf1NodeBlue)" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            </g>
-            <text x="598" y="177" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12" font-weight="700" fill="rgba(255,255,255,.7)">Empresa protegida</text>
-          </svg>
+        <div class="proc-flow-diagram anim-fade-up" style="display:flex;flex-direction:column;gap:.75rem;justify-content:center;">
+          <div class="cf-topic cf-topic--1">
+            <div class="cf-topic-ico cf-topic-ico--1"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f47f20" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+            <div><p class="cf-topic-name">Marco regulatorio</p><p class="cf-topic-desc">Normativas CNBV, Banxico y PCI que rigen la prevención.</p></div>
+          </div>
+          <div class="cf-topic cf-topic--2">
+            <div class="cf-topic-ico cf-topic-ico--2"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00acff" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+            <div><p class="cf-topic-name">Tipos de fraude</p><p class="cf-topic-desc">Card-present, CNP, account takeover y fraude interno.</p></div>
+          </div>
+          <div class="cf-topic cf-topic--3">
+            <div class="cf-topic-ico cf-topic-ico--3"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#068e50" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <div><p class="cf-topic-name">Controles efectivos</p><p class="cf-topic-desc">Reglas, modelos de scoring y autenticación reforzada.</p></div>
+          </div>
+          <div class="cf-topic cf-topic--4">
+            <div class="cf-topic-ico cf-topic-ico--4"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cc002c" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
+            <div><p class="cf-topic-name">Casos reales</p><p class="cf-topic-desc">Incidentes documentados del sector financiero mexicano.</p></div>
+          </div>
         </div>
       </div>
 
-      <!-- Course 2: flow diagram — payments ecosystem overview -->
-      <div class="proc-flow-row">
+      <!-- Course 2: ecosystem tile grid — payments overview -->
+      <div class="proc-flow-row" style="align-items:flex-start;gap:2.5rem;">
+        <style>
+          .cf-eco-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem}
+          .cf-eco-tile{padding:.85rem .9rem;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);text-align:center;animation:cfEcoIn .5s ease both}
+          .cf-eco-tile:nth-child(1){border-top:2px solid #f47f20;animation-delay:.05s}
+          .cf-eco-tile:nth-child(2){border-top:2px solid #00acff;animation-delay:.12s}
+          .cf-eco-tile:nth-child(3){border-top:2px solid #068e50;animation-delay:.19s}
+          .cf-eco-tile:nth-child(4){border-top:2px solid #cc002c;animation-delay:.26s}
+          .cf-eco-tile:nth-child(5){border-top:2px solid #f47f20;animation-delay:.33s}
+          .cf-eco-tile:nth-child(6){border-top:2px solid #00acff;animation-delay:.40s}
+          @keyframes cfEcoIn{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:none}}
+          .cf-eco-label{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.78rem;color:#fff;line-height:1.4}
+        </style>
         <div class="proc-flow-text anim-fade-up">
           <h4 class="proc-flow-title">Generalidades de Medios de Pago</h4>
           <p style="font-size:.92rem;color:rgba(255,255,255,.7);line-height:1.65;margin:0 0 1rem;">Una visión clara y práctica del ecosistema de pagos, sus operaciones y puntos críticos de riesgo.</p>
           <a href="../comencemos.html" class="svc-card-link">Saber más<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
-        <div class="proc-flow-diagram anim-fade-up" aria-hidden="true">
-          <svg viewBox="0 0 700 260" width="100%" height="100%">
-            <defs>
-              <linearGradient id="cf2NodeBlue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3dc6ff"/><stop offset="1" stop-color="#00acff"/></linearGradient>
-              <linearGradient id="cf2NodeOrange" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff9d4f"/><stop offset="1" stop-color="#f47f20"/></linearGradient>
-              <linearGradient id="cf2NodeGreen" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0fb567"/><stop offset="1" stop-color="#068e50"/></linearGradient>
-              <filter id="cf2Shadow" x="-60%" y="-60%" width="220%" height="220%"><feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000" flood-opacity=".35"/></filter>
-            </defs>
-            <path d="M104 160 H308" stroke="#00acff" stroke-width="2.5" stroke-dasharray="7 7" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="-28" dur="1.2s" repeatCount="indefinite"/></path>
-            <path d="M392 160 H596" stroke="#068e50" stroke-width="2.5" stroke-dasharray="7 7" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="-28" dur="1.2s" repeatCount="indefinite"/></path>
-            <circle r="5" fill="#fff"><animateMotion path="M104 160 H596" dur="2.6s" repeatCount="indefinite"/></circle>
-            <circle r="9" fill="#fff" opacity=".25"><animateMotion path="M104 160 H596" dur="2.6s" repeatCount="indefinite"/></circle>
-            <g filter="url(#cf2Shadow)">
-              <rect x="40" y="128" width="64" height="64" rx="16" fill="url(#cf2NodeBlue)"/>
-              <path d="M72 144l-13 7v3h26v-3z" fill="#fff"/>
-              <rect x="63" y="155" width="5" height="13" fill="#fff"/><rect x="70" y="155" width="5" height="13" fill="#fff"/><rect x="77" y="155" width="5" height="13" fill="#fff"/>
-              <rect x="59" y="168" width="26" height="3" fill="#fff"/>
-            </g>
-            <text x="72" y="207" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12" font-weight="700" fill="rgba(255,255,255,.7)">Institución</text>
-            <g filter="url(#cf2Shadow)">
-              <rect x="308" y="118" width="84" height="84" rx="20" fill="url(#cf2NodeOrange)"/>
-              <rect x="334" y="146" width="32" height="22" rx="4" fill="#fff"/>
-              <rect x="338" y="151" width="7" height="6" rx="1.4" fill="#f47f20"/>
-              <rect x="338" y="162" width="16" height="2.4" rx="1.2" fill="#f47f20" opacity=".6"/>
-            </g>
-            <text x="350" y="219" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12.5" font-weight="700" fill="#fff">Copayment</text>
-            <g filter="url(#cf2Shadow)">
-              <rect x="596" y="128" width="64" height="64" rx="16" fill="url(#cf2NodeGreen)"/>
-              <circle cx="617" cy="160" r="4.5" fill="#fff"/><circle cx="628" cy="151" r="4.5" fill="#fff"/><circle cx="639" cy="160" r="4.5" fill="#fff"/><circle cx="628" cy="169" r="4.5" fill="#fff"/>
-              <path d="M617 160l11-9M628 151l11 9M639 160l-11 9M628 169l-11-9" stroke="#fff" stroke-width="1.5" opacity=".6"/>
-            </g>
-            <text x="628" y="207" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12" font-weight="700" fill="rgba(255,255,255,.7)">Red</text>
-          </svg>
+        <div class="proc-flow-diagram anim-fade-up" style="display:flex;align-items:center;justify-content:center;">
+          <div class="cf-eco-grid">
+            <div class="cf-eco-tile"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f47f20" stroke-width="1.8" stroke-linecap="round" style="margin-bottom:.5rem"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg><div class="cf-eco-label">Medios de pago</div></div>
+            <div class="cf-eco-tile"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00acff" stroke-width="1.8" stroke-linecap="round" style="margin-bottom:.5rem"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><div class="cf-eco-label">Instituciones</div></div>
+            <div class="cf-eco-tile"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#068e50" stroke-width="1.8" stroke-linecap="round" style="margin-bottom:.5rem"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg><div class="cf-eco-label">Operaciones</div></div>
+            <div class="cf-eco-tile"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#cc002c" stroke-width="1.8" stroke-linecap="round" style="margin-bottom:.5rem"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg><div class="cf-eco-label">Riesgos</div></div>
+            <div class="cf-eco-tile"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f47f20" stroke-width="1.8" stroke-linecap="round" style="margin-bottom:.5rem"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><div class="cf-eco-label">Regulación</div></div>
+            <div class="cf-eco-tile"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00acff" stroke-width="1.8" stroke-linecap="round" style="margin-bottom:.5rem"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><div class="cf-eco-label">Actores del ecosistema</div></div>
+          </div>
         </div>
       </div>
 

@@ -109,54 +109,51 @@
           <p style="font-size:1.05rem;color:rgba(255,255,255,.75);line-height:1.7;margin-bottom:2rem;max-width:42ch;">Encuentro especializado que reúne a líderes, expertos y tomadores de decisión del sector financiero, tecnológico y de prevención de fraudes.</p>
           <a href="../comencemos.html" class="btn-nav-cta">Regístrate<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
-        <div class="foros-hero-visual" aria-hidden="true">
-          <svg viewBox="0 0 400 280" width="100%" style="max-height:260px;">
-            <defs>
-              <linearGradient id="fhNodeOrange" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff9d4f"/><stop offset="1" stop-color="#f47f20"/></linearGradient>
-              <filter id="fhGlow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-            </defs>
-            <!-- Stage platform -->
-            <rect x="60" y="195" width="280" height="10" rx="4" fill="rgba(255,255,255,.12)"/>
-            <!-- Podium -->
-            <rect x="172" y="155" width="56" height="40" rx="6" fill="url(#fhNodeOrange)" filter="url(#fhGlow)"/>
-            <rect x="183" y="163" width="34" height="20" rx="3" fill="rgba(255,255,255,.2)"/>
-            <!-- Speaker -->
-            <circle cx="200" cy="128" r="13" fill="rgba(255,255,255,.85)"/>
-            <path d="M183 155 Q200 148 217 155" fill="rgba(255,255,255,.6)"/>
-            <line x1="200" y1="141" x2="200" y2="158" stroke="rgba(255,255,255,.7)" stroke-width="2.5"/>
-            <ellipse cx="200" cy="137" rx="7" ry="9" fill="rgba(255,255,255,.85)"/>
-            <!-- Audience row 1 -->
-            <circle cx="96"  cy="182" r="9" fill="rgba(255,255,255,.5)"/>
-            <circle cx="122" cy="182" r="9" fill="rgba(0,172,255,.65)"/>
-            <circle cx="148" cy="182" r="9" fill="rgba(255,255,255,.45)"/>
-            <circle cx="252" cy="182" r="9" fill="rgba(255,255,255,.45)"/>
-            <circle cx="278" cy="182" r="9" fill="rgba(0,172,255,.65)"/>
-            <circle cx="304" cy="182" r="9" fill="rgba(255,255,255,.5)"/>
-            <!-- Audience row 2 -->
-            <circle cx="85"  cy="166" r="7" fill="rgba(255,255,255,.28)"/>
-            <circle cx="108" cy="166" r="7" fill="rgba(255,255,255,.28)"/>
-            <circle cx="131" cy="166" r="7" fill="rgba(255,255,255,.22)"/>
-            <circle cx="160" cy="164" r="7" fill="rgba(255,255,255,.18)"/>
-            <circle cx="240" cy="164" r="7" fill="rgba(255,255,255,.18)"/>
-            <circle cx="269" cy="166" r="7" fill="rgba(255,255,255,.22)"/>
-            <circle cx="292" cy="166" r="7" fill="rgba(255,255,255,.28)"/>
-            <circle cx="315" cy="166" r="7" fill="rgba(255,255,255,.28)"/>
-            <!-- Spotlights -->
-            <path d="M140 55 L100 195" stroke="rgba(255,255,255,.05)" stroke-width="32" stroke-linecap="round"/>
-            <path d="M200 45 L200 195" stroke="rgba(255,255,255,.07)" stroke-width="26" stroke-linecap="round"/>
-            <path d="M260 55 L300 195" stroke="rgba(255,255,255,.05)" stroke-width="32" stroke-linecap="round"/>
-            <!-- Event badge -->
-            <rect x="55" y="45" width="85" height="56" rx="8" fill="rgba(255,255,255,.07)" stroke="rgba(0,172,255,.28)" stroke-width="1.2"/>
-            <text x="97" y="67" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8" font-weight="700" fill="rgba(0,172,255,.9)">FORO</text>
-            <text x="97" y="81" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9.5" font-weight="800" fill="#fff">COPAYMENT</text>
-            <text x="97" y="94" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="7.5" fill="rgba(255,255,255,.55)">OCTUBRE 2026</text>
-            <rect x="55" y="45" width="85" height="56" rx="8" fill="none" stroke="rgba(0,172,255,.5)" stroke-width="1.2"><animate attributeName="opacity" values="1;0;1" dur="2.8s" repeatCount="indefinite"/></rect>
-            <!-- City tags -->
-            <rect x="264" y="50" width="76" height="22" rx="5" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.18)" stroke-width="1"/>
-            <text x="302" y="65" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9" fill="rgba(255,255,255,.8)">Monterrey</text>
-            <rect x="264" y="78" width="76" height="22" rx="5" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.18)" stroke-width="1"/>
-            <text x="302" y="93" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9" fill="rgba(255,255,255,.8)">CDMX</text>
-          </svg>
+        <div class="foros-hero-visual" aria-hidden="true" style="align-items:flex-start;justify-content:flex-start;padding:2rem 2.2rem;flex-direction:column;gap:0;">
+          <style>
+            .fhv-pulse{width:8px;height:8px;border-radius:50%;background:#f47f20;animation:fhvDot 1.4s ease-in-out infinite}
+            @keyframes fhvDot{0%,100%{box-shadow:0 0 0 0 rgba(244,127,32,.6)}50%{box-shadow:0 0 0 7px rgba(244,127,32,0)}}
+            .fhv-row{display:flex;align-items:center;gap:.45rem;margin-bottom:.85rem}
+            .fhv-tag{font-family:'Montserrat',sans-serif;font-size:.7rem;font-weight:700;color:rgba(244,127,32,.9);letter-spacing:.1em}
+            .fhv-heading{font-family:'Montserrat',sans-serif;font-size:1.5rem;font-weight:800;color:#fff;line-height:1.15;margin-bottom:.35rem}
+            .fhv-date{font-family:'Montserrat',sans-serif;font-size:.85rem;font-weight:600;color:rgba(255,255,255,.5);margin-bottom:.85rem}
+            .fhv-cities{display:flex;align-items:center;gap:.6rem;margin-bottom:.9rem}
+            .fhv-city{padding:.26rem .8rem;background:rgba(0,172,255,.14);border:1px solid rgba(0,172,255,.38);border-radius:50px;font-family:'Montserrat',sans-serif;font-size:.75rem;font-weight:700;color:#00acff}
+            .fhv-tline{width:30px;height:2px;background:linear-gradient(90deg,#00acff,#f47f20);position:relative;overflow:hidden}
+            .fhv-tline::after{content:'';position:absolute;width:7px;height:7px;border-radius:50%;background:#fff;top:50%;transform:translateY(-50%);animation:fhvTrav 1.7s linear infinite}
+            @keyframes fhvTrav{from{left:-7px}to{left:100%}}
+            .fhv-topics{display:flex;flex-wrap:wrap;gap:.32rem;margin-bottom:.9rem}
+            .fhv-topic{padding:.17rem .55rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.11);border-radius:6px;font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:600;color:rgba(255,255,255,.7)}
+            .fhv-metrics{display:flex;gap:1.3rem;padding-top:.75rem;border-top:1px solid rgba(255,255,255,.1)}
+            .fhv-mval{font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:800;color:#f47f20;display:block}
+            .fhv-mlbl{font-family:'Montserrat',sans-serif;font-size:.65rem;color:rgba(255,255,255,.45)}
+            .fhv-heading{animation:fhvIn .5s .1s both}
+            .fhv-date   {animation:fhvIn .5s .2s both}
+            .fhv-cities {animation:fhvIn .5s .3s both}
+            .fhv-topics {animation:fhvIn .5s .4s both}
+            .fhv-metrics{animation:fhvIn .5s .5s both}
+            @keyframes fhvIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+          </style>
+          <div class="fhv-row"><span class="fhv-pulse"></span><span class="fhv-tag">PRÓXIMO FORO</span></div>
+          <div class="fhv-heading">Foro Copayment</div>
+          <div class="fhv-date">Octubre 2026</div>
+          <div class="fhv-cities">
+            <span class="fhv-city">Monterrey</span>
+            <div class="fhv-tline"></div>
+            <span class="fhv-city">CDMX</span>
+          </div>
+          <div class="fhv-topics">
+            <span class="fhv-topic">Innovación en pagos</span>
+            <span class="fhv-topic">Seguridad</span>
+            <span class="fhv-topic">Regulación</span>
+            <span class="fhv-topic">IA</span>
+            <span class="fhv-topic">Inclusión financiera</span>
+          </div>
+          <div class="fhv-metrics">
+            <div><span class="fhv-mval">11</span><span class="fhv-mlbl">ediciones</span></div>
+            <div><span class="fhv-mval">+2800</span><span class="fhv-mlbl">asistentes</span></div>
+            <div><span class="fhv-mval">9</span><span class="fhv-mlbl">años</span></div>
+          </div>
         </div>
       </div>
     </div>
@@ -242,42 +239,64 @@
         </div>
       </div>
 
-      <!-- Flow diagram: registration → conference → networking -->
-      <div class="proc-flow-diagram anim-fade-up" aria-hidden="true" style="margin-top:2.5rem;">
-        <svg viewBox="0 0 700 260" width="100%" height="100%">
-          <defs>
-            <linearGradient id="fe1NodeBlue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3dc6ff"/><stop offset="1" stop-color="#00acff"/></linearGradient>
-            <linearGradient id="fe1NodeOrange" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff9d4f"/><stop offset="1" stop-color="#f47f20"/></linearGradient>
-            <linearGradient id="fe1NodeGreen" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0fb567"/><stop offset="1" stop-color="#068e50"/></linearGradient>
-            <filter id="fe1Shadow" x="-60%" y="-60%" width="220%" height="220%"><feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000" flood-opacity=".35"/></filter>
-          </defs>
-          <path d="M104 130 H308" stroke="#00acff" stroke-width="2.5" stroke-dasharray="7 7" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="-28" dur="1.2s" repeatCount="indefinite"/></path>
-          <path d="M392 130 H596" stroke="#068e50" stroke-width="2.5" stroke-dasharray="7 7" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="-28" dur="1.2s" repeatCount="indefinite"/></path>
-          <circle r="5" fill="#fff"><animateMotion path="M104 130 H596" dur="2.6s" repeatCount="indefinite"/></circle>
-          <circle r="9" fill="#fff" opacity=".25"><animateMotion path="M104 130 H596" dur="2.6s" repeatCount="indefinite"/></circle>
-          <g filter="url(#fe1Shadow)"><rect x="40" y="98" width="64" height="64" rx="16" fill="url(#fe1NodeBlue)"/>
-            <rect x="56" y="114" width="32" height="22" rx="3" fill="none" stroke="#fff" stroke-width="2.2"/><path d="M56 119h32" stroke="#fff" stroke-width="2.2"/><circle cx="76" cy="127" r="2" fill="#fff"/>
-          </g>
-          <text x="72" y="177" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12" font-weight="700" fill="rgba(255,255,255,.7)">Regístrate</text>
-          <g filter="url(#fe1Shadow)"><rect x="308" y="88" width="84" height="84" rx="20" fill="url(#fe1NodeOrange)"/>
-            <path d="M338 130l12-12 12 12-12 12z" fill="#fff"/><circle cx="350" cy="130" r="4" fill="#f47f20"/>
-          </g>
-          <text x="350" y="189" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12.5" font-weight="700" fill="#fff">Asiste al foro</text>
-          <g filter="url(#fe1Shadow)"><rect x="596" y="98" width="64" height="64" rx="16" fill="url(#fe1NodeGreen)"/>
-            <circle cx="615" cy="122" r="6" fill="#fff"/><circle cx="639" cy="122" r="6" fill="#fff"/><circle cx="627" cy="142" r="6" fill="#fff"/>
-            <path d="M615 122l12 20M639 122l-12 20" stroke="#fff" stroke-width="1.6" opacity=".7"/>
-          </g>
-          <text x="628" y="177" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12" font-weight="700" fill="rgba(255,255,255,.7)">Genera networking</text>
-        </svg>
+      <!-- 3-step event journey -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2.5rem;" class="anim-fade-up">
+        <style>
+          .fe-step{text-align:center;padding:1.75rem 1.1rem;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;}
+          .fe-num{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.15rem;color:#fff;margin:0 auto .9rem;}
+          .fe-num--1{background:#f47f20;box-shadow:0 6px 20px rgba(244,127,32,.4);animation:feNumPls 2.5s ease-in-out infinite}
+          .fe-num--2{background:#00acff;box-shadow:0 6px 20px rgba(0,172,255,.35);animation:feNumPls 2.5s ease-in-out infinite .35s}
+          .fe-num--3{background:#068e50;box-shadow:0 6px 20px rgba(6,142,80,.4);animation:feNumPls 2.5s ease-in-out infinite .7s}
+          @keyframes feNumPls{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+          .fe-ico{width:50px;height:50px;border-radius:12px;margin:0 auto .85rem;display:flex;align-items:center;justify-content:center;}
+          .fe-ico--1{background:rgba(244,127,32,.12)}
+          .fe-ico--2{background:rgba(0,172,255,.1)}
+          .fe-ico--3{background:rgba(6,142,80,.12)}
+          .fe-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.95rem;color:#fff;margin-bottom:.4rem}
+          .fe-desc{font-size:.8rem;color:rgba(255,255,255,.5);line-height:1.6;margin:0}
+          @media(max-width:600px){.fe-step-grid{grid-template-columns:1fr!important}}
+        </style>
+        <div class="fe-step">
+          <div class="fe-num fe-num--1">1</div>
+          <div class="fe-ico fe-ico--1"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f47f20" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <div class="fe-title">Regístrate</div>
+          <p class="fe-desc">Asegura tu lugar antes de que se agoten los cupos.</p>
+        </div>
+        <div class="fe-step">
+          <div class="fe-num fe-num--2">2</div>
+          <div class="fe-ico fe-ico--2"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00acff" stroke-width="2" stroke-linecap="round"><path d="M12 2a3 3 0 0 1 3 3v6a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="8" y1="22" x2="16" y2="22"/></svg></div>
+          <div class="fe-title">Asiste al foro</div>
+          <p class="fe-desc">Escucha a expertos del sector financiero y de pagos.</p>
+        </div>
+        <div class="fe-step">
+          <div class="fe-num fe-num--3">3</div>
+          <div class="fe-ico fe-ico--3"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#068e50" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div class="fe-title">Genera networking</div>
+          <p class="fe-desc">Conecta con líderes del ecosistema de pagos de México.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- PAST EDITIONS -->
-  <section class="section">
+  <section class="section" style="background:var(--navy);">
     <div class="container">
-      <div class="pillar-group-label" style="margin-bottom:.5rem;">Ediciones anteriores</div>
-      <h2 class="section-title" style="margin-bottom:2rem;">Lo que se vivió en el foro 2025</h2>
+      <style>
+        /* Past editions dark-bg overrides */
+        .fg-dot { background: rgba(255,255,255,.25) !important; }
+        .fg-dot.is-active { background: #f47f20 !important; transform:scale(1.4); box-shadow:0 0 8px rgba(244,127,32,.5) !important; }
+        .foros-archive { background: rgba(255,255,255,.04) !important; border: 1px solid rgba(255,255,255,.1) !important; }
+        .foros-archive summary { color: #fff !important; padding: 1rem 1.5rem; }
+        .foros-archive summary::after { color: rgba(255,255,255,.55) !important; }
+        .foros-archive-row { border-top-color: rgba(255,255,255,.06) !important; }
+        .foros-archive-year { color: #00acff !important; }
+        .foros-archive-meta { color: rgba(255,255,255,.6) !important; }
+        .foros-archive--orange summary { background: rgba(244,127,32,.18); border-bottom: 1px solid rgba(244,127,32,.3); }
+        .foros-archive--green  summary { background: rgba(6,142,80,.18);  border-bottom: 1px solid rgba(6,142,80,.3); }
+        .foros-archive--blue   summary { background: rgba(0,172,255,.12); border-bottom: 1px solid rgba(0,172,255,.25); }
+      </style>
+      <div class="pillar-group-label" style="margin-bottom:.5rem;color:rgba(255,255,255,.6);">Ediciones anteriores</div>
+      <h2 class="section-title" style="margin-bottom:2rem;color:#fff;">Lo que se vivió en el foro 2025</h2>
 
       <div class="foros-gallery anim-fade-up">
         <style>
@@ -388,7 +407,7 @@
       </div>
 
       <!-- Archive: Foros en MTY -->
-      <details class="foros-archive" style="margin-top:2.5rem;">
+      <details class="foros-archive foros-archive--orange" style="margin-top:2.5rem;">
         <summary>Foros en Monterrey</summary>
         <div class="foros-archive-list">
           <div class="foros-archive-row">
@@ -435,7 +454,7 @@
       </details>
 
       <!-- Archive: Foros en CDMX -->
-      <details class="foros-archive">
+      <details class="foros-archive foros-archive--green">
         <summary>Foros en CDMX</summary>
         <div class="foros-archive-list">
           <div class="foros-archive-row">
@@ -457,7 +476,7 @@
       </details>
 
       <!-- Archive: Risk Days -->
-      <details class="foros-archive" id="riskday-archive">
+      <details class="foros-archive foros-archive--blue" id="riskday-archive">
         <summary>Risk Days</summary>
         <div class="foros-archive-list">
           <div class="foros-archive-row">
