@@ -2758,7 +2758,7 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
   padding: 3.5rem 0 2rem;
   border-bottom: 1px solid rgba(0,50,122,.08);
 }
-.proc-intro { max-width: 700px; margin: 0 auto 2.5rem; text-align: center; }
+.proc-intro { max-width: 600px; margin: 0 0 2.5rem; text-align: left; }
 
 /* ── Letter-by-letter heading reveal (shared, see js/main.js .letter-reveal init) ── */
 .letter-reveal .lrw { display: inline-block; white-space: nowrap; }
@@ -2772,9 +2772,9 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
 .proc-title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
-  font-size: clamp(1.7rem, 3vw, 2.5rem);
+  font-size: clamp(2.1rem, 3.8vw, 3.2rem);
   color: var(--navy);
-  line-height: 1.22;
+  line-height: 1.18;
   margin-bottom: 1rem;
 }
 .proc-subtitle {
@@ -5157,84 +5157,12 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
 }
 
 /* ══════════════════════════════════════════════
-   LO QUE HACEMOS — DARK BACKGROUND + FEATURE GRID
+   LO QUE HACEMOS — WHITE BACKGROUND
 ══════════════════════════════════════════════ */
 #servicios {
-  background: var(--navy);
+  background: #fff;
 }
-#servicios .pillar-group-title { color: #fff; }
-#servicios .pillar-group-header {
-  border-bottom-color: rgba(255,255,255,.12);
-}
-#servicios .pillar-group-count { color: rgba(255,255,255,.07); }
-#servicios .pillar-group-showcase { border-top-color: rgba(255,255,255,.1); }
-#servicios .solution-row { border-bottom-color: rgba(255,255,255,.08); }
-#servicios .solution-row-num { color: rgba(255,255,255,.08); }
-#servicios .solution-row-title { color: #fff; }
-#servicios .solution-row-desc { color: rgba(255,255,255,.7); }
-#servicios .stag {
-  background: rgba(255,255,255,.07);
-  color: rgba(255,255,255,.82);
-}
-#servicios .stag:hover { background: rgba(244,127,32,.2); color: #f47f20; }
-#servicios .proc-section,
-#servicios .emision-section { border-bottom-color: rgba(255,255,255,.08); }
-#servicios .proc-title,
-#servicios .emision-title { color: #fff; }
-#servicios .proc-subtitle,
-#servicios .emision-subtitle { color: rgba(255,255,255,.7); }
-#servicios .proc-sub { border-top-color: rgba(255,255,255,.08); }
-#servicios .proc-sub-title { color: #fff; }
-#servicios .proc-sub-detail { background: rgba(6,142,80,.12); }
-#servicios .proc-sub-detail p { color: rgba(255,255,255,.72); }
-#servicios .proc-case { border-top-color: rgba(255,255,255,.08); }
-#servicios .proc-case-title { color: #fff; }
-#servicios .proc-case-desc { color: rgba(255,255,255,.7); }
-#servicios .proc-products { border-top-color: rgba(255,255,255,.08); }
-#servicios .proc-products-label { color: rgba(255,255,255,.68); }
-#servicios .proc-product-badge {
-  background: rgba(255,255,255,.07);
-  border-color: rgba(255,255,255,.15);
-  color: rgba(255,255,255,.85);
-}
-#servicios .proc-product-badge:hover { background: #f47f20; border-color: #f47f20; color: #fff; }
-#servicios .emision-network-text { color: rgba(255,255,255,.6); }
-#servicios .emision-network-logos img {
-  filter: grayscale(1) brightness(5) opacity(.55);
-}
-#servicios .emision-network-logos img:hover {
-  filter: grayscale(0) brightness(1) opacity(1);
-}
-#servicios .emision-mc-logo { opacity: .5; filter: brightness(2); }
-#servicios .emision-mc-logo:hover { opacity: 1; filter: none; }
-#servicios .emision-audience-title,
-#servicios .emision-lifecycle-title { color: #fff; }
-#servicios .emision-audience-sub,
-#servicios .emision-lifecycle-sub { color: rgba(255,255,255,.65); }
-#servicios .emision-audience-item {
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.1);
-  color: rgba(255,255,255,.85);
-}
-#servicios .emision-audience-item:hover {
-  background: rgba(255,255,255,.1);
-  border-color: rgba(244,127,32,.4);
-  color: #fff;
-}
-#servicios .emision-lifecycle-detail {
-  background: rgba(6,142,80,.1);
-  border-left-color: #068e50;
-}
-#servicios .emision-lifecycle-detail p { color: rgba(255,255,255,.75); }
-#servicios .emision-product-card {
-  background: rgba(255,255,255,.05);
-  border: 1px solid rgba(0,172,255,.15);
-}
-#servicios .emision-product-card:hover {
-  background: rgba(255,255,255,.09);
-  border-color: rgba(0,172,255,.28);
-}
-#servicios .emision-product-desc { color: rgba(255,255,255,.72); }
+#servicios .lqh-menu-title { color: var(--navy); }
 
 /* ── anim-delay-5 ── */
 .anim-delay-5 { transition-delay: .4s; }

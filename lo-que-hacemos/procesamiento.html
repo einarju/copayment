@@ -106,34 +106,55 @@
     </div>
   </nav>
 
-  <!-- PAGE HERO -->
-  <section class="page-hero" id="main-content">
-    <canvas id="lqhHeroCanvas" data-r="0" data-g="172" data-b="255" data-mul="1" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
-    <div class="container">
-      <div class="page-hero-content">
-        <nav class="breadcrumb" aria-label="Ruta de navegaci&#243;n">
-          <a href="../index.html">Inicio</a>
-          <span class="breadcrumb-sep">&#8250;</span>
-          <a href="../lo-que-hacemos.html">Lo que hacemos</a>
-          <span class="breadcrumb-sep">&#8250;</span>
-          <span>Procesamiento de pagos</span>
-        </nav>
-        <h1 class="letter-reveal">Procesamiento de pagos</h1>
-      </div>
-    </div>
-  </section>
-
   <!-- SERVICIOS -->
-  <section class="section" id="servicios" style="padding-top:24px;">
+  <a id="main-content" aria-hidden="true" tabindex="-1"></a>
+  <section class="section" id="servicios" style="padding-top:3rem;">
     <div class="container">
+      <nav class="breadcrumb" aria-label="Ruta de navegaci&#243;n" style="margin-bottom:2rem;">
+        <a href="../index.html">Inicio</a>
+        <span class="breadcrumb-sep">&#8250;</span>
+        <a href="../lo-que-hacemos.html">Lo que hacemos</a>
+        <span class="breadcrumb-sep">&#8250;</span>
+        <span>Procesamiento de pagos</span>
+      </nav>
       <div class="pillar-group" style="padding-top:.5rem;">
         <div class="pillar-group-showcase solutions-showcase">
           <div id="procesamiento" class="proc-section anim-fade-up">
 
-            <div class="proc-intro">
-              <h3 class="proc-title letter-reveal">El procesamiento que usan los grandes, al alcance de todos</h3>
-              <p class="proc-subtitle">Infraestructura de procesamiento de pagos para conectarte a las redes, bajo el respaldo regulatorio que necesitas, sin que tengas que navegar la complejidad solo.</p>
-              <a href="../comencemos.html" class="btn-emision-cta">Comencemos</a>
+            <style>
+              .proc-hero-2col { display:grid; grid-template-columns:1fr 1fr; gap:3.5rem; align-items:center; margin-bottom:3rem; }
+              .proc-hero-visual { border-radius:18px; overflow:hidden; background:linear-gradient(145deg,#00327a 0%,#001e50 100%); box-shadow:0 24px 56px rgba(0,30,80,.32); min-height:320px; display:flex; align-items:center; justify-content:center; padding:2rem; position:relative; }
+              .proc-hero-visual::before { content:''; position:absolute; inset:0; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Ccircle cx='1' cy='1' r='1' fill='rgba(0,172,255,.07)'/%3E%3C/svg%3E"); }
+              @media(max-width:768px){ .proc-hero-2col{ grid-template-columns:1fr; } .proc-hero-visual{ min-height:220px; } }
+            </style>
+            <div class="proc-hero-2col">
+              <div class="proc-intro">
+                <h3 class="proc-title letter-reveal">El procesamiento que usan los grandes, al alcance de todos</h3>
+                <p class="proc-subtitle">Infraestructura de procesamiento de pagos para conectarte a las redes, bajo el respaldo regulatorio que necesitas, sin que tengas que navegar la complejidad solo.</p>
+                <a href="../comencemos.html" class="btn-nav-cta" style="display:inline-flex;align-items:center;gap:.5rem;">Comencemos <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              </div>
+              <div class="proc-hero-visual" aria-hidden="true">
+                <svg viewBox="0 0 320 220" width="100%" style="max-width:320px;">
+                  <rect x="20" y="10" width="280" height="200" rx="16" fill="rgba(255,255,255,.04)" stroke="rgba(0,172,255,.18)" stroke-width="1"/>
+                  <rect x="36" y="26" width="120" height="7" rx="3.5" fill="rgba(255,255,255,.15)"/>
+                  <rect x="36" y="40" width="70" height="5" rx="2.5" fill="rgba(0,172,255,.25)"/>
+                  <rect x="36" y="60" width="248" height="48" rx="10" fill="rgba(0,172,255,.08)" stroke="rgba(0,172,255,.15)" stroke-width="1"/>
+                  <rect x="48" y="72" width="80" height="5" rx="2.5" fill="rgba(255,255,255,.2)"/>
+                  <rect x="48" y="84" width="52" height="12" rx="4" fill="#f47f20"/>
+                  <rect x="220" y="68" width="52" height="32" rx="8" fill="rgba(0,172,255,.15)" stroke="rgba(0,172,255,.2)" stroke-width="1"/>
+                  <circle cx="246" cy="84" r="8" fill="rgba(0,172,255,.3)"/>
+                  <rect x="36" y="124" width="112" height="72" rx="10" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.09)" stroke-width="1"/>
+                  <rect x="48" y="136" width="56" height="4" rx="2" fill="rgba(255,255,255,.18)"/>
+                  <rect x="48" y="148" width="36" height="14" rx="3" fill="#068e50" opacity=".8"/>
+                  <rect x="48" y="168" width="72" height="4" rx="2" fill="rgba(255,255,255,.1)"/>
+                  <rect x="160" y="124" width="124" height="72" rx="10" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.09)" stroke-width="1"/>
+                  <rect x="172" y="136" width="60" height="4" rx="2" fill="rgba(255,255,255,.18)"/>
+                  <path d="M172 158 L200 148 L220 154 L252 144 L268 150" stroke="#00acff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="200" cy="148" r="3" fill="#00acff"/>
+                  <circle cx="220" cy="154" r="3" fill="#00acff"/>
+                  <circle cx="252" cy="144" r="3" fill="#f47f20"/>
+                </svg>
+              </div>
             </div>
 
             <!-- Flow section 1: card emission — flow line + traveling pulse + floating cards -->
@@ -148,9 +169,6 @@
                     <linearGradient id="pf1NodeBlue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3dc6ff"/><stop offset="1" stop-color="#00acff"/></linearGradient>
                     <linearGradient id="pf1NodeOrange" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff9d4f"/><stop offset="1" stop-color="#f47f20"/></linearGradient>
                     <linearGradient id="pf1NodeGreen" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0fb567"/><stop offset="1" stop-color="#068e50"/></linearGradient>
-                    <linearGradient id="pf1CardA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0050b8"/><stop offset="1" stop-color="#00327a"/></linearGradient>
-                    <linearGradient id="pf1CardB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff9d4f"/><stop offset="1" stop-color="#f47f20"/></linearGradient>
-                    <linearGradient id="pf1CardC" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3dc6ff"/><stop offset="1" stop-color="#00acff"/></linearGradient>
                     <filter id="pf1Shadow" x="-60%" y="-60%" width="220%" height="220%"><feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000" flood-opacity=".35"/></filter>
                   </defs>
 
@@ -196,41 +214,6 @@
                   </g>
                   <text x="628" y="207" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12" font-weight="700" fill="rgba(255,255,255,.7)">Red</text>
 
-                  <!-- floating card A -->
-                  <g transform="translate(102,26) rotate(-8,38,25)" filter="url(#pf1Shadow)">
-                    <g>
-                      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-9; 0,0" dur="4.2s" repeatCount="indefinite"/>
-                      <rect width="76" height="50" rx="10" fill="url(#pf1CardA)"/>
-                      <rect x="9" y="9" width="13" height="10" rx="2.2" fill="rgba(255,255,255,.9)"/>
-                      <rect x="9" y="34" width="32" height="3.6" rx="1.8" fill="rgba(255,255,255,.55)"/>
-                      <path d="M59 16a9 9 0 0 1 0 13" stroke="rgba(255,255,255,.5)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-                      <path d="M63 11a14.5 14.5 0 0 1 0 22" stroke="rgba(255,255,255,.32)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-                    </g>
-                  </g>
-
-                  <!-- floating card B (front, largest) -->
-                  <g transform="translate(303,12) rotate(5,42,27)" filter="url(#pf1Shadow)">
-                    <g>
-                      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" dur="5s" repeatCount="indefinite"/>
-                      <rect width="84" height="54" rx="11" fill="url(#pf1CardB)"/>
-                      <rect x="10" y="10" width="14" height="11" rx="2.4" fill="rgba(255,255,255,.9)"/>
-                      <rect x="10" y="37" width="36" height="4" rx="2" fill="rgba(255,255,255,.55)"/>
-                      <path d="M66 17a10 10 0 0 1 0 15" stroke="rgba(255,255,255,.5)" stroke-width="2" fill="none" stroke-linecap="round"/>
-                      <path d="M70.5 12a16 16 0 0 1 0 25" stroke="rgba(255,255,255,.32)" stroke-width="2" fill="none" stroke-linecap="round"/>
-                    </g>
-                  </g>
-
-                  <!-- floating card C -->
-                  <g transform="translate(512,30) rotate(-6,38,25)" filter="url(#pf1Shadow)">
-                    <g>
-                      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-8; 0,0" dur="4.6s" repeatCount="indefinite"/>
-                      <rect width="76" height="50" rx="10" fill="url(#pf1CardC)"/>
-                      <rect x="9" y="9" width="13" height="10" rx="2.2" fill="rgba(255,255,255,.9)"/>
-                      <rect x="9" y="34" width="32" height="3.6" rx="1.8" fill="rgba(255,255,255,.55)"/>
-                      <path d="M59 16a9 9 0 0 1 0 13" stroke="rgba(255,255,255,.5)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-                      <path d="M63 11a14.5 14.5 0 0 1 0 22" stroke="rgba(255,255,255,.32)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-                    </g>
-                  </g>
                 </svg>
               </div>
             </div>
@@ -304,86 +287,6 @@
                 </svg>
               </div>
             </div>
-
-            <!-- 4-item floating scatter cluster (replaces icon-grid; same composition/interaction as Nuestros Valores) -->
-            <style>
-              .proc-vals-cards { position:relative; width:100%; max-width:740px; height:clamp(300px,32vw,400px); margin:2.5rem auto 1.5rem; }
-              .proc-vals-cards--square { max-width:640px; aspect-ratio:640/460; height:auto; margin-top:3rem; }
-              @media (max-width:640px) { .proc-vals-cards--square { max-width:300px; aspect-ratio:300/430; } }
-              .proc-vals-card-wrap { position:absolute; transition:transform .55s cubic-bezier(.16,1,.3,1); will-change:transform; }
-              .proc-vals-card {
-                width:100%; height:100%; border-radius:22px;
-                display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.5rem;
-                padding:.7rem;
-                box-shadow:0 14px 28px rgba(0,0,0,.3);
-                animation:procValsFloat var(--fdur,6s) ease-in-out infinite;
-                animation-delay:var(--fdel,0s);
-                cursor:default;
-                transition:box-shadow .3s;
-              }
-              .proc-vals-card:hover { box-shadow:0 24px 46px rgba(0,0,0,.42); }
-              @keyframes procValsFloat {
-                0%,100% { transform:translateY(0) rotate(var(--tilt,-2deg)); }
-                50%     { transform:translateY(-16px) rotate(calc(var(--tilt,-2deg) * -1)); }
-              }
-              .proc-vals-card-icon { width:30px; height:30px; flex-shrink:0; }
-              .proc-vals-card-icon svg { width:100%; height:100%; stroke:#fff; fill:none; stroke-width:2; display:block; }
-              .proc-vals-card-text { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.85rem; line-height:1.25; color:#fff; text-align:center; padding:0 .4rem; }
-              .proc-vals-card--navy   { background:linear-gradient(150deg,#0050b8 0%,#00327a 100%); }
-              .proc-vals-card--blue   { background:linear-gradient(150deg,#3dc6ff 0%,#00acff 100%); }
-              .proc-vals-card--orange { background:linear-gradient(150deg,#ff9d4f 0%,#f47f20 100%); }
-              .proc-vals-card--green  { background:linear-gradient(150deg,#0fb567 0%,#068e50 100%); }
-              @media(prefers-reduced-motion:reduce){ .proc-vals-card{ animation:none; } }
-              @media (max-width: 640px) { .proc-vals-cards { max-width:300px; height:380px; } }
-            </style>
-            <div class="proc-flow-text anim-fade-up" style="margin-top:1rem;">
-              <h4 class="proc-flow-title">Acepta medios de pago de forma segura, eficiente y cumpliente</h4>
-            </div>
-            <div class="proc-vals-cards proc-vals-cards--square anim-fade-up" id="procValsCards">
-              <div class="proc-vals-card-wrap" data-depth="9" style="top:0%;left:1%;width:30%;aspect-ratio:1/1;">
-                <div class="proc-vals-card proc-vals-card--navy" style="--tilt:-3deg;--fdur:6.4s;--fdel:0s;">
-                  <div class="proc-vals-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-                  <div class="proc-vals-card-text">Seguridad transaccional</div>
-                </div>
-              </div>
-              <div class="proc-vals-card-wrap" data-depth="11" style="top:6%;left:55%;width:32%;aspect-ratio:1/1;">
-                <div class="proc-vals-card proc-vals-card--orange" style="--tilt:4deg;--fdur:5.2s;--fdel:.3s;">
-                  <div class="proc-vals-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
-                  <div class="proc-vals-card-text">Integración sin fricciones</div>
-                </div>
-              </div>
-              <div class="proc-vals-card-wrap" data-depth="8" style="top:55%;left:2%;width:29%;aspect-ratio:1/1;">
-                <div class="proc-vals-card proc-vals-card--green" style="--tilt:-2deg;--fdur:7.1s;--fdel:.6s;">
-                  <div class="proc-vals-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-                  <div class="proc-vals-card-text">Conexión con las principales redes</div>
-                </div>
-              </div>
-              <div class="proc-vals-card-wrap" data-depth="10" style="top:58%;left:55%;width:31%;aspect-ratio:1/1;">
-                <div class="proc-vals-card proc-vals-card--blue" style="--tilt:3deg;--fdur:5.8s;--fdel:.15s;">
-                  <div class="proc-vals-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-                  <div class="proc-vals-card-text">Acompañamiento y capacitación</div>
-                </div>
-              </div>
-            </div>
-            <script>
-            (function(){
-              var cluster = document.getElementById('procValsCards');
-              if (!cluster) return;
-              var wraps = Array.prototype.slice.call(cluster.querySelectorAll('.proc-vals-card-wrap'));
-              cluster.addEventListener('mousemove', function(e){
-                var rect = cluster.getBoundingClientRect();
-                var mx = (e.clientX - rect.left) / rect.width  - 0.5;
-                var my = (e.clientY - rect.top)  / rect.height - 0.5;
-                wraps.forEach(function(w){
-                  var depth = parseFloat(w.dataset.depth) || 16;
-                  w.style.transform = 'translate(' + (mx * depth) + 'px,' + (my * depth) + 'px)';
-                });
-              });
-              cluster.addEventListener('mouseleave', function(){
-                wraps.forEach(function(w){ w.style.transform = 'translate(0,0)'; });
-              });
-            })();
-            </script>
 
             <!-- ZENO case study -->
             <div class="proc-case">
@@ -560,6 +463,5 @@
   </footer>
 
   <script src="../js/main.js"></script>
-  <script>startPCB('lqhHeroCanvas');</script>
 </body>
 </html>
