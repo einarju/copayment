@@ -1,11 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <link rel="icon" type="image/svg+xml" href="../assets/logo-icon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Recursos / Blog – Copayment | Un espacio para conectar y aprender</title>
-  <meta name="description" content="Artículos y guías detalladas sobre medios de pago, prevención de fraudes, regulación y tecnología financiera.">
+  <title>Recursos – Copayment</title>
+  <meta name="description" content="Entérate de la información más destacada del sector de pagos. Artículos, guías y casos de éxito de Copayment.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -13,6 +13,7 @@
 </head>
 <body>
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
   <nav class="navbar" id="navbar">
     <div class="navbar-inner">
       <a href="../index.html" class="navbar-logo"><img src="../assets/logo-horizontal.svg" alt="Copayment"></a>
@@ -79,6 +80,7 @@
     </div>
   </nav>
 
+  <!-- ═══════════════════════ PAGE HERO ═══════════════════════ -->
   <section class="page-hero" id="main-content">
     <canvas id="recursosHeroCanvas" data-r="0" data-g="172" data-b="255" data-mul="1" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
     <div class="container">
@@ -88,25 +90,223 @@
           <a href="../novedades.html">Novedades</a><span class="breadcrumb-sep">›</span>
           <span>Recursos</span>
         </nav>
-        <h1>Un espacio para conectar y aprender</h1>
-        <p>Artículos y guías detalladas para ti.</p>
+        <h1 class="letter-reveal">Recursos</h1>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <!-- ═══════════════════════ ARTICLE HUB ═══════════════════════ -->
+  <section class="section" style="background:#fff;padding-top:88px;padding-bottom:88px;">
     <div class="container">
-      <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem;">
-        <span class="stag" style="cursor:pointer;">Sobre los servicios</span>
-        <span class="stag" style="cursor:pointer;">Resolución de dudas en tiempo real</span>
+
+      <!-- Heading block -->
+      <div style="text-align:center;margin-bottom:3rem;">
+        <p class="pillar-group-label anim-fade-up" style="color:var(--blue);">Recursos</p>
+        <h2 class="section-title letter-reveal" style="color:var(--navy);margin-bottom:.85rem;">Aún hay más</h2>
+        <p class="anim-fade-up" style="font-family:Montserrat,sans-serif;color:#727373;font-size:1.05rem;line-height:1.65;">Entérate de la información más destacada del sector</p>
       </div>
-      <!-- PLACEHOLDER: Artículos y recursos -->
-      <div style="background:var(--light-bg);border-radius:var(--radius-lg);padding:4rem 2rem;text-align:center;border:2px dashed rgba(0,50,122,.15);">
-        <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);opacity:.5;">Contenido próximamente</p>
+
+      <!-- Filter chips -->
+      <div class="anim-fade-up" style="display:flex;flex-wrap:wrap;gap:.65rem;justify-content:center;margin-bottom:3.5rem;">
+        <span style="font-family:Montserrat,sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.03em;padding:.5rem 1.2rem;border-radius:50px;background:var(--navy);color:#fff;display:inline-block;">Todas las instituciones</span>
+        <span style="font-family:Montserrat,sans-serif;font-size:.78rem;font-weight:600;padding:.5rem 1.2rem;border-radius:50px;background:#edf2f7;color:var(--navy);display:inline-block;">Agregador o adquirente</span>
+        <span style="font-family:Montserrat,sans-serif;font-size:.78rem;font-weight:600;padding:.5rem 1.2rem;border-radius:50px;background:#edf2f7;color:var(--navy);display:inline-block;">Institución financiera digital</span>
+        <span style="font-family:Montserrat,sans-serif;font-size:.78rem;font-weight:600;padding:.5rem 1.2rem;border-radius:50px;background:#edf2f7;color:var(--navy);display:inline-block;">Entidad de crédito o ahorro popular</span>
+      </div>
+
+      <!-- Article grid 2-col -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.35rem;margin-bottom:3rem;">
+        <style>
+          .rc-card { background:#fff; border:1px solid #e5edf5; border-radius:12px; padding:1.6rem 1.5rem 1.4rem; transition:box-shadow .22s, transform .22s; }
+          .rc-card:hover { box-shadow:0 8px 28px rgba(0,50,122,.1); transform:translateY(-2px); }
+          .rc-card-tag { display:inline-block; width:28px; height:3.5px; border-radius:2px; margin-bottom:1rem; }
+          .rc-card h3 { font-family:Montserrat,sans-serif; font-size:1rem; font-weight:700; color:var(--navy); margin:0 0 .55rem; line-height:1.4; }
+          .rc-card p  { font-family:Montserrat,sans-serif; font-size:.875rem; color:#727373; line-height:1.65; margin:0 0 1.1rem; }
+          .rc-card-link { font-family:Montserrat,sans-serif; font-size:.82rem; font-weight:700; color:var(--blue); text-decoration:none; display:inline-flex; align-items:center; gap:.35rem; letter-spacing:.02em; }
+          .rc-card-link:hover { text-decoration:underline; }
+        </style>
+
+        <!-- Article 1 -->
+        <div class="rc-card anim-fade-up">
+          <div class="rc-card-tag" style="background:#00acff;"></div>
+          <h3>El pago es mucho más que una transacción</h3>
+          <p>La emisión de pagos habilitada correctamente, marca la diferencia real en los negocios</p>
+          <a href="#" class="rc-card-link">Leer <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+
+        <!-- Article 2 -->
+        <div class="rc-card anim-fade-up">
+          <div class="rc-card-tag" style="background:#f47f20;"></div>
+          <h3>Lo que ocurre cuando el pago no se completa</h3>
+          <p>Todo lo que debes saber sobre adquirencia de pagos y sus principales retos</p>
+          <a href="#" class="rc-card-link">Leer <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+
+        <!-- Article 3 -->
+        <div class="rc-card anim-fade-up">
+          <div class="rc-card-tag" style="background:#f47f20;"></div>
+          <h3>El costo invisible de decir "sólo efectivo"</h3>
+          <p>Si aún no aceptas pago con tarjeta, es momento de replantearte la estrategia.</p>
+          <a href="#" class="rc-card-link">Leer <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+
+        <!-- Article 4 -->
+        <div class="rc-card anim-fade-up">
+          <div class="rc-card-tag" style="background:#00327a;"></div>
+          <h3>Seguridad y experiencia de usuario: La batalla silenciosa</h3>
+          <p>Cada día ocurren operaciones fraudulentas en todo el mundo, que no sean las tuyas.</p>
+          <a href="#" class="rc-card-link">Leer <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+
+        <!-- Article 5 -->
+        <div class="rc-card anim-fade-up">
+          <div class="rc-card-tag" style="background:#00acff;"></div>
+          <h3>La pregunta que nadie hace antes de lanzar una fintech</h3>
+          <p>La planeación y los primeros pasos son una fase crítica. Una desición mal tomada puede tener costos irreparables.</p>
+          <a href="#" class="rc-card-link">Leer <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+
+        <!-- Article 6 -->
+        <div class="rc-card anim-fade-up">
+          <div class="rc-card-tag" style="background:#f47f20;"></div>
+          <h3>El correo parecía legítimo. Ahí empezó todo.</h3>
+          <p>Todo lo que debes saber sobre phising y fraudes en correo electrónico.</p>
+          <a href="#" class="rc-card-link">Leer <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+
+        <!-- Article 7 -->
+        <div class="rc-card anim-fade-up">
+          <div class="rc-card-tag" style="background:#00acff;"></div>
+          <h3>El verdadero examen ocurre durante una caída</h3>
+          <p>¿Qué tan resilente es tu operación? No esperes al momento crítico para averiguarlo</p>
+          <a href="#" class="rc-card-link">Leer <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+
+        <!-- Article 8 -->
+        <div class="rc-card anim-fade-up">
+          <div class="rc-card-tag" style="background:#068e50;"></div>
+          <h3>El dato que ya no debería viajar por internet</h3>
+          <p>La información ecriptada en transacciones es cada vez más frecuente. Esto no es coincidencia, averigua porqué.</p>
+          <a href="#" class="rc-card-link">Leer <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Más artículos -->
+      <div class="anim-fade-up" style="text-align:center;">
+        <a href="#" style="font-family:Montserrat,sans-serif;font-size:.9rem;font-weight:700;color:var(--navy);border:2px solid var(--navy);border-radius:50px;padding:.65rem 1.8rem;display:inline-block;text-decoration:none;letter-spacing:.03em;transition:background .2s,color .2s;" onmouseover="this.style.background='var(--navy)';this.style.color='#fff';" onmouseout="this.style.background='transparent';this.style.color='var(--navy)';">Más artículos</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ CASOS DE ÉXITO ═══════════════════════ -->
+  <section class="section" style="background:var(--navy);padding-top:88px;padding-bottom:88px;">
+    <div class="container">
+
+      <!-- Heading -->
+      <div style="text-align:center;margin-bottom:2.5rem;">
+        <h2 class="section-title letter-reveal" style="color:#fff;margin-bottom:1rem;">Casos de éxito</h2>
+        <p class="anim-fade-up" style="font-family:Montserrat,sans-serif;color:rgba(255,255,255,.7);font-size:1.05rem;line-height:1.7;max-width:56ch;margin:0 auto;">Cada pago que procesas junto a Copayment es una persona que accede, un negocio que crece, una comunidad que se integra a la economía formal.</p>
+      </div>
+
+      <!-- Outcome diagram: 3-node horizontal flow derived from the text above -->
+      <div class="anim-fade-up" style="max-width:620px;margin:0 auto 3.5rem;">
+        <svg viewBox="0 0 580 185" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;overflow:visible;">
+          <defs>
+            <style>
+              .rc-nlbl  { font-family: Montserrat, sans-serif; font-size: 10.5px; font-weight: 700; fill: #fff; }
+              .rc-nlbl2 { font-family: Montserrat, sans-serif; font-size: 9.5px;  font-weight: 500; fill: rgba(255,255,255,.65); }
+              .rcN1 { animation: rcNIn .55s .1s both; transform-origin:  80px 88px; }
+              .rcN2 { animation: rcNIn .55s .3s both; transform-origin: 290px 88px; }
+              .rcN3 { animation: rcNIn .55s .5s both; transform-origin: 500px 88px; }
+              .rcS1 { stroke-dasharray: 190; stroke-dashoffset: 190; animation: rcSIn .4s .2s forwards; }
+              .rcS2 { stroke-dasharray: 190; stroke-dashoffset: 190; animation: rcSIn .4s .4s forwards; }
+              @keyframes rcNIn { from{opacity:0;transform:scale(0)} to{opacity:1;transform:scale(1)} }
+              @keyframes rcSIn  { to{stroke-dashoffset:0} }
+              .rcp1 { animation: rcPls 3s ease-in-out infinite 0s; }
+              .rcp2 { animation: rcPls 3s ease-in-out infinite .6s; }
+              .rcp3 { animation: rcPls 3s ease-in-out infinite 1.2s; }
+              @keyframes rcPls { 0%,100%{r:22} 50%{r:25.5} }
+            </style>
+            <!-- arrowhead marker -->
+            <marker id="rcArrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+              <polygon points="0 0, 7 3.5, 0 7" fill="rgba(255,255,255,.3)"/>
+            </marker>
+          </defs>
+
+          <!-- Connecting lines -->
+          <line x1="104" y1="88" x2="266" y2="88" stroke="rgba(255,255,255,.2)" stroke-width="1.8" stroke-dasharray="5 3" class="rcS1" marker-end="url(#rcArrow)"/>
+          <line x1="314" y1="88" x2="476" y2="88" stroke="rgba(255,255,255,.2)" stroke-width="1.8" stroke-dasharray="5 3" class="rcS2" marker-end="url(#rcArrow)"/>
+
+          <!-- NODE 1: Una persona que accede (orange) -->
+          <g class="rcN1">
+            <circle cx="80" cy="88" r="32" fill="#f47f20" opacity=".12"/>
+            <circle cx="80" cy="88" r="22" fill="#f47f20" class="rcp1"/>
+            <!-- person icon -->
+            <circle cx="80" cy="80" r="6" fill="#fff"/>
+            <path d="M66 99 q0-12 14-12 14 0 14 12" fill="#fff"/>
+            <text x="80" y="130" text-anchor="middle" class="rc-nlbl">Una persona</text>
+            <text x="80" y="145" text-anchor="middle" class="rc-nlbl2">que accede</text>
+          </g>
+
+          <!-- NODE 2: Un negocio que crece (blue) -->
+          <g class="rcN2">
+            <circle cx="290" cy="88" r="32" fill="#00acff" opacity=".12"/>
+            <circle cx="290" cy="88" r="22" fill="#00acff" class="rcp2"/>
+            <!-- bar chart growth icon -->
+            <rect x="280" y="92" width="5" height="8"  fill="#fff" rx="1"/>
+            <rect x="288" y="85" width="5" height="15" fill="#fff" rx="1"/>
+            <rect x="296" y="79" width="5" height="21" fill="#fff" rx="1"/>
+            <text x="290" y="130" text-anchor="middle" class="rc-nlbl">Un negocio</text>
+            <text x="290" y="145" text-anchor="middle" class="rc-nlbl2">que crece</text>
+          </g>
+
+          <!-- NODE 3: Una comunidad que se integra (green) -->
+          <g class="rcN3">
+            <circle cx="500" cy="88" r="32" fill="#068e50" opacity=".12"/>
+            <circle cx="500" cy="88" r="22" fill="#068e50" class="rcp3"/>
+            <!-- community/people icon (3 circles) -->
+            <circle cx="491" cy="83" r="5.5" fill="#fff"/>
+            <circle cx="500" cy="78" r="5.5" fill="#fff"/>
+            <circle cx="509" cy="83" r="5.5" fill="#fff"/>
+            <path d="M484 97 q0-9 7-9" fill="none" stroke="#fff" stroke-width="1.8"/>
+            <path d="M509 97 q0-9 7-9" fill="none" stroke="#fff" stroke-width="1.8"/>
+            <text x="500" y="130" text-anchor="middle" class="rc-nlbl">Una comunidad</text>
+            <text x="500" y="145" text-anchor="middle" class="rc-nlbl2">que se integra</text>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Case cards -->
+      <div style="display:grid;grid-template-columns:1fr;gap:1.25rem;max-width:760px;margin:0 auto;">
+
+        <!-- Case 1: Zeno -->
+        <div class="anim-fade-up" style="display:grid;grid-template-columns:160px 1fr;gap:0;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;overflow:hidden;">
+          <div style="background:#0a0a0a;display:flex;align-items:center;justify-content:center;padding:1.5rem;min-height:100px;">
+            <span style="font-family:Montserrat,sans-serif;font-size:1.5rem;font-weight:800;color:#fff;letter-spacing:.05em;">ZENO</span>
+          </div>
+          <div style="padding:1.5rem 1.75rem;display:flex;flex-direction:column;justify-content:center;gap:1rem;">
+            <p style="font-family:Montserrat,sans-serif;font-size:.95rem;font-weight:600;color:#fff;margin:0;line-height:1.45;">Cómo Copayment ayudó a Zeno a lanzar su operación en México con velocidad, seguridad y estrategia</p>
+            <a href="#" style="font-family:Montserrat,sans-serif;font-size:.8rem;font-weight:700;color:var(--blue);text-decoration:none;display:inline-flex;align-items:center;gap:.35rem;letter-spacing:.03em;">Leer <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+        </div>
+
+        <!-- Case 2: Bankaool -->
+        <div class="anim-fade-up" style="display:grid;grid-template-columns:160px 1fr;gap:0;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;overflow:hidden;">
+          <div style="background:#004a9e;display:flex;align-items:center;justify-content:center;padding:1.5rem;min-height:100px;">
+            <span style="font-family:Montserrat,sans-serif;font-size:1.1rem;font-weight:800;color:#fff;letter-spacing:.04em;">bankaool</span>
+          </div>
+          <div style="padding:1.5rem 1.75rem;display:flex;flex-direction:column;justify-content:center;gap:1rem;">
+            <p style="font-family:Montserrat,sans-serif;font-size:.95rem;font-weight:600;color:#fff;margin:0;line-height:1.45;">Cómo Copayment ayudó a Bankaool a _____ operación en ____ con velocidad, seguridad y estrategia</p>
+            <a href="#" style="font-family:Montserrat,sans-serif;font-size:.8rem;font-weight:700;color:var(--blue);text-decoration:none;display:inline-flex;align-items:center;gap:.35rem;letter-spacing:.03em;">Leer <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
+  <!-- ═══════════════════════ CTA SECTION ═══════════════════════ -->
   <section class="cta-section">
     <div class="container">
       <h2>¿Hablamos?</h2>
@@ -139,6 +339,10 @@
         <div class="cta-email-item">
           <p class="cta-email-label">¿Necesitas ayuda?</p>
           <a href="mailto:operaciones@copayment.com.mx" class="cta-email-link">operaciones@copayment.com.mx</a>
+        </div>
+        <div class="cta-email-item">
+          <p class="cta-email-label">¿Te interesa un patrocinio?</p>
+          <a href="mailto:foro@copayment.com.mx" class="cta-email-link">foro@copayment.com.mx</a>
         </div>
       </div>
       <div class="cta-legal-links">
@@ -233,7 +437,10 @@
       </div>
     </div>
   </footer>
+
   <script src="../js/main.js"></script>
-  <script>startPCB('recursosHeroCanvas');</script>
+  <script>
+    startPCB('recursosHeroCanvas');
+  </script>
 </body>
 </html>
