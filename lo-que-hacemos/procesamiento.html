@@ -267,23 +267,63 @@
               </div>
             </div>
 
-            <!-- Orange bubbles: 4 capabilities from PDF -->
-            <div style="margin:2rem 0 2.5rem;">
-              <style>
-                .proc-bbl-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; }
-                @media(max-width:640px){.proc-bbl-grid{grid-template-columns:repeat(2,1fr);}}
-                .proc-bbl-item { background:#f47f20; border-radius:50%; padding:2.5rem 1.2rem; display:flex; align-items:center; justify-content:center; text-align:center; color:#fff; font-family:'Montserrat',sans-serif; font-size:.88rem; font-weight:700; line-height:1.4; animation:procBblPls 3s ease-in-out infinite; box-shadow:0 8px 28px rgba(244,127,32,.4); }
-                .proc-bbl-item:nth-child(2){animation-delay:.4s}
-                .proc-bbl-item:nth-child(3){animation-delay:.8s}
-                .proc-bbl-item:nth-child(4){animation-delay:1.2s}
-                @keyframes procBblPls{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
-              </style>
-              <div class="proc-bbl-grid anim-fade-up">
-                <div class="proc-bbl-item">Seguridad transaccional</div>
-                <div class="proc-bbl-item">Integración sin fricciones</div>
-                <div class="proc-bbl-item">Conexión con las principales redes</div>
-                <div class="proc-bbl-item">Acompañamiento y capacitación</div>
-              </div>
+            <!-- 4 capabilities: linear flow diagram -->
+            <div class="proc-flow-diagram anim-fade-up" style="aspect-ratio:700/200;margin:2rem 0 2.5rem;" aria-hidden="true">
+              <svg viewBox="0 0 700 200" width="100%" height="100%">
+                <defs>
+                  <linearGradient id="prcCapBlue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3dc6ff"/><stop offset="1" stop-color="#00acff"/></linearGradient>
+                  <linearGradient id="prcCapOrange" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff9d4f"/><stop offset="1" stop-color="#f47f20"/></linearGradient>
+                  <filter id="prcCapShadow" x="-60%" y="-60%" width="220%" height="220%"><feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000" flood-opacity=".35"/></filter>
+                </defs>
+
+                <!-- Animated connector lines between nodes -->
+                <path d="M130 70 H192" stroke="#00acff" stroke-width="2.5" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="-24" dur="1.2s" repeatCount="indefinite"/></path>
+                <path d="M316 70 H378" stroke="#f47f20" stroke-width="2.5" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="-24" dur="1.2s" repeatCount="indefinite"/></path>
+                <path d="M502 70 H564" stroke="#068e50" stroke-width="2.5" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="-24" dur="1.2s" repeatCount="indefinite"/></path>
+                <!-- travelling dot -->
+                <circle r="4.5" fill="#fff" opacity=".85"><animateMotion path="M70 70 H630" dur="2.8s" repeatCount="indefinite"/></circle>
+
+                <!-- Node 1: Seguridad transaccional -->
+                <g filter="url(#prcCapShadow)"><rect x="70" y="40" width="60" height="60" rx="15" fill="url(#prcCapOrange)"/>
+                  <path d="M100 56l9 3.5v8c0 5.5-4 8.5-9 10.5-5-2-9-5-9-10.5v-8z" fill="#fff" opacity=".9"/>
+                  <path d="M94.5 67l3.5 3.5 6-7" stroke="#f47f20" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <text x="100" y="118" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9" font-weight="700" fill="rgba(255,255,255,.85)">
+                  <tspan x="100" dy="0">Seguridad</tspan><tspan x="100" dy="13">transaccional</tspan>
+                </text>
+
+                <!-- Node 2: Integración sin fricciones -->
+                <g filter="url(#prcCapShadow)"><rect x="256" y="40" width="60" height="60" rx="15" fill="url(#prcCapBlue)"/>
+                  <polyline points="278,62 268,70 278,78" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                  <polyline points="298,62 308,70 298,78" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                  <line x1="281" y1="70" x2="295" y2="70" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+                </g>
+                <text x="286" y="118" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9" font-weight="700" fill="rgba(255,255,255,.85)">
+                  <tspan x="286" dy="0">Integración sin</tspan><tspan x="286" dy="13">fricciones</tspan>
+                </text>
+
+                <!-- Node 3: Conexión con las principales redes -->
+                <g filter="url(#prcCapShadow)"><rect x="442" y="40" width="60" height="60" rx="15" fill="url(#prcCapBlue)"/>
+                  <circle cx="472" cy="70" r="11" fill="none" stroke="#fff" stroke-width="2" opacity=".85"/>
+                  <line x1="461" y1="70" x2="483" y2="70" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".7"/>
+                  <path d="M472 59a11 11 0 0 1 0 22" stroke="#fff" stroke-width="1.8" fill="none" stroke-dasharray="3 3"/>
+                  <circle cx="462" cy="62" r="3" fill="#fff" opacity=".7"/>
+                  <circle cx="482" cy="62" r="3" fill="#fff" opacity=".7"/>
+                </g>
+                <text x="472" y="118" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9" font-weight="700" fill="rgba(255,255,255,.85)">
+                  <tspan x="472" dy="0">Conexión con las</tspan><tspan x="472" dy="13">principales redes</tspan>
+                </text>
+
+                <!-- Node 4: Acompañamiento y capacitación -->
+                <g filter="url(#prcCapShadow)"><rect x="628" y="40" width="60" height="60" rx="15" fill="url(#prcCapBlue)"/>
+                  <circle cx="658" cy="61" r="5" fill="#fff" opacity=".9"/>
+                  <path d="M646 87v-2c0-5.5 5.4-10 12-10s12 4.5 12 10v2z" fill="#fff" opacity=".75"/>
+                  <circle cx="646" cy="65" r="3.5" fill="#fff" opacity=".5"/>
+                </g>
+                <text x="658" y="118" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9" font-weight="700" fill="rgba(255,255,255,.85)">
+                  <tspan x="658" dy="0">Acompañamiento</tspan><tspan x="658" dy="13">y capacitación</tspan>
+                </text>
+              </svg>
             </div>
 
             <!-- ZENO case study -->

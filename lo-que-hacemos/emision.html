@@ -136,27 +136,89 @@
               <a href="../comencemos.html" class="btn-nav-cta" style="display:inline-flex;align-items:center;gap:.5rem;">Comencemos <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
             </div>
 
-            <!-- Orange bubbles: 6 capabilities from PDF -->
-            <div style="margin:2rem 0 2.5rem;">
-              <style>
-                .em-bbl-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
-                @media(max-width:640px){.em-bbl-grid{grid-template-columns:repeat(2,1fr);}}
-                .em-bbl-item { background:#f47f20; border-radius:50%; padding:2.5rem 1.5rem; display:flex; align-items:center; justify-content:center; text-align:center; color:#fff; font-family:'Montserrat',sans-serif; font-size:.88rem; font-weight:700; line-height:1.4; animation:bblPls 3s ease-in-out infinite; box-shadow:0 8px 28px rgba(244,127,32,.4); }
-                .em-bbl-item:nth-child(2){animation-delay:.4s}
-                .em-bbl-item:nth-child(3){animation-delay:.8s}
-                .em-bbl-item:nth-child(4){animation-delay:1.2s}
-                .em-bbl-item:nth-child(5){animation-delay:1.6s}
-                .em-bbl-item:nth-child(6){animation-delay:2s}
-                @keyframes bblPls{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
-              </style>
-              <div class="em-bbl-grid anim-fade-up">
-                <div class="em-bbl-item">Emisión de tarjetas físicas y vituales</div>
-                <div class="em-bbl-item">APIs para ágil integración</div>
-                <div class="em-bbl-item">Cumplimiento regulatorio</div>
-                <div class="em-bbl-item">Acompañamiento y capacitación</div>
-                <div class="em-bbl-item">Gestión de riesgo antifraude</div>
-                <div class="em-bbl-item">Mensajería de ISO 8583</div>
-              </div>
+            <!-- 6 capabilities: hub-spoke flow diagram -->
+            <div class="proc-flow-diagram anim-fade-up" style="aspect-ratio:700/400;margin:2rem 0 2.5rem;" aria-hidden="true">
+              <svg viewBox="0 0 700 400" width="100%" height="100%">
+                <defs>
+                  <linearGradient id="emCapBlue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3dc6ff"/><stop offset="1" stop-color="#00acff"/></linearGradient>
+                  <linearGradient id="emCapOrange" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff9d4f"/><stop offset="1" stop-color="#f47f20"/></linearGradient>
+                  <filter id="emCapShadow" x="-60%" y="-60%" width="220%" height="220%"><feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000" flood-opacity=".35"/></filter>
+                </defs>
+
+                <!-- Connector lines — left -->
+                <path d="M80 50 L308 165" stroke="#00acff" stroke-width="2.5" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="-24" dur="1.3s" repeatCount="indefinite"/></path>
+                <path d="M110 180 L308 183" stroke="#00acff" stroke-width="2.5" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="-24" dur="1.5s" repeatCount="indefinite"/></path>
+                <path d="M80 320 L308 201" stroke="#00acff" stroke-width="2.5" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="-24" dur="1.4s" repeatCount="indefinite"/></path>
+                <!-- Connector lines — right -->
+                <path d="M620 50 L392 165" stroke="#068e50" stroke-width="2.5" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="24" dur="1.3s" repeatCount="indefinite"/></path>
+                <path d="M590 180 L392 183" stroke="#068e50" stroke-width="2.5" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="24" dur="1.6s" repeatCount="indefinite"/></path>
+                <path d="M620 320 L392 201" stroke="#068e50" stroke-width="2.5" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="24" dur="1.5s" repeatCount="indefinite"/></path>
+
+                <!-- Row 1 Left: Emisión de tarjetas físicas y vituales -->
+                <g filter="url(#emCapShadow)"><rect x="50" y="20" width="60" height="60" rx="15" fill="url(#emCapBlue)"/>
+                  <rect x="67" y="36" width="26" height="17" rx="2" fill="none" stroke="#fff" stroke-width="2"/>
+                  <line x1="67" y1="42" x2="93" y2="42" stroke="#fff" stroke-width="2" opacity=".55"/>
+                  <rect x="70" y="47" width="6" height="3" rx="1" fill="#fff" opacity=".7"/>
+                </g>
+                <text text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8.5" font-weight="700" fill="rgba(255,255,255,.85)">
+                  <tspan x="80" y="97">Emisión de tarjetas</tspan><tspan x="80" dy="13">físicas y vituales</tspan>
+                </text>
+
+                <!-- Row 2 Left: Acompañamiento y capacitación -->
+                <g filter="url(#emCapShadow)"><rect x="50" y="150" width="60" height="60" rx="15" fill="url(#emCapBlue)"/>
+                  <circle cx="80" cy="170" r="5" fill="#fff" opacity=".9"/>
+                  <path d="M68 197v-2c0-5.5 5.4-10 12-10s12 4.5 12 10v2z" fill="#fff" opacity=".75"/>
+                  <circle cx="67" cy="174" r="3.5" fill="#fff" opacity=".5"/>
+                </g>
+                <text text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8.5" font-weight="700" fill="rgba(255,255,255,.85)">
+                  <tspan x="80" y="227">Acompañamiento</tspan><tspan x="80" dy="13">y capacitación</tspan>
+                </text>
+
+                <!-- Row 3 Left: Mensajería de ISO 8583 -->
+                <g filter="url(#emCapShadow)"><rect x="50" y="290" width="60" height="60" rx="15" fill="url(#emCapBlue)"/>
+                  <rect x="67" y="307" width="26" height="18" rx="2.5" fill="none" stroke="#fff" stroke-width="2"/>
+                  <path d="M67 311 l13 7 13-7" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <text text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8.5" font-weight="700" fill="rgba(255,255,255,.85)">
+                  <tspan x="80" y="367">Mensajería de</tspan><tspan x="80" dy="13">ISO 8583</tspan>
+                </text>
+
+                <!-- Row 1 Right: APIs para ágil integración -->
+                <g filter="url(#emCapShadow)"><rect x="590" y="20" width="60" height="60" rx="15" fill="url(#emCapBlue)"/>
+                  <path d="M613 40 L607 50 L613 60" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M627 40 L633 50 L627 60" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                  <line x1="618" y1="54" x2="622" y2="46" stroke="#fff" stroke-width="1.8" stroke-linecap="round" opacity=".7"/>
+                </g>
+                <text text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8.5" font-weight="700" fill="rgba(255,255,255,.85)">
+                  <tspan x="620" y="97">APIs para ágil</tspan><tspan x="620" dy="13">integración</tspan>
+                </text>
+
+                <!-- Row 2 Right: Cumplimiento regulatorio -->
+                <g filter="url(#emCapShadow)"><rect x="590" y="150" width="60" height="60" rx="15" fill="url(#emCapBlue)"/>
+                  <path d="M620 166 l11 4.5v10c0 7-5 11-11 13.5-6-2.5-11-6.5-11-13.5v-10z" fill="#fff" opacity=".9"/>
+                  <path d="M613 182 l4 4.5 8-9" stroke="#00327a" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <text text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8.5" font-weight="700" fill="rgba(255,255,255,.85)">
+                  <tspan x="620" y="227">Cumplimiento</tspan><tspan x="620" dy="13">regulatorio</tspan>
+                </text>
+
+                <!-- Row 3 Right: Gestión de riesgo antifraude -->
+                <g filter="url(#emCapShadow)"><rect x="590" y="290" width="60" height="60" rx="15" fill="url(#emCapBlue)"/>
+                  <polygon points="624,307 613,324 620.5,324 617,332 629,315 621.5,315" fill="#fff" opacity=".9"/>
+                </g>
+                <text text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8.5" font-weight="700" fill="rgba(255,255,255,.85)">
+                  <tspan x="620" y="367">Gestión de riesgo</tspan><tspan x="620" dy="13">antifraude</tspan>
+                </text>
+
+                <!-- Hub: Emisión -->
+                <g filter="url(#emCapShadow)">
+                  <rect x="308" y="151" width="84" height="64" rx="18" fill="url(#emCapOrange)"/>
+                  <rect x="330" y="169" width="40" height="28" rx="4" fill="#fff"/>
+                  <rect x="338" y="176" width="7" height="6" rx="1.4" fill="#f47f20"/>
+                  <rect x="338" y="187" width="16" height="2.4" rx="1.2" fill="#f47f20" opacity=".6"/>
+                </g>
+                <text x="350" y="233" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12.5" font-weight="700" fill="#fff">Emisión</text>
+              </svg>
             </div>
 
             <!-- Network logos — white break -->
