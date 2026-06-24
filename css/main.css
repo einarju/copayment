@@ -2582,10 +2582,8 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
 /* ── Network strip ── */
 .emision-network {
   text-align: center;
-  padding: 2rem 0;
-  border-top: 1px solid rgba(0,50,122,.07);
-  border-bottom: 1px solid rgba(0,50,122,.07);
-  margin-bottom: 3rem;
+  padding: .5rem 0;
+  margin-bottom: 0;
 }
 .emision-network-text {
   font-family: 'Montserrat', sans-serif;

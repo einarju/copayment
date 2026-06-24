@@ -335,24 +335,27 @@
                   </ul>
                   <a href="goe.html" class="svc-card-link">Saber más <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
                 </div>
-                <div class="proc-flow-diagram anim-fade-up" aria-hidden="true">
-                  <svg viewBox="0 0 700 280" width="100%" height="100%">
+                <div class="proc-flow-diagram anim-fade-up" aria-hidden="true" style="aspect-ratio:700/345;">
+                  <svg viewBox="0 0 700 345" width="100%" height="100%">
                     <defs>
                       <linearGradient id="adqGoeHub" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff9d4f"/><stop offset="1" stop-color="#f47f20"/></linearGradient>
                       <linearGradient id="adqGoeNode" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3dc6ff"/><stop offset="1" stop-color="#00acff"/></linearGradient>
                       <filter id="adqGoeShadow" x="-60%" y="-60%" width="220%" height="220%"><feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000" flood-opacity=".35"/></filter>
                     </defs>
+                    <!-- left 2 nodes unchanged, right 3 nodes spread to rows 15/128/238 -->
                     <path d="M130 75 L318 130" stroke="#00acff" stroke-width="2.5" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="-24" dur="1.3s" repeatCount="indefinite"/></path>
                     <path d="M110 185 L318 140" stroke="#00acff" stroke-width="2.5" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="-24" dur="1.5s" repeatCount="indefinite"/></path>
-                    <path d="M570 55 L382 115" stroke="#f47f20" stroke-width="2.5" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="24" dur="1.4s" repeatCount="indefinite"/></path>
-                    <path d="M590 140 L382 130" stroke="#f47f20" stroke-width="2.5" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="24" dur="1.2s" repeatCount="indefinite"/></path>
-                    <path d="M570 215 L382 145" stroke="#f47f20" stroke-width="2.5" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="24" dur="1.6s" repeatCount="indefinite"/></path>
+                    <path d="M570 47 L382 116" stroke="#f47f20" stroke-width="2.5" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="24" dur="1.4s" repeatCount="indefinite"/></path>
+                    <path d="M590 160 L382 132" stroke="#f47f20" stroke-width="2.5" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="24" dur="1.2s" repeatCount="indefinite"/></path>
+                    <path d="M570 270 L382 148" stroke="#f47f20" stroke-width="2.5" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="24" dur="1.6s" repeatCount="indefinite"/></path>
+                    <!-- Left: Autorización -->
                     <g filter="url(#adqGoeShadow)"><rect x="62" y="43" width="68" height="64" rx="16" fill="url(#adqGoeNode)"/>
                       <rect x="80" y="57" width="32" height="20" rx="3" fill="none" stroke="#fff" stroke-width="2"/>
                       <path d="M90 70v4M96 67v7M102 64v10" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
                     </g>
                     <text x="96" y="123" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.5" font-weight="700" fill="rgba(255,255,255,.7)">Autorización y</text>
                     <text x="96" y="137" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.5" font-weight="700" fill="rgba(255,255,255,.7)">liquidación</text>
+                    <!-- Left: Redes -->
                     <g filter="url(#adqGoeShadow)"><rect x="42" y="153" width="68" height="64" rx="16" fill="url(#adqGoeNode)"/>
                       <circle cx="68" cy="180" r="4.5" fill="#fff"/>
                       <circle cx="76" cy="172" r="4.5" fill="#fff"/>
@@ -362,6 +365,7 @@
                     </g>
                     <text x="76" y="233" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.5" font-weight="700" fill="rgba(255,255,255,.7)">Redes de</text>
                     <text x="76" y="247" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.5" font-weight="700" fill="rgba(255,255,255,.7)">tarjetas</text>
+                    <!-- Hub GOE -->
                     <circle cx="350" cy="130" r="22" fill="none" stroke="#f47f20" stroke-width="2" opacity=".5">
                       <animate attributeName="r" values="22;40;22" dur="2.8s" repeatCount="indefinite"/>
                       <animate attributeName="opacity" values=".5;0;.5" dur="2.8s" repeatCount="indefinite"/>
@@ -374,25 +378,28 @@
                       <path d="M340 120l4 4M356 136l4 4M340 140l4-4M356 120l4-4" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
                     </g>
                     <text x="350" y="183" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12" font-weight="800" fill="#fff">GOE</text>
-                    <g filter="url(#adqGoeShadow)"><rect x="566" y="23" width="68" height="64" rx="16" fill="url(#adqGoeNode)"/>
-                      <path d="M600 39l12 5v10c0 8-5.5 12-12 14.5-6.5-2.5-12-6.5-12-14.5V44z" fill="#fff"/>
-                      <path d="M594 56l3.5 3.5 7-8" stroke="#00acff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <!-- Right: Prevención row1 y=15 -->
+                    <g filter="url(#adqGoeShadow)"><rect x="566" y="15" width="68" height="64" rx="16" fill="url(#adqGoeNode)"/>
+                      <path d="M600 31l12 5v10c0 8-5.5 12-12 14.5-6.5-2.5-12-6.5-12-14.5V36z" fill="#fff"/>
+                      <path d="M594 48l3.5 3.5 7-8" stroke="#00acff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                     </g>
-                    <text x="600" y="103" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.5" font-weight="700" fill="rgba(255,255,255,.7)">Prevención de</text>
-                    <text x="600" y="117" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.5" font-weight="700" fill="rgba(255,255,255,.7)">fraude</text>
-                    <g filter="url(#adqGoeShadow)"><rect x="590" y="108" width="68" height="64" rx="16" fill="url(#adqGoeNode)"/>
-                      <circle cx="624" cy="135" r="14" fill="none" stroke="#fff" stroke-width="2"/>
-                      <path d="M624 126v9l5 5" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <text x="600" y="94" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.5" font-weight="700" fill="rgba(255,255,255,.7)">Prevención de</text>
+                    <text x="600" y="108" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.5" font-weight="700" fill="rgba(255,255,255,.7)">fraude</text>
+                    <!-- Right: Monitoreo row2 y=128 -->
+                    <g filter="url(#adqGoeShadow)"><rect x="590" y="128" width="68" height="64" rx="16" fill="url(#adqGoeNode)"/>
+                      <circle cx="624" cy="155" r="14" fill="none" stroke="#fff" stroke-width="2"/>
+                      <path d="M624 146v9l5 5" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                     </g>
-                    <text x="624" y="188" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.5" font-weight="700" fill="rgba(255,255,255,.7)">Monitoreo y</text>
-                    <text x="624" y="202" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.5" font-weight="700" fill="rgba(255,255,255,.7)">soporte</text>
-                    <g filter="url(#adqGoeShadow)"><rect x="566" y="183" width="68" height="64" rx="16" fill="url(#adqGoeNode)"/>
-                      <path d="M600 199v14" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-                      <path d="M593 207l7 6 7-6" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M593 199l7-6 7 6" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/>
+                    <text x="624" y="207" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.5" font-weight="700" fill="rgba(255,255,255,.7)">Monitoreo y</text>
+                    <text x="624" y="221" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.5" font-weight="700" fill="rgba(255,255,255,.7)">soporte</text>
+                    <!-- Right: Disputas row3 y=238 -->
+                    <g filter="url(#adqGoeShadow)"><rect x="566" y="238" width="68" height="64" rx="16" fill="url(#adqGoeNode)"/>
+                      <path d="M600 254v14" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+                      <path d="M593 262l7 6 7-6" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M593 254l7-6 7 6" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/>
                     </g>
-                    <text x="600" y="263" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.5" font-weight="700" fill="rgba(255,255,255,.7)">Disputas y</text>
-                    <text x="600" y="277" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.5" font-weight="700" fill="rgba(255,255,255,.7)">contracargos</text>
+                    <text x="600" y="317" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.5" font-weight="700" fill="rgba(255,255,255,.7)">Disputas y</text>
+                    <text x="600" y="331" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.5" font-weight="700" fill="rgba(255,255,255,.7)">contracargos</text>
                   </svg>
                 </div>
               </div>
