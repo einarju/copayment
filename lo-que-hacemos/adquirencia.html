@@ -106,24 +106,33 @@
     </div>
   </nav>
 
-  <!-- SERVICIOS -->
-  <a id="main-content" aria-hidden="true" tabindex="-1"></a>
-  <section class="section" id="servicios" style="padding-top:3rem;">
+  <!-- Page Hero -->
+  <section class="page-hero" id="main-content">
+    <canvas id="adquirenciaHeroCanvas" data-r="0" data-g="172" data-b="255" data-mul="1" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
     <div class="container">
-      <nav class="breadcrumb" aria-label="Ruta de navegaci&#243;n" style="margin-bottom:2rem;">
-        <a href="../index.html">Inicio</a>
-        <span class="breadcrumb-sep">&#8250;</span>
-        <a href="../lo-que-hacemos.html">Lo que hacemos</a>
-        <span class="breadcrumb-sep">&#8250;</span>
-        <span>Adquirencia</span>
-      </nav>
+      <div class="page-hero-content">
+        <nav class="breadcrumb" aria-label="Ruta de navegaci&#243;n">
+          <a href="../index.html">Inicio</a>
+          <span class="breadcrumb-sep">&#8250;</span>
+          <a href="../lo-que-hacemos.html">Lo que hacemos</a>
+          <span class="breadcrumb-sep">&#8250;</span>
+          <span>Adquirencia</span>
+        </nav>
+        <h1 class="letter-reveal">Adquirencia</h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="section" id="servicios" style="background:var(--navy);padding-top:2rem;">
+    <div class="container">
       <div class="pillar-group" style="padding-top:.5rem;">
         <div class="pillar-group-showcase solutions-showcase">
-          <div id="adquirencia-section" class="proc-section anim-fade-up">
+          <div id="adquirencia-section" class="proc-section">
 
             <style>
               .adq-hero-2col { display:grid; grid-template-columns:1fr 1fr; gap:3.5rem; align-items:center; margin-bottom:3rem; }
-              .adq-hero-visual { border-radius:18px; overflow:hidden; background:linear-gradient(145deg,#00327a 0%,#001e50 100%); box-shadow:0 24px 56px rgba(0,30,80,.32); min-height:320px; display:flex; align-items:center; justify-content:center; padding:2rem; position:relative; }
+              .adq-hero-visual { border-radius:18px; overflow:hidden; background:linear-gradient(145deg,#0a3d8a 0%,#001e50 100%); box-shadow:0 0 0 1px rgba(0,172,255,.25), 0 24px 56px rgba(0,30,80,.32); min-height:320px; display:flex; align-items:center; justify-content:center; padding:2rem; position:relative; }
               .adq-hero-visual::before { content:''; position:absolute; inset:0; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Ccircle cx='1' cy='1' r='1' fill='rgba(0,172,255,.07)'/%3E%3C/svg%3E"); }
               @media(max-width:768px){ .adq-hero-2col{ grid-template-columns:1fr; } .adq-hero-visual{ min-height:220px; } }
             </style>
@@ -131,8 +140,8 @@
             <div class="adq-hero-2col">
               <div>
                 <p class="pillar-group-label" style="margin-bottom:.75rem;">ADQUIRENCIA</p>
-                <h3 class="letter-reveal" style="font-size:clamp(2.1rem,3.8vw,3.2rem);color:var(--navy);font-weight:800;margin-bottom:1rem;line-height:1.15;">Recibe pagos y lleva tus servicios hasta donde más se necesitan</h3>
-                <p style="font-size:1.05rem;color:#4a5a7a;line-height:1.7;margin-bottom:1.75rem;">En Copayment te subimos a la carretera financiera, podrás procesar transacciones a través de nuestra infraestructura adquirente.</p>
+                <h3 class="letter-reveal" style="font-size:clamp(2.1rem,3.8vw,3.2rem);color:#fff;font-weight:800;margin-bottom:1rem;line-height:1.15;">Recibe pagos y lleva tus servicios hasta donde más se necesitan</h3>
+                <p style="font-size:1.05rem;color:rgba(255,255,255,.75);line-height:1.7;margin-bottom:1.75rem;">En Copayment te subimos a la carretera financiera, podrás procesar transacciones a través de nuestra infraestructura adquirente.</p>
                 <a href="../comencemos.html" class="btn-nav-cta" style="display:inline-flex;align-items:center;gap:.5rem;">Comencemos <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
               </div>
               <div class="adq-hero-visual" aria-hidden="true">
@@ -527,5 +536,6 @@
   </footer>
 
   <script src="../js/main.js"></script>
+  <script>startPCB('adquirenciaHeroCanvas');</script>
 </body>
 </html>
