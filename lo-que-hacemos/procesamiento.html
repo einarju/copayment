@@ -267,6 +267,25 @@
               </div>
             </div>
 
+            <!-- Orange bubbles: 4 capabilities from PDF -->
+            <div style="margin:2rem 0 2.5rem;">
+              <style>
+                .proc-bbl-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; }
+                @media(max-width:640px){.proc-bbl-grid{grid-template-columns:repeat(2,1fr);}}
+                .proc-bbl-item { background:#f47f20; border-radius:50%; padding:2.5rem 1.2rem; display:flex; align-items:center; justify-content:center; text-align:center; color:#fff; font-family:'Montserrat',sans-serif; font-size:.88rem; font-weight:700; line-height:1.4; animation:procBblPls 3s ease-in-out infinite; box-shadow:0 8px 28px rgba(244,127,32,.4); }
+                .proc-bbl-item:nth-child(2){animation-delay:.4s}
+                .proc-bbl-item:nth-child(3){animation-delay:.8s}
+                .proc-bbl-item:nth-child(4){animation-delay:1.2s}
+                @keyframes procBblPls{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+              </style>
+              <div class="proc-bbl-grid anim-fade-up">
+                <div class="proc-bbl-item">Seguridad transaccional</div>
+                <div class="proc-bbl-item">Integración sin fricciones</div>
+                <div class="proc-bbl-item">Conexión con las principales redes</div>
+                <div class="proc-bbl-item">Acompañamiento y capacitación</div>
+              </div>
+            </div>
+
             <!-- ZENO case study -->
             <div class="proc-case" style="border-top-color:rgba(255,255,255,.1);">
               <div class="proc-case-media">
