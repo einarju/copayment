@@ -1,11 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <link rel="icon" type="image/svg+xml" href="../assets/logo-icon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webinars Copayment – Actualízate en pagos y fraude desde tu dispositivo</title>
-  <meta name="description" content="Webinars gratuitos sobre panorama Fintech, prevención de fraudes, phishing y pagos con tarjeta. Actualízate desde la comodidad de tu dispositivo.">
+  <title>Eventos – Copayment en los foros más relevantes del sector</title>
+  <meta name="description" content="Participamos activamente en los foros más relevantes del sector para estar siempre un paso adelante. Risk DAY, Foro Prosa, Foro Copayment, Foro SISCOOP 2026.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -13,6 +13,7 @@
 </head>
 <body>
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
   <nav class="navbar" id="navbar">
     <div class="navbar-inner">
       <a href="../index.html" class="navbar-logo"><img src="../assets/logo-horizontal.svg" alt="Copayment"></a>
@@ -79,90 +80,183 @@
     </div>
   </nav>
 
+  <!-- ═══════════════════════ PAGE HERO ═══════════════════════ -->
   <section class="page-hero" id="main-content">
-    <canvas id="webinarsHeroCanvas" data-r="0" data-g="172" data-b="255" data-mul="1" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
+    <canvas id="eventosHeroCanvas" data-r="0" data-g="172" data-b="255" data-mul="1" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
     <div class="container">
       <div class="page-hero-content">
         <nav class="breadcrumb" aria-label="Ruta de navegación">
           <a href="../index.html">Inicio</a><span class="breadcrumb-sep">›</span>
           <a href="../novedades.html">Novedades</a><span class="breadcrumb-sep">›</span>
-          <span>Webinars</span>
+          <span>Eventos</span>
         </nav>
-        <h1>WEBINAR COPAYMENT</h1>
-        <p>Actualízate y aprende desde la comodidad de tu dispositivo móvil.</p>
+        <h1 class="letter-reveal">Eventos</h1>
       </div>
     </div>
   </section>
 
-  <!-- UPCOMING -->
-  <section class="section">
+  <!-- ═══════════════════════ INTRO + TIMELINE ═══════════════════════ -->
+  <section class="section" style="background:#fff;padding-top:88px;padding-bottom:88px;">
     <div class="container">
-      <div class="pillar-group-label" style="margin-bottom:.5rem;">Próximos eventos</div>
-      <h2 class="section-title" style="margin-bottom:2rem;">Webinars programados</h2>
-      <div style="background:var(--light-bg);border-radius:var(--radius-lg);padding:3rem 2rem;text-align:center;border:2px dashed rgba(0,50,122,.1);">
-        <p style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.1rem;color:var(--navy);margin-bottom:.5rem;">¡Nos vemos en el próximo webinar!</p>
-        <p style="color:var(--silver);margin-bottom:2rem;">Próximas fechas disponibles próximamente.</p>
-        <a href="../comencemos.html" class="btn btn-primary">Registrarme<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-left:.5rem"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
+
+        <!-- Left: heading + subtitle -->
+        <div>
+          <p class="pillar-group-label anim-fade-up" style="color:var(--blue);">Eventos</p>
+          <h2 class="section-title letter-reveal" style="color:var(--navy);margin-bottom:1.5rem;">Estamos en los lugares que tenemos que estar</h2>
+          <p class="anim-fade-up" style="font-family:Montserrat,sans-serif;color:#727373;font-size:1.05rem;line-height:1.75;max-width:44ch;">Participamos activamente en los foros más relevantes del sector para estar siempre un paso adelante</p>
+        </div>
+
+        <!-- Right: horizontal timeline SVG -->
+        <div class="anim-fade-up" style="overflow:visible;">
+          <svg viewBox="0 0 580 240" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;overflow:visible;">
+            <defs>
+              <style>
+                .ev-lbl-date { font-family: Montserrat, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .06em; }
+                .ev-lbl-yr   { font-family: Montserrat, sans-serif; font-size: 9px;  font-weight: 500; fill: #a0aab4; }
+                .ev-lbl-name { font-family: Montserrat, sans-serif; font-size: 11px; font-weight: 700; }
+                .ev-lbl-city { font-family: Montserrat, sans-serif; font-size: 9px;  font-weight: 500; fill: #727373; }
+                .evN1 { animation: evNodeIn .55s .10s both; transform-origin:  70px 115px; }
+                .evN2 { animation: evNodeIn .55s .30s both; transform-origin: 210px 115px; }
+                .evN3 { animation: evNodeIn .55s .50s both; transform-origin: 350px 115px; }
+                .evN4 { animation: evNodeIn .55s .70s both; transform-origin: 505px 115px; }
+                .evS1 { stroke-dasharray: 120; stroke-dashoffset: 120; animation: evSegIn .40s .20s forwards; }
+                .evS2 { stroke-dasharray: 120; stroke-dashoffset: 120; animation: evSegIn .40s .40s forwards; }
+                .evS3 { stroke-dasharray: 120; stroke-dashoffset: 120; animation: evSegIn .40s .60s forwards; }
+                @keyframes evNodeIn { from { opacity:0; transform:scale(0); } to { opacity:1; transform:scale(1); } }
+                @keyframes evSegIn  { to { stroke-dashoffset: 0; } }
+                .epls1 { animation: evPls 2.8s ease-in-out infinite 0s; }
+                .epls2 { animation: evPls 2.8s ease-in-out infinite .5s; }
+                .epls3 { animation: evPls 2.8s ease-in-out infinite 1s; }
+                .epls4 { animation: evPls 2.8s ease-in-out infinite 1.5s; }
+                @keyframes evPls { 0%,100%{r:20} 50%{r:23.5} }
+              </style>
+            </defs>
+
+            <!-- Ghost base line -->
+            <line x1="70" y1="115" x2="505" y2="115" stroke="#dde8f2" stroke-width="2" stroke-dasharray="5 4"/>
+
+            <!-- Animated connecting segments -->
+            <line x1="92"  y1="115" x2="188" y2="115" stroke="#c4d8ed" stroke-width="2" class="evS1"/>
+            <line x1="232" y1="115" x2="328" y2="115" stroke="#c4d8ed" stroke-width="2" class="evS2"/>
+            <line x1="372" y1="115" x2="483" y2="115" stroke="#c4d8ed" stroke-width="2" class="evS3"/>
+
+            <!-- NODE 1: Risk DAY (orange) x=70 -->
+            <g class="evN1">
+              <circle cx="70" cy="115" r="30" fill="#f47f20" opacity=".10"/>
+              <circle cx="70" cy="115" r="20" fill="#f47f20" class="epls1"/>
+              <rect x="61" y="108" width="18" height="15" rx="2" fill="none" stroke="#fff" stroke-width="1.6"/>
+              <line x1="61" y1="113" x2="79" y2="113" stroke="#fff" stroke-width="1.4"/>
+              <line x1="66" y1="106" x2="66" y2="110" stroke="#fff" stroke-width="1.4"/>
+              <line x1="74" y1="106" x2="74" y2="110" stroke="#fff" stroke-width="1.4"/>
+              <text x="70" y="72"  text-anchor="middle" class="ev-lbl-date" fill="#f47f20">2 JUL</text>
+              <text x="70" y="85"  text-anchor="middle" class="ev-lbl-yr">2026</text>
+              <text x="70" y="154" text-anchor="middle" class="ev-lbl-name" fill="#f47f20">Risk DAY</text>
+              <text x="70" y="169" text-anchor="middle" class="ev-lbl-city">León, Gto.</text>
+            </g>
+
+            <!-- NODE 2: Foro Prosa (blue) x=210 -->
+            <g class="evN2">
+              <circle cx="210" cy="115" r="30" fill="#00acff" opacity=".10"/>
+              <circle cx="210" cy="115" r="20" fill="#00acff" class="epls2"/>
+              <rect x="201" y="108" width="18" height="15" rx="2" fill="none" stroke="#fff" stroke-width="1.6"/>
+              <line x1="201" y1="113" x2="219" y2="113" stroke="#fff" stroke-width="1.4"/>
+              <line x1="206" y1="106" x2="206" y2="110" stroke="#fff" stroke-width="1.4"/>
+              <line x1="214" y1="106" x2="214" y2="110" stroke="#fff" stroke-width="1.4"/>
+              <text x="210" y="72"  text-anchor="middle" class="ev-lbl-date" fill="#00acff">25 SEP</text>
+              <text x="210" y="85"  text-anchor="middle" class="ev-lbl-yr">2026</text>
+              <text x="210" y="154" text-anchor="middle" class="ev-lbl-name" fill="#00acff">Foro Prosa</text>
+              <text x="210" y="169" text-anchor="middle" class="ev-lbl-city">CDMX</text>
+            </g>
+
+            <!-- NODE 3: Foro Copayment (orange) x=350 -->
+            <g class="evN3">
+              <circle cx="350" cy="115" r="30" fill="#f47f20" opacity=".10"/>
+              <circle cx="350" cy="115" r="20" fill="#f47f20" class="epls3"/>
+              <rect x="341" y="108" width="18" height="15" rx="2" fill="none" stroke="#fff" stroke-width="1.6"/>
+              <line x1="341" y1="113" x2="359" y2="113" stroke="#fff" stroke-width="1.4"/>
+              <line x1="346" y1="106" x2="346" y2="110" stroke="#fff" stroke-width="1.4"/>
+              <line x1="354" y1="106" x2="354" y2="110" stroke="#fff" stroke-width="1.4"/>
+              <text x="350" y="72"  text-anchor="middle" class="ev-lbl-date" fill="#f47f20">7 OCT</text>
+              <text x="350" y="85"  text-anchor="middle" class="ev-lbl-yr">2026</text>
+              <text x="350" y="154" text-anchor="middle" class="ev-lbl-name" fill="#f47f20">Foro Copayment</text>
+              <text x="350" y="169" text-anchor="middle" class="ev-lbl-city">Monterrey, NL</text>
+            </g>
+
+            <!-- NODE 4: Foro SISCOOP (green) x=505 -->
+            <g class="evN4">
+              <circle cx="505" cy="115" r="30" fill="#068e50" opacity=".10"/>
+              <circle cx="505" cy="115" r="20" fill="#068e50" class="epls4"/>
+              <rect x="496" y="108" width="18" height="15" rx="2" fill="none" stroke="#fff" stroke-width="1.6"/>
+              <line x1="496" y1="113" x2="514" y2="113" stroke="#fff" stroke-width="1.4"/>
+              <line x1="501" y1="106" x2="501" y2="110" stroke="#fff" stroke-width="1.4"/>
+              <line x1="509" y1="106" x2="509" y2="110" stroke="#fff" stroke-width="1.4"/>
+              <text x="505" y="68"  text-anchor="middle" class="ev-lbl-date" fill="#068e50">19–22 OCT</text>
+              <text x="505" y="81"  text-anchor="middle" class="ev-lbl-yr">2026</text>
+              <text x="505" y="154" text-anchor="middle" class="ev-lbl-name" fill="#068e50">Foro SISCOOP</text>
+              <text x="505" y="169" text-anchor="middle" class="ev-lbl-city">Playa Mujeres, QROO</text>
+            </g>
+          </svg>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- TOPICS -->
-  <section class="section-sm" style="background:var(--light-bg);">
+  <!-- ═══════════════════════ EVENT CARDS ═══════════════════════ -->
+  <section class="section" style="background:var(--navy);padding-top:80px;padding-bottom:80px;">
     <div class="container">
-      <div class="pillar-group-label" style="margin-bottom:.5rem;">Temario</div>
-      <h2 class="section-title" style="margin-bottom:2rem;">Temas que abordamos</h2>
-      <div class="pillar-group-showcase solutions-showcase">
-        <div class="solution-row anim-fade-up">
-          <span class="solution-row-num">01</span>
-          <div class="solution-row-body">
-            <h3 class="solution-row-title">Panorama Fintech en México</h3>
-            <p class="solution-row-desc">El estado actual del ecosistema Fintech en México, tendencias regulatorias y oportunidades de negocio en el sector de pagos digitales.</p>
-          </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+
+        <!-- Card 1: Risk DAY -->
+        <div class="anim-fade-up" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-left:5px solid #f47f20;border-radius:14px;padding:2rem 2rem 2rem 1.75rem;">
+          <p style="font-family:Montserrat,sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#f47f20;margin:0 0 .7rem;">2 de julio 2026 &middot; León, Guanajuato</p>
+          <h3 style="font-family:Montserrat,sans-serif;font-size:1.3rem;font-weight:800;color:#fff;margin:0 0 .9rem;line-height:1.25;">Risk DAY</h3>
+          <p style="font-family:Montserrat,sans-serif;font-size:.92rem;color:rgba(255,255,255,.65);line-height:1.72;margin:0;">El encuentro de infraestructura y medios de pago más importante de Latinoamérica, donde se definen las tendencias globales en procesamiento masivo, inteligencia artificial aplicada y ciberseguridad a gran escala.</p>
         </div>
-        <div class="solution-row anim-fade-up anim-delay-1">
-          <span class="solution-row-num">02</span>
-          <div class="solution-row-body">
-            <h3 class="solution-row-title">Cómo proteger tus transacciones</h3>
-            <p class="solution-row-desc">Mejores prácticas para proteger a tus clientes y tu institución en canales físicos y digitales. Herramientas y estrategias efectivas.</p>
-          </div>
+
+        <!-- Card 2: Foro Prosa -->
+        <div class="anim-fade-up" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-left:5px solid #00acff;border-radius:14px;padding:2rem 2rem 2rem 1.75rem;">
+          <p style="font-family:Montserrat,sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#00acff;margin:0 0 .7rem;">25 de septiembre 2026 &middot; CDMX</p>
+          <h3 style="font-family:Montserrat,sans-serif;font-size:1.3rem;font-weight:800;color:#fff;margin:0 0 .9rem;line-height:1.25;">Foro Prosa</h3>
+          <p style="font-family:Montserrat,sans-serif;font-size:.92rem;color:rgba(255,255,255,.65);line-height:1.72;margin:0;">El encuentro de infraestructura y medios de pago más importante de Latinoamérica, donde se definen las tendencias globales en procesamiento masivo, inteligencia artificial aplicada y ciberseguridad a gran escala.</p>
         </div>
-        <div class="solution-row anim-fade-up anim-delay-2">
-          <span class="solution-row-num">03</span>
-          <div class="solution-row-body">
-            <h3 class="solution-row-title">Detectar correos de Phishing</h3>
-            <p class="solution-row-desc">Aprende a identificar intentos de phishing, smishing y vishing dirigidos a empleados de instituciones financieras. Casos reales y guía práctica.</p>
-          </div>
+
+        <!-- Card 3: Foro Copayment -->
+        <div class="anim-fade-up" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-left:5px solid #f47f20;border-radius:14px;padding:2rem 2rem 2rem 1.75rem;">
+          <p style="font-family:Montserrat,sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#f47f20;margin:0 0 .7rem;">7 de octubre 2026 &middot; Monterrey, NL</p>
+          <h3 style="font-family:Montserrat,sans-serif;font-size:1.3rem;font-weight:800;color:#fff;margin:0 0 .9rem;line-height:1.25;">Foro Copayment</h3>
+          <p style="font-family:Montserrat,sans-serif;font-size:.92rem;color:rgba(255,255,255,.65);line-height:1.72;margin:0;">El encuentro de infraestructura y medios de pago más importante de Latinoamérica, donde se definen las tendencias globales en procesamiento masivo, inteligencia artificial aplicada y ciberseguridad a gran escala.</p>
         </div>
-        <div class="solution-row anim-fade-up anim-delay-3">
-          <span class="solution-row-num">04</span>
-          <div class="solution-row-body">
-            <h3 class="solution-row-title">¿Debería aceptar pago con tarjeta?</h3>
-            <p class="solution-row-desc">Guía para comercios y plataformas que evalúan integrar pagos con tarjeta. Costos, riesgos, opciones tecnológicas y criterios de decisión.</p>
-          </div>
+
+        <!-- Card 4: Foro SISCOOP -->
+        <div class="anim-fade-up" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-left:5px solid #068e50;border-radius:14px;padding:2rem 2rem 2rem 1.75rem;">
+          <p style="font-family:Montserrat,sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#068e50;margin:0 0 .7rem;">19 - 22 de octubre 2026 &middot; Playa Mujeres Cancún, QROO.</p>
+          <h3 style="font-family:Montserrat,sans-serif;font-size:1.3rem;font-weight:800;color:#fff;margin:0 0 .9rem;line-height:1.25;">Foro SISCOOP</h3>
+          <p style="font-family:Montserrat,sans-serif;font-size:.92rem;color:rgba(255,255,255,.65);line-height:1.72;margin:0;">El foro clave de innovación tecnológica y procesamiento transaccional para el sector financiero, especializado en la prevención de fraudes, seguridad digital y adopción de nuevos medios de pago.</p>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- PAST WEBINARS -->
-  <section class="section">
+  <!-- ═══════════════════════ CTA ENCUENTRO ═══════════════════════ -->
+  <section class="section" style="background:#fff;padding-top:88px;padding-bottom:88px;">
     <div class="container">
-      <div class="pillar-group-label" style="margin-bottom:.5rem;">Ediciones anteriores</div>
-      <h2 class="section-title" style="margin-bottom:2rem;">Risk Days</h2>
-      <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:2rem;">
-        <span class="stag">2023</span><span class="stag">2024</span><span class="stag">2025</span>
-      </div>
-      <!-- PLACEHOLDER: ediciones anteriores -->
-      <div style="background:var(--light-bg);border-radius:var(--radius-lg);padding:3rem 2rem;text-align:center;border:2px dashed rgba(0,50,122,.1);">
-        <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);opacity:.5;">Grabaciones y materiales — próximamente</p>
-      </div>
-      <div style="text-align:center;margin-top:2rem;">
-        <a href="../comencemos.html" class="btn btn-outline-dark">Ver anteriores</a>
+      <div style="max-width:620px;margin:0 auto;text-align:center;">
+        <h2 class="section-title letter-reveal" style="color:var(--navy);margin-bottom:1.25rem;">¿Estás organizando un encuentro de la industria?</h2>
+        <p class="anim-fade-up" style="font-family:Montserrat,sans-serif;color:#727373;font-size:1.05rem;line-height:1.75;margin-bottom:2.25rem;">Si buscas expertos para una conferencia, panel o mesa de discusión sobre pagos, riesgo o ciberseguridad, estaremos encantados de participar.</p>
+        <div class="anim-fade-up">
+          <a href="../comencemos.html" class="btn-cta-white" style="display:inline-flex;align-items:center;gap:.5rem;">
+            Enviar mensaje
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- ═══════════════════════ CTA SECTION ═══════════════════════ -->
   <section class="cta-section">
     <div class="container">
       <h2>¿Hablamos?</h2>
@@ -195,6 +289,10 @@
         <div class="cta-email-item">
           <p class="cta-email-label">¿Necesitas ayuda?</p>
           <a href="mailto:operaciones@copayment.com.mx" class="cta-email-link">operaciones@copayment.com.mx</a>
+        </div>
+        <div class="cta-email-item">
+          <p class="cta-email-label">¿Te interesa un patrocinio?</p>
+          <a href="mailto:foro@copayment.com.mx" class="cta-email-link">foro@copayment.com.mx</a>
         </div>
       </div>
       <div class="cta-legal-links">
@@ -289,7 +387,10 @@
       </div>
     </div>
   </footer>
+
   <script src="../js/main.js"></script>
-  <script>startPCB('webinarsHeroCanvas');</script>
+  <script>
+    startPCB('eventosHeroCanvas');
+  </script>
 </body>
 </html>
