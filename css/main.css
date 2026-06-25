@@ -5313,3 +5313,82 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
 .proc-vals-card--green  { background:linear-gradient(150deg,#0fb567 0%,#068e50 100%); }
 @media(prefers-reduced-motion:reduce){ .proc-vals-card{ animation:none; } }
 @media (max-width: 640px) { .proc-vals-cards { max-width:300px; height:380px; } }
+
+/* ── em-audience-grid: card mosaic for ¿Para quiénes? (emision.html) ── */
+.em-audience-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:.85rem; max-width:700px; margin:0 auto 2.5rem; }
+.em-audience-card { background:rgba(255,255,255,.06); border:1px solid rgba(0,172,255,.22); border-radius:16px; padding:1.5rem 1.25rem; display:flex; flex-direction:column; gap:.85rem; transition:background .25s,border-color .25s; }
+.em-audience-card:hover { background:rgba(0,172,255,.1); border-color:rgba(0,172,255,.5); }
+.em-audience-card-label { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.88rem; color:#fff; line-height:1.35; }
+@media(max-width:640px){ .em-audience-grid { grid-template-columns:repeat(2,1fr); } }
+
+/* ── em-stepper: vertical numbered stepper (emision.html ciclo de vida) ── */
+.em-stepper { max-width:540px; margin:0 auto; }
+.em-step { display:grid; grid-template-columns:52px 1fr; gap:0 1rem; }
+.em-step-aside { display:flex; flex-direction:column; align-items:center; }
+.em-step-num { width:44px; height:44px; border-radius:50%; flex-shrink:0; background:linear-gradient(135deg,#ff9d4f 0%,#f47f20 100%); display:flex; align-items:center; justify-content:center; font-family:'Montserrat',sans-serif; font-weight:800; font-size:1rem; color:#fff; box-shadow:0 4px 14px rgba(244,127,32,.35); position:relative; z-index:1; }
+.em-step-connector { width:2px; flex:1; min-height:1.75rem; background:linear-gradient(to bottom,rgba(244,127,32,.5) 0%,rgba(0,172,255,.2) 100%); margin:.35rem auto; }
+.em-step:last-child .em-step-connector { display:none; }
+.em-step-content { display:flex; align-items:center; gap:1.1rem; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.09); border-radius:14px; padding:1.1rem 1.25rem; margin-bottom:.75rem; }
+.em-step-icon { flex-shrink:0; }
+.em-step-label { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.95rem; color:#fff; }
+.em-step-desc { font-size:.82rem; color:rgba(255,255,255,.55); margin-top:.25rem; line-height:1.45; }
+
+/* ── prc-ring: slow orbit ring for "Acepta medios de pago" (procesamiento.html) ── */
+@keyframes prcOrbitSpin    { to { transform:rotate( 360deg); } }
+@keyframes prcOrbitCounter { to { transform:rotate(-360deg); } }
+.prc-ring-wrap { position:relative; width:min(360px,85%); aspect-ratio:1; margin:1.5rem auto 2.5rem; display:flex; align-items:center; justify-content:center; }
+.prc-ring-orbit { position:absolute; inset:46px; border-radius:50%; border:1.5px dashed rgba(0,172,255,.28); animation:prcOrbitSpin 22s linear infinite; }
+.prc-ring-sat { position:absolute; }
+.prc-ring-sat--top    { top:0;    left:50%;  transform:translateX(-50%) translateY(-50%); }
+.prc-ring-sat--right  { right:0;  top:50%;   transform:translateX(50%)  translateY(-50%); }
+.prc-ring-sat--bottom { bottom:0; left:50%;  transform:translateX(-50%) translateY(50%); }
+.prc-ring-sat--left   { left:0;   top:50%;   transform:translateX(-50%) translateY(-50%); }
+.prc-ring-sat-inner { animation:prcOrbitCounter 22s linear infinite; display:flex; flex-direction:column; align-items:center; gap:.4rem; }
+.prc-ring-node { width:58px; height:58px; border-radius:16px; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 18px rgba(0,0,0,.3); }
+.prc-ring-node--blue  { background:linear-gradient(135deg,#3dc6ff,#00acff); }
+.prc-ring-node--green { background:linear-gradient(135deg,#0fb567,#068e50); }
+.prc-ring-label { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.68rem; color:rgba(255,255,255,.8); text-align:center; white-space:nowrap; }
+.prc-ring-hub { position:absolute; width:84px; height:84px; border-radius:50%; background:linear-gradient(135deg,#ff9d4f,#f47f20); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.2rem; box-shadow:0 0 0 12px rgba(244,127,32,.1),0 8px 24px rgba(244,127,32,.28); z-index:2; }
+.prc-ring-hub-label { font-family:'Montserrat',sans-serif; font-weight:800; font-size:.68rem; color:#fff; }
+@media(prefers-reduced-motion:reduce){ .prc-ring-orbit,.prc-ring-sat-inner { animation:none; } }
+
+/* ── prc-feat-bar: 4-column feature strip (procesamiento.html capabilities) ── */
+.prc-feat-bar { display:grid; grid-template-columns:1fr 1px 1fr 1px 1fr 1px 1fr; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.1); border-radius:20px; padding:2rem .5rem; margin:2rem 0; align-items:stretch; }
+.prc-feat-sep { background:rgba(255,255,255,.1); margin:.5rem 0; }
+.prc-feat-item { display:flex; flex-direction:column; align-items:center; gap:.9rem; padding:.75rem 1.25rem; text-align:center; }
+.prc-feat-icon { width:60px; height:60px; border-radius:17px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.prc-feat-icon--orange { background:linear-gradient(135deg,#ff9d4f,#f47f20); box-shadow:0 5px 16px rgba(244,127,32,.3); }
+.prc-feat-icon--blue   { background:linear-gradient(135deg,#3dc6ff,#00acff); box-shadow:0 5px 16px rgba(0,172,255,.25); }
+.prc-feat-label { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.8rem; color:#fff; line-height:1.35; }
+@media(max-width:640px){ .prc-feat-bar { grid-template-columns:1fr 1fr; } .prc-feat-sep { display:none; } }
+
+/* ── adq-ticker: transaction ticker (adquirencia.html switch adquirente) ── */
+.adq-ticker-wrap { background:rgba(0,10,32,.5); border:1px solid rgba(0,172,255,.2); border-radius:16px; overflow:hidden; max-width:540px; margin:1.5rem auto 0; }
+.adq-ticker-header { display:flex; justify-content:space-between; align-items:center; padding:.65rem 1.2rem; border-bottom:1px solid rgba(255,255,255,.07); background:rgba(0,172,255,.08); }
+.adq-ticker-title { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.78rem; color:rgba(255,255,255,.75); letter-spacing:.04em; text-transform:uppercase; }
+.adq-ticker-live { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.72rem; color:#0fb567; display:flex; align-items:center; gap:.35rem; }
+@keyframes adqTickerPulse { 0%,100%{opacity:1} 50%{opacity:.25} }
+.adq-ticker-dot { width:6px; height:6px; border-radius:50%; background:#0fb567; animation:adqTickerPulse 1.5s ease-in-out infinite; }
+@keyframes adqTickerSlide { from{opacity:0;transform:translateY(-6px)} to{opacity:1;transform:none} }
+.adq-ticker-row { display:grid; grid-template-columns:1fr auto auto; gap:.4rem 1rem; padding:.6rem 1.2rem; border-bottom:1px solid rgba(255,255,255,.05); align-items:center; animation:adqTickerSlide .35s ease-out; }
+.adq-ticker-merchant { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.8rem; color:#fff; }
+.adq-ticker-type { font-size:.7rem; color:rgba(255,255,255,.4); margin-top:.08rem; }
+.adq-ticker-amount { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.82rem; color:#fff; white-space:nowrap; }
+.adq-ticker-badge { font-size:.65rem; font-weight:700; font-family:'Montserrat',sans-serif; padding:.18rem .5rem; border-radius:20px; background:rgba(6,142,80,.18); color:#0fb567; border:1px solid rgba(15,181,103,.3); white-space:nowrap; }
+
+/* ── adq-badge-grid: 2×2 compliance badges (adquirencia.html cumplimiento) ── */
+.adq-badge-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; max-width:540px; margin:0 auto; }
+.adq-badge { border-radius:18px; padding:1.6rem 1.4rem; display:flex; flex-direction:column; gap:.75rem; border:1px solid; position:relative; overflow:hidden; }
+.adq-badge::before { content:''; position:absolute; top:-30px; left:-30px; width:120px; height:120px; border-radius:50%; opacity:.12; pointer-events:none; background:currentColor; }
+.adq-badge--blue   { background:rgba(0,172,255,.07);  border-color:rgba(0,172,255,.28);  color:#00acff; }
+.adq-badge--orange { background:rgba(244,127,32,.07); border-color:rgba(244,127,32,.28); color:#f47f20; }
+.adq-badge--green  { background:rgba(6,142,80,.07);   border-color:rgba(6,142,80,.28);   color:#068e50; }
+.adq-badge--accent { background:rgba(0,50,122,.25);   border-color:rgba(0,172,255,.22);  color:#00acff; }
+.adq-badge-icon { flex-shrink:0; }
+.adq-badge-title { font-family:'Montserrat',sans-serif; font-weight:800; font-size:1rem; color:#fff; }
+.adq-badge-desc { font-size:.82rem; color:rgba(255,255,255,.6); line-height:1.5; }
+@media(max-width:480px){ .adq-badge-grid { grid-template-columns:1fr; } }
+
+/* ── adq-dash: mini ops dashboard SVG (adquirencia.html GOE) ── */
+.adq-dash-wrap { max-width:620px; margin:0 auto; }
+.adq-dash-wrap svg { display:block; width:100%; }

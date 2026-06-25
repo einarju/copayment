@@ -197,142 +197,81 @@
               </div>
             </div>
 
-            <!-- Flow section 2: payment acceptance — hub-and-spoke flow, solid-color icons -->
+            <!-- "Acepta medios de pago" — slow-spin ring diagram -->
             <div class="proc-flow-row">
               <div class="proc-flow-text anim-fade-up">
                 <h4 class="proc-flow-title">Acepta medios de pago de forma segura, eficiente y cumpliente</h4>
                 <a href="adquirencia.html" class="svc-card-link">Saber más<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
               </div>
-              <div class="proc-flow-diagram anim-fade-up" aria-hidden="true">
-                <svg viewBox="0 0 700 260" width="100%" height="100%">
-                  <defs>
-                    <linearGradient id="pf2NodeBlue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3dc6ff"/><stop offset="1" stop-color="#00acff"/></linearGradient>
-                    <linearGradient id="pf2NodeGreen" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0fb567"/><stop offset="1" stop-color="#068e50"/></linearGradient>
-                    <linearGradient id="pf2NodeOrange" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff9d4f"/><stop offset="1" stop-color="#f47f20"/></linearGradient>
-                    <filter id="pf2Shadow" x="-60%" y="-60%" width="220%" height="220%"><feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000" flood-opacity=".35"/></filter>
-                  </defs>
-
-                  <!-- spokes from outer nodes into the central hub, animated dash flow -->
-                  <path d="M134 80 L308 130" stroke="#00acff" stroke-width="2.5" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="-24" dur="1.3s" repeatCount="indefinite"/></path>
-                  <path d="M134 180 L308 130" stroke="#00acff" stroke-width="2.5" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="-24" dur="1.5s" repeatCount="indefinite"/></path>
-                  <path d="M566 80 L392 130" stroke="#068e50" stroke-width="2.5" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="24" dur="1.4s" repeatCount="indefinite"/></path>
-                  <path d="M566 180 L392 130" stroke="#068e50" stroke-width="2.5" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="24" dur="1.6s" repeatCount="indefinite"/></path>
-
-                  <!-- outer node: comercio (solid filled shopping-bag icon) -->
-                  <g filter="url(#pf2Shadow)"><rect x="70" y="48" width="64" height="64" rx="16" fill="url(#pf2NodeBlue)"/>
-                    <path d="M91 75h22l-2 21a4 4 0 0 1-4 3.6H97a4 4 0 0 1-4-3.6z" fill="#fff"/>
-                    <path d="M97 75v-3a5 5 0 0 1 10 0v3" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round"/>
-                  </g>
-                  <text x="102" y="127" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12" font-weight="700" fill="rgba(255,255,255,.7)">Comercio</text>
-
-                  <!-- outer node: terminal (solid filled POS icon) -->
-                  <g filter="url(#pf2Shadow)"><rect x="70" y="148" width="64" height="64" rx="16" fill="url(#pf2NodeBlue)"/>
-                    <rect x="86" y="163" width="32" height="34" rx="5" fill="#fff"/>
-                    <rect x="91" y="168" width="22" height="13" rx="2" fill="url(#pf2NodeBlue)"/>
-                    <circle cx="96.5" cy="189" r="2.4" fill="url(#pf2NodeBlue)"/>
-                    <circle cx="105" cy="189" r="2.4" fill="url(#pf2NodeBlue)"/>
-                    <circle cx="113.5" cy="189" r="2.4" fill="url(#pf2NodeBlue)"/>
-                  </g>
-                  <text x="102" y="227" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12" font-weight="700" fill="rgba(255,255,255,.7)">Terminal</text>
-
-                  <!-- outer node: red (solid filled network icon) -->
-                  <g filter="url(#pf2Shadow)"><rect x="566" y="48" width="64" height="64" rx="16" fill="url(#pf2NodeGreen)"/>
-                    <circle cx="587" cy="80" r="4.5" fill="#fff"/><circle cx="598" cy="71" r="4.5" fill="#fff"/><circle cx="609" cy="80" r="4.5" fill="#fff"/><circle cx="598" cy="89" r="4.5" fill="#fff"/>
-                    <path d="M587 80l11-9M598 71l11 9M609 80l-11 9M598 89l-11-9" stroke="#fff" stroke-width="1.5" opacity=".6"/>
-                  </g>
-                  <text x="598" y="127" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12" font-weight="700" fill="rgba(255,255,255,.7)">Red</text>
-
-                  <!-- outer node: banco (solid filled bank icon) -->
-                  <g filter="url(#pf2Shadow)"><rect x="566" y="148" width="64" height="64" rx="16" fill="url(#pf2NodeGreen)"/>
-                    <path d="M598 164l-15 8v3h30v-3z" fill="#fff"/>
-                    <rect x="589" y="175" width="5" height="13" fill="#fff"/>
-                    <rect x="596" y="175" width="5" height="13" fill="#fff"/>
-                    <rect x="603" y="175" width="5" height="13" fill="#fff"/>
-                    <rect x="585" y="188" width="26" height="3" fill="#fff"/>
-                  </g>
-                  <text x="598" y="227" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12" font-weight="700" fill="rgba(255,255,255,.7)">Banco</text>
-
-                  <!-- central hub: copayment, solid filled shield + pulsing compliance ring -->
-                  <circle cx="350" cy="130" r="20" fill="none" stroke="#f47f20" stroke-width="2" opacity=".55">
-                    <animate attributeName="r" values="20;36;20" dur="2.6s" repeatCount="indefinite"/>
-                    <animate attributeName="opacity" values=".55;0;.55" dur="2.6s" repeatCount="indefinite"/>
-                  </circle>
-                  <g filter="url(#pf2Shadow)">
-                    <circle cx="350" cy="130" r="32" fill="url(#pf2NodeOrange)"/>
-                    <path d="M350 114l13 5.5v12c0 8.5-6.3 13.5-13 15.5-6.7-2-13-7-13-15.5v-12z" fill="#fff"/>
-                    <path d="M344.5 130.5l3.7 3.8 7.3-8" stroke="#f47f20" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                  </g>
-                  <text x="350" y="182" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="13" font-weight="700" fill="#fff">Copayment</text>
-                </svg>
+              <div class="prc-ring-wrap anim-fade-up" aria-hidden="true">
+                <div class="prc-ring-orbit">
+                  <div class="prc-ring-sat prc-ring-sat--top">
+                    <div class="prc-ring-sat-inner">
+                      <div class="prc-ring-node prc-ring-node--blue"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+                      <span class="prc-ring-label">Comercio</span>
+                    </div>
+                  </div>
+                  <div class="prc-ring-sat prc-ring-sat--right">
+                    <div class="prc-ring-sat-inner">
+                      <div class="prc-ring-node prc-ring-node--blue"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="7" y="4" width="10" height="16" rx="2.5"/><circle cx="12" cy="17" r="1.2" fill="#fff"/><rect x="9" y="7" width="6" height="5" rx="1" fill="rgba(255,255,255,.35)"/></svg></div>
+                      <span class="prc-ring-label">Terminal</span>
+                    </div>
+                  </div>
+                  <div class="prc-ring-sat prc-ring-sat--bottom">
+                    <div class="prc-ring-sat-inner">
+                      <div class="prc-ring-node prc-ring-node--green"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M12 7l-5.2 9.8M12 7l5.2 9.8M6.8 19h10.4"/></svg></div>
+                      <span class="prc-ring-label">Red</span>
+                    </div>
+                  </div>
+                  <div class="prc-ring-sat prc-ring-sat--left">
+                    <div class="prc-ring-sat-inner">
+                      <div class="prc-ring-node prc-ring-node--green"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M3 9l9-6 9 6v2H3z"/><rect x="5" y="11" width="2.5" height="8"/><rect x="10.75" y="11" width="2.5" height="8"/><rect x="16.5" y="11" width="2.5" height="8"/><rect x="3" y="19" width="18" height="2" rx="1" fill="#fff" stroke="none"/></svg></div>
+                      <span class="prc-ring-label">Banco emisor</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="prc-ring-hub">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="13" rx="3" fill="rgba(255,255,255,.25)" stroke="#fff" stroke-width="1.8"/><path d="M3 10h18" stroke="#fff" stroke-width="1.8"/><rect x="6" y="14" width="4" height="2.5" rx="1" fill="#fff" opacity=".9"/></svg>
+                  <span class="prc-ring-hub-label">Copayment</span>
+                </div>
               </div>
             </div>
 
-            <!-- 4 capabilities: linear flow diagram -->
-            <div class="proc-flow-diagram anim-fade-up" style="aspect-ratio:700/200;margin:2rem 0 2.5rem;" aria-hidden="true">
-              <svg viewBox="0 0 700 200" width="100%" height="100%">
-                <defs>
-                  <linearGradient id="prcCapBlue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3dc6ff"/><stop offset="1" stop-color="#00acff"/></linearGradient>
-                  <linearGradient id="prcCapOrange" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff9d4f"/><stop offset="1" stop-color="#f47f20"/></linearGradient>
-                  <filter id="prcCapShadow" x="-60%" y="-60%" width="220%" height="220%"><feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000" flood-opacity=".35"/></filter>
-                </defs>
-
-                <!-- Animated connector lines between nodes -->
-                <path d="M130 70 H192" stroke="#00acff" stroke-width="2.5" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="-24" dur="1.2s" repeatCount="indefinite"/></path>
-                <path d="M316 70 H378" stroke="#f47f20" stroke-width="2.5" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="-24" dur="1.2s" repeatCount="indefinite"/></path>
-                <path d="M502 70 H564" stroke="#068e50" stroke-width="2.5" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="-24" dur="1.2s" repeatCount="indefinite"/></path>
-                <!-- travelling dot -->
-                <circle r="4.5" fill="#fff" opacity=".85"><animateMotion path="M70 70 H630" dur="2.8s" repeatCount="indefinite"/></circle>
-
-                <!-- Node 1: Seguridad transaccional -->
-                <g filter="url(#prcCapShadow)"><rect x="70" y="40" width="60" height="60" rx="15" fill="url(#prcCapOrange)"/>
-                  <path d="M100 56l9 3.5v8c0 5.5-4 8.5-9 10.5-5-2-9-5-9-10.5v-8z" fill="#fff" opacity=".9"/>
-                  <path d="M94.5 67l3.5 3.5 6-7" stroke="#f47f20" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                </g>
-                <text x="100" y="118" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9" font-weight="700" fill="rgba(255,255,255,.85)">
-                  <tspan x="100" dy="0">Seguridad</tspan><tspan x="100" dy="13">transaccional</tspan>
-                </text>
-
-                <!-- Node 2: Integración sin fricciones -->
-                <g filter="url(#prcCapShadow)"><rect x="256" y="40" width="60" height="60" rx="15" fill="url(#prcCapBlue)"/>
-                  <polyline points="278,62 268,70 278,78" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                  <polyline points="298,62 308,70 298,78" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                  <line x1="281" y1="70" x2="295" y2="70" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
-                </g>
-                <text x="286" y="118" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9" font-weight="700" fill="rgba(255,255,255,.85)">
-                  <tspan x="286" dy="0">Integración sin</tspan><tspan x="286" dy="13">fricciones</tspan>
-                </text>
-
-                <!-- Node 3: Conexión con las principales redes -->
-                <g filter="url(#prcCapShadow)"><rect x="442" y="40" width="60" height="60" rx="15" fill="url(#prcCapBlue)"/>
-                  <circle cx="472" cy="70" r="11" fill="none" stroke="#fff" stroke-width="2" opacity=".85"/>
-                  <line x1="461" y1="70" x2="483" y2="70" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".7"/>
-                  <path d="M472 59a11 11 0 0 1 0 22" stroke="#fff" stroke-width="1.8" fill="none" stroke-dasharray="3 3"/>
-                  <circle cx="462" cy="62" r="3" fill="#fff" opacity=".7"/>
-                  <circle cx="482" cy="62" r="3" fill="#fff" opacity=".7"/>
-                </g>
-                <text x="472" y="118" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9" font-weight="700" fill="rgba(255,255,255,.85)">
-                  <tspan x="472" dy="0">Conexión con las</tspan><tspan x="472" dy="13">principales redes</tspan>
-                </text>
-
-                <!-- Node 4: Acompañamiento y capacitación -->
-                <g filter="url(#prcCapShadow)"><rect x="628" y="40" width="60" height="60" rx="15" fill="url(#prcCapBlue)"/>
-                  <circle cx="658" cy="61" r="5" fill="#fff" opacity=".9"/>
-                  <path d="M646 87v-2c0-5.5 5.4-10 12-10s12 4.5 12 10v2z" fill="#fff" opacity=".75"/>
-                  <circle cx="646" cy="65" r="3.5" fill="#fff" opacity=".5"/>
-                </g>
-                <text x="658" y="118" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9" font-weight="700" fill="rgba(255,255,255,.85)">
-                  <tspan x="658" dy="0">Acompañamiento</tspan><tspan x="658" dy="13">y capacitación</tspan>
-                </text>
-              </svg>
+            <!-- 4 capabilities — bold feature bar -->
+            <div class="prc-feat-bar anim-fade-up" style="margin:2rem 0 2.5rem;">
+              <div class="prc-feat-item">
+                <div class="prc-feat-icon prc-feat-icon--orange">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 4v5c0 5.5-4 10-9 11-5-1-9-5.5-9-11V7z"/><path d="M9 12l2.5 2.5 5-5.5"/></svg>
+                </div>
+                <span class="prc-feat-label">Seguridad transaccional</span>
+              </div>
+              <div class="prc-feat-sep"></div>
+              <div class="prc-feat-item">
+                <div class="prc-feat-icon prc-feat-icon--blue">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6l-4 6 4 6M16 6l4 6-4 6"/><line x1="14" y1="4" x2="10" y2="20"/></svg>
+                </div>
+                <span class="prc-feat-label">Integración sin fricciones</span>
+              </div>
+              <div class="prc-feat-sep"></div>
+              <div class="prc-feat-item">
+                <div class="prc-feat-icon prc-feat-icon--blue">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+                </div>
+                <span class="prc-feat-label">Conexión con las principales redes</span>
+              </div>
+              <div class="prc-feat-sep"></div>
+              <div class="prc-feat-item">
+                <div class="prc-feat-icon prc-feat-icon--blue">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="7" r="4"/><path d="M4 21v-2a8 8 0 0 1 8-8"/><circle cx="17" cy="18" r="3"/><path d="M17 15v3l2 2"/></svg>
+                </div>
+                <span class="prc-feat-label">Acompañamiento y capacitación</span>
+              </div>
             </div>
 
             <!-- ZENO case study -->
             <div class="proc-case" style="border-top-color:rgba(255,255,255,.1);">
               <div class="proc-case-media">
-                <div class="proc-case-zeno-placeholder">
-                  <div class="proc-case-zeno-logo">ZENO</div>
-                  <div class="proc-case-phones"></div>
-                </div>
+                <img src="../assets/zeno.png" alt="Zeno — app de pagos México" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:10px;">
               </div>
               <div class="proc-case-body">
                 <h4 class="proc-case-title" style="color:#fff;">Cómo Copayment ayudó a Zeno a lanzar su operación en México con velocidad, seguridad y estrategia</h4>
