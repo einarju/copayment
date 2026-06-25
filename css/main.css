@@ -5371,7 +5371,7 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
 @media(max-width:640px){ .prc-feat-bar { grid-template-columns:1fr 1fr; } .prc-feat-sep { display:none; } }
 
 /* ── adq-ticker: transaction ticker (adquirencia.html switch adquirente) ── */
-.adq-ticker-wrap { background:rgba(0,10,32,.5); border:1px solid rgba(0,172,255,.2); border-radius:16px; overflow:hidden; max-width:540px; margin:1.5rem auto 0; }
+.adq-ticker-wrap { background:#001b45; border:1px solid rgba(0,172,255,.3); border-radius:16px; overflow:hidden; max-width:540px; margin:1.5rem auto 0; }
 .adq-ticker-header { display:flex; justify-content:space-between; align-items:center; padding:.65rem 1.2rem; border-bottom:1px solid rgba(255,255,255,.07); background:rgba(0,172,255,.08); }
 .adq-ticker-title { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.78rem; color:rgba(255,255,255,.75); letter-spacing:.04em; text-transform:uppercase; }
 .adq-ticker-live { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.72rem; color:#0fb567; display:flex; align-items:center; gap:.35rem; }
