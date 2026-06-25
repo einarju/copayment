@@ -10,6 +10,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/main.css">
+  <style>
+    .proc-hero-grid { display:grid; grid-template-columns:1fr 1fr; gap:3.5rem; align-items:center; position:relative; z-index:1; }
+    .proc-flow-2col { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; }
+    @media(max-width:900px){
+      .proc-hero-grid { grid-template-columns:1fr; gap:2.5rem; }
+      .proc-hero-visual { display:none; }
+      .proc-flow-2col { grid-template-columns:1fr; gap:1.5rem; }
+    }
+    .page-hero p { max-width:none; }
+  </style>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
@@ -109,34 +119,112 @@
   <section class="page-hero" id="main-content">
     <canvas id="procesHeroCanvas" data-r="0" data-g="172" data-b="255" data-mul="1" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
     <div class="container">
-      <div class="page-hero-content">
-        <nav class="breadcrumb" aria-label="Ruta de navegación">
-          <a href="../index.html">Inicio</a>
-          <span class="breadcrumb-sep">›</span>
-          <a href="../lo-que-hacemos.html">Lo que hacemos</a>
-          <span class="breadcrumb-sep">›</span>
-          <span>Procesamiento de pagos</span>
-        </nav>
-        <span class="qs-hero-accent">Conecta y procesa con respaldo regulatorio</span>
-        <h1>El procesamiento que usan los grandes, al alcance de todos</h1>
-        <p>Infraestructura de procesamiento de pagos para conectarte a las redes, bajo el respaldo regulatorio que necesitas, sin que tengas que navegar la complejidad solo.</p>
-        <div class="qs-hero-stats">
-          <div class="qs-hero-stat">
-            <span class="qs-hero-stat-num qs-hero-stat-num--orange"><span data-target="100" data-suffix="+"></span></span>
-            <span class="qs-hero-stat-label">Expertos en pagos</span>
+      <div class="proc-hero-grid">
+
+        <!-- LEFT: text content -->
+        <div class="page-hero-content">
+          <nav class="breadcrumb" aria-label="Ruta de navegación">
+            <a href="../index.html">Inicio</a>
+            <span class="breadcrumb-sep">›</span>
+            <a href="../lo-que-hacemos.html">Lo que hacemos</a>
+            <span class="breadcrumb-sep">›</span>
+            <span>Procesamiento de pagos</span>
+          </nav>
+          <span class="qs-hero-accent">Conecta y procesa con respaldo regulatorio</span>
+          <h1>El procesamiento que usan los grandes, al alcance de todos</h1>
+          <p>Infraestructura de procesamiento de pagos para conectarte a las redes, bajo el respaldo regulatorio que necesitas, sin que tengas que navegar la complejidad solo.</p>
+          <div class="qs-hero-stats">
+            <div class="qs-hero-stat">
+              <span class="qs-hero-stat-num qs-hero-stat-num--orange"><span data-target="100" data-suffix="+"></span></span>
+              <span class="qs-hero-stat-label">Expertos en pagos</span>
+            </div>
+            <div class="qs-hero-stat">
+              <span class="qs-hero-stat-num qs-hero-stat-num--green"><span data-target="4" data-suffix=""></span></span>
+              <span class="qs-hero-stat-label">Soluciones de procesamiento</span>
+            </div>
+            <div class="qs-hero-stat">
+              <span class="qs-hero-stat-num qs-hero-stat-num--blue"><span data-target="3" data-suffix=""></span></span>
+              <span class="qs-hero-stat-label">Pa&#237;ses en LATAM</span>
+            </div>
           </div>
-          <div class="qs-hero-stat">
-            <span class="qs-hero-stat-num qs-hero-stat-num--green"><span data-target="4" data-suffix=""></span></span>
-            <span class="qs-hero-stat-label">Soluciones de procesamiento</span>
-          </div>
-          <div class="qs-hero-stat">
-            <span class="qs-hero-stat-num qs-hero-stat-num--blue"><span data-target="3" data-suffix=""></span></span>
-            <span class="qs-hero-stat-label">Pa&#237;ses en LATAM</span>
+          <div style="margin-top:1.75rem;">
+            <a href="../comencemos.html" class="btn-cta-white">Comencemos <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
           </div>
         </div>
-        <div style="margin-top:1.75rem;">
-          <a href="../comencemos.html" class="btn-cta-white">Comencemos <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+
+        <!-- RIGHT: Switch de Pagos UI mockup -->
+        <div class="proc-hero-visual">
+          <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:1.5rem 1.75rem;backdrop-filter:blur(12px);box-shadow:0 24px 48px rgba(0,0,0,.28);">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;">
+              <div>
+                <div style="font-family:Montserrat,sans-serif;font-size:.6rem;font-weight:700;color:rgba(255,255,255,.4);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.2rem;">Switch de Pagos</div>
+                <div style="font-family:Montserrat,sans-serif;font-size:.9rem;font-weight:700;color:#fff;">Transacciones en tiempo real</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:.45rem;background:rgba(15,181,103,.12);border:1px solid rgba(15,181,103,.25);border-radius:100px;padding:.28rem .7rem;">
+                <div style="width:7px;height:7px;border-radius:50%;background:#0fb567;box-shadow:0 0 6px rgba(15,181,103,.7);"></div>
+                <span style="font-family:Montserrat,sans-serif;font-size:.62rem;font-weight:700;color:#0fb567;">Activo</span>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:.55rem;margin-bottom:1.25rem;">
+              <div style="display:flex;align-items:center;gap:.7rem;background:rgba(255,255,255,.05);border-radius:10px;padding:.55rem .85rem;">
+                <div style="width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,#3dc6ff,#00acff);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                </div>
+                <div style="flex:1;min-width:0;">
+                  <div style="font-family:Montserrat,sans-serif;font-size:.7rem;font-weight:700;color:#fff;">Compra en comercio</div>
+                  <div style="font-family:Montserrat,sans-serif;font-size:.6rem;color:rgba(255,255,255,.38);">Visa · ****4291</div>
+                </div>
+                <div style="text-align:right;flex-shrink:0;">
+                  <div style="font-family:Montserrat,sans-serif;font-size:.75rem;font-weight:800;color:#fff;">$2,450.00</div>
+                  <div style="font-family:Montserrat,sans-serif;font-size:.58rem;font-weight:700;color:#0fb567;">Aprobada</div>
+                </div>
+              </div>
+              <div style="display:flex;align-items:center;gap:.7rem;background:rgba(255,255,255,.05);border-radius:10px;padding:.55rem .85rem;">
+                <div style="width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,#ff9d4f,#f47f20);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><rect x="7" y="4" width="10" height="16" rx="2"/><circle cx="12" cy="17" r="1" fill="#fff"/></svg>
+                </div>
+                <div style="flex:1;min-width:0;">
+                  <div style="font-family:Montserrat,sans-serif;font-size:.7rem;font-weight:700;color:#fff;">Pago en terminal</div>
+                  <div style="font-family:Montserrat,sans-serif;font-size:.6rem;color:rgba(255,255,255,.38);">Mastercard · ****7830</div>
+                </div>
+                <div style="text-align:right;flex-shrink:0;">
+                  <div style="font-family:Montserrat,sans-serif;font-size:.75rem;font-weight:800;color:#fff;">$890.50</div>
+                  <div style="font-family:Montserrat,sans-serif;font-size:.58rem;font-weight:700;color:#0fb567;">Aprobada</div>
+                </div>
+              </div>
+              <div style="display:flex;align-items:center;gap:.7rem;background:rgba(255,255,255,.05);border-radius:10px;padding:.55rem .85rem;">
+                <div style="width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,#0fb567,#068e50);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+                </div>
+                <div style="flex:1;min-width:0;">
+                  <div style="font-family:Montserrat,sans-serif;font-size:.7rem;font-weight:700;color:#fff;">E-commerce</div>
+                  <div style="font-family:Montserrat,sans-serif;font-size:.6rem;color:rgba(255,255,255,.38);">CARNET · ****1190</div>
+                </div>
+                <div style="text-align:right;flex-shrink:0;">
+                  <div style="font-family:Montserrat,sans-serif;font-size:.75rem;font-weight:800;color:#fff;">$15,200.00</div>
+                  <div style="font-family:Montserrat,sans-serif;font-size:.58rem;font-weight:700;color:#00acff;">En proceso</div>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;gap:1.25rem;border-top:1px solid rgba(255,255,255,.08);padding-top:1.1rem;align-items:center;">
+              <div>
+                <div style="font-family:Montserrat,sans-serif;font-size:1.05rem;font-weight:800;color:#00acff;">99.9%</div>
+                <div style="font-family:Montserrat,sans-serif;font-size:.56rem;color:rgba(255,255,255,.38);text-transform:uppercase;letter-spacing:.06em;">Uptime</div>
+              </div>
+              <div style="width:1px;background:rgba(255,255,255,.1);align-self:stretch;"></div>
+              <div>
+                <div style="font-family:Montserrat,sans-serif;font-size:1.05rem;font-weight:800;color:#f47f20;">&lt; 1s</div>
+                <div style="font-family:Montserrat,sans-serif;font-size:.56rem;color:rgba(255,255,255,.38);text-transform:uppercase;letter-spacing:.06em;">Latencia</div>
+              </div>
+              <div style="width:1px;background:rgba(255,255,255,.1);align-self:stretch;"></div>
+              <div>
+                <div style="font-family:Montserrat,sans-serif;font-size:.7rem;font-weight:800;color:rgba(255,255,255,.82);line-height:1.3;">Visa · MC · CARNET</div>
+                <div style="font-family:Montserrat,sans-serif;font-size:.56rem;color:rgba(255,255,255,.38);text-transform:uppercase;letter-spacing:.06em;margin-top:.2rem;">Redes conectadas</div>
+              </div>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -160,9 +248,9 @@
 
 
 
-            <!-- Flow section 1: card emission — flow line + traveling pulse + floating cards -->
-            <div class="proc-flow-row">
-              <div class="proc-flow-text anim-fade-up">
+            <!-- Flow section 1: card emission — flow line + traveling pulse -->
+            <div class="proc-flow-row proc-flow-2col">
+              <div class="proc-flow-text anim-fade-up" style="text-align:left;margin:0;max-width:none;">
                 <h4 class="proc-flow-title">Conéctate con las redes y emite tarjetas físicas y virtuales</h4>
                 <a href="emision.html" class="svc-card-link">Saber más<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
               </div>
@@ -221,42 +309,41 @@
               </div>
             </div>
 
-            <!-- "Acepta medios de pago" — slow-spin ring diagram -->
-            <div class="proc-flow-row">
-              <div class="proc-flow-text anim-fade-up">
+            <!-- "Acepta medios de pago" — channel grid -->
+            <div class="proc-flow-row proc-flow-2col">
+              <div class="proc-flow-text anim-fade-up" style="text-align:left;margin:0;max-width:none;">
                 <h4 class="proc-flow-title">Acepta medios de pago de forma segura, eficiente y cumpliente nacionales e internacionales</h4>
                 <a href="adquirencia.html" class="svc-card-link">Saber más<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
               </div>
-              <div class="prc-ring-wrap anim-fade-up" aria-hidden="true">
-                <div class="prc-ring-orbit">
-                  <div class="prc-ring-sat prc-ring-sat--top">
-                    <div class="prc-ring-sat-inner">
-                      <div class="prc-ring-node prc-ring-node--blue"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
-                      <span class="prc-ring-label">Comercio</span>
-                    </div>
+              <!-- 2×2 channel grid replacing the orbit ring -->
+              <div class="anim-fade-up" style="display:grid;grid-template-columns:1fr 1fr;gap:.85rem;">
+                <div style="background:rgba(0,50,122,.04);border:1px solid rgba(0,50,122,.1);border-radius:14px;padding:1.1rem 1.1rem;display:flex;flex-direction:column;gap:.6rem;">
+                  <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#3dc6ff,#00acff);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,172,255,.22);">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
                   </div>
-                  <div class="prc-ring-sat prc-ring-sat--right">
-                    <div class="prc-ring-sat-inner">
-                      <div class="prc-ring-node prc-ring-node--blue"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="7" y="4" width="10" height="16" rx="2.5"/><circle cx="12" cy="17" r="1.2" fill="#fff"/><rect x="9" y="7" width="6" height="5" rx="1" fill="rgba(255,255,255,.35)"/></svg></div>
-                      <span class="prc-ring-label">Terminal</span>
-                    </div>
-                  </div>
-                  <div class="prc-ring-sat prc-ring-sat--bottom">
-                    <div class="prc-ring-sat-inner">
-                      <div class="prc-ring-node prc-ring-node--green"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M12 7l-5.2 9.8M12 7l5.2 9.8M6.8 19h10.4"/></svg></div>
-                      <span class="prc-ring-label">Red</span>
-                    </div>
-                  </div>
-                  <div class="prc-ring-sat prc-ring-sat--left">
-                    <div class="prc-ring-sat-inner">
-                      <div class="prc-ring-node prc-ring-node--green"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M3 9l9-6 9 6v2H3z"/><rect x="5" y="11" width="2.5" height="8"/><rect x="10.75" y="11" width="2.5" height="8"/><rect x="16.5" y="11" width="2.5" height="8"/><rect x="3" y="19" width="18" height="2" rx="1" fill="#fff" stroke="none"/></svg></div>
-                      <span class="prc-ring-label">Banco emisor</span>
-                    </div>
-                  </div>
+                  <div style="font-family:Montserrat,sans-serif;font-weight:700;font-size:.82rem;color:var(--navy);">Comercio</div>
+                  <div style="font-family:Montserrat,sans-serif;font-size:.72rem;color:rgba(0,50,122,.55);line-height:1.4;">Puntos de venta físicos con conexión directa a redes.</div>
                 </div>
-                <div class="prc-ring-hub">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="13" rx="3" fill="rgba(255,255,255,.25)" stroke="#fff" stroke-width="1.8"/><path d="M3 10h18" stroke="#fff" stroke-width="1.8"/><rect x="6" y="14" width="4" height="2.5" rx="1" fill="#fff" opacity=".9"/></svg>
-                  <span class="prc-ring-hub-label">Copayment</span>
+                <div style="background:rgba(0,50,122,.04);border:1px solid rgba(0,50,122,.1);border-radius:14px;padding:1.1rem 1.1rem;display:flex;flex-direction:column;gap:.6rem;">
+                  <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#3dc6ff,#00acff);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,172,255,.22);">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="7" y="4" width="10" height="16" rx="2.5"/><circle cx="12" cy="17" r="1.2" fill="#fff"/><rect x="9" y="7" width="6" height="5" rx="1" fill="rgba(255,255,255,.35)"/></svg>
+                  </div>
+                  <div style="font-family:Montserrat,sans-serif;font-weight:700;font-size:.82rem;color:var(--navy);">Terminal</div>
+                  <div style="font-family:Montserrat,sans-serif;font-size:.72rem;color:rgba(0,50,122,.55);line-height:1.4;">Terminales móviles y fijas certificadas para operar en campo.</div>
+                </div>
+                <div style="background:rgba(0,50,122,.04);border:1px solid rgba(0,50,122,.1);border-radius:14px;padding:1.1rem 1.1rem;display:flex;flex-direction:column;gap:.6rem;">
+                  <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#0fb567,#068e50);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(15,181,103,.22);">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M12 7l-5.2 9.8M12 7l5.2 9.8M6.8 19h10.4"/></svg>
+                  </div>
+                  <div style="font-family:Montserrat,sans-serif;font-weight:700;font-size:.82rem;color:var(--navy);">Redes</div>
+                  <div style="font-family:Montserrat,sans-serif;font-size:.72rem;color:rgba(0,50,122,.55);line-height:1.4;">Conexión con Visa, Mastercard y CARNET para alcance nacional e internacional.</div>
+                </div>
+                <div style="background:rgba(0,50,122,.04);border:1px solid rgba(0,50,122,.1);border-radius:14px;padding:1.1rem 1.1rem;display:flex;flex-direction:column;gap:.6rem;">
+                  <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#0fb567,#068e50);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(15,181,103,.22);">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M3 9l9-6 9 6v2H3z"/><rect x="5" y="11" width="2.5" height="8"/><rect x="10.75" y="11" width="2.5" height="8"/><rect x="16.5" y="11" width="2.5" height="8"/><rect x="3" y="19" width="18" height="2" rx="1" fill="#fff" stroke="none"/></svg>
+                  </div>
+                  <div style="font-family:Montserrat,sans-serif;font-weight:700;font-size:.82rem;color:var(--navy);">Banco Emisor</div>
+                  <div style="font-family:Montserrat,sans-serif;font-size:.72rem;color:rgba(0,50,122,.55);line-height:1.4;">Comunicación directa con el banco emisor para autorización segura.</div>
                 </div>
               </div>
             </div>
