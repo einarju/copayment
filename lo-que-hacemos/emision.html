@@ -244,22 +244,6 @@
               </svg>
             </div>
 
-            <!-- Network logos -->
-            <div style="padding:1.1rem 0;margin:0 0 2rem;border-top:1px solid rgba(0,50,122,.08);">
-              <div class="emision-network">
-                <p class="emision-network-text">Conéctate a una red que ya está donde tú necesitas estar</p>
-                <div class="emision-network-logos">
-                  <img src="../assets/visa.svg" alt="Visa" loading="lazy">
-                  <svg class="emision-mc-logo" viewBox="0 0 52 32" aria-label="Mastercard">
-                    <circle cx="19" cy="16" r="12" fill="#EB001B" opacity=".9"/>
-                    <circle cx="33" cy="16" r="12" fill="#F79E1B" opacity=".9"/>
-                    <path d="M26 6.7A12 12 0 0 1 33 16 12 12 0 0 1 26 25.3 12 12 0 0 1 19 16 12 12 0 0 1 26 6.7z" fill="#FF5F00" opacity=".85"/>
-                  </svg>
-                  <img src="../assets/carnet.svg" alt="CARNET" loading="lazy">
-                </div>
-              </div>
-            </div>
-
             <!-- App Copayment — Tu tarjeta Tu app Tu marca -->
             <div style="padding:3rem 0 1rem;border-top:1px solid rgba(0,50,122,.08);">
               <h4 class="proc-flow-title" style="margin-bottom:.75rem;">Tu tarjeta &nbsp;·&nbsp; Tu app &nbsp;·&nbsp; Tu marca</h4>
@@ -411,6 +395,7 @@
               }
               .emision-float-card-badge--orange { background:linear-gradient(150deg,#ff9d4f 0%,#f47f20 100%); --tilt:-4deg; animation-delay:0s; }
               .emision-float-card-badge--blue   { background:linear-gradient(150deg,#3dc6ff 0%,#00acff 100%); --tilt:4deg; animation-delay:.3s; }
+              .emision-float-card-badge--green  { background:linear-gradient(150deg,#0fb567 0%,#068e50 100%); --tilt:-2deg; animation-delay:.6s; }
               .emision-float-card-chip { position:absolute; left:16px; top:14px; width:22px; height:16px; border-radius:3px; background:rgba(255,255,255,.9); }
               .emision-float-card-stripe { position:absolute; left:16px; bottom:16px; width:60px; height:5px; border-radius:3px; background:rgba(255,255,255,.55); }
               .emision-float-card-name { font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.05rem; color:var(--navy); margin-bottom:.5rem; }
@@ -426,6 +411,11 @@
                 <div class="emision-float-card-badge emision-float-card-badge--blue"><div class="emision-float-card-chip"></div><div class="emision-float-card-stripe"></div></div>
                 <div class="emision-float-card-name">BIN Sponsor</div>
                 <p class="emision-float-card-desc">Emite y procesa tarjetas de forma rápida y segura, sin construir infraestructura propia.</p>
+              </div>
+              <div class="emision-float-card anim-fade-up">
+                <div class="emision-float-card-badge emision-float-card-badge--green"><div class="emision-float-card-chip"></div><div class="emision-float-card-stripe"></div></div>
+                <div class="emision-float-card-name">Soft Token</div>
+                <p class="emision-float-card-desc">Cada operación sensible se valida con un código dinámico generado desde la propia app. Seguridad de doble factor, sin fricciones y sin costos adicionales.</p>
               </div>
             </div>
 
