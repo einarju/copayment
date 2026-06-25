@@ -1355,6 +1355,14 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
 .page-hero-content { position: relative; z-index: 1; }
 .page-hero h1 { color: var(--white); margin-bottom: 1rem; }
 .page-hero p { color: rgba(255,255,255,.75); font-size: 1.12rem; max-width: 600px; }
+.qs-hero-accent { display:inline-block; background:rgba(244,127,32,.15); color:#f47f20; border:1px solid rgba(244,127,32,.35); border-radius:100px; font-family:'Montserrat',sans-serif; font-size:.72rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:.4rem 1.1rem; margin-bottom:1.25rem; }
+.qs-hero-stats { display:flex; gap:2rem; margin-top:2rem; flex-wrap:wrap; }
+.qs-hero-stat { display:flex; flex-direction:column; gap:.15rem; }
+.qs-hero-stat-num { font-family:'Montserrat',sans-serif; font-weight:900; font-size:clamp(1.6rem,3vw,2.2rem); line-height:1; }
+.qs-hero-stat-num--orange { color:#f47f20; text-shadow:0 0 24px rgba(244,127,32,.45); }
+.qs-hero-stat-num--green { color:#068e50; text-shadow:0 0 20px rgba(6,142,80,.4); }
+.qs-hero-stat-num--blue { color:#00acff; text-shadow:0 0 20px rgba(0,172,255,.35); }
+.qs-hero-stat-label { font-family:'Montserrat',sans-serif; font-weight:600; font-size:.7rem; letter-spacing:.08em; text-transform:uppercase; color:rgba(255,255,255,.55); }
 .breadcrumb {
   display: flex; align-items: center; gap: .5rem;
   margin-bottom: 1.5rem;
