@@ -5256,14 +5256,14 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
 /* ── proc-flow-row: title + animated diagram, full-width stacked sections ── */
 .proc-flow-row {
   padding: 3rem 0;
-  border-top: 1px solid rgba(255,255,255,.08);
+  border-top: 1px solid rgba(0,50,122,.1);
 }
 .proc-flow-text { max-width: 560px; margin: 0 auto 1.75rem; text-align: center; }
 .proc-flow-title {
   font-family: 'Montserrat', sans-serif;
   font-size: clamp(1.4rem, 2.4vw, 1.9rem);
   font-weight: 700;
-  color: #fff;
+  color: var(--navy);
   margin: 0 0 .85rem;
   line-height: 1.32;
 }
@@ -5316,9 +5316,9 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
 
 /* ── em-audience-grid: card mosaic for ¿Para quiénes? (emision.html) ── */
 .em-audience-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:.85rem; max-width:700px; margin:0 auto 2.5rem; }
-.em-audience-card { background:rgba(255,255,255,.06); border:1px solid rgba(0,172,255,.22); border-radius:16px; padding:1.5rem 1.25rem; display:flex; flex-direction:column; gap:.85rem; transition:background .25s,border-color .25s; }
-.em-audience-card:hover { background:rgba(0,172,255,.1); border-color:rgba(0,172,255,.5); }
-.em-audience-card-label { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.88rem; color:#fff; line-height:1.35; }
+.em-audience-card { background:rgba(0,50,122,.04); border:1px solid rgba(0,172,255,.28); border-radius:16px; padding:1.5rem 1.25rem; display:flex; flex-direction:column; gap:.85rem; transition:background .25s,border-color .25s; }
+.em-audience-card:hover { background:rgba(0,172,255,.08); border-color:rgba(0,172,255,.55); }
+.em-audience-card-label { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.88rem; color:var(--navy); line-height:1.35; }
 @media(max-width:640px){ .em-audience-grid { grid-template-columns:repeat(2,1fr); } }
 
 /* ── em-stepper: vertical numbered stepper (emision.html ciclo de vida) ── */
@@ -5328,10 +5328,10 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
 .em-step-num { width:44px; height:44px; border-radius:50%; flex-shrink:0; background:linear-gradient(135deg,#ff9d4f 0%,#f47f20 100%); display:flex; align-items:center; justify-content:center; font-family:'Montserrat',sans-serif; font-weight:800; font-size:1rem; color:#fff; box-shadow:0 4px 14px rgba(244,127,32,.35); position:relative; z-index:1; }
 .em-step-connector { width:2px; flex:1; min-height:1.75rem; background:linear-gradient(to bottom,rgba(244,127,32,.5) 0%,rgba(0,172,255,.2) 100%); margin:.35rem auto; }
 .em-step:last-child .em-step-connector { display:none; }
-.em-step-content { display:flex; align-items:center; gap:1.1rem; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.09); border-radius:14px; padding:1.1rem 1.25rem; margin-bottom:.75rem; }
+.em-step-content { display:flex; align-items:center; gap:1.1rem; background:rgba(0,50,122,.04); border:1px solid rgba(0,50,122,.12); border-radius:14px; padding:1.1rem 1.25rem; margin-bottom:.75rem; }
 .em-step-icon { flex-shrink:0; }
-.em-step-label { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.95rem; color:#fff; }
-.em-step-desc { font-size:.82rem; color:rgba(255,255,255,.55); margin-top:.25rem; line-height:1.45; }
+.em-step-label { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.95rem; color:var(--navy); }
+.em-step-desc { font-size:.82rem; color:#666; margin-top:.25rem; line-height:1.45; }
 
 /* ── prc-ring: slow orbit ring for "Acepta medios de pago" (procesamiento.html) ── */
 @keyframes prcOrbitSpin    { to { transform:rotate( 360deg); } }
@@ -5347,19 +5347,19 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
 .prc-ring-node { width:58px; height:58px; border-radius:16px; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 18px rgba(0,0,0,.3); }
 .prc-ring-node--blue  { background:linear-gradient(135deg,#3dc6ff,#00acff); }
 .prc-ring-node--green { background:linear-gradient(135deg,#0fb567,#068e50); }
-.prc-ring-label { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.68rem; color:rgba(255,255,255,.8); text-align:center; white-space:nowrap; }
+.prc-ring-label { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.68rem; color:rgba(0,50,122,.8); text-align:center; white-space:nowrap; }
 .prc-ring-hub { position:absolute; width:84px; height:84px; border-radius:50%; background:linear-gradient(135deg,#ff9d4f,#f47f20); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.2rem; box-shadow:0 0 0 12px rgba(244,127,32,.1),0 8px 24px rgba(244,127,32,.28); z-index:2; }
 .prc-ring-hub-label { font-family:'Montserrat',sans-serif; font-weight:800; font-size:.68rem; color:#fff; }
 @media(prefers-reduced-motion:reduce){ .prc-ring-orbit,.prc-ring-sat-inner { animation:none; } }
 
 /* ── prc-feat-bar: 4-column feature strip (procesamiento.html capabilities) ── */
-.prc-feat-bar { display:grid; grid-template-columns:1fr 1px 1fr 1px 1fr 1px 1fr; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.1); border-radius:20px; padding:2rem .5rem; margin:2rem 0; align-items:stretch; }
-.prc-feat-sep { background:rgba(255,255,255,.1); margin:.5rem 0; }
+.prc-feat-bar { display:grid; grid-template-columns:1fr 1px 1fr 1px 1fr 1px 1fr; background:rgba(0,50,122,.03); border:1px solid rgba(0,50,122,.1); border-radius:20px; padding:2rem .5rem; margin:2rem 0; align-items:stretch; }
+.prc-feat-sep { background:rgba(0,50,122,.1); margin:.5rem 0; }
 .prc-feat-item { display:flex; flex-direction:column; align-items:center; gap:.9rem; padding:.75rem 1.25rem; text-align:center; }
 .prc-feat-icon { width:60px; height:60px; border-radius:17px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
 .prc-feat-icon--orange { background:linear-gradient(135deg,#ff9d4f,#f47f20); box-shadow:0 5px 16px rgba(244,127,32,.3); }
 .prc-feat-icon--blue   { background:linear-gradient(135deg,#3dc6ff,#00acff); box-shadow:0 5px 16px rgba(0,172,255,.25); }
-.prc-feat-label { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.8rem; color:#fff; line-height:1.35; }
+.prc-feat-label { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.8rem; color:var(--navy); line-height:1.35; }
 @media(max-width:640px){ .prc-feat-bar { grid-template-columns:1fr 1fr; } .prc-feat-sep { display:none; } }
 
 /* ── adq-ticker: transaction ticker (adquirencia.html switch adquirente) ── */
@@ -5383,10 +5383,10 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
 .adq-badge--blue   { background:rgba(0,172,255,.07);  border-color:rgba(0,172,255,.28);  color:#00acff; }
 .adq-badge--orange { background:rgba(244,127,32,.07); border-color:rgba(244,127,32,.28); color:#f47f20; }
 .adq-badge--green  { background:rgba(6,142,80,.07);   border-color:rgba(6,142,80,.28);   color:#068e50; }
-.adq-badge--accent { background:rgba(0,50,122,.25);   border-color:rgba(0,172,255,.22);  color:#00acff; }
+.adq-badge--accent { background:rgba(0,172,255,.07);   border-color:rgba(0,172,255,.28);  color:#00acff; }
 .adq-badge-icon { flex-shrink:0; }
-.adq-badge-title { font-family:'Montserrat',sans-serif; font-weight:800; font-size:1rem; color:#fff; }
-.adq-badge-desc { font-size:.82rem; color:rgba(255,255,255,.6); line-height:1.5; }
+.adq-badge-title { font-family:'Montserrat',sans-serif; font-weight:800; font-size:1rem; color:var(--navy); }
+.adq-badge-desc { font-size:.82rem; color:#555; line-height:1.5; }
 @media(max-width:480px){ .adq-badge-grid { grid-template-columns:1fr; } }
 
 /* ── adq-dash: mini ops dashboard SVG (adquirencia.html GOE) ── */
