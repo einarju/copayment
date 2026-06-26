@@ -10,6 +10,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/main.css">
+  <style>
+    .rpa-benefit-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.25rem; }
+    @media(max-width:900px){ .rpa-benefit-grid { grid-template-columns:1fr 1fr; } }
+    @media(max-width:480px){ .rpa-benefit-grid { grid-template-columns:1fr; } }
+  </style>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
@@ -142,11 +147,209 @@
   </section>
 
   <!-- CONTENT -->
-  <section class="section" style="background:var(--navy);">
+  <section class="section" style="background:#fff;padding-top:3.5rem;padding-bottom:0;">
     <div class="container">
-      <div style="background:rgba(0,172,255,.06);border-radius:var(--radius-lg);padding:4rem 2rem;text-align:center;border:2px dashed rgba(0,172,255,.2);">
-        <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.5);">Contenido pr&#243;ximamente</p>
+
+      <!-- H2 + body paragraph -->
+      <div style="max-width:760px;margin:0 auto 3.5rem;text-align:center;">
+        <h2 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(1.6rem,3vw,2.2rem);color:var(--navy);line-height:1.25;margin:0 0 1.25rem;">Robot para la automatización inteligente y la gestión de aclaraciones y contracargos</h2>
+        <p style="font-family:'Montserrat',sans-serif;font-size:.98rem;color:var(--silver);line-height:1.8;margin:0;">Cada aclaración no resuelta a tiempo es dinero que su institución pierde. Copayment RPA automatiza todo el ciclo de gestión de aclaraciones y contracargos, desde la recepción hasta el cierre, cumpliendo los tiempos y normativas de marcas sin depender de operación manual.</p>
       </div>
+
+      <!-- ── Subsection: Tu equipo se enfoca ── -->
+      <div style="margin-bottom:4rem;">
+        <h3 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(1.15rem,2.2vw,1.55rem);color:var(--navy);text-align:center;margin:0 0 2.5rem;">Tu equipo se enfoca en lo que importa. El RPA hace el resto.</h3>
+
+        <!-- Hub-and-spoke SVG: 4 capability nodes + center RPA hub -->
+        <div style="max-width:700px;margin:0 auto;" aria-hidden="true">
+          <svg viewBox="0 0 700 490" width="100%" height="auto">
+            <defs>
+              <filter id="rpaHubSh" x="-60%" y="-60%" width="220%" height="220%">
+                <feDropShadow dx="0" dy="4" stdDeviation="10" flood-color="#00327a" flood-opacity=".12"/>
+              </filter>
+            </defs>
+
+            <!-- CONNECTORS (dashed diagonal lines from corner nodes to center) -->
+            <!-- TL → center -->
+            <line x1="163" y1="121" x2="295" y2="203" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" opacity=".4"/>
+            <circle cx="229" cy="162" r="5" fill="none" stroke="#00327a" stroke-width="1.8" opacity=".4"/>
+            <!-- TR → center -->
+            <line x1="537" y1="121" x2="405" y2="203" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" opacity=".4"/>
+            <circle cx="471" cy="162" r="5" fill="none" stroke="#00327a" stroke-width="1.8" opacity=".4"/>
+            <!-- BL → center -->
+            <line x1="163" y1="354" x2="295" y2="271" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" opacity=".4"/>
+            <circle cx="229" cy="312" r="5" fill="none" stroke="#00327a" stroke-width="1.8" opacity=".4"/>
+            <!-- BR → center -->
+            <line x1="537" y1="354" x2="405" y2="271" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" opacity=".4"/>
+            <circle cx="471" cy="312" r="5" fill="none" stroke="#00327a" stroke-width="1.8" opacity=".4"/>
+
+            <!-- CENTER HUB: Copayment RPA -->
+            <circle cx="350" cy="237" r="65" fill="#fff" filter="url(#rpaHubSh)"/>
+            <!-- Robot head -->
+            <rect x="334" y="221" width="32" height="22" rx="4" fill="none" stroke="#00327a" stroke-width="2.2"/>
+            <!-- Eyes -->
+            <circle cx="343" cy="230" r="3" fill="#00327a" opacity=".65"/>
+            <circle cx="357" cy="230" r="3" fill="#00327a" opacity=".65"/>
+            <!-- Mouth -->
+            <line x1="343" y1="238" x2="357" y2="238" stroke="#00327a" stroke-width="1.8" stroke-linecap="round"/>
+            <!-- Antenna -->
+            <line x1="350" y1="221" x2="350" y2="212" stroke="#00327a" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="350" cy="210" r="3" fill="#00327a"/>
+            <!-- Body strip -->
+            <rect x="339" y="243" width="22" height="7" rx="2" fill="none" stroke="#00327a" stroke-width="1.8"/>
+            <line x1="344" y1="243" x2="344" y2="250" stroke="#00327a" stroke-width="1.2"/>
+            <line x1="350" y1="243" x2="350" y2="250" stroke="#00327a" stroke-width="1.2"/>
+            <line x1="356" y1="243" x2="356" y2="250" stroke="#00327a" stroke-width="1.2"/>
+            <text x="350" y="318" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12.5" font-weight="700" fill="#00327a">Copayment RPA</text>
+
+            <!-- NODE TL: Aclaraciones nacionales e internacionales -->
+            <circle cx="120" cy="95" r="50" fill="#fff" filter="url(#rpaHubSh)"/>
+            <!-- Globe icon -->
+            <circle cx="120" cy="91" r="17" fill="none" stroke="#00327a" stroke-width="2.2"/>
+            <ellipse cx="120" cy="91" rx="8" ry="17" fill="none" stroke="#00327a" stroke-width="1.8"/>
+            <line x1="103" y1="91" x2="137" y2="91" stroke="#00327a" stroke-width="1.8"/>
+            <line x1="107" y1="81" x2="133" y2="81" stroke="#00327a" stroke-width="1.4"/>
+            <line x1="107" y1="101" x2="133" y2="101" stroke="#00327a" stroke-width="1.4"/>
+            <text x="120" y="162" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" font-weight="700" fill="#00327a">Aclaraciones</text>
+            <text x="120" y="176" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" font-weight="700" fill="#00327a">nacionales e</text>
+            <text x="120" y="190" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" font-weight="700" fill="#00327a">internacionales</text>
+
+            <!-- NODE TR: Envío y seguimiento de contracargos -->
+            <circle cx="580" cy="95" r="50" fill="#fff" filter="url(#rpaHubSh)"/>
+            <!-- Exchange arrows icon -->
+            <line x1="568" y1="86" x2="592" y2="86" stroke="#00327a" stroke-width="2.2" stroke-linecap="round"/>
+            <polyline points="588,81 592,86 588,91" fill="none" stroke="#00327a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="592" y1="100" x2="568" y2="100" stroke="#00327a" stroke-width="2.2" stroke-linecap="round"/>
+            <polyline points="572,95 568,100 572,105" fill="none" stroke="#00327a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="580" y="162" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" font-weight="700" fill="#00327a">Envío y</text>
+            <text x="580" y="176" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" font-weight="700" fill="#00327a">seguimiento de</text>
+            <text x="580" y="190" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" font-weight="700" fill="#00327a">contracargos</text>
+
+            <!-- NODE BL: Reporte de fraudes ante VISA y PROSA -->
+            <circle cx="120" cy="380" r="50" fill="#fff" filter="url(#rpaHubSh)"/>
+            <!-- Shield / alert icon -->
+            <path d="M120,364 L108,370 v9 c0,7 6,12 12,15 c6-3 12-8 12-15 v-9 z" fill="none" stroke="#00327a" stroke-width="2.2" stroke-linejoin="round"/>
+            <line x1="120" y1="375" x2="120" y2="381" stroke="#00327a" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="120" cy="385" r="1.6" fill="#00327a"/>
+            <text x="120" y="444" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" font-weight="700" fill="#00327a">Reporte de fraudes</text>
+            <text x="120" y="458" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" font-weight="700" fill="#00327a">ante VISA y PROSA</text>
+
+            <!-- NODE BR: Gestión de segundos contracargos y pre-arbitraje -->
+            <circle cx="580" cy="380" r="50" fill="#fff" filter="url(#rpaHubSh)"/>
+            <!-- Scales / balance icon -->
+            <line x1="580" y1="363" x2="580" y2="393" stroke="#00327a" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="566" y1="370" x2="594" y2="370" stroke="#00327a" stroke-width="2"/>
+            <path d="M566,370 L560,382 L572,382 Z" fill="none" stroke="#00327a" stroke-width="1.8" stroke-linejoin="round"/>
+            <path d="M594,370 L600,382 L588,382 Z" fill="none" stroke="#00327a" stroke-width="1.8" stroke-linejoin="round"/>
+            <line x1="574" y1="393" x2="586" y2="393" stroke="#00327a" stroke-width="2" stroke-linecap="round"/>
+            <text x="580" y="444" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" font-weight="700" fill="#00327a">Gestión de segundos</text>
+            <text x="580" y="458" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" font-weight="700" fill="#00327a">contracargos y</text>
+            <text x="580" y="472" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" font-weight="700" fill="#00327a">pre-arbitraje</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- ── Lo que tu operación gana ── -->
+      <div style="border-top:1px solid rgba(0,50,122,.08);padding:3.5rem 0;">
+        <h3 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(1.15rem,2.2vw,1.55rem);color:var(--navy);margin:0 0 2rem;text-align:center;">Lo que tu operación gana</h3>
+        <div class="rpa-benefit-grid">
+
+          <div style="background:rgba(0,50,122,.04);border:1px solid rgba(0,50,122,.09);border-radius:14px;padding:1.5rem 1.25rem;">
+            <div style="width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#f47f20,#d96d12);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;box-shadow:0 4px 12px rgba(244,127,32,.25);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+            <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:.9rem;color:var(--navy);margin-bottom:.5rem;">Menos errores</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:.82rem;color:var(--silver);line-height:1.65;">procesos estandarizados y sin intervención manual</div>
+          </div>
+
+          <div style="background:rgba(0,50,122,.04);border:1px solid rgba(0,50,122,.09);border-radius:14px;padding:1.5rem 1.25rem;">
+            <div style="width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#3dc6ff,#00acff);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;box-shadow:0 4px 12px rgba(0,172,255,.22);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:.9rem;color:var(--navy);margin-bottom:.5rem;">Más velocidad</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:.82rem;color:var(--silver);line-height:1.65;">casos resueltos en tiempo y forma, sin rezagos</div>
+          </div>
+
+          <div style="background:rgba(0,50,122,.04);border:1px solid rgba(0,50,122,.09);border-radius:14px;padding:1.5rem 1.25rem;">
+            <div style="width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#0fb567,#068e50);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;box-shadow:0 4px 12px rgba(15,181,103,.22);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            </div>
+            <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:.9rem;color:var(--navy);margin-bottom:.5rem;">Mayor recuperación</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:.82rem;color:var(--silver);line-height:1.65;">menos casos perdidos por vencimiento de plazos</div>
+          </div>
+
+          <div style="background:rgba(0,50,122,.04);border:1px solid rgba(0,50,122,.09);border-radius:14px;padding:1.5rem 1.25rem;">
+            <div style="width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#3dc6ff,#00acff);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;box-shadow:0 4px 12px rgba(0,172,255,.22);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2.5 2.5 5-5.5"/></svg>
+            </div>
+            <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:.9rem;color:var(--navy);margin-bottom:.5rem;">Operación 24/7</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:.82rem;color:var(--silver);line-height:1.65;">el proceso no para, aunque tu equipo sí</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── 3-node horizontal diagram (Image #1 style): Compensación / Backoffice / Análisis ── -->
+      <div style="border-top:1px solid rgba(0,50,122,.08);padding:3.5rem 0 2rem;">
+        <div style="max-width:700px;margin:0 auto;" aria-hidden="true">
+          <svg viewBox="0 0 700 260" width="100%" height="auto">
+            <defs>
+              <filter id="rpa3Sh" x="-60%" y="-60%" width="220%" height="220%">
+                <feDropShadow dx="0" dy="4" stdDeviation="10" flood-color="#00327a" flood-opacity=".12"/>
+              </filter>
+            </defs>
+
+            <!-- CONNECTORS -->
+            <!-- Left node edge (100+52=152) to center node edge (350-62=288) -->
+            <line x1="152" y1="130" x2="288" y2="130" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" opacity=".45"/>
+            <circle cx="220" cy="130" r="5" fill="none" stroke="#00327a" stroke-width="1.8" opacity=".45"/>
+            <!-- Center node edge (350+62=412) to right node edge (600-52=548) -->
+            <line x1="412" y1="130" x2="548" y2="130" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" opacity=".45"/>
+            <circle cx="480" cy="130" r="5" fill="none" stroke="#00327a" stroke-width="1.8" opacity=".45"/>
+
+            <!-- NODE LEFT: Compensación y Liquidación -->
+            <circle cx="100" cy="130" r="52" fill="#fff" filter="url(#rpa3Sh)"/>
+            <!-- Bank / building icon -->
+            <path d="M100,113 L88,121 h24 z" fill="none" stroke="#00327a" stroke-width="2.2" stroke-linejoin="round"/>
+            <rect x="88" y="121" width="24" height="15" rx="1" fill="none" stroke="#00327a" stroke-width="2"/>
+            <rect x="92" y="124" width="4" height="12" fill="#00327a"/>
+            <rect x="98" y="124" width="4" height="12" fill="#00327a"/>
+            <rect x="104" y="124" width="4" height="12" fill="#00327a"/>
+            <text x="100" y="197" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11.5" font-weight="700" fill="#00327a">Compensación y</text>
+            <text x="100" y="212" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11.5" font-weight="700" fill="#00327a">Liquidación</text>
+
+            <!-- CENTER HUB: Backoffice (larger circle) -->
+            <circle cx="350" cy="130" r="62" fill="#fff" filter="url(#rpa3Sh)"/>
+            <!-- Server stack icon -->
+            <rect x="330" y="114" width="40" height="12" rx="3" fill="none" stroke="#00327a" stroke-width="2.2"/>
+            <rect x="330" y="130" width="40" height="12" rx="3" fill="none" stroke="#00327a" stroke-width="2.2"/>
+            <circle cx="362" cy="120" r="3" fill="#00327a" opacity=".6"/>
+            <circle cx="362" cy="136" r="3" fill="#00327a" opacity=".6"/>
+            <line x1="335" y1="120" x2="354" y2="120" stroke="#00327a" stroke-width="1.5"/>
+            <line x1="335" y1="136" x2="354" y2="136" stroke="#00327a" stroke-width="1.5"/>
+            <text x="350" y="207" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12.5" font-weight="700" fill="#00327a">Backoffice</text>
+
+            <!-- NODE RIGHT: Análisis transaccional -->
+            <circle cx="600" cy="130" r="52" fill="#fff" filter="url(#rpa3Sh)"/>
+            <!-- Bar chart icon -->
+            <rect x="581" y="128" width="6" height="14" rx="1" fill="#00327a" opacity=".65"/>
+            <rect x="590" y="118" width="6" height="24" rx="1" fill="#00327a"/>
+            <rect x="599" y="133" width="6" height="9" rx="1" fill="#00327a" opacity=".6"/>
+            <rect x="608" y="123" width="6" height="19" rx="1" fill="#00327a" opacity=".8"/>
+            <line x1="579" y1="142" x2="617" y2="142" stroke="#00327a" stroke-width="2" stroke-linecap="round"/>
+            <text x="600" y="197" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11.5" font-weight="700" fill="#00327a">Análisis</text>
+            <text x="600" y="212" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11.5" font-weight="700" fill="#00327a">transaccional</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- ── +400 stat ── -->
+      <div style="padding:2.5rem 0 4.5rem;text-align:center;border-top:1px solid rgba(0,50,122,.08);">
+        <div style="font-family:'Montserrat',sans-serif;font-size:clamp(2rem,4.5vw,3.5rem);font-weight:800;color:var(--navy);line-height:1.15;">
+          <span style="color:var(--orange);">+400</span> aclaraciones en 24 horas
+        </div>
+      </div>
+
     </div>
   </section>
 
