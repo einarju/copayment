@@ -1364,6 +1364,7 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
 .qs-hero-stat-num--green { color:#068e50; text-shadow:0 0 20px rgba(6,142,80,.4); }
 .qs-hero-stat-num--blue { color:#00acff; text-shadow:0 0 20px rgba(0,172,255,.35); }
 .qs-hero-stat-label { font-family:'Montserrat',sans-serif; font-weight:600; font-size:.7rem; letter-spacing:.08em; text-transform:uppercase; color:rgba(255,255,255,.55); }
+.qs-stats-dark .qs-hero-stat-label { color:rgba(0,50,122,.6); }
 .breadcrumb {
   display: flex; align-items: center; gap: .5rem;
   margin-bottom: 1.5rem;
