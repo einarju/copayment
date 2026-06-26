@@ -10,6 +10,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/main.css">
+  <style>
+    @keyframes dashFlow { to { stroke-dashoffset: -12; } }
+    .adq-flow-line { animation: dashFlow 1.4s linear infinite; }
+  </style>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
@@ -281,54 +285,55 @@
                   </ul>
                   <a href="goe.html" class="svc-card-link">Saber más <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
                 </div>
-                <div class="adq-dash-wrap anim-fade-up" aria-hidden="true">
-                  <svg viewBox="0 0 680 318" width="100%" height="100%">
+                <div class="anim-fade-up" style="aspect-ratio:700/490;" aria-hidden="true">
+                  <svg viewBox="0 0 700 490" width="100%" height="100%">
                     <defs>
-                      <linearGradient id="adqBarGradBlue" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3dc6ff"/><stop offset="1" stop-color="#00acff"/></linearGradient>
-                      <linearGradient id="adqBarGradHighlight" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff9d4f"/><stop offset="1" stop-color="#f47f20"/></linearGradient>
+                      <filter id="goeHubSh" x="-60%" y="-60%" width="220%" height="220%">
+                        <feDropShadow dx="0" dy="4" stdDeviation="10" flood-color="#00327a" flood-opacity=".13"/>
+                      </filter>
                     </defs>
-                    <!-- Frame -->
-                    <rect x="1" y="1" width="678" height="316" rx="14" fill="#001b45" stroke="#00acff" stroke-width="1.5" opacity=".9"/>
-                    <!-- Header band -->
-                    <rect x="1" y="1" width="678" height="42" rx="14" fill="#00327a"/>
-                    <rect x="1" y="28" width="678" height="15" fill="#00327a"/>
-                    <text x="22" y="27" font-family="Montserrat,sans-serif" font-size="12" font-weight="700" fill="#fff" letter-spacing="1">Centro de operaciones GOE</text>
-                    <!-- Status dots -->
-                    <circle cx="588" cy="21" r="5" fill="#0fb567"><animate attributeName="opacity" values="1;.35;1" dur="1.6s" repeatCount="indefinite"/></circle>
-                    <circle cx="608" cy="21" r="5" fill="#f47f20"/>
-                    <circle cx="628" cy="21" r="5" fill="rgba(255,255,255,.25)"/>
-                    <!-- Divider -->
-                    <line x1="400" y1="52" x2="400" y2="296" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
-                    <!-- Chart title -->
-                    <text x="22" y="74" font-family="Montserrat,sans-serif" font-size="9" font-weight="700" fill="rgba(255,255,255,.45)" letter-spacing="1.5">VOLUMEN DIARIO</text>
-                    <!-- Bars: Lun Mar Mié Jue Vie Sáb Dom — all grow from bottom (y=278) -->
-                    <rect x="30"  y="174" width="34" height="104" rx="4" fill="url(#adqBarGradBlue)" opacity=".85"><animate attributeName="y" from="278" to="174" dur=".7s" begin="0s" fill="freeze"/><animate attributeName="height" from="0" to="104" dur=".7s" begin="0s" fill="freeze"/></rect>
-                    <rect x="76"  y="144" width="34" height="134" rx="4" fill="url(#adqBarGradBlue)" opacity=".85"><animate attributeName="y" from="278" to="144" dur=".7s" begin=".1s" fill="freeze"/><animate attributeName="height" from="0" to="134" dur=".7s" begin=".1s" fill="freeze"/></rect>
-                    <rect x="122" y="116" width="34" height="162" rx="4" fill="url(#adqBarGradBlue)" opacity=".85"><animate attributeName="y" from="278" to="116" dur=".7s" begin=".2s" fill="freeze"/><animate attributeName="height" from="0" to="162" dur=".7s" begin=".2s" fill="freeze"/></rect>
-                    <rect x="168" y="135" width="34" height="143" rx="4" fill="url(#adqBarGradBlue)" opacity=".85"><animate attributeName="y" from="278" to="135" dur=".7s" begin=".3s" fill="freeze"/><animate attributeName="height" from="0" to="143" dur=".7s" begin=".3s" fill="freeze"/></rect>
-                    <rect x="214" y="104" width="34" height="174" rx="4" fill="url(#adqBarGradHighlight)"><animate attributeName="y" from="278" to="104" dur=".7s" begin=".4s" fill="freeze"/><animate attributeName="height" from="0" to="174" dur=".7s" begin=".4s" fill="freeze"/></rect>
-                    <rect x="260" y="162" width="34" height="116" rx="4" fill="url(#adqBarGradBlue)" opacity=".85"><animate attributeName="y" from="278" to="162" dur=".7s" begin=".5s" fill="freeze"/><animate attributeName="height" from="0" to="116" dur=".7s" begin=".5s" fill="freeze"/></rect>
-                    <rect x="306" y="190" width="34" height="88"  rx="4" fill="url(#adqBarGradBlue)" opacity=".85"><animate attributeName="y" from="278" to="190" dur=".7s" begin=".6s" fill="freeze"/><animate attributeName="height" from="0" to="88"  dur=".7s" begin=".6s" fill="freeze"/></rect>
-                    <!-- Day labels -->
-                    <text x="47"  y="295" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9" fill="rgba(255,255,255,.45)">Lun</text>
-                    <text x="93"  y="295" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9" fill="rgba(255,255,255,.45)">Mar</text>
-                    <text x="139" y="295" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9" fill="rgba(255,255,255,.45)">Mié</text>
-                    <text x="185" y="295" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9" fill="rgba(255,255,255,.45)">Jue</text>
-                    <text x="231" y="295" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9" fill="#f47f20" font-weight="700">Vie</text>
-                    <text x="277" y="295" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9" fill="rgba(255,255,255,.45)">Sáb</text>
-                    <text x="323" y="295" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9" fill="rgba(255,255,255,.45)">Dom</text>
-                    <!-- Stat tile 1: Disponibilidad -->
-                    <rect x="418" y="62" width="244" height="72" rx="10" fill="rgba(6,142,80,.15)" stroke="rgba(6,142,80,.4)" stroke-width="1"/>
-                    <text x="434" y="87" font-family="Montserrat,sans-serif" font-size="9" font-weight="700" fill="rgba(255,255,255,.5)" letter-spacing="1.2">DISPONIBILIDAD</text>
-                    <text x="434" y="118" font-family="Montserrat,sans-serif" font-size="28" font-weight="800" fill="#0fb567">99.8%</text>
-                    <!-- Stat tile 2: Transacciones -->
-                    <rect x="418" y="146" width="244" height="72" rx="10" fill="rgba(244,127,32,.12)" stroke="rgba(244,127,32,.35)" stroke-width="1"/>
-                    <text x="434" y="171" font-family="Montserrat,sans-serif" font-size="9" font-weight="700" fill="rgba(255,255,255,.5)" letter-spacing="1.2">TRANSACCIONES HOY</text>
-                    <text x="434" y="202" font-family="Montserrat,sans-serif" font-size="28" font-weight="800" fill="#f47f20">12,483</text>
-                    <!-- Stat tile 3: Disputas -->
-                    <rect x="418" y="230" width="244" height="72" rx="10" fill="rgba(0,172,255,.1)" stroke="rgba(0,172,255,.3)" stroke-width="1"/>
-                    <text x="434" y="255" font-family="Montserrat,sans-serif" font-size="9" font-weight="700" fill="rgba(255,255,255,.5)" letter-spacing="1.2">DISPUTAS RESUELTAS</text>
-                    <text x="434" y="286" font-family="Montserrat,sans-serif" font-size="28" font-weight="800" fill="#00acff">98.6%</text>
+
+                    <!-- CONNECTORS -->
+                    <line class="adq-flow-line" x1="163" y1="121" x2="295" y2="203" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" opacity=".4"/>
+                    <circle cx="229" cy="162" r="5" fill="none" stroke="#00327a" stroke-width="1.8" opacity=".4"/>
+                    <line class="adq-flow-line" x1="537" y1="121" x2="405" y2="203" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" opacity=".4"/>
+                    <circle cx="471" cy="162" r="5" fill="none" stroke="#00327a" stroke-width="1.8" opacity=".4"/>
+                    <line class="adq-flow-line" x1="163" y1="354" x2="295" y2="271" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" opacity=".4"/>
+                    <circle cx="229" cy="312" r="5" fill="none" stroke="#00327a" stroke-width="1.8" opacity=".4"/>
+                    <line class="adq-flow-line" x1="537" y1="354" x2="405" y2="271" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" opacity=".4"/>
+                    <circle cx="471" cy="312" r="5" fill="none" stroke="#00327a" stroke-width="1.8" opacity=".4"/>
+
+                    <!-- CENTER HUB: Copayment GOE -->
+                    <circle cx="350" cy="237" r="65" fill="#fff" filter="url(#goeHubSh)"/>
+                    <image href="../assets/logo-icon.svg" x="310" y="197" width="80" height="80"/>
+                    <text x="350" y="318" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12.5" font-weight="700" fill="#00327a">Copayment GOE</text>
+
+                    <!-- NODE TL: Autorización -->
+                    <circle cx="120" cy="95" r="50" fill="#fff" filter="url(#goeHubSh)"/>
+                    <rect x="106" y="81" width="28" height="18" rx="2" fill="none" stroke="#00327a" stroke-width="2"/>
+                    <line x1="106" y1="86" x2="134" y2="86" stroke="#00327a" stroke-width="1.5" opacity=".6"/>
+                    <path d="M111 92l3.5 4 8.5-8" stroke="#00327a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <text x="120" y="160" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" font-weight="700" fill="#00327a">Autorización</text>
+
+                    <!-- NODE TR: Liquidación -->
+                    <circle cx="580" cy="95" r="50" fill="#fff" filter="url(#goeHubSh)"/>
+                    <path d="M567 88h24" stroke="#00327a" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M585 84l6 4-6 4" stroke="#00327a" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M593 100h-24" stroke="#00327a" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M575 104l-6-4 6-4" stroke="#00327a" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <text x="580" y="160" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" font-weight="700" fill="#00327a">Liquidación</text>
+
+                    <!-- NODE BL: Antifraude -->
+                    <circle cx="120" cy="380" r="50" fill="#fff" filter="url(#goeHubSh)"/>
+                    <path d="M120 363l13 5v10c0 8-6 13-13 16-7-3-13-8-13-16v-10z" fill="none" stroke="#00327a" stroke-width="2.2" stroke-linejoin="round"/>
+                    <path d="M113 378l3.5 4.5 9-10" stroke="#00327a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <text x="120" y="445" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" font-weight="700" fill="#00327a">Antifraude</text>
+
+                    <!-- NODE BR: Monitoreo 24/7 -->
+                    <circle cx="580" cy="380" r="50" fill="#fff" filter="url(#goeHubSh)"/>
+                    <circle cx="580" cy="374" r="13" fill="none" stroke="#00327a" stroke-width="2.2"/>
+                    <path d="M580 364v10l6 4" stroke="#00327a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    <text x="580" y="445" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" font-weight="700" fill="#00327a">Monitoreo 24/7</text>
                   </svg>
                 </div>
               </div>
