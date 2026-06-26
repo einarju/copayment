@@ -1295,8 +1295,9 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
 .footer-certs-row {
   grid-column: 5 / 6;
   display: flex;
+  flex-direction: column;
   align-items: flex-end;
-  justify-content: flex-end;
+  gap: .75rem;
   align-self: end;
 }
 .footer-certs-box {
