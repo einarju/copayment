@@ -157,7 +157,7 @@
 
 
             <!-- 6 capabilities: hub-spoke orbit diagram (animated) -->
-            <div class="proc-flow-diagram anim-fade-up" style="aspect-ratio:480/450;margin:1.5rem auto 2rem;max-width:540px;" aria-hidden="true">
+            <div class="proc-flow-diagram anim-fade-up" style="aspect-ratio:480/450;margin:1.5rem auto 2rem;max-width:680px;" aria-hidden="true">
               <svg viewBox="90 10 480 450" width="100%" height="100%">
                 <defs>
                   <filter id="emNodeSh" x="-60%" y="-60%" width="220%" height="220%">
@@ -168,7 +168,7 @@
                 <!-- Orbit group: rotates around hub center (330,220) -->
                 <g>
                   <animateTransform attributeName="transform" type="rotate"
-                    values="0 330 220;360 330 220" dur="20s" repeatCount="indefinite"/>
+                    values="0 330 220;360 330 220" dur="40s" repeatCount="indefinite"/>
 
                   <!-- Connectors from hub center to each node -->
                   <line class="em-flow-line" x1="330" y1="220" x2="410" y2="81" stroke="#f47f20" stroke-width="1.5" stroke-dasharray="6 5" opacity=".5"/>
@@ -189,7 +189,7 @@
                   <!-- Node 1: Upper right (410,81) — ORANGE -->
                   <g transform="translate(410,81)">
                     <animateTransform attributeName="transform" type="rotate"
-                      values="0 0 0;-360 0 0" dur="20s" repeatCount="indefinite" additive="sum"/>
+                      values="0 0 0;-360 0 0" dur="40s" repeatCount="indefinite" additive="sum"/>
                     <circle cx="0" cy="0" r="28" fill="#fff" stroke="#f47f20" stroke-width="2.5" filter="url(#emNodeSh)"/>
                     <rect x="-9" y="-11" width="18" height="11" rx="1.5" fill="none" stroke="#f47f20" stroke-width="1.8"/>
                     <line x1="-9" y1="-7" x2="9" y2="-7" stroke="#f47f20" stroke-width="1.3" opacity=".6"/>
@@ -202,7 +202,7 @@
                   <!-- Node 2: Right (490,220) — BLUE -->
                   <g transform="translate(490,220)">
                     <animateTransform attributeName="transform" type="rotate"
-                      values="0 0 0;-360 0 0" dur="20s" repeatCount="indefinite" additive="sum"/>
+                      values="0 0 0;-360 0 0" dur="40s" repeatCount="indefinite" additive="sum"/>
                     <circle cx="0" cy="0" r="28" fill="#fff" stroke="#00acff" stroke-width="2.5" filter="url(#emNodeSh)"/>
                     <path d="M-7 -11l-5 6 5 6" stroke="#00acff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M7 -11l5 6-5 6" stroke="#00acff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
@@ -215,7 +215,7 @@
                   <!-- Node 3: Lower right (410,359) — GREEN -->
                   <g transform="translate(410,359)">
                     <animateTransform attributeName="transform" type="rotate"
-                      values="0 0 0;-360 0 0" dur="20s" repeatCount="indefinite" additive="sum"/>
+                      values="0 0 0;-360 0 0" dur="40s" repeatCount="indefinite" additive="sum"/>
                     <circle cx="0" cy="0" r="28" fill="#fff" stroke="#0fb567" stroke-width="2.5" filter="url(#emNodeSh)"/>
                     <path d="M0 -14l9 3.5v6.5c0 5-3.5 8.5-9 11-5.5-2.5-9-6-9-11V-10.5z" fill="none" stroke="#0fb567" stroke-width="1.8" stroke-linejoin="round"/>
                     <line x1="0" y1="-8" x2="0" y2="-2" stroke="#0fb567" stroke-width="2" stroke-linecap="round"/>
@@ -228,7 +228,7 @@
                   <!-- Node 4: Lower left (250,359) — ORANGE -->
                   <g transform="translate(250,359)">
                     <animateTransform attributeName="transform" type="rotate"
-                      values="0 0 0;-360 0 0" dur="20s" repeatCount="indefinite" additive="sum"/>
+                      values="0 0 0;-360 0 0" dur="40s" repeatCount="indefinite" additive="sum"/>
                     <circle cx="0" cy="0" r="28" fill="#fff" stroke="#f47f20" stroke-width="2.5" filter="url(#emNodeSh)"/>
                     <rect x="-12" y="-8" width="24" height="15" rx="2" fill="none" stroke="#f47f20" stroke-width="1.8"/>
                     <path d="M-12 -4l12 8 12-8" stroke="#f47f20" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
@@ -240,7 +240,7 @@
                   <!-- Node 5: Left (170,220) — BLUE -->
                   <g transform="translate(170,220)">
                     <animateTransform attributeName="transform" type="rotate"
-                      values="0 0 0;-360 0 0" dur="20s" repeatCount="indefinite" additive="sum"/>
+                      values="0 0 0;-360 0 0" dur="40s" repeatCount="indefinite" additive="sum"/>
                     <circle cx="0" cy="0" r="28" fill="#fff" stroke="#00acff" stroke-width="2.5" filter="url(#emNodeSh)"/>
                     <circle cx="0" cy="-7" r="5" fill="none" stroke="#00acff" stroke-width="1.8"/>
                     <path d="M-9 8v-1c0-4 4-6.5 9-6.5s9 2.5 9 6.5v1" fill="none" stroke="#00acff" stroke-width="1.8" stroke-linecap="round"/>
@@ -252,7 +252,7 @@
                   <!-- Node 6: Upper left (250,81) — GREEN -->
                   <g transform="translate(250,81)">
                     <animateTransform attributeName="transform" type="rotate"
-                      values="0 0 0;-360 0 0" dur="20s" repeatCount="indefinite" additive="sum"/>
+                      values="0 0 0;-360 0 0" dur="40s" repeatCount="indefinite" additive="sum"/>
                     <circle cx="0" cy="0" r="28" fill="#fff" stroke="#0fb567" stroke-width="2.5" filter="url(#emNodeSh)"/>
                     <path d="M0 -14l9 3.5v6.5c0 5-3.5 8.5-9 11-5.5-2.5-9-6-9-11V-10.5z" fill="none" stroke="#0fb567" stroke-width="1.8" stroke-linejoin="round"/>
                     <path d="M-6 -2l3 3.5 7-7" stroke="#0fb567" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
@@ -284,41 +284,47 @@
             <div style="padding:3rem 0 1rem;">
               <h4 class="proc-flow-title" style="text-align:center;margin-bottom:2rem;">¿Para quiénes?</h4>
               <div class="em-pq-grid">
-                <div class="anim-fade-up" style="background:linear-gradient(145deg,#00c4f0,#00acff);border-radius:18px;padding:1.8rem 1.2rem 1.6rem;display:flex;flex-direction:column;align-items:center;gap:.9rem;text-align:center;box-shadow:0 8px 24px rgba(0,172,255,.28);transition-delay:.05s">
-                  <div style="width:54px;height:54px;background:rgba(255,255,255,.18);border-radius:15px;display:flex;align-items:center;justify-content:center;">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><path d="M16 3.13a4 4 0 0 1 0 7.75M21 21v-2a4 4 0 0 0-3-3.85"/></svg>
+                <!-- Card 1: ORANGE -->
+                <div class="anim-fade-up" style="background:#fff;border:2px solid #f47f20;border-radius:18px;padding:1.8rem 1.2rem 1.6rem;display:flex;flex-direction:column;align-items:center;gap:.9rem;text-align:center;box-shadow:0 6px 18px rgba(244,127,32,.12);transition-delay:.05s">
+                  <div style="width:54px;height:54px;background:rgba(244,127,32,.1);border-radius:15px;display:flex;align-items:center;justify-content:center;">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f47f20" stroke-width="1.8" stroke-linecap="round"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><path d="M16 3.13a4 4 0 0 1 0 7.75M21 21v-2a4 4 0 0 0-3-3.85"/></svg>
                   </div>
-                  <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.85rem;color:#fff;line-height:1.4;">Fintechs e instituciones digitales</span>
+                  <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.85rem;color:#00327a;line-height:1.4;">Fintechs e instituciones digitales</span>
                 </div>
-                <div class="anim-fade-up" style="background:linear-gradient(145deg,#f47f20,#e0690d);border-radius:18px;padding:1.8rem 1.2rem 1.6rem;display:flex;flex-direction:column;align-items:center;gap:.9rem;text-align:center;box-shadow:0 8px 24px rgba(244,127,32,.28);transition-delay:.1s">
-                  <div style="width:54px;height:54px;background:rgba(255,255,255,.18);border-radius:15px;display:flex;align-items:center;justify-content:center;">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"><path d="M3 9l9-6 9 6v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                <!-- Card 2: BLUE -->
+                <div class="anim-fade-up" style="background:#fff;border:2px solid #00acff;border-radius:18px;padding:1.8rem 1.2rem 1.6rem;display:flex;flex-direction:column;align-items:center;gap:.9rem;text-align:center;box-shadow:0 6px 18px rgba(0,172,255,.12);transition-delay:.1s">
+                  <div style="width:54px;height:54px;background:rgba(0,172,255,.1);border-radius:15px;display:flex;align-items:center;justify-content:center;">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00acff" stroke-width="1.8" stroke-linecap="round"><path d="M3 9l9-6 9 6v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                   </div>
-                  <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.85rem;color:#fff;line-height:1.4;">Bancos y Neobancos</span>
+                  <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.85rem;color:#00327a;line-height:1.4;">Bancos y Neobancos</span>
                 </div>
-                <div class="anim-fade-up" style="background:linear-gradient(145deg,#0fd47a,#0fb567);border-radius:18px;padding:1.8rem 1.2rem 1.6rem;display:flex;flex-direction:column;align-items:center;gap:.9rem;text-align:center;box-shadow:0 8px 24px rgba(15,181,103,.28);transition-delay:.15s">
-                  <div style="width:54px;height:54px;background:rgba(255,255,255,.18);border-radius:15px;display:flex;align-items:center;justify-content:center;">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                <!-- Card 3: GREEN -->
+                <div class="anim-fade-up" style="background:#fff;border:2px solid #0fb567;border-radius:18px;padding:1.8rem 1.2rem 1.6rem;display:flex;flex-direction:column;align-items:center;gap:.9rem;text-align:center;box-shadow:0 6px 18px rgba(15,181,103,.12);transition-delay:.15s">
+                  <div style="width:54px;height:54px;background:rgba(15,181,103,.1);border-radius:15px;display:flex;align-items:center;justify-content:center;">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0fb567" stroke-width="1.8" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
                   </div>
-                  <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.85rem;color:#fff;line-height:1.4;">Retail</span>
+                  <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.85rem;color:#00327a;line-height:1.4;">Retail</span>
                 </div>
-                <div class="anim-fade-up" style="background:linear-gradient(145deg,#f47f20,#e0690d);border-radius:18px;padding:1.8rem 1.2rem 1.6rem;display:flex;flex-direction:column;align-items:center;gap:.9rem;text-align:center;box-shadow:0 8px 24px rgba(244,127,32,.28);transition-delay:.2s">
-                  <div style="width:54px;height:54px;background:rgba(255,255,255,.18);border-radius:15px;display:flex;align-items:center;justify-content:center;">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"><rect x="5" y="3" width="14" height="18" rx="3"/><circle cx="12" cy="16" r="1.5" fill="#fff" stroke="none"/><path d="M9 7h6M9 10h4"/></svg>
+                <!-- Card 4: ORANGE -->
+                <div class="anim-fade-up" style="background:#fff;border:2px solid #f47f20;border-radius:18px;padding:1.8rem 1.2rem 1.6rem;display:flex;flex-direction:column;align-items:center;gap:.9rem;text-align:center;box-shadow:0 6px 18px rgba(244,127,32,.12);transition-delay:.2s">
+                  <div style="width:54px;height:54px;background:rgba(244,127,32,.1);border-radius:15px;display:flex;align-items:center;justify-content:center;">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f47f20" stroke-width="1.8" stroke-linecap="round"><rect x="5" y="3" width="14" height="18" rx="3"/><circle cx="12" cy="16" r="1.5" fill="#f47f20" stroke="none"/><path d="M9 7h6M9 10h4"/></svg>
                   </div>
-                  <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.85rem;color:#fff;line-height:1.4;">Billeteras digitales</span>
+                  <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.85rem;color:#00327a;line-height:1.4;">Billeteras digitales</span>
                 </div>
-                <div class="anim-fade-up" style="background:linear-gradient(145deg,#00c4f0,#00acff);border-radius:18px;padding:1.8rem 1.2rem 1.6rem;display:flex;flex-direction:column;align-items:center;gap:.9rem;text-align:center;box-shadow:0 8px 24px rgba(0,172,255,.28);transition-delay:.25s">
-                  <div style="width:54px;height:54px;background:rgba(255,255,255,.18);border-radius:15px;display:flex;align-items:center;justify-content:center;">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="6" width="18" height="13" rx="3"/><line x1="3" y1="10" x2="21" y2="10"/><rect x="6" y="13" width="4" height="3" rx="1" fill="#fff" stroke="none"/></svg>
+                <!-- Card 5: BLUE -->
+                <div class="anim-fade-up" style="background:#fff;border:2px solid #00acff;border-radius:18px;padding:1.8rem 1.2rem 1.6rem;display:flex;flex-direction:column;align-items:center;gap:.9rem;text-align:center;box-shadow:0 6px 18px rgba(0,172,255,.12);transition-delay:.25s">
+                  <div style="width:54px;height:54px;background:rgba(0,172,255,.1);border-radius:15px;display:flex;align-items:center;justify-content:center;">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00acff" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="6" width="18" height="13" rx="3"/><line x1="3" y1="10" x2="21" y2="10"/><rect x="6" y="13" width="4" height="3" rx="1" fill="#00acff" stroke="none"/></svg>
                   </div>
-                  <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.85rem;color:#fff;line-height:1.4;">Cualquier institución que quiera emitir o implementar un medio de pago</span>
+                  <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.85rem;color:#00327a;line-height:1.4;">Cualquier institución que quiera emitir o implementar un medio de pago</span>
                 </div>
-                <div class="anim-fade-up" style="background:linear-gradient(145deg,#0fd47a,#0fb567);border-radius:18px;padding:1.8rem 1.2rem 1.6rem;display:flex;flex-direction:column;align-items:center;gap:.9rem;text-align:center;box-shadow:0 8px 24px rgba(15,181,103,.28);transition-delay:.3s">
-                  <div style="width:54px;height:54px;background:rgba(255,255,255,.18);border-radius:15px;display:flex;align-items:center;justify-content:center;">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <!-- Card 6: GREEN -->
+                <div class="anim-fade-up" style="background:#fff;border:2px solid #0fb567;border-radius:18px;padding:1.8rem 1.2rem 1.6rem;display:flex;flex-direction:column;align-items:center;gap:.9rem;text-align:center;box-shadow:0 6px 18px rgba(15,181,103,.12);transition-delay:.3s">
+                  <div style="width:54px;height:54px;background:rgba(15,181,103,.1);border-radius:15px;display:flex;align-items:center;justify-content:center;">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0fb567" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                   </div>
-                  <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.85rem;color:#fff;line-height:1.4;">Programas de beneficios</span>
+                  <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.85rem;color:#00327a;line-height:1.4;">Programas de beneficios</span>
                 </div>
               </div>
               <div style="text-align:center;margin-top:1.75rem;">
