@@ -161,86 +161,88 @@
 
             <!-- 6 capabilities: hub-spoke flow diagram -->
             <div class="proc-flow-diagram anim-fade-up" style="aspect-ratio:700/400;margin:2rem 0 2.5rem;" aria-hidden="true">
-              <svg viewBox="0 0 700 400" width="100%" height="100%">
+              <svg viewBox="0 0 700 410" width="100%" height="100%">
                 <defs>
-                  <linearGradient id="emCapBlue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3dc6ff"/><stop offset="1" stop-color="#00acff"/></linearGradient>
-                  <linearGradient id="emCapOrange" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff9d4f"/><stop offset="1" stop-color="#f47f20"/></linearGradient>
-                  <filter id="emCapShadow" x="-60%" y="-60%" width="220%" height="220%"><feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000" flood-opacity=".35"/></filter>
+                  <filter id="emNodeSh" x="-50%" y="-50%" width="200%" height="200%">
+                    <feDropShadow dx="0" dy="4" stdDeviation="10" flood-color="#00327a" flood-opacity=".13"/>
+                  </filter>
                 </defs>
 
-                <!-- Connector lines — left -->
-                <path d="M80 50 L308 165" stroke="#00acff" stroke-width="2.5" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="-24" dur="1.3s" repeatCount="indefinite"/></path>
-                <path d="M110 180 L308 183" stroke="#00acff" stroke-width="2.5" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="-24" dur="1.5s" repeatCount="indefinite"/></path>
-                <path d="M80 320 L308 201" stroke="#00acff" stroke-width="2.5" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="-24" dur="1.4s" repeatCount="indefinite"/></path>
+                <!-- Connector lines — left (dashed navy) -->
+                <line x1="114" y1="50" x2="308" y2="168" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" fill="none" opacity=".4"/>
+                <line x1="114" y1="183" x2="298" y2="183" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" fill="none" opacity=".4"/>
+                <line x1="114" y1="320" x2="308" y2="198" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" fill="none" opacity=".4"/>
                 <!-- Connector lines — right -->
-                <path d="M620 50 L392 165" stroke="#068e50" stroke-width="2.5" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="24" dur="1.3s" repeatCount="indefinite"/></path>
-                <path d="M590 180 L392 183" stroke="#068e50" stroke-width="2.5" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="24" dur="1.6s" repeatCount="indefinite"/></path>
-                <path d="M620 320 L392 201" stroke="#068e50" stroke-width="2.5" stroke-dasharray="6 6" fill="none" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="24" dur="1.5s" repeatCount="indefinite"/></path>
+                <line x1="586" y1="50" x2="402" y2="168" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" fill="none" opacity=".4"/>
+                <line x1="586" y1="183" x2="402" y2="183" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" fill="none" opacity=".4"/>
+                <line x1="586" y1="320" x2="402" y2="198" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" fill="none" opacity=".4"/>
 
-                <!-- Row 1 Left: Emisión de tarjetas físicas y vituales -->
-                <g filter="url(#emCapShadow)"><rect x="50" y="20" width="60" height="60" rx="15" fill="url(#emCapBlue)"/>
-                  <rect x="67" y="36" width="26" height="17" rx="2" fill="none" stroke="#fff" stroke-width="2"/>
-                  <line x1="67" y1="42" x2="93" y2="42" stroke="#fff" stroke-width="2" opacity=".55"/>
-                  <rect x="70" y="47" width="6" height="3" rx="1" fill="#fff" opacity=".7"/>
-                </g>
-                <text text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8.5" font-weight="700" fill="rgba(0,50,122,.85)">
-                  <tspan x="80" y="97">Emisión de tarjetas</tspan><tspan x="80" dy="13">físicas y virtuales</tspan>
+                <!-- Left-Top: Emisión de tarjetas -->
+                <circle cx="80" cy="50" r="34" fill="#fff" filter="url(#emNodeSh)"/>
+                <rect x="67" y="38" width="26" height="17" rx="2" fill="none" stroke="#00327a" stroke-width="2"/>
+                <line x1="67" y1="44" x2="93" y2="44" stroke="#00327a" stroke-width="1.8" opacity=".6"/>
+                <rect x="70" y="49" width="7" height="3" rx="1" fill="#00327a" opacity=".7"/>
+                <text text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8.5" font-weight="700" fill="#00327a">
+                  <tspan x="80" y="95">Emisión de tarjetas</tspan><tspan x="80" dy="12">físicas y virtuales</tspan>
                 </text>
 
-                <!-- Row 2 Left: Acompañamiento y capacitación -->
-                <g filter="url(#emCapShadow)"><rect x="50" y="150" width="60" height="60" rx="15" fill="url(#emCapBlue)"/>
-                  <circle cx="80" cy="170" r="5" fill="#fff" opacity=".9"/>
-                  <path d="M68 197v-2c0-5.5 5.4-10 12-10s12 4.5 12 10v2z" fill="#fff" opacity=".75"/>
-                  <circle cx="67" cy="174" r="3.5" fill="#fff" opacity=".5"/>
-                </g>
-                <text text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8.5" font-weight="700" fill="rgba(0,50,122,.85)">
-                  <tspan x="80" y="227">Acompañamiento</tspan><tspan x="80" dy="13">y capacitación</tspan>
+                <!-- Left-Mid: Acompañamiento -->
+                <circle cx="80" cy="183" r="34" fill="#fff" filter="url(#emNodeSh)"/>
+                <circle cx="80" cy="177" r="7" fill="none" stroke="#00327a" stroke-width="2"/>
+                <path d="M65 198v-1.5c0-6 6.7-10.5 15-10.5s15 4.5 15 10.5V198" fill="none" stroke="#00327a" stroke-width="2" stroke-linecap="round"/>
+                <text text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8.5" font-weight="700" fill="#00327a">
+                  <tspan x="80" y="228">Acompañamiento</tspan><tspan x="80" dy="12">y capacitación</tspan>
                 </text>
 
-                <!-- Row 3 Left: Mensajería de ISO 8583 -->
-                <g filter="url(#emCapShadow)"><rect x="50" y="290" width="60" height="60" rx="15" fill="url(#emCapBlue)"/>
-                  <rect x="67" y="307" width="26" height="18" rx="2.5" fill="none" stroke="#fff" stroke-width="2"/>
-                  <path d="M67 311 l13 7 13-7" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                </g>
-                <text text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8.5" font-weight="700" fill="rgba(0,50,122,.85)">
-                  <tspan x="80" y="367">Mensajería de</tspan><tspan x="80" dy="13">ISO 8583</tspan>
+                <!-- Left-Bot: Mensajería ISO 8583 -->
+                <circle cx="80" cy="320" r="34" fill="#fff" filter="url(#emNodeSh)"/>
+                <rect x="65" y="308" width="30" height="20" rx="3" fill="none" stroke="#00327a" stroke-width="2"/>
+                <path d="M65 314l15 8 15-8" stroke="#00327a" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <text text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8.5" font-weight="700" fill="#00327a">
+                  <tspan x="80" y="365">Mensajería</tspan><tspan x="80" dy="12">ISO 8583</tspan>
                 </text>
 
-                <!-- Row 1 Right: APIs para ágil integración -->
-                <g filter="url(#emCapShadow)"><rect x="590" y="20" width="60" height="60" rx="15" fill="url(#emCapBlue)"/>
-                  <path d="M613 40 L607 50 L613 60" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M627 40 L633 50 L627 60" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                  <line x1="618" y1="54" x2="622" y2="46" stroke="#fff" stroke-width="1.8" stroke-linecap="round" opacity=".7"/>
-                </g>
-                <text text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8.5" font-weight="700" fill="rgba(0,50,122,.85)">
-                  <tspan x="620" y="97">APIs para ágil</tspan><tspan x="620" dy="13">integración</tspan>
+                <!-- Right-Top: APIs -->
+                <circle cx="620" cy="50" r="34" fill="#fff" filter="url(#emNodeSh)"/>
+                <path d="M607 38L601 50l6 12" stroke="#00327a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M633 38l6 12-6 12" stroke="#00327a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="612" y1="54" x2="628" y2="46" stroke="#00327a" stroke-width="1.8" stroke-linecap="round" opacity=".65"/>
+                <text text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8.5" font-weight="700" fill="#00327a">
+                  <tspan x="620" y="95">APIs para ágil</tspan><tspan x="620" dy="12">integración</tspan>
                 </text>
 
-                <!-- Row 2 Right: Cumplimiento regulatorio -->
-                <g filter="url(#emCapShadow)"><rect x="590" y="150" width="60" height="60" rx="15" fill="url(#emCapBlue)"/>
-                  <path d="M620 166 l11 4.5v10c0 7-5 11-11 13.5-6-2.5-11-6.5-11-13.5v-10z" fill="#fff" opacity=".9"/>
-                  <path d="M613 182 l4 4.5 8-9" stroke="#00327a" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                </g>
-                <text text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8.5" font-weight="700" fill="rgba(0,50,122,.85)">
-                  <tspan x="620" y="227">Cumplimiento</tspan><tspan x="620" dy="13">regulatorio</tspan>
+                <!-- Right-Mid: Cumplimiento regulatorio -->
+                <circle cx="620" cy="183" r="34" fill="#fff" filter="url(#emNodeSh)"/>
+                <path d="M620 167l13 5v12c0 8-6 13-13 16-7-3-13-8-13-16v-12z" fill="none" stroke="#00327a" stroke-width="2.2" stroke-linejoin="round"/>
+                <path d="M612 183l4 5 9-10" stroke="#00327a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <text text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8.5" font-weight="700" fill="#00327a">
+                  <tspan x="620" y="228">Cumplimiento</tspan><tspan x="620" dy="12">regulatorio</tspan>
                 </text>
 
-                <!-- Row 3 Right: Gestión de riesgo antifraude -->
-                <g filter="url(#emCapShadow)"><rect x="590" y="290" width="60" height="60" rx="15" fill="url(#emCapBlue)"/>
-                  <polygon points="624,307 613,324 620.5,324 617,332 629,315 621.5,315" fill="#fff" opacity=".9"/>
-                </g>
-                <text text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8.5" font-weight="700" fill="rgba(0,50,122,.85)">
-                  <tspan x="620" y="367">Gestión de riesgo</tspan><tspan x="620" dy="13">antifraude</tspan>
+                <!-- Right-Bot: Gestión de riesgo -->
+                <circle cx="620" cy="320" r="34" fill="#fff" filter="url(#emNodeSh)"/>
+                <path d="M620 306l5 3v7c0 5-2.5 8-5 10-2.5-2-5-5-5-10v-7z" fill="none" stroke="#00327a" stroke-width="2" stroke-linejoin="round"/>
+                <circle cx="620" cy="316" r="3" fill="#00327a" opacity=".7"/>
+                <line x1="608" y1="328" x2="612" y2="324" stroke="#00327a" stroke-width="2" stroke-linecap="round"/>
+                <line x1="632" y1="328" x2="628" y2="324" stroke="#00327a" stroke-width="2" stroke-linecap="round"/>
+                <path d="M610 336 q10-6 20 0" stroke="#00327a" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+                <text text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8.5" font-weight="700" fill="#00327a">
+                  <tspan x="620" y="365">Gestión de riesgo</tspan><tspan x="620" dy="12">antifraude</tspan>
                 </text>
 
-                <!-- Hub: Emisión -->
-                <g filter="url(#emCapShadow)">
-                  <rect x="308" y="151" width="84" height="64" rx="18" fill="url(#emCapOrange)"/>
-                  <rect x="330" y="169" width="40" height="28" rx="4" fill="#fff"/>
-                  <rect x="338" y="176" width="7" height="6" rx="1.4" fill="#f47f20"/>
-                  <rect x="338" y="187" width="16" height="2.4" rx="1.2" fill="#f47f20" opacity=".6"/>
-                </g>
-                <text x="350" y="233" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12.5" font-weight="700" fill="rgba(0,50,122,.85)">Emisión</text>
+                <!-- Hub: Emisión (center, larger) -->
+                <circle cx="350" cy="183" r="54" fill="#fff" filter="url(#emNodeSh)"/>
+                <rect x="326" y="171" width="48" height="24" rx="4" fill="none" stroke="#00327a" stroke-width="2.2"/>
+                <line x1="334" y1="171" x2="334" y2="165" stroke="#00327a" stroke-width="2"/>
+                <line x1="343" y1="171" x2="343" y2="165" stroke="#00327a" stroke-width="2"/>
+                <line x1="357" y1="171" x2="357" y2="165" stroke="#00327a" stroke-width="2"/>
+                <line x1="366" y1="171" x2="366" y2="165" stroke="#00327a" stroke-width="2"/>
+                <line x1="334" y1="195" x2="334" y2="201" stroke="#00327a" stroke-width="2"/>
+                <line x1="343" y1="195" x2="343" y2="201" stroke="#00327a" stroke-width="2"/>
+                <line x1="357" y1="195" x2="357" y2="201" stroke="#00327a" stroke-width="2"/>
+                <line x1="366" y1="195" x2="366" y2="201" stroke="#00327a" stroke-width="2"/>
+                <rect x="337" y="177" width="26" height="12" rx="2" fill="#00327a" opacity=".15"/>
+                <text x="350" y="252" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="13" font-weight="700" fill="#00327a">Emisión</text>
               </svg>
             </div>
 
