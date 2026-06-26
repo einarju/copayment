@@ -31,7 +31,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
-  font-family: Tahoma, 'Segoe UI', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: var(--text-primary);
   background: var(--white);
   line-height: 1.6;
@@ -1913,7 +1913,7 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
   padding: .75rem 1rem;
   border: 1.5px solid rgba(0,50,122,.18);
   border-radius: var(--radius-sm);
-  font-family: Tahoma, 'Segoe UI', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: .95rem;
   color: var(--text-primary);
   background: var(--white);
