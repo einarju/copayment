@@ -15,6 +15,8 @@
     @media(max-width:900px){
       .proc-flow-2col { grid-template-columns:1fr; gap:1.5rem; }
     }
+    @keyframes dashFlow { to { stroke-dashoffset: -12; } }
+    .pf-flow-line { animation: dashFlow 1.4s linear infinite; }
   </style>
 </head>
 <body>
@@ -181,14 +183,14 @@
                   </defs>
 
                   <!-- connector left -->
-                  <line x1="116" y1="162" x2="200" y2="162" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" opacity=".45"/>
+                  <line class="pf-flow-line" x1="116" y1="162" x2="200" y2="162" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" opacity=".45"/>
                   <circle cx="206" cy="162" r="5" fill="none" stroke="#00327a" stroke-width="2" opacity=".45"/>
-                  <line x1="212" y1="162" x2="298" y2="162" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" opacity=".45"/>
+                  <line class="pf-flow-line" x1="212" y1="162" x2="298" y2="162" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" opacity=".45"/>
 
                   <!-- connector right -->
-                  <line x1="402" y1="162" x2="492" y2="162" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" opacity=".45"/>
+                  <line class="pf-flow-line" x1="402" y1="162" x2="492" y2="162" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" opacity=".45"/>
                   <circle cx="498" cy="162" r="5" fill="none" stroke="#00327a" stroke-width="2" opacity=".45"/>
-                  <line x1="504" y1="162" x2="584" y2="162" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" opacity=".45"/>
+                  <line class="pf-flow-line" x1="504" y1="162" x2="584" y2="162" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" opacity=".45"/>
 
                   <!-- node 1: Institución -->
                   <circle cx="72" cy="162" r="44" fill="#fff" filter="url(#pfNodeSh)"/>
@@ -201,16 +203,7 @@
 
                   <!-- node 2: Copayment (hub, larger) -->
                   <circle cx="350" cy="162" r="52" fill="#fff" filter="url(#pfNodeSh)"/>
-                  <rect x="326" y="150" width="48" height="24" rx="4" fill="none" stroke="#00327a" stroke-width="2.2"/>
-                  <line x1="334" y1="150" x2="334" y2="144" stroke="#00327a" stroke-width="2"/>
-                  <line x1="343" y1="150" x2="343" y2="144" stroke="#00327a" stroke-width="2"/>
-                  <line x1="357" y1="150" x2="357" y2="144" stroke="#00327a" stroke-width="2"/>
-                  <line x1="366" y1="150" x2="366" y2="144" stroke="#00327a" stroke-width="2"/>
-                  <line x1="334" y1="174" x2="334" y2="180" stroke="#00327a" stroke-width="2"/>
-                  <line x1="343" y1="174" x2="343" y2="180" stroke="#00327a" stroke-width="2"/>
-                  <line x1="357" y1="174" x2="357" y2="180" stroke="#00327a" stroke-width="2"/>
-                  <line x1="366" y1="174" x2="366" y2="180" stroke="#00327a" stroke-width="2"/>
-                  <rect x="337" y="156" width="26" height="12" rx="2" fill="#00327a" opacity=".15"/>
+                  <image href="../assets/logo-icon.svg" x="318" y="130" width="64" height="64"/>
                   <text x="350" y="228" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12.5" font-weight="700" fill="#00327a">Copayment</text>
 
                   <!-- node 3: Red -->
