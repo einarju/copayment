@@ -14,6 +14,8 @@
     .rpa-benefit-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.25rem; }
     @media(max-width:900px){ .rpa-benefit-grid { grid-template-columns:1fr 1fr; } }
     @media(max-width:480px){ .rpa-benefit-grid { grid-template-columns:1fr; } }
+    @keyframes dashFlow { to { stroke-dashoffset: -12; } }
+    .rpa-flow-line { animation: dashFlow 1.4s linear infinite; }
   </style>
 </head>
 <body>
@@ -171,35 +173,21 @@
 
             <!-- CONNECTORS (dashed diagonal lines from corner nodes to center) -->
             <!-- TL → center -->
-            <line x1="163" y1="121" x2="295" y2="203" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" opacity=".4"/>
+            <line class="rpa-flow-line" x1="163" y1="121" x2="295" y2="203" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" opacity=".4"/>
             <circle cx="229" cy="162" r="5" fill="none" stroke="#00327a" stroke-width="1.8" opacity=".4"/>
             <!-- TR → center -->
-            <line x1="537" y1="121" x2="405" y2="203" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" opacity=".4"/>
+            <line class="rpa-flow-line" x1="537" y1="121" x2="405" y2="203" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" opacity=".4"/>
             <circle cx="471" cy="162" r="5" fill="none" stroke="#00327a" stroke-width="1.8" opacity=".4"/>
             <!-- BL → center -->
-            <line x1="163" y1="354" x2="295" y2="271" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" opacity=".4"/>
+            <line class="rpa-flow-line" x1="163" y1="354" x2="295" y2="271" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" opacity=".4"/>
             <circle cx="229" cy="312" r="5" fill="none" stroke="#00327a" stroke-width="1.8" opacity=".4"/>
             <!-- BR → center -->
-            <line x1="537" y1="354" x2="405" y2="271" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" opacity=".4"/>
+            <line class="rpa-flow-line" x1="537" y1="354" x2="405" y2="271" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" opacity=".4"/>
             <circle cx="471" cy="312" r="5" fill="none" stroke="#00327a" stroke-width="1.8" opacity=".4"/>
 
             <!-- CENTER HUB: Copayment RPA -->
             <circle cx="350" cy="237" r="65" fill="#fff" filter="url(#rpaHubSh)"/>
-            <!-- Robot head -->
-            <rect x="334" y="221" width="32" height="22" rx="4" fill="none" stroke="#00327a" stroke-width="2.2"/>
-            <!-- Eyes -->
-            <circle cx="343" cy="230" r="3" fill="#00327a" opacity=".65"/>
-            <circle cx="357" cy="230" r="3" fill="#00327a" opacity=".65"/>
-            <!-- Mouth -->
-            <line x1="343" y1="238" x2="357" y2="238" stroke="#00327a" stroke-width="1.8" stroke-linecap="round"/>
-            <!-- Antenna -->
-            <line x1="350" y1="221" x2="350" y2="212" stroke="#00327a" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="350" cy="210" r="3" fill="#00327a"/>
-            <!-- Body strip -->
-            <rect x="339" y="243" width="22" height="7" rx="2" fill="none" stroke="#00327a" stroke-width="1.8"/>
-            <line x1="344" y1="243" x2="344" y2="250" stroke="#00327a" stroke-width="1.2"/>
-            <line x1="350" y1="243" x2="350" y2="250" stroke="#00327a" stroke-width="1.2"/>
-            <line x1="356" y1="243" x2="356" y2="250" stroke="#00327a" stroke-width="1.2"/>
+            <image href="../assets/logo-icon.svg" x="310" y="197" width="80" height="80"/>
             <text x="350" y="318" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12.5" font-weight="700" fill="#00327a">Copayment RPA</text>
 
             <!-- NODE TL: Aclaraciones nacionales e internacionales -->
@@ -301,10 +289,10 @@
 
             <!-- CONNECTORS -->
             <!-- Left node edge (100+52=152) to center node edge (350-62=288) -->
-            <line x1="152" y1="130" x2="288" y2="130" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" opacity=".45"/>
+            <line class="rpa-flow-line" x1="152" y1="130" x2="288" y2="130" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" opacity=".45"/>
             <circle cx="220" cy="130" r="5" fill="none" stroke="#00327a" stroke-width="1.8" opacity=".45"/>
             <!-- Center node edge (350+62=412) to right node edge (600-52=548) -->
-            <line x1="412" y1="130" x2="548" y2="130" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" opacity=".45"/>
+            <line class="rpa-flow-line" x1="412" y1="130" x2="548" y2="130" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" opacity=".45"/>
             <circle cx="480" cy="130" r="5" fill="none" stroke="#00327a" stroke-width="1.8" opacity=".45"/>
 
             <!-- NODE LEFT: Compensación y Liquidación -->

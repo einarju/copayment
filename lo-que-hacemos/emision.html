@@ -10,6 +10,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/main.css">
+  <style>
+    @keyframes dashFlow { to { stroke-dashoffset: -12; } }
+    .em-flow-line { animation: dashFlow 1.4s linear infinite; }
+  </style>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
@@ -169,13 +173,13 @@
                 </defs>
 
                 <!-- Connector lines — left (dashed navy) -->
-                <line x1="114" y1="50" x2="308" y2="168" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" fill="none" opacity=".4"/>
-                <line x1="114" y1="183" x2="298" y2="183" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" fill="none" opacity=".4"/>
-                <line x1="114" y1="320" x2="308" y2="198" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" fill="none" opacity=".4"/>
+                <line class="em-flow-line" x1="114" y1="50" x2="308" y2="168" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" fill="none" opacity=".4"/>
+                <line class="em-flow-line" x1="114" y1="183" x2="298" y2="183" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" fill="none" opacity=".4"/>
+                <line class="em-flow-line" x1="114" y1="320" x2="308" y2="198" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" fill="none" opacity=".4"/>
                 <!-- Connector lines — right -->
-                <line x1="586" y1="50" x2="402" y2="168" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" fill="none" opacity=".4"/>
-                <line x1="586" y1="183" x2="402" y2="183" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" fill="none" opacity=".4"/>
-                <line x1="586" y1="320" x2="402" y2="198" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" fill="none" opacity=".4"/>
+                <line class="em-flow-line" x1="586" y1="50" x2="402" y2="168" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" fill="none" opacity=".4"/>
+                <line class="em-flow-line" x1="586" y1="183" x2="402" y2="183" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" fill="none" opacity=".4"/>
+                <line class="em-flow-line" x1="586" y1="320" x2="402" y2="198" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" fill="none" opacity=".4"/>
 
                 <!-- Left-Top: Emisión de tarjetas -->
                 <circle cx="80" cy="50" r="34" fill="#fff" filter="url(#emNodeSh)"/>
@@ -232,16 +236,7 @@
 
                 <!-- Hub: Emisión (center, larger) -->
                 <circle cx="350" cy="183" r="54" fill="#fff" filter="url(#emNodeSh)"/>
-                <rect x="326" y="171" width="48" height="24" rx="4" fill="none" stroke="#00327a" stroke-width="2.2"/>
-                <line x1="334" y1="171" x2="334" y2="165" stroke="#00327a" stroke-width="2"/>
-                <line x1="343" y1="171" x2="343" y2="165" stroke="#00327a" stroke-width="2"/>
-                <line x1="357" y1="171" x2="357" y2="165" stroke="#00327a" stroke-width="2"/>
-                <line x1="366" y1="171" x2="366" y2="165" stroke="#00327a" stroke-width="2"/>
-                <line x1="334" y1="195" x2="334" y2="201" stroke="#00327a" stroke-width="2"/>
-                <line x1="343" y1="195" x2="343" y2="201" stroke="#00327a" stroke-width="2"/>
-                <line x1="357" y1="195" x2="357" y2="201" stroke="#00327a" stroke-width="2"/>
-                <line x1="366" y1="195" x2="366" y2="201" stroke="#00327a" stroke-width="2"/>
-                <rect x="337" y="177" width="26" height="12" rx="2" fill="#00327a" opacity=".15"/>
+                <image href="../assets/logo-icon.svg" x="318" y="151" width="64" height="64"/>
                 <text x="350" y="252" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="13" font-weight="700" fill="#00327a">Emisión</text>
               </svg>
             </div>
