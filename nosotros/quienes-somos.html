@@ -1233,7 +1233,7 @@
 
       <!-- Video recopilación con aliados en foros -->
       <div>
-        <video controls preload="none"
+        <video id="socios-video" controls muted preload="none"
           poster="https://res.cloudinary.com/dvoqn12u5/video/upload/so_0,f_jpg,q_auto,w_1280/copayment/foro-socios-aliados.jpg"
           style="width:100%;display:block;border-radius:14px;box-shadow:0 8px 32px rgba(0,0,0,.18),0 0 0 1px rgba(0,50,122,.1);">
           <source src="https://res.cloudinary.com/dvoqn12u5/video/upload/f_auto,q_auto/copayment/foro-socios-aliados.mp4" type="video/mp4">
@@ -1452,6 +1452,16 @@
     setActive(0);
     startAutoAdvance();
   })();
+  </script>
+  <script>
+    (function(){
+      var v = document.getElementById('socios-video');
+      if(!v) return;
+      var io = new IntersectionObserver(function(entries){
+        if(entries[0].isIntersecting){ v.play(); io.disconnect(); }
+      }, { threshold: 0.4 });
+      io.observe(v);
+    })();
   </script>
 </body>
 </html>
