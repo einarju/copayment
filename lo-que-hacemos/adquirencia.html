@@ -145,16 +145,6 @@
     </div>
   </section>
 
-  <!-- Service strip -->
-  <section style="background:var(--navy);padding:1.25rem 0;">
-    <div class="container" style="display:flex;flex-wrap:wrap;gap:.65rem;align-items:center;">
-      <span style="background:rgba(0,172,255,.12);border:1px solid rgba(0,172,255,.25);border-radius:8px;padding:.4rem 1rem;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.8rem;color:#fff;letter-spacing:.02em;">Switch Adquirente</span>
-      <span style="background:rgba(0,172,255,.12);border:1px solid rgba(0,172,255,.25);border-radius:8px;padding:.4rem 1rem;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.8rem;color:#fff;letter-spacing:.02em;">Gestión Operativa Especializada</span>
-      <span style="background:rgba(0,172,255,.12);border:1px solid rgba(0,172,255,.25);border-radius:8px;padding:.4rem 1rem;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.8rem;color:#fff;letter-spacing:.02em;">Mensajería ISO 8583</span>
-      <span style="background:rgba(0,172,255,.12);border:1px solid rgba(0,172,255,.25);border-radius:8px;padding:.4rem 1rem;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.8rem;color:#fff;letter-spacing:.02em;">Cumplimiento normativo</span>
-    </div>
-  </section>
-
   <!-- SERVICIOS -->
   <section class="section" id="servicios" style="background:#fff;padding-top:2rem;">
     <div class="container">
@@ -166,54 +156,12 @@
               <p style="color:#555;max-width:700px;margin:0 0 2rem;font-size:1.05rem;line-height:1.7;">Sin necesidad de construir infraestructura adquirente propia ni establecer conexión directa con la cámara de compensación. Tú te enfocas en tu negocio, nosotros en el procesamiento.</p>
             </div>
 
-            <!-- Switch Adquirente — transaction ticker -->
-              <div style="display:flex;gap:3rem;align-items:flex-start;flex-wrap:wrap;padding:2.5rem 0;border-top:1px solid rgba(0,50,122,.1);">
-                <div class="anim-fade-up" style="flex:1;min-width:240px;">
-                  <span style="display:inline-block;background:#f47f20;color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.875rem;padding:.4rem 1.1rem;border-radius:6px;letter-spacing:.03em;margin-bottom:.75rem;">Switch Adquirente</span>
-                  <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:var(--navy);margin:0 0 .75rem;">Conéctate a una red que ya está donde tú necesitas estar</p>
-                  <p style="color:#555;font-size:.95rem;line-height:1.65;margin-bottom:.75rem;">Pagos con y sin tarjeta presente, sin infraestructura propia ni conexión directa a la cámara de compensación. Bajo el respaldo de los grandes.</p>
-                  <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap;">
-                    <img src="../assets/visa.svg" alt="Visa" style="height:22px;object-fit:contain;filter:brightness(0) invert(.45);">
-                    <img src="../assets/carnet.svg" alt="CARNET" style="height:22px;object-fit:contain;filter:brightness(0) invert(.45);">
-                    <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.78rem;color:#888;letter-spacing:.04em;">VISA y PROSA</span>
-                  </div>
-                  <a href="../comencemos.html" class="btn-nav-cta" style="display:inline-flex;align-items:center;gap:.5rem;">Agendar demo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-                </div>
-                <div class="adq-ticker-wrap anim-fade-up" style="flex:1;min-width:280px;margin:0;" aria-live="polite">
-                  <div class="adq-ticker-header">
-                    <span class="adq-ticker-title">Transacciones en tiempo real</span>
-                    <span class="adq-ticker-live"><span class="adq-ticker-dot"></span>En vivo</span>
-                  </div>
-                  <div id="adqTicker"></div>
-                </div>
+            <!-- Switch Adquirente -->
+              <div class="anim-fade-up" style="padding:2.5rem 0;border-top:1px solid rgba(0,50,122,.1);">
+                <span style="display:inline-block;background:#f47f20;color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.875rem;padding:.4rem 1.1rem;border-radius:6px;letter-spacing:.03em;margin-bottom:.75rem;">Switch Adquirente</span>
+                <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:var(--navy);margin:0 0 .75rem;">Pagos con y sin tarjeta presente, sin infraestructura propia ni conexión directa a la cámara de compensación.</p>
+                <a href="../comencemos.html" class="btn-nav-cta" style="display:inline-flex;align-items:center;gap:.5rem;">Agendar demo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
               </div>
-              <script>
-              (function(){
-                var rows=[
-                  {m:'WALMART SONORA',a:'$2,340.00',t:'Débito'},
-                  {m:'OXXO GAS MTY',a:'$850.50',t:'E-commerce'},
-                  {m:'COPPEL ONLINE',a:'$1,200.00',t:'Crédito'},
-                  {m:'SORIANA HYPER',a:'$3,670.20',t:'Débito'},
-                  {m:'AMAZON.COM.MX',a:'$450.00',t:'E-commerce'},
-                  {m:'CINÉPOLIS CDMX',a:'$280.00',t:'Crédito'},
-                  {m:'FARMACIAS GDL',a:'$196.50',t:'Débito'},
-                  {m:'TIENDA EN LÍNEA',a:'$5,800.00',t:'E-commerce'},
-                ];
-                var idx=0;
-                var wrap=document.getElementById('adqTicker');
-                if(!wrap) return;
-                function addRow(){
-                  var d=rows[idx%rows.length]; idx++;
-                  var row=document.createElement('div');
-                  row.className='adq-ticker-row';
-                  row.innerHTML='<div><div class="adq-ticker-merchant">'+d.m+'</div><div class="adq-ticker-type">'+d.t+'</div></div><div class="adq-ticker-amount">'+d.a+'</div><span class="adq-ticker-badge">&#10003; aprobado</span>';
-                  wrap.insertBefore(row,wrap.firstChild);
-                  while(wrap.children.length>5) wrap.removeChild(wrap.lastChild);
-                }
-                for(var i=0;i<4;i++) addRow();
-                setInterval(addRow,1900);
-              })();
-              </script>
 
               <!-- 6 feature pills -->
               <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:2.5rem 0 3rem;">
