@@ -10,6 +10,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
+  <style>
+    .nov-hub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+    @media(max-width:900px){.nov-hub-grid{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:540px){.nov-hub-grid{grid-template-columns:1fr;}}
+    .nov-hub-card{display:flex;flex-direction:column;gap:.85rem;padding:2rem 1.75rem;background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.1);border-radius:16px;text-decoration:none;transition:background .2s,border-color .2s,transform .25s;}
+    .nov-hub-card:hover{background:rgba(0,172,255,.08);border-color:rgba(0,172,255,.35);transform:translateY(-4px);}
+    .nov-hub-icon{width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:rgba(0,172,255,.12);border-radius:12px;color:#00acff;flex-shrink:0;overflow:hidden;}
+    .nov-hub-icon svg{width:22px !important;height:22px !important;display:block;}
+    .nov-hub-title{font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin:0;}
+    .nov-hub-desc{font-size:.92rem;color:rgba(255,255,255,.6);line-height:1.65;flex:1;margin:0;}
+    .nov-hub-link{font-size:.875rem;font-weight:600;color:#00acff;margin-top:.25rem;}
+  </style>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
@@ -110,10 +122,11 @@
           </a>
           <div class="dropdown">
             <div class="dropdown-group">
-              <a href="#foros" class="dropdown-link">Foros</a>
-              <a href="#capacitacion" class="dropdown-link">Capacitación y certificaciones</a>
-              <a href="#eventos" class="dropdown-link">Eventos</a>
-              <a href="#recursos" class="dropdown-link">Recursos</a>
+              <a href="novedades/foros.html" class="dropdown-link">Foros</a>
+              <a href="novedades/cursos.html" class="dropdown-link">Capacitación y certificaciones</a>
+              <a href="novedades/webinars.html" class="dropdown-link">Webinars</a>
+              <a href="novedades/clientes.html" class="dropdown-link">Clientes</a>
+              <a href="novedades/recursos.html" class="dropdown-link">Recursos</a>
             </div><div class="dropdown-group dropdown-group--social"><div class="dropdown-heading">S&#237;guenos</div><p class="dropdown-social-text">Mant&#233;nte al d&#237;a con noticias y novedades del ecosistema de pagos.</p><div class="dropdown-social"><a href="https://www.linkedin.com/company/copaymentmx/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a><a href="https://www.youtube.com/@copaymentmx2058" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#fff"/></svg></a><a href="https://www.facebook.com/Copaymentmx/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
           </div>
         </li>
@@ -143,598 +156,68 @@
     </div>
   </section>
 
-  <!-- FOROS -->
-  <section class="section" id="foros">
+  <!-- NOVEDADES HUB -->
+  <section class="section" style="background:var(--navy);">
     <div class="container">
 
-      <!-- Hero -->
-      <div class="foros-hero">
-        <div class="anim-fade-left">
-          <span class="foros-tag">Foro Copayment</span>
-          <h2 class="foros-title">Un espacio para conectar y aprender</h2>
-          <p class="foros-desc">Encuentro especializado que reúne a líderes, expertos y tomadores de decisión del sector financiero, tecnológico y de prevención de fraudes.</p>
-          <ul class="foros-topics">
-            <li>Innovación en Medios de Pagos</li>
-            <li>Seguridad y Prevención de fraudes</li>
-            <li>Regulación y cumplimiento normativo</li>
-            <li>Inteligencia Artificial (IA)</li>
-            <li>Inclusión Financiera</li>
-          </ul>
-        </div>
-        <div class="anim-fade-right anim-delay-1">
-          <div class="foros-hero-photo" aria-hidden="true"></div>
-        </div>
+      <div class="anim-fade-up" style="text-align:center;margin-bottom:3rem;">
+        <span style="display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#00acff;background:rgba(0,172,255,.1);border:1px solid rgba(0,172,255,.25);border-radius:100px;padding:.35rem 1.1rem;margin-bottom:1.1rem;">Ecosistema Copayment</span>
+        <h2 style="font-family:'Montserrat',sans-serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;color:#fff;margin:0 auto .75rem;max-width:600px;">Todo lo que necesitas para mantenerte al día</h2>
+        <p style="color:rgba(255,255,255,.65);font-size:1rem;max-width:520px;margin:0 auto;line-height:1.7;">Foros, capacitaciones, webinars y recursos técnicos para quienes operan la infraestructura financiera de México.</p>
       </div>
 
-      <!-- Upcoming event -->
-      <div class="foros-event-card anim-fade-up">
-        <div>
-          <span class="foros-event-label">Foro Copayment MTY</span>
-          <p class="foros-event-date">Octubre 2026 · Monterrey</p>
-        </div>
-        <div class="foros-event-logo-ph">Logo / Banner</div>
-      </div>
+      <div class="nov-hub-grid anim-fade-up anim-delay-1">
 
-      <!-- Gallery carousel -->
-      <div class="foros-gallery anim-fade-up">
-        <p class="foros-gallery-label">Lo que se vivió en el foro 2025</p>
-
-        <style>
-          .fg-wrap {
-            position:relative;
-            overflow:hidden;
-            cursor:grab;
-            user-select:none;
-          }
-          .fg-wrap:active { cursor:grabbing; }
-          .fg-track {
-            display:flex;
-            will-change:transform;
-            transition:transform .6s cubic-bezier(.4,0,.2,1);
-          }
-          .fg-slide {
-            flex-shrink:0;
-            width:clamp(240px,52vw,700px);
-            padding:0 .75rem;
-            transition:transform .5s cubic-bezier(.4,0,.2,1),
-                        opacity  .5s cubic-bezier(.4,0,.2,1);
-            transform:scale(.82);
-            opacity:.45;
-          }
-          .fg-slide.is-active { transform:scale(1); opacity:1; }
-          .fg-slide img {
-            width:100%;
-            aspect-ratio:4/3;
-            object-fit:cover;
-            border-radius:12px;
-            display:block;
-            box-shadow:0 16px 48px rgba(0,0,0,.3);
-            transition:box-shadow .5s;
-          }
-          .fg-slide.is-active img {
-            box-shadow:0 20px 60px rgba(0,0,0,.4), 0 0 0 1.5px rgba(0,172,255,.25), 0 0 28px rgba(0,172,255,.08);
-          }
-          .fg-arrow {
-            position:absolute;
-            top:50%; transform:translateY(-50%);
-            z-index:10;
-            width:44px; height:44px;
-            border-radius:50%;
-            background:rgba(0,50,122,.75);
-            border:1.5px solid rgba(0,172,255,.35);
-            color:#fff;
-            display:flex; align-items:center; justify-content:center;
-            cursor:pointer;
-            transition:background .2s, border-color .2s, box-shadow .2s;
-            -webkit-tap-highlight-color:transparent;
-          }
-          .fg-arrow:hover {
-            background:rgba(0,172,255,.3);
-            border-color:#00acff;
-            box-shadow:0 0 18px rgba(0,172,255,.4);
-          }
-          .fg-arrow--prev { left:clamp(.5rem,1.5vw,2rem); }
-          .fg-arrow--next { right:clamp(.5rem,1.5vw,2rem); }
-          .fg-dots {
-            display:flex; justify-content:center; gap:.55rem;
-            margin-top:.75rem;
-          }
-          .fg-dot {
-            width:7px; height:7px;
-            border-radius:50%;
-            background:rgba(0,50,122,.2);
-            border:none; padding:0; cursor:pointer;
-            transition:background .3s, transform .3s, box-shadow .3s;
-          }
-          .fg-dot.is-active {
-            background:#00327a;
-            transform:scale(1.35);
-            box-shadow:0 0 8px rgba(0,50,122,.45);
-          }
-          @media(max-width:600px){
-            .fg-slide { width:86vw; }
-            .fg-arrow { width:38px; height:38px; }
-          }
-        </style>
-
-        <div class="fg-wrap" id="fgWrap">
-          <button class="fg-arrow fg-arrow--prev" id="fgPrev" aria-label="Anterior">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-          </button>
-          <button class="fg-arrow fg-arrow--next" id="fgNext" aria-label="Siguiente">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-          </button>
-          <div class="fg-track" id="fgTrack">
-            <div class="fg-slide"><img src="assets/foro-gallery-01.jpg" alt="Foro Copayment MTY 2025 — premiación en escenario" loading="lazy"></div>
-            <div class="fg-slide"><img src="assets/foro-gallery-02.jpg" alt="Foro Copayment MTY 2025 — equipo ante backdrop de patrocinadores" loading="lazy"></div>
-            <div class="fg-slide"><img src="assets/foro-gallery-03.jpg" alt="Foro Copayment MTY 2025 — ponente en escenario" loading="lazy"></div>
-            <div class="fg-slide"><img src="assets/foro-gallery-04.jpg" alt="Foro Copayment MTY 2025 — Vanessa Hyslop, conferencista" loading="lazy"></div>
-            <div class="fg-slide"><img src="assets/foro-gallery-05.jpg" alt="Foro Copayment MTY 2025 — asistentes en auditorio" loading="lazy"></div>
+        <a href="novedades/foros.html" class="nov-hub-card">
+          <div class="nov-hub-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           </div>
-        </div>
+          <h3 class="nov-hub-title">Foros</h3>
+          <p class="nov-hub-desc">El encuentro referente en pagos y prevención de fraudes en México.</p>
+          <span class="nov-hub-link">Ver más →</span>
+        </a>
 
-        <div class="fg-dots" id="fgDots">
-          <button class="fg-dot" aria-label="Foto 1"></button>
-          <button class="fg-dot" aria-label="Foto 2"></button>
-          <button class="fg-dot" aria-label="Foto 3"></button>
-          <button class="fg-dot" aria-label="Foto 4"></button>
-          <button class="fg-dot" aria-label="Foto 5"></button>
-        </div>
-
-        <script>
-        (function(){
-          var wrap   = document.getElementById('fgWrap');
-          var track  = document.getElementById('fgTrack');
-          var slides = Array.from(track.querySelectorAll('.fg-slide'));
-          var dots   = Array.from(document.getElementById('fgDots').querySelectorAll('.fg-dot'));
-          var N      = slides.length;
-          var cur    = 0;
-          var timer  = null;
-
-          function offset(i) {
-            var ww = wrap.offsetWidth;
-            var sw = slides[0].offsetWidth;
-            return (ww - sw) / 2 - i * sw;
-          }
-
-          function goTo(i, animate) {
-            cur = ((i % N) + N) % N;
-            if (animate === false) track.style.transition = 'none';
-            else track.style.transition = 'transform .6s cubic-bezier(.4,0,.2,1)';
-            track.style.transform = 'translateX(' + offset(cur) + 'px)';
-            slides.forEach(function(s, idx){ s.classList.toggle('is-active', idx === cur); });
-            dots.forEach(function(d, idx){ d.classList.toggle('is-active', idx === cur); });
-          }
-
-          function startAuto(){ timer = setInterval(function(){ goTo(cur + 1); }, 4500); }
-          function stopAuto(){ clearInterval(timer); }
-
-          document.getElementById('fgPrev').addEventListener('click', function(){ stopAuto(); goTo(cur - 1); startAuto(); });
-          document.getElementById('fgNext').addEventListener('click', function(){ stopAuto(); goTo(cur + 1); startAuto(); });
-          dots.forEach(function(d, i){ d.addEventListener('click', function(){ stopAuto(); goTo(i); startAuto(); }); });
-
-          wrap.addEventListener('mouseenter', stopAuto);
-          wrap.addEventListener('mouseleave', startAuto);
-
-          var startX = 0, dragging = false;
-          wrap.addEventListener('pointerdown', function(e){ startX = e.clientX; dragging = true; stopAuto(); });
-          wrap.addEventListener('pointermove', function(e){
-            if (!dragging) return;
-            var dx = e.clientX - startX;
-            track.style.transition = 'none';
-            track.style.transform = 'translateX(' + (offset(cur) + dx) + 'px)';
-          });
-          wrap.addEventListener('pointerup', function(e){
-            if (!dragging) return; dragging = false;
-            var dx = e.clientX - startX;
-            if (Math.abs(dx) > 60) goTo(dx < 0 ? cur + 1 : cur - 1);
-            else goTo(cur);
-            startAuto();
-          });
-          wrap.addEventListener('pointercancel', function(){ dragging = false; goTo(cur); startAuto(); });
-
-          window.addEventListener('resize', function(){ goTo(cur, false); });
-
-          var io = new IntersectionObserver(function(entries){
-            if (entries[0].isIntersecting){ goTo(0, false); requestAnimationFrame(function(){ goTo(0); }); startAuto(); io.disconnect(); }
-          }, { threshold: 0.3 });
-          io.observe(wrap);
-
-          goTo(0);
-          startAuto();
-        })();
-        </script>
-      </div>
-
-      <!-- Stats bar -->
-      <div class="foros-stats-bar anim-fade-up">
-        <div class="foros-stat"><span class="foros-stat-num">2</span><span class="foros-stat-label">ciudades</span></div>
-        <div class="foros-stat"><span class="foros-stat-num">9</span><span class="foros-stat-label">años</span></div>
-        <div class="foros-stat"><span class="foros-stat-num">11</span><span class="foros-stat-label">ediciones</span></div>
-        <div class="foros-stat"><span class="foros-stat-num">+2800</span><span class="foros-stat-label">asistentes</span></div>
-      </div>
-
-      <!-- CTA buttons -->
-      <div class="foros-cta anim-fade-up">
-        <p class="foros-cta-text">Aprende, actualízate y genera networking de valor.</p>
-        <div class="foros-cta-buttons">
-          <a href="comencemos.html" class="foros-btn-mint">Foro Copayment MTY</a>
-          <a href="comencemos.html" class="foros-btn-mint">Foro Copayment CDMX</a>
-        </div>
-      </div>
-
-      <!-- Risk Day -->
-      <div class="risk-day anim-fade-up">
-        <div>
-          <span class="risk-day-tag">Risk Day</span>
-          <h3 class="risk-day-title">¿Estás preparado para los nuevos retos en fraude, ciberseguridad y gestión de riesgos?</h3>
-          <a href="comencemos.html" class="btn-emision-cta">Ver programa</a>
-        </div>
-        <div class="risk-day-badge" aria-hidden="true">
-          <span>RISK</span>
-          <span>DAY</span>
-        </div>
-      </div>
-
-      <!-- Archive: Foros en MTY -->
-      <details class="foros-archive">
-        <summary>Foros en Monterrey</summary>
-        <div class="foros-archive-list">
-          <div class="foros-archive-row">
-            <span class="foros-archive-year">2017</span>
-            <div class="foros-archive-logo" style="background:linear-gradient(135deg,#00327a,#00327a);"></div>
-            <span class="foros-archive-meta">Primera edición · Monterrey</span>
-            <a href="#" class="foros-archive-link">Ver más</a>
+        <a href="novedades/cursos.html" class="nov-hub-card">
+          <div class="nov-hub-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
           </div>
-          <div class="foros-archive-row">
-            <span class="foros-archive-year">2018</span>
-            <div class="foros-archive-logo" style="background:linear-gradient(135deg,#00327a,#00327a);"></div>
-            <span class="foros-archive-meta">Monterrey</span>
-          </div>
-          <div class="foros-archive-row">
-            <span class="foros-archive-year">2019</span>
-            <div class="foros-archive-logo" style="background:linear-gradient(135deg,#00327a,#00acff);"></div>
-            <span class="foros-archive-meta">Monterrey</span>
-          </div>
-          <div class="foros-archive-row">
-            <span class="foros-archive-year">2021</span>
-            <div class="foros-archive-logo" style="background:linear-gradient(135deg,#00327a,#00acff);"></div>
-            <span class="foros-archive-meta">Monterrey</span>
-          </div>
-          <div class="foros-archive-row">
-            <span class="foros-archive-year">2022</span>
-            <div class="foros-archive-logo" style="background:linear-gradient(135deg,#00327a,#00acff);"></div>
-            <span class="foros-archive-meta">Monterrey</span>
-          </div>
-          <div class="foros-archive-row">
-            <span class="foros-archive-year">2023</span>
-            <div class="foros-archive-logo" style="background:linear-gradient(135deg,#00327a,#00acff);"></div>
-            <span class="foros-archive-meta">Monterrey</span>
-          </div>
-          <div class="foros-archive-row">
-            <span class="foros-archive-year">2024</span>
-            <div class="foros-archive-logo" style="background:linear-gradient(135deg,#00327a,#00acff);"></div>
-            <span class="foros-archive-meta">Monterrey</span>
-          </div>
-          <div class="foros-archive-row">
-            <span class="foros-archive-year">2025</span>
-            <div class="foros-archive-logo" style="background:linear-gradient(135deg,#00327a,#00acff); border: 2px solid rgba(0,172,255,.4);"></div>
-            <span class="foros-archive-meta">Monterrey · Edición más reciente</span>
-          </div>
-        </div>
-      </details>
+          <h3 class="nov-hub-title">Capacitación y certificaciones</h3>
+          <p class="nov-hub-desc">Capacitación de alto nivel para quienes mueven el sistema financiero.</p>
+          <span class="nov-hub-link">Ver más →</span>
+        </a>
 
-      <!-- Archive: Foros en CDMX -->
-      <details class="foros-archive">
-        <summary>Foros en CDMX</summary>
-        <div class="foros-archive-list">
-          <div class="foros-archive-row">
-            <span class="foros-archive-year">2024</span>
-            <div class="foros-archive-logo" style="background:linear-gradient(135deg,#00327a,#00acff);"></div>
-            <span class="foros-archive-meta">Ciudad de México</span>
+        <a href="novedades/webinars.html" class="nov-hub-card">
+          <div class="nov-hub-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><polygon points="10 8 16 10 10 12" fill="currentColor" stroke="none"/><polyline points="10 17 8 21 16 21 14 17"/></svg>
           </div>
-          <div class="foros-archive-row">
-            <span class="foros-archive-year">2025</span>
-            <div class="foros-archive-logo" style="background:linear-gradient(135deg,#00327a,#00acff);"></div>
-            <span class="foros-archive-meta">Ciudad de México</span>
-          </div>
-          <div class="foros-archive-row">
-            <span class="foros-archive-year">2026</span>
-            <div class="foros-archive-logo" style="background:linear-gradient(135deg,#00327a,#00acff); border:2px solid rgba(0,172,255,.4);"></div>
-            <span class="foros-archive-meta">Ciudad de México · Próximamente</span>
-          </div>
-        </div>
-      </details>
+          <h3 class="nov-hub-title">Webinars</h3>
+          <p class="nov-hub-desc">Actualízate y aprende desde la comodidad de tu dispositivo.</p>
+          <span class="nov-hub-link">Ver más →</span>
+        </a>
 
-      <!-- Archive: Risk Days -->
-      <details class="foros-archive">
-        <summary>Risk Days</summary>
-        <div class="foros-archive-list">
-          <div class="foros-archive-row">
-            <span class="foros-archive-year">2023</span>
-            <div class="foros-archive-logo" style="background:linear-gradient(135deg,#0d1f3c,#1a4a7a);"></div>
-            <span class="foros-archive-meta">Edición inaugural</span>
+        <a href="novedades/clientes.html" class="nov-hub-card">
+          <div class="nov-hub-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           </div>
-          <div class="foros-archive-row">
-            <span class="foros-archive-year">2024</span>
-            <div class="foros-archive-logo" style="background:linear-gradient(135deg,#00327a,#00327a);"></div>
-            <span class="foros-archive-meta"></span>
-          </div>
-          <div class="foros-archive-row">
-            <span class="foros-archive-year">2025</span>
-            <div class="foros-archive-logo" style="background:linear-gradient(135deg,#00327a,#00acff);"></div>
-            <span class="foros-archive-meta">Edición más reciente</span>
-          </div>
-        </div>
-      </details>
+          <h3 class="nov-hub-title">Clientes</h3>
+          <p class="nov-hub-desc">Ellos confían en nosotros. Equipamos a nuestros clientes con soluciones robustas a la altura del mercado.</p>
+          <span class="nov-hub-link">Ver más →</span>
+        </a>
 
-    </div>
-  </section>
+        <a href="novedades/recursos.html" class="nov-hub-card">
+          <div class="nov-hub-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <h3 class="nov-hub-title">Recursos</h3>
+          <p class="nov-hub-desc">Artículos y guías detalladas para ti.</p>
+          <span class="nov-hub-link">Ver más →</span>
+        </a>
 
-  <!-- CAPACITACIÓN -->
-  <section class="section" id="capacitacion" style="background:var(--light-bg);">
-    <div class="container">
-
-      <div class="cap-head anim-fade-up">
-        <h2 class="cap-title">Capacitación de alto nivel para quienes mueven el sistema financiero</h2>
-        <p class="cap-subtitle">Selecciona la capacitación que tu equipo necesita hoy</p>
-      </div>
-
-      <div class="cap-courses-grid anim-fade-up anim-delay-1">
-        <div class="cap-course-card">
-          <h3 class="cap-course-title">Prevención de fraudes</h3>
-          <p class="cap-course-desc">Regulaciones, prevención de fraude y controles efectivos para proteger tu empresa y clientes.</p>
-          <a href="comencemos.html" class="cap-course-link">Saber más →</a>
-        </div>
-        <div class="cap-course-card">
-          <h3 class="cap-course-title">Generalidades de Medios de Pago</h3>
-          <p class="cap-course-desc">Una visión clara y práctica del ecosistema de pagos, sus operaciones y puntos críticos de riesgo.</p>
-          <a href="comencemos.html" class="cap-course-link">Saber más →</a>
-        </div>
-      </div>
-
-      <div class="cap-learn anim-fade-up">
-        <h2 class="cap-learn-title">Aprende a tu ritmo, cuando quieras y desde donde estés</h2>
-        <p class="cap-learn-sub">Tu decides el formato, desde una hora hasta programas de capacitación continua</p>
-        <a href="comencemos.html" class="btn-emision-cta">Empieza hoy</a>
-      </div>
-
-      <div class="cap-instructors-head anim-fade-up">
-        <p class="cap-instructors-label">Formados en la industria, listos para enseñarte</p>
-      </div>
-      <div class="cap-instructors-grid">
-        <div class="cap-instructor-card anim-fade-up">
-          <div class="cap-instructor-photo" style="background:var(--navy);">PG</div>
-          <div>
-            <strong class="cap-instructor-name">Pedro Gil</strong>
-            <span class="cap-instructor-role">CEO de Copayment</span>
-            <p class="cap-instructor-bio">Más de 35 años de experiencia en medios de pago, liderando áreas de operaciones, fraude y transformación tecnológica en instituciones como PROSA, Banorte y Banregio. Acompaña a instituciones financieras con servicios y consultoría especializada.</p>
-          </div>
-        </div>
-        <div class="cap-instructor-card anim-fade-up anim-delay-1">
-          <div class="cap-instructor-photo" style="background:#1a4a7a;">RG</div>
-          <div>
-            <strong class="cap-instructor-name">Rogelio Garza</strong>
-            <span class="cap-instructor-role">Asesor de Dirección + TI</span>
-            <p class="cap-instructor-bio">Más de 30 años en banca y fintech con Afirme, Banorte y Banpais. Director de Tecnología en Copayment, especialista en medios de pago, infraestructura y transformación digital.</p>
-          </div>
-        </div>
-        <div class="cap-instructor-card anim-fade-up">
-          <div class="cap-instructor-photo" style="background:#2a3a5a;">RC</div>
-          <div>
-            <strong class="cap-instructor-name">Rodolfo Cortez</strong>
-            <span class="cap-instructor-role">Gerente de Prevención de fraudes</span>
-            <p class="cap-instructor-bio">Más de 10 años en instituciones como Citibanamex y BBVA, especializado en prevención de fraudes, cumplimiento normativo y gestión de riesgos en el ecosistema de pagos.</p>
-          </div>
-        </div>
-        <div class="cap-instructor-card anim-fade-up anim-delay-1">
-          <div class="cap-instructor-photo" style="background:#1a3a6a;">JLG</div>
-          <div>
-            <strong class="cap-instructor-name">José Luis García</strong>
-            <span class="cap-instructor-role">Gerente de Cumplimiento</span>
-            <p class="cap-instructor-bio">Especialista en cumplimiento, riesgo y regulaciones del ecosistema de pagos con 10 años de experiencia. Certificado como Payments Risk Expert y líder de la certificación PCI-DSS de Copayment.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="cap-stats anim-fade-up">
-        <div class="cap-stat">
-          <span class="cap-stat-num">+ de 1000</span>
-          <span class="cap-stat-label">profesionales entrenados</span>
-        </div>
-        <div class="cap-stat">
-          <span class="cap-stat-num">+ 10</span>
-          <span class="cap-stat-label">instituciones capacitadas</span>
-        </div>
-      </div>
-
-      <div class="cap-content-text anim-fade-up">
-        <p>Contenidos 100% configurables que se adaptan a tus necesidades operativas, regulatorias y estratégicas.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- EVENTOS -->
-  <section class="section" id="eventos">
-    <div class="container">
-
-      <div class="eventos-head anim-fade-up">
-        <span class="eventos-tag">Webinar Copayment</span>
-        <h2 class="section-title">Aprende de los mejores</h2>
-        <p class="eventos-desc">Actualízate y aprende desde la comodidad tu dispositivo móvil.</p>
-      </div>
-
-      <h3 class="eventos-reasons-title anim-fade-up">¿Por qué asistir a las sesiones?</h3>
-      <div class="eventos-reasons-grid anim-fade-up anim-delay-1">
-        <div class="eventos-reason-card">
-          <div class="eventos-reason-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><circle cx="12" cy="10" r="3"/><polyline points="10 17 8 21 16 21 14 17"/></svg>
-          </div>
-          <p>Capacitación flexible y remota</p>
-        </div>
-        <div class="eventos-reason-card">
-          <div class="eventos-reason-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><circle cx="9" cy="10" r="2.5"/><path d="M15 9h2M15 11h2"/><polyline points="10 17 8 21 16 21 14 17"/></svg>
-          </div>
-          <p>Ponentes expertos en área</p>
-        </div>
-        <div class="eventos-reason-card">
-          <div class="eventos-reason-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><polygon points="10 8 16 10 10 12 10 8"/><polyline points="10 17 8 21 16 21 14 17"/></svg>
-          </div>
-          <p>Eventos gratuitos, previo registro</p>
-        </div>
-        <div class="eventos-reason-card">
-          <div class="eventos-reason-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M12 10v2M12 8h.01"/><polyline points="10 17 8 21 16 21 14 17"/></svg>
-          </div>
-          <p>Resolución de dudas en tiempo real</p>
-        </div>
-      </div>
-
-      <div class="eventos-learn anim-fade-up">
-        <div class="eventos-learn-body">
-          <h3 class="eventos-learn-title">¿Qué voy a aprender?</h3>
-          <ul class="eventos-learn-list">
-            <li>Actualizaciones PCI DSS</li>
-            <li>Regulación CNBV y Fintech</li>
-            <li>Estrategias de seguridad</li>
-            <li>Nuevas Tecnologías de Cobro</li>
-          </ul>
-          <p class="eventos-cta-label">¡Nos vemos en el próximo webinar!</p>
-          <a href="comencemos.html" class="btn-emision-cta">Registrarme</a>
-        </div>
-        <div class="eventos-vcall" aria-hidden="true">
-          <div class="eventos-vcall-tile eventos-vcall-tile--main">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-          </div>
-          <div class="eventos-vcall-tile">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-          </div>
-          <div class="eventos-vcall-tile">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-          </div>
-          <div class="eventos-vcall-tile">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-          </div>
-          <div class="eventos-vcall-tile eventos-vcall-tile--active">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-          </div>
-          <div class="eventos-vcall-tile">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-          </div>
-        </div>
-      </div>
-
-      <!-- Featured webinar -->
-      <div class="eventos-featured anim-fade-up">
-        <div class="eventos-featured-left">
-          <div class="eventos-featured-arrow">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3" fill="currentColor" stroke="none"/></svg>
-          </div>
-          <div>
-            <span class="eventos-featured-badge">Webinar</span>
-            <h3 class="eventos-featured-title">Time to Market</h3>
-            <p class="eventos-featured-sub">sin fricción en medios de pago</p>
-          </div>
-        </div>
-        <div class="eventos-featured-speaker">
-          <div class="eventos-featured-photo"></div>
-          <div>
-            <strong>Pedro Gil</strong>
-            <span>CEO de Copayment</span>
-            <time>Miércoles 25 de marzo, 11:00 hrs</time>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CLIENTES -->
-  <section class="section" id="clientes" style="background:var(--navy);">
-    <div class="container">
-      <div class="clientes-head anim-fade-up">
-        <span class="clientes-tag" style="color:#00acff;background:rgba(0,172,255,.12);">Clientes Copayment</span>
-        <h2 class="section-title" style="color:#fff;">Ellos confían en nosotros</h2>
-        <p class="clientes-desc" style="color:rgba(255,255,255,.6);">Equipamos a nuestros clientes con soluciones robustas a la altura de los estándares de seguridad y volumen que exige el mercado actual.</p>
-      </div>
-      <h3 class="clientes-testi-title anim-fade-up" style="color:#fff;">Lo que dicen nuestros clientes</h3>
-      <div class="clientes-testi-grid anim-fade-up anim-delay-1">
-        <blockquote class="clientes-testi-card">
-          <p>"La integración con Copayment redujo nuestros tiempos de implementación a la mitad. Su equipo técnico conoce el ecosistema de pagos mexicano mejor que nadie."</p>
-          <footer>
-            <strong>Luis Lozano</strong>
-            <span>CEO MTY</span>
-            <span>Crediclub</span>
-          </footer>
-        </blockquote>
-        <blockquote class="clientes-testi-card">
-          <p>"Llevamos tres años operando con Copayment sin un solo incidente que haya afectado a nuestros tarjetahabientes. La disponibilidad es real, no solo un número en el contrato."</p>
-          <footer>
-            <strong>Luis Lozano</strong>
-            <span>CEO MTY</span>
-            <span>Espiralapp</span>
-          </footer>
-        </blockquote>
-        <blockquote class="clientes-testi-card">
-          <p>"El módulo de prevención de fraude de Copayment detectó patrones que nuestra herramienta anterior no vio. El ROI se vio en los primeros 90 días."</p>
-          <footer>
-            <strong>Luis Lozano</strong>
-            <span>CEO MTY</span>
-            <span>Liverpool</span>
-          </footer>
-        </blockquote>
-      </div>
-      <div class="clientes-statement anim-fade-up" style="border-color:rgba(255,255,255,.1);">
-        <p style="color:rgba(255,255,255,.8);">Instituciones bancarias, plataformas Fintech y grandes cadenas de retail ya confían en nosotros.</p>
-      </div>
-      <div class="clientes-tagline anim-fade-up">
-        <p style="color:rgba(255,255,255,.45);">Transformamos la forma en la que el mundo paga.</p>
       </div>
     </div>
   </section>
 
-  <!-- RECURSOS -->
-  <section class="section" id="recursos">
-    <div class="container">
-      <div class="recursos-articles">
-        <div class="recursos-articles-head anim-fade-up">
-          <h2 class="recursos-articles-title">Aún hay más</h2>
-          <p class="recursos-articles-sub">Artículos y guías detalladas para ti.</p>
-        </div>
-        <div class="recursos-articles-grid">
-          <a href="comencemos.html" class="recurso-article anim-fade-up">
-            <div class="recurso-article-img" style="background:linear-gradient(135deg,#1a2940 0%,#0a3d6b 100%);">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 12 17 16 21"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
-            </div>
-            <div class="recurso-article-title">Detectar correos de Phishing</div>
-          </a>
-          <a href="comencemos.html" class="recurso-article anim-fade-up anim-delay-1">
-            <div class="recurso-article-img" style="background:linear-gradient(135deg,#1e4d3a 0%,#2d8a60 100%);">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
-            </div>
-            <div class="recurso-article-title">¿Debería aceptar pago con tarjeta?</div>
-          </a>
-          <a href="comencemos.html" class="recurso-article anim-fade-up anim-delay-2">
-            <div class="recurso-article-img" style="background:linear-gradient(135deg,#c85a00 0%,#f47f20 100%);">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-            </div>
-            <div class="recurso-article-title">Panorama Fintech en México</div>
-          </a>
-          <a href="comencemos.html" class="recurso-article anim-fade-up anim-delay-3">
-            <div class="recurso-article-img" style="background:linear-gradient(135deg,#00327a 0%,#00acff 100%);">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <div class="recurso-article-title">Cómo proteger tus transacciones</div>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
+  <!-- ¿HABLAMOS? -->
   <section class="cta-section">
     <div class="container">
       <h2>¿Hablamos?</h2>
@@ -838,10 +321,11 @@
         </div>
         <div class="footer-col">
           <h4>Novedades</h4>
-          <a href="novedades.html#foros" class="footer-link">Foros</a>
-          <a href="novedades.html#capacitacion" class="footer-link">Capacitación y certificaciones</a>
-          <a href="novedades.html#eventos" class="footer-link">Eventos</a>
-          <a href="novedades.html#recursos" class="footer-link">Recursos</a>
+          <a href="novedades/foros.html" class="footer-link">Foros</a>
+          <a href="novedades/cursos.html" class="footer-link">Capacitación y certificaciones</a>
+          <a href="novedades/webinars.html" class="footer-link">Webinars</a>
+          <a href="novedades/clientes.html" class="footer-link">Clientes</a>
+          <a href="novedades/recursos.html" class="footer-link">Recursos</a>
         </div>
         <div class="footer-col">
           <h4>Mapa del sitio</h4>

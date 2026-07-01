@@ -5402,3 +5402,63 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
 /* ── adq-dash: mini ops dashboard SVG (adquirencia.html GOE) ── */
 .adq-dash-wrap { max-width:620px; margin:0 auto; }
 .adq-dash-wrap svg { display:block; width:100%; }
+
+/* ══════════════════════════════════════════════
+   NOVEDADES HUB (novedades.html)
+══════════════════════════════════════════════ */
+.nov-hub-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+@media (max-width: 900px) { .nov-hub-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 540px) { .nov-hub-grid { grid-template-columns: 1fr; } }
+
+.nov-hub-card {
+  display: flex;
+  flex-direction: column;
+  gap: .85rem;
+  padding: 2rem 1.75rem;
+  background: rgba(255,255,255,.05);
+  border: 1.5px solid rgba(255,255,255,.1);
+  border-radius: 16px;
+  text-decoration: none;
+  transition: background .2s, border-color .2s, transform .25s;
+}
+.nov-hub-card:hover {
+  background: rgba(0,172,255,.08);
+  border-color: rgba(0,172,255,.35);
+  transform: translateY(-4px);
+}
+.nov-hub-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,172,255,.12);
+  border-radius: 12px;
+  color: #00acff;
+  flex-shrink: 0;
+}
+.nov-hub-icon svg { width: 22px; height: 22px; }
+.nov-hub-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+.nov-hub-desc {
+  font-size: .92rem;
+  color: rgba(255,255,255,.6);
+  line-height: 1.65;
+  flex: 1;
+  margin: 0;
+}
+.nov-hub-link {
+  font-size: .875rem;
+  font-weight: 600;
+  color: #00acff;
+  margin-top: .25rem;
+}
