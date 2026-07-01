@@ -15,6 +15,9 @@
     .em-flow-line { animation: dashFlow 1.4s linear infinite; }
     .em-pq-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-bottom:2rem; }
     @media(max-width:640px){ .em-pq-grid { grid-template-columns:1fr 1fr; } }
+    @media(max-width:860px){ .em-hero-below-grid { grid-template-columns:1fr !important; } .em-hero-orbit { display:none; } }
+    @media(max-width:860px){ .em-ciclo-2col { grid-template-columns:1fr !important; } }
+    @media(max-width:640px){ .em-prod-cards { grid-template-columns:1fr !important; } }
   </style>
 </head>
 <body>
@@ -128,6 +131,113 @@
     </div>
   </section>
 
+  <!-- HERO-BELOW: subtitle + stats + CTA left / orbit diagram right -->
+  <section style="background:#fff;padding:2.5rem 0 2.25rem;border-bottom:1px solid rgba(0,50,122,.08);">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;" class="em-hero-below-grid">
+        <div class="anim-fade-up">
+          <p style="color:var(--navy);font-size:1.1rem;max-width:600px;line-height:1.7;margin:0 0 1.75rem;font-family:'Montserrat',sans-serif;">Tanto si eres una fintech que quiere lanzar rápido su programa de tarjetas, como una institución que necesita modernizar su operación, tenemos la infraestructura y el acompañamiento para hacerlo posible.</p>
+          <div class="qs-hero-stats qs-stats-dark" style="margin-top:0;">
+            <div class="qs-hero-stat">
+              <span class="qs-hero-stat-num qs-hero-stat-num--orange">24/7</span>
+              <span class="qs-hero-stat-label">Soporte con tiempo de respuesta garantizado</span>
+            </div>
+            <div class="qs-hero-stat">
+              <span class="qs-hero-stat-num qs-hero-stat-num--blue">100%</span>
+              <span class="qs-hero-stat-label">Implementación acompañada paso a paso</span>
+            </div>
+          </div>
+          <div style="margin-top:1.5rem;">
+            <a href="../comencemos.html" class="btn-nav-cta" style="display:inline-flex;align-items:center;gap:.5rem;">Comencemos <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+        </div>
+        <div class="em-hero-orbit anim-fade-up" aria-hidden="true" style="aspect-ratio:480/450;max-width:520px;margin:0 auto;">
+          <svg viewBox="90 10 480 450" width="100%" height="100%">
+            <defs>
+              <filter id="emNodeSh2" x="-60%" y="-60%" width="220%" height="220%">
+                <feDropShadow dx="0" dy="3" stdDeviation="7" flood-color="#00327a" flood-opacity=".11"/>
+              </filter>
+            </defs>
+            <g>
+              <animateTransform attributeName="transform" type="rotate" values="0 330 220;360 330 220" dur="40s" repeatCount="indefinite"/>
+              <line class="em-flow-line" x1="330" y1="220" x2="410" y2="81" stroke="#f47f20" stroke-width="1.5" stroke-dasharray="6 5" opacity=".5"/>
+              <line class="em-flow-line" x1="330" y1="220" x2="490" y2="220" stroke="#00acff" stroke-width="1.5" stroke-dasharray="6 5" opacity=".5"/>
+              <line class="em-flow-line" x1="330" y1="220" x2="410" y2="359" stroke="#0fb567" stroke-width="1.5" stroke-dasharray="6 5" opacity=".5"/>
+              <line class="em-flow-line" x1="330" y1="220" x2="250" y2="359" stroke="#f47f20" stroke-width="1.5" stroke-dasharray="6 5" opacity=".5"/>
+              <line class="em-flow-line" x1="330" y1="220" x2="170" y2="220" stroke="#00acff" stroke-width="1.5" stroke-dasharray="6 5" opacity=".5"/>
+              <line class="em-flow-line" x1="330" y1="220" x2="250" y2="81" stroke="#0fb567" stroke-width="1.5" stroke-dasharray="6 5" opacity=".5"/>
+              <circle cx="370" cy="150" r="3.5" fill="none" stroke="#f47f20" stroke-width="1.4" opacity=".5"/>
+              <circle cx="410" cy="220" r="3.5" fill="none" stroke="#00acff" stroke-width="1.4" opacity=".5"/>
+              <circle cx="370" cy="290" r="3.5" fill="none" stroke="#0fb567" stroke-width="1.4" opacity=".5"/>
+              <circle cx="290" cy="290" r="3.5" fill="none" stroke="#f47f20" stroke-width="1.4" opacity=".5"/>
+              <circle cx="250" cy="220" r="3.5" fill="none" stroke="#00acff" stroke-width="1.4" opacity=".5"/>
+              <circle cx="290" cy="150" r="3.5" fill="none" stroke="#0fb567" stroke-width="1.4" opacity=".5"/>
+              <g transform="translate(410,81)">
+                <animateTransform attributeName="transform" type="rotate" values="0 0 0;-360 0 0" dur="40s" repeatCount="indefinite" additive="sum"/>
+                <circle cx="0" cy="0" r="28" fill="#fff" stroke="#f47f20" stroke-width="2.5" filter="url(#emNodeSh2)"/>
+                <rect x="-9" y="-11" width="18" height="11" rx="1.5" fill="none" stroke="#f47f20" stroke-width="1.8"/>
+                <line x1="-9" y1="-7" x2="9" y2="-7" stroke="#f47f20" stroke-width="1.3" opacity=".6"/>
+                <rect x="-6" y="-5" width="5" height="2.5" rx=".5" fill="#f47f20" opacity=".7"/>
+                <text text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8.5" font-weight="700" fill="#00327a">
+                  <tspan x="0" y="42">Emisión de tarjetas</tspan><tspan x="0" dy="11">físicas y virtuales</tspan>
+                </text>
+              </g>
+              <g transform="translate(490,220)">
+                <animateTransform attributeName="transform" type="rotate" values="0 0 0;-360 0 0" dur="40s" repeatCount="indefinite" additive="sum"/>
+                <circle cx="0" cy="0" r="28" fill="#fff" stroke="#00acff" stroke-width="2.5" filter="url(#emNodeSh2)"/>
+                <path d="M-7 -11l-5 6 5 6" stroke="#00acff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M7 -11l5 6-5 6" stroke="#00acff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="-2" y1="-3" x2="2" y2="-9" stroke="#00acff" stroke-width="1.5" stroke-linecap="round" opacity=".65"/>
+                <text text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8.5" font-weight="700" fill="#00327a">
+                  <tspan x="0" y="42">APIs para ágil</tspan><tspan x="0" dy="11">integración</tspan>
+                </text>
+              </g>
+              <g transform="translate(410,359)">
+                <animateTransform attributeName="transform" type="rotate" values="0 0 0;-360 0 0" dur="40s" repeatCount="indefinite" additive="sum"/>
+                <circle cx="0" cy="0" r="28" fill="#fff" stroke="#0fb567" stroke-width="2.5" filter="url(#emNodeSh2)"/>
+                <path d="M0 -14l9 3.5v6.5c0 5-3.5 8.5-9 11-5.5-2.5-9-6-9-11V-10.5z" fill="none" stroke="#0fb567" stroke-width="1.8" stroke-linejoin="round"/>
+                <line x1="0" y1="-8" x2="0" y2="-2" stroke="#0fb567" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="0" cy="1" r="1.5" fill="#0fb567"/>
+                <text text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8.5" font-weight="700" fill="#00327a">
+                  <tspan x="0" y="42">Gestión de riesgo</tspan><tspan x="0" dy="11">antifraude</tspan>
+                </text>
+              </g>
+              <g transform="translate(250,359)">
+                <animateTransform attributeName="transform" type="rotate" values="0 0 0;-360 0 0" dur="40s" repeatCount="indefinite" additive="sum"/>
+                <circle cx="0" cy="0" r="28" fill="#fff" stroke="#f47f20" stroke-width="2.5" filter="url(#emNodeSh2)"/>
+                <rect x="-12" y="-8" width="24" height="15" rx="2" fill="none" stroke="#f47f20" stroke-width="1.8"/>
+                <path d="M-12 -4l12 8 12-8" stroke="#f47f20" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <text text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8.5" font-weight="700" fill="#00327a">
+                  <tspan x="0" y="42">Mensajería</tspan><tspan x="0" dy="11">ISO 8583</tspan>
+                </text>
+              </g>
+              <g transform="translate(170,220)">
+                <animateTransform attributeName="transform" type="rotate" values="0 0 0;-360 0 0" dur="40s" repeatCount="indefinite" additive="sum"/>
+                <circle cx="0" cy="0" r="28" fill="#fff" stroke="#00acff" stroke-width="2.5" filter="url(#emNodeSh2)"/>
+                <circle cx="0" cy="-7" r="5" fill="none" stroke="#00acff" stroke-width="1.8"/>
+                <path d="M-9 8v-1c0-4 4-6.5 9-6.5s9 2.5 9 6.5v1" fill="none" stroke="#00acff" stroke-width="1.8" stroke-linecap="round"/>
+                <text text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8.5" font-weight="700" fill="#00327a">
+                  <tspan x="0" y="42">Acompañamiento</tspan><tspan x="0" dy="11">y capacitación</tspan>
+                </text>
+              </g>
+              <g transform="translate(250,81)">
+                <animateTransform attributeName="transform" type="rotate" values="0 0 0;-360 0 0" dur="40s" repeatCount="indefinite" additive="sum"/>
+                <circle cx="0" cy="0" r="28" fill="#fff" stroke="#0fb567" stroke-width="2.5" filter="url(#emNodeSh2)"/>
+                <path d="M0 -14l9 3.5v6.5c0 5-3.5 8.5-9 11-5.5-2.5-9-6-9-11V-10.5z" fill="none" stroke="#0fb567" stroke-width="1.8" stroke-linejoin="round"/>
+                <path d="M-6 -2l3 3.5 7-7" stroke="#0fb567" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <text text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8.5" font-weight="700" fill="#00327a">
+                  <tspan x="0" y="42">Cumplimiento</tspan><tspan x="0" dy="11">regulatorio</tspan>
+                </text>
+              </g>
+            </g>
+            <circle cx="330" cy="220" r="48" fill="#fff" filter="url(#emNodeSh2)"/>
+            <image href="../assets/logo-icon.svg" x="305" y="195" width="50" height="50"/>
+            <text x="330" y="282" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11.5" font-weight="700" fill="#00327a">Copayment</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- SERVICIOS -->
   <section class="section" id="servicios" style="background:#fff;padding-top:24px;">
@@ -137,128 +247,10 @@
           <div id="emision" class="emision-section">
 
 
-            <!-- 6 capabilities: hub-spoke orbit diagram (animated) -->
-            <div class="proc-flow-diagram anim-fade-up" style="aspect-ratio:480/450;margin:1.5rem auto 2rem;max-width:680px;" aria-hidden="true">
-              <svg viewBox="90 10 480 450" width="100%" height="100%">
-                <defs>
-                  <filter id="emNodeSh" x="-60%" y="-60%" width="220%" height="220%">
-                    <feDropShadow dx="0" dy="3" stdDeviation="7" flood-color="#00327a" flood-opacity=".11"/>
-                  </filter>
-                </defs>
-
-                <!-- Orbit group: rotates around hub center (330,220) -->
-                <g>
-                  <animateTransform attributeName="transform" type="rotate"
-                    values="0 330 220;360 330 220" dur="40s" repeatCount="indefinite"/>
-
-                  <!-- Connectors from hub center to each node -->
-                  <line class="em-flow-line" x1="330" y1="220" x2="410" y2="81" stroke="#f47f20" stroke-width="1.5" stroke-dasharray="6 5" opacity=".5"/>
-                  <line class="em-flow-line" x1="330" y1="220" x2="490" y2="220" stroke="#00acff" stroke-width="1.5" stroke-dasharray="6 5" opacity=".5"/>
-                  <line class="em-flow-line" x1="330" y1="220" x2="410" y2="359" stroke="#0fb567" stroke-width="1.5" stroke-dasharray="6 5" opacity=".5"/>
-                  <line class="em-flow-line" x1="330" y1="220" x2="250" y2="359" stroke="#f47f20" stroke-width="1.5" stroke-dasharray="6 5" opacity=".5"/>
-                  <line class="em-flow-line" x1="330" y1="220" x2="170" y2="220" stroke="#00acff" stroke-width="1.5" stroke-dasharray="6 5" opacity=".5"/>
-                  <line class="em-flow-line" x1="330" y1="220" x2="250" y2="81" stroke="#0fb567" stroke-width="1.5" stroke-dasharray="6 5" opacity=".5"/>
-
-                  <!-- Midpoint markers -->
-                  <circle cx="370" cy="150" r="3.5" fill="none" stroke="#f47f20" stroke-width="1.4" opacity=".5"/>
-                  <circle cx="410" cy="220" r="3.5" fill="none" stroke="#00acff" stroke-width="1.4" opacity=".5"/>
-                  <circle cx="370" cy="290" r="3.5" fill="none" stroke="#0fb567" stroke-width="1.4" opacity=".5"/>
-                  <circle cx="290" cy="290" r="3.5" fill="none" stroke="#f47f20" stroke-width="1.4" opacity=".5"/>
-                  <circle cx="250" cy="220" r="3.5" fill="none" stroke="#00acff" stroke-width="1.4" opacity=".5"/>
-                  <circle cx="290" cy="150" r="3.5" fill="none" stroke="#0fb567" stroke-width="1.4" opacity=".5"/>
-
-                  <!-- Node 1: Upper right (410,81) — ORANGE -->
-                  <g transform="translate(410,81)">
-                    <animateTransform attributeName="transform" type="rotate"
-                      values="0 0 0;-360 0 0" dur="40s" repeatCount="indefinite" additive="sum"/>
-                    <circle cx="0" cy="0" r="28" fill="#fff" stroke="#f47f20" stroke-width="2.5" filter="url(#emNodeSh)"/>
-                    <rect x="-9" y="-11" width="18" height="11" rx="1.5" fill="none" stroke="#f47f20" stroke-width="1.8"/>
-                    <line x1="-9" y1="-7" x2="9" y2="-7" stroke="#f47f20" stroke-width="1.3" opacity=".6"/>
-                    <rect x="-6" y="-5" width="5" height="2.5" rx=".5" fill="#f47f20" opacity=".7"/>
-                    <text text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8.5" font-weight="700" fill="#00327a">
-                      <tspan x="0" y="42">Emisión de tarjetas</tspan><tspan x="0" dy="11">físicas y virtuales</tspan>
-                    </text>
-                  </g>
-
-                  <!-- Node 2: Right (490,220) — BLUE -->
-                  <g transform="translate(490,220)">
-                    <animateTransform attributeName="transform" type="rotate"
-                      values="0 0 0;-360 0 0" dur="40s" repeatCount="indefinite" additive="sum"/>
-                    <circle cx="0" cy="0" r="28" fill="#fff" stroke="#00acff" stroke-width="2.5" filter="url(#emNodeSh)"/>
-                    <path d="M-7 -11l-5 6 5 6" stroke="#00acff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M7 -11l5 6-5 6" stroke="#00acff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                    <line x1="-2" y1="-3" x2="2" y2="-9" stroke="#00acff" stroke-width="1.5" stroke-linecap="round" opacity=".65"/>
-                    <text text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8.5" font-weight="700" fill="#00327a">
-                      <tspan x="0" y="42">APIs para ágil</tspan><tspan x="0" dy="11">integración</tspan>
-                    </text>
-                  </g>
-
-                  <!-- Node 3: Lower right (410,359) — GREEN -->
-                  <g transform="translate(410,359)">
-                    <animateTransform attributeName="transform" type="rotate"
-                      values="0 0 0;-360 0 0" dur="40s" repeatCount="indefinite" additive="sum"/>
-                    <circle cx="0" cy="0" r="28" fill="#fff" stroke="#0fb567" stroke-width="2.5" filter="url(#emNodeSh)"/>
-                    <path d="M0 -14l9 3.5v6.5c0 5-3.5 8.5-9 11-5.5-2.5-9-6-9-11V-10.5z" fill="none" stroke="#0fb567" stroke-width="1.8" stroke-linejoin="round"/>
-                    <line x1="0" y1="-8" x2="0" y2="-2" stroke="#0fb567" stroke-width="2" stroke-linecap="round"/>
-                    <circle cx="0" cy="1" r="1.5" fill="#0fb567"/>
-                    <text text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8.5" font-weight="700" fill="#00327a">
-                      <tspan x="0" y="42">Gestión de riesgo</tspan><tspan x="0" dy="11">antifraude</tspan>
-                    </text>
-                  </g>
-
-                  <!-- Node 4: Lower left (250,359) — ORANGE -->
-                  <g transform="translate(250,359)">
-                    <animateTransform attributeName="transform" type="rotate"
-                      values="0 0 0;-360 0 0" dur="40s" repeatCount="indefinite" additive="sum"/>
-                    <circle cx="0" cy="0" r="28" fill="#fff" stroke="#f47f20" stroke-width="2.5" filter="url(#emNodeSh)"/>
-                    <rect x="-12" y="-8" width="24" height="15" rx="2" fill="none" stroke="#f47f20" stroke-width="1.8"/>
-                    <path d="M-12 -4l12 8 12-8" stroke="#f47f20" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                    <text text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8.5" font-weight="700" fill="#00327a">
-                      <tspan x="0" y="42">Mensajería</tspan><tspan x="0" dy="11">ISO 8583</tspan>
-                    </text>
-                  </g>
-
-                  <!-- Node 5: Left (170,220) — BLUE -->
-                  <g transform="translate(170,220)">
-                    <animateTransform attributeName="transform" type="rotate"
-                      values="0 0 0;-360 0 0" dur="40s" repeatCount="indefinite" additive="sum"/>
-                    <circle cx="0" cy="0" r="28" fill="#fff" stroke="#00acff" stroke-width="2.5" filter="url(#emNodeSh)"/>
-                    <circle cx="0" cy="-7" r="5" fill="none" stroke="#00acff" stroke-width="1.8"/>
-                    <path d="M-9 8v-1c0-4 4-6.5 9-6.5s9 2.5 9 6.5v1" fill="none" stroke="#00acff" stroke-width="1.8" stroke-linecap="round"/>
-                    <text text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8.5" font-weight="700" fill="#00327a">
-                      <tspan x="0" y="42">Acompañamiento</tspan><tspan x="0" dy="11">y capacitación</tspan>
-                    </text>
-                  </g>
-
-                  <!-- Node 6: Upper left (250,81) — GREEN -->
-                  <g transform="translate(250,81)">
-                    <animateTransform attributeName="transform" type="rotate"
-                      values="0 0 0;-360 0 0" dur="40s" repeatCount="indefinite" additive="sum"/>
-                    <circle cx="0" cy="0" r="28" fill="#fff" stroke="#0fb567" stroke-width="2.5" filter="url(#emNodeSh)"/>
-                    <path d="M0 -14l9 3.5v6.5c0 5-3.5 8.5-9 11-5.5-2.5-9-6-9-11V-10.5z" fill="none" stroke="#0fb567" stroke-width="1.8" stroke-linejoin="round"/>
-                    <path d="M-6 -2l3 3.5 7-7" stroke="#0fb567" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                    <text text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8.5" font-weight="700" fill="#00327a">
-                      <tspan x="0" y="42">Cumplimiento</tspan><tspan x="0" dy="11">regulatorio</tspan>
-                    </text>
-                  </g>
-                </g>
-
-                <!-- Hub: Copayment (static, renders on top) -->
-                <circle cx="330" cy="220" r="48" fill="#fff" filter="url(#emNodeSh)"/>
-                <image href="../assets/logo-icon.svg" x="305" y="195" width="50" height="50"/>
-                <text x="330" y="282" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11.5" font-weight="700" fill="#00327a">Copayment</text>
-              </svg>
-            </div>
-
-            <!-- Network logos -->
-            <div class="anim-fade-up" style="text-align:center;padding:2rem 0 1.5rem;border-top:1px solid rgba(0,50,122,.08);margin-top:1.5rem;">
-              <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:var(--navy);margin:0 0 1.5rem;">Conéctate a una red que ya está donde tú necesitas estar</p>
-              <div style="display:flex;align-items:center;justify-content:center;gap:2.5rem;flex-wrap:wrap;">
-                <img src="../assets/visa.svg" alt="Visa" style="height:28px;object-fit:contain;filter:grayscale(1);opacity:.65;">
-                <img src="../assets/mastercard.svg" alt="Mastercard" style="height:36px;object-fit:contain;filter:grayscale(1);opacity:.65;">
-                <img src="../assets/carnet.svg" alt="CARNET" style="height:28px;object-fit:contain;filter:grayscale(1);opacity:.65;">
-                <img src="../assets/discover.svg" alt="Discover" style="height:28px;object-fit:contain;filter:grayscale(1);opacity:.65;">
-              </div>
+            <!-- Una infraestructura conectada, certificada y lista para operar -->
+            <div class="anim-fade-up" style="padding:2rem 0 2.5rem;border-bottom:1px solid rgba(0,50,122,.08);margin-bottom:2rem;">
+              <h2 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(1.6rem,3vw,2.2rem);color:var(--navy);margin:0 0 1.25rem;line-height:1.3;">Una infraestructura conectada, certificada y lista para operar</h2>
+              <p style="color:var(--silver);font-size:1rem;line-height:1.7;max-width:720px;margin:0;">Ya no tienes que construir desde cero. Cualquier institución puede emitir y procesar tarjetas de forma inmediata, sin los costos, tiempos y riesgos que implica hacerlo solo.</p>
             </div>
 
             <!-- ¿Para quiénes? — gradient cards -->
@@ -308,116 +300,119 @@
                   <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.85rem;color:#00327a;line-height:1.4;">Programas de beneficios</span>
                 </div>
               </div>
-              <div style="text-align:center;margin-top:1.75rem;">
-                <a href="../comencemos.html" class="btn-nav-cta" style="display:inline-flex;align-items:center;gap:.5rem;">Comencemos <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-              </div>
             </div>
 
-            <!-- Ciclo de vida — vertical stepper -->
+            <!-- Ciclo de vida — 2-column -->
             <div style="padding:3rem 0 1rem;">
               <h4 class="proc-flow-title" style="text-align:center;margin-bottom:2.5rem;">Administración del ciclo de vida de las tarjetas</h4>
-              <div class="em-stepper">
-                <div class="em-step">
-                  <div class="em-step-aside">
-                    <div class="em-step-num">1</div>
-                    <div class="em-step-connector"></div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;" class="em-ciclo-2col">
+                <div>
+                  <div class="em-stepper">
+                    <div class="em-step">
+                      <div class="em-step-aside">
+                        <div class="em-step-num">1</div>
+                        <div class="em-step-connector"></div>
+                      </div>
+                      <div class="em-step-content anim-fade-up" style="transition-delay:.05s">
+                        <div class="em-step-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none"><rect x="7" y="4" width="10" height="16" rx="3" fill="rgba(0,172,255,.15)" stroke="#00acff" stroke-width="1.8"/><circle cx="12" cy="15" r="1.5" fill="#00acff"/><rect x="9" y="7" width="6" height="3.5" rx="1" fill="rgba(0,172,255,.4)"/></svg></div>
+                        <div>
+                          <div class="em-step-label">Validación NIP</div>
+                          <div class="em-step-desc">Verificación segura del número de identificación personal</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="em-step">
+                      <div class="em-step-aside">
+                        <div class="em-step-num">2</div>
+                        <div class="em-step-connector"></div>
+                      </div>
+                      <div class="em-step-content anim-fade-up" style="transition-delay:.1s">
+                        <div class="em-step-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none"><path d="M12 4a8 8 0 1 1 0 16A8 8 0 0 1 12 4z" fill="rgba(244,127,32,.12)" stroke="#f47f20" stroke-width="1.8"/><path d="M9 10a3 3 0 0 1 6 0" stroke="#f47f20" stroke-width="1.8" stroke-linecap="round"/><path d="M15 14a3 3 0 0 1-6 0" stroke="#f47f20" stroke-width="1.8" stroke-linecap="round"/><path d="M15.5 9l1.5-1.5M8.5 15l-1.5 1.5" stroke="#f47f20" stroke-width="1.5" stroke-linecap="round" opacity=".6"/></svg></div>
+                        <div>
+                          <div class="em-step-label">Cambio NIP</div>
+                          <div class="em-step-desc">Actualización de NIP de forma segura a través de canales certificados</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="em-step">
+                      <div class="em-step-aside">
+                        <div class="em-step-num">3</div>
+                        <div class="em-step-connector"></div>
+                      </div>
+                      <div class="em-step-content anim-fade-up" style="transition-delay:.15s">
+                        <div class="em-step-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none"><rect x="5" y="3" width="14" height="18" rx="3" fill="rgba(6,142,80,.15)" stroke="#068e50" stroke-width="1.8"/><circle cx="12" cy="16" r="1.5" fill="#068e50"/><path d="M9 7h6M9 10h4" stroke="#068e50" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+                        <div>
+                          <div class="em-step-label">Tarjeta virtual con CVV dinámico</div>
+                          <div class="em-step-desc">Emisión de tarjetas digitales con código de seguridad renovable</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="em-step">
+                      <div class="em-step-aside">
+                        <div class="em-step-num">4</div>
+                        <div class="em-step-connector"></div>
+                      </div>
+                      <div class="em-step-content anim-fade-up" style="transition-delay:.2s">
+                        <div class="em-step-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none"><rect x="3" y="7" width="18" height="13" rx="3" fill="rgba(0,172,255,.15)" stroke="#00acff" stroke-width="1.8"/><path d="M3 11h18" stroke="#00acff" stroke-width="1.8"/><rect x="6" y="14" width="4" height="3" rx="1" fill="rgba(0,172,255,.5)"/></svg></div>
+                        <div>
+                          <div class="em-step-label">Personalización de plásticos</div>
+                          <div class="em-step-desc">Diseño y fabricación de tarjetas físicas con identidad de marca</div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="em-step-content anim-fade-up" style="transition-delay:.05s">
-                    <div class="em-step-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none"><rect x="7" y="4" width="10" height="16" rx="3" fill="rgba(0,172,255,.15)" stroke="#00acff" stroke-width="1.8"/><circle cx="12" cy="15" r="1.5" fill="#00acff"/><rect x="9" y="7" width="6" height="3.5" rx="1" fill="rgba(0,172,255,.4)"/></svg></div>
-                    <div>
-                      <div class="em-step-label">Validación NIP</div>
-                      <div class="em-step-desc">Verificación segura del número de identificación personal</div>
+                  <div class="emision-lifecycle" style="border-top:none;padding-top:0;margin-top:1.5rem;">
+                    <p class="emision-lifecycle-sub" style="text-align:center;color:#666;">Validación del NIP, Cambio de NIP, Tarjetas virtuales con cvv dinámico.</p>
+                    <div style="text-align:center;">
+                      <button class="btn-emision-saber" aria-expanded="false" id="emisionSaberMas">
+                        <span class="emision-saber-text">Saber más</span>
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                      </button>
                     </div>
                   </div>
                 </div>
-                <div class="em-step">
-                  <div class="em-step-aside">
-                    <div class="em-step-num">2</div>
-                    <div class="em-step-connector"></div>
-                  </div>
-                  <div class="em-step-content anim-fade-up" style="transition-delay:.1s">
-                    <div class="em-step-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none"><path d="M12 4a8 8 0 1 1 0 16A8 8 0 0 1 12 4z" fill="rgba(244,127,32,.12)" stroke="#f47f20" stroke-width="1.8"/><path d="M9 10a3 3 0 0 1 6 0" stroke="#f47f20" stroke-width="1.8" stroke-linecap="round"/><path d="M15 14a3 3 0 0 1-6 0" stroke="#f47f20" stroke-width="1.8" stroke-linecap="round"/><path d="M15.5 9l1.5-1.5M8.5 15l-1.5 1.5" stroke="#f47f20" stroke-width="1.5" stroke-linecap="round" opacity=".6"/></svg></div>
-                    <div>
-                      <div class="em-step-label">Cambio NIP</div>
-                      <div class="em-step-desc">Actualización de NIP de forma segura a través de canales certificados</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="em-step">
-                  <div class="em-step-aside">
-                    <div class="em-step-num">3</div>
-                    <div class="em-step-connector"></div>
-                  </div>
-                  <div class="em-step-content anim-fade-up" style="transition-delay:.15s">
-                    <div class="em-step-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none"><rect x="5" y="3" width="14" height="18" rx="3" fill="rgba(6,142,80,.15)" stroke="#068e50" stroke-width="1.8"/><circle cx="12" cy="16" r="1.5" fill="#068e50"/><path d="M9 7h6M9 10h4" stroke="#068e50" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-                    <div>
-                      <div class="em-step-label">Tarjeta virtual con CVV dinámico</div>
-                      <div class="em-step-desc">Emisión de tarjetas digitales con código de seguridad renovable</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="em-step">
-                  <div class="em-step-aside">
-                    <div class="em-step-num">4</div>
-                    <div class="em-step-connector"></div>
-                  </div>
-                  <div class="em-step-content anim-fade-up" style="transition-delay:.2s">
-                    <div class="em-step-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none"><rect x="3" y="7" width="18" height="13" rx="3" fill="rgba(0,172,255,.15)" stroke="#00acff" stroke-width="1.8"/><path d="M3 11h18" stroke="#00acff" stroke-width="1.8"/><rect x="6" y="14" width="4" height="3" rx="1" fill="rgba(0,172,255,.5)"/></svg></div>
-                    <div>
-                      <div class="em-step-label">Personalización de plásticos</div>
-                      <div class="em-step-desc">Diseño y fabricación de tarjetas físicas con identidad de marca</div>
-                    </div>
-                  </div>
+                <div class="anim-fade-up" style="padding-top:1rem;">
+                  <p style="color:var(--silver);font-size:1.05rem;line-height:1.8;margin:0;">Gestionar una tarjeta va mucho más allá de emitirla. Copayment te da el control completo sobre cada etapa del ciclo de vida, desde la validación del NIP hasta la personalización del plástico, para que tu producto funcione con la seguridad y la experiencia que tus tarjetahabientes esperan.</p>
                 </div>
               </div>
             </div>
-            <div class="emision-lifecycle" style="border-top:none;padding-top:0;">
-              <p class="emision-lifecycle-sub" style="text-align:center;color:#666;">Validación del NIP, Cambio de NIP, Tarjetas virtuales con cvv dinámico.</p>
-              <div style="text-align:center;">
-                <button class="btn-emision-saber" aria-expanded="false" id="emisionSaberMas">
-                  <span class="emision-saber-text">Saber más</span>
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
-              </div>
-              <div class="emision-lifecycle-detail" hidden id="emisionLifecycleDetail" style="max-width:680px;margin:1.25rem auto 0;">
-                <p>Personalización de plásticos. Obtén una infraestructura funcional productiva que te permita operar tus tarjetas Core, app, wallet, bajo cumplimiento PCI.</p>
+
+            <!-- Network logos -->
+            <div class="anim-fade-up" style="text-align:center;padding:2rem 0 1.5rem;border-top:1px solid rgba(0,50,122,.08);margin-top:1.5rem;">
+              <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:var(--navy);margin:0 0 1.5rem;">Conéctate a una red que ya está donde tú necesitas estar</p>
+              <div style="display:flex;align-items:center;justify-content:center;gap:2.5rem;flex-wrap:wrap;">
+                <img src="../assets/visa.svg" alt="Visa" style="height:28px;object-fit:contain;filter:grayscale(1);opacity:.65;">
+                <img src="../assets/mastercard.svg" alt="Mastercard" style="height:36px;object-fit:contain;filter:grayscale(1);opacity:.65;">
+                <img src="../assets/carnet.svg" alt="CARNET" style="height:28px;object-fit:contain;filter:grayscale(1);opacity:.65;">
+                <img src="../assets/discover.svg" alt="Discover" style="height:28px;object-fit:contain;filter:grayscale(1);opacity:.65;">
               </div>
             </div>
 
-            <!-- Subtitle before product cards -->
-            <p class="anim-fade-up" style="font-family:'Montserrat',sans-serif;font-size:.98rem;font-weight:600;color:var(--navy);text-align:center;max-width:580px;margin:1.5rem auto 0;line-height:1.7;">Obtén una infraestructura funcional productiva que te permita operar tus tarjetas Core, app, wallet, bajo cumplimiento PCI.</p>
-
-            <!-- Product cards — floating gradient cards, same motif as the debit cards above -->
-            <style>
-              .emision-audience-sub { color: #555 !important; }
-              .emision-audience-item { color: var(--navy) !important; background: rgba(0,50,122,.04) !important; border-left-color: rgba(244,127,32,.7) !important; }
-              .emision-audience-item:hover { background: rgba(0,50,122,.08) !important; }
-              .emision-lifecycle-sub { color: #666 !important; }
-
-              .emision-float-products { display:flex; flex-wrap:wrap; justify-content:center; gap:2.5rem; padding:3rem 0 1rem; }
-              .emision-float-card { width:240px; text-align:center; }
-              .emision-float-card-badge {
-                width:130px; height:84px; margin:0 auto 1rem; border-radius:14px; position:relative;
-                box-shadow:0 14px 28px rgba(0,0,0,.18); animation:procValsFloat 6s ease-in-out infinite;
-              }
-              .emision-float-card-badge--orange { background:linear-gradient(150deg,#ff9d4f 0%,#f47f20 100%); --tilt:-4deg; animation-delay:0s; }
-              .emision-float-card-badge--blue   { background:linear-gradient(150deg,#3dc6ff 0%,#00acff 100%); --tilt:4deg; animation-delay:.3s; }
-              .emision-float-card-badge--green  { background:linear-gradient(150deg,#0fb567 0%,#068e50 100%); --tilt:-2deg; animation-delay:.6s; }
-              .emision-float-card-chip { position:absolute; left:16px; top:14px; width:22px; height:16px; border-radius:3px; background:rgba(255,255,255,.9); }
-              .emision-float-card-stripe { position:absolute; left:16px; bottom:16px; width:60px; height:5px; border-radius:3px; background:rgba(255,255,255,.55); }
-              .emision-float-card-name { font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.05rem; color:var(--navy); margin-bottom:.5rem; }
-              .emision-float-card-desc { font-size:.875rem; color:#555; line-height:1.65; }
-            </style>
-            <div class="emision-float-products">
-              <div class="emision-float-card anim-fade-up">
-                <div class="emision-float-card-badge emision-float-card-badge--orange"><div class="emision-float-card-chip"></div><div class="emision-float-card-stripe"></div></div>
-                <div class="emision-float-card-name">Switch emisor</div>
-                <p class="emision-float-card-desc">Autoriza, valida y responde en tiempo real para que tus tarjetas funcionen en cualquier lugar del mundo.</p>
-              </div>
-              <div class="emision-float-card anim-fade-up anim-delay-1">
-                <div class="emision-float-card-badge emision-float-card-badge--blue"><div class="emision-float-card-chip"></div><div class="emision-float-card-stripe"></div></div>
-                <div class="emision-float-card-name">BIN Sponsor</div>
-                <p class="emision-float-card-desc">Emite y procesa tarjetas de forma rápida y segura, sin construir infraestructura propia.</p>
+            <!-- Product cards — Switch Emisor + BIN Sponsor -->
+            <div class="anim-fade-up" style="margin:2.5rem 0;border-top:1px solid rgba(0,50,122,.08);padding-top:2.5rem;">
+              <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;" class="em-prod-cards">
+                <!-- Switch Emisor -->
+                <div style="background:#fff;border:1px solid rgba(0,50,122,.1);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 4px 16px rgba(0,50,122,.06);">
+                  <div style="background:linear-gradient(135deg,#00327a 0%,#00acff 100%);height:140px;display:flex;align-items:center;justify-content:center;">
+                    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                  </div>
+                  <div style="padding:1.4rem 1.25rem 1.25rem;flex:1;display:flex;flex-direction:column;gap:.75rem;">
+                    <h5 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:#00327a;margin:0;">Switch Emisor</h5>
+                    <p style="font-size:.9rem;color:var(--silver);line-height:1.6;margin:0;flex:1;">Conecta tu institución a las redes de pago y lanza tu propio programa de tarjetas con infraestructura certificada, cumplimiento regulatorio integrado y acompañamiento en cada etapa. Tú controlas el producto, nosotros ponemos la carretera.</p>
+                    <a href="../comencemos.html" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.88rem;color:#00acff;text-decoration:none;">Ver más +</a>
+                  </div>
+                </div>
+                <!-- BIN Sponsor -->
+                <div style="background:#fff;border:1px solid rgba(0,50,122,.1);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 4px 16px rgba(0,50,122,.06);">
+                  <div style="background:linear-gradient(135deg,#00327a 0%,#00acff 100%);height:140px;display:flex;align-items:center;justify-content:center;">
+                    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                  </div>
+                  <div style="padding:1.4rem 1.25rem 1.25rem;flex:1;display:flex;flex-direction:column;gap:.75rem;">
+                    <h5 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:#00327a;margin:0;">BIN Sponsor</h5>
+                    <p style="font-size:.9rem;color:var(--silver);line-height:1.6;margin:0;flex:1;">Con nuestro BIN Sponsor puedes lanzar tu programa de tarjetas en semanas, bajo nuestro patrocinio y con control total sobre tu producto.</p>
+                    <a href="../comencemos.html" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.88rem;color:#00acff;text-decoration:none;">Ver más +</a>
+                  </div>
+                </div>
               </div>
             </div>
 

@@ -18,6 +18,10 @@
     @keyframes dashFlow { to { stroke-dashoffset: -12; } }
     .pf-flow-line { animation: dashFlow 1.4s linear infinite; }
     @media(max-width:640px){ .prc-caps-grid { grid-template-columns: repeat(2,1fr); } }
+    @media(max-width:900px){ .proc-prod-cards { grid-template-columns: repeat(2,1fr) !important; } }
+    @media(max-width:560px){ .proc-prod-cards { grid-template-columns: 1fr !important; } }
+    @media(max-width:860px){ .proc-hero-below-grid { grid-template-columns: 1fr !important; } .proc-hero-below-visual { display:none; } }
+    @media(max-width:860px){ .proc-flow-unified { grid-template-columns: 1fr !important; } .proc-flow-vdiagram { display:none; } }
   </style>
 </head>
 <body>
@@ -131,28 +135,88 @@
     </div>
   </section>
 
-  <!-- HERO-BELOW: subtitle + stats + CTA on white -->
+  <!-- HERO-BELOW: subtitle + stats + CTA left, platform visual right -->
   <section style="background:#fff;padding:2.5rem 0 2.25rem;border-bottom:1px solid rgba(0,50,122,.08);">
     <div class="container">
-      <div class="anim-fade-up">
-        <p style="color:var(--navy);font-size:1.1rem;max-width:600px;line-height:1.7;margin:0 0 1.75rem;font-family:'Montserrat',sans-serif;">Infraestructura de procesamiento de pagos para conectarte a las redes, bajo el respaldo regulatorio que necesitas, sin que tengas que navegar la complejidad solo.</p>
-        <div class="qs-hero-stats qs-stats-dark" style="margin-top:0;">
-          <div class="qs-hero-stat">
-            <span class="qs-hero-stat-num qs-hero-stat-num--orange"><span data-target="100" data-suffix="+"></span></span>
-            <span class="qs-hero-stat-label">Expertos en pagos</span>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;" class="proc-hero-below-grid">
+
+        <!-- Left: text + stats + CTA -->
+        <div class="anim-fade-up">
+          <p style="color:var(--navy);font-size:1.1rem;max-width:600px;line-height:1.7;margin:0 0 1.75rem;font-family:'Montserrat',sans-serif;">Infraestructura de procesamiento de pagos para conectarte a las redes, bajo el respaldo regulatorio que necesitas, sin que tengas que navegar la complejidad solo.</p>
+          <div class="qs-hero-stats qs-stats-dark" style="margin-top:0;">
+            <div class="qs-hero-stat">
+              <span class="qs-hero-stat-num qs-hero-stat-num--orange">24/7</span>
+              <span class="qs-hero-stat-label">Soporte con tiempo de respuesta garantizado</span>
+            </div>
+            <div class="qs-hero-stat">
+              <span class="qs-hero-stat-num qs-hero-stat-num--blue"><span data-target="100" data-suffix="%"></span></span>
+              <span class="qs-hero-stat-label">Implementaci&#243;n acompa&#241;ada paso a paso</span>
+            </div>
           </div>
-          <div class="qs-hero-stat">
-            <span class="qs-hero-stat-num qs-hero-stat-num--green"><span data-target="4" data-suffix=""></span></span>
-            <span class="qs-hero-stat-label">Soluciones de procesamiento</span>
-          </div>
-          <div class="qs-hero-stat">
-            <span class="qs-hero-stat-num qs-hero-stat-num--blue"><span data-target="3" data-suffix=""></span></span>
-            <span class="qs-hero-stat-label">Pa&#237;ses en LATAM</span>
+          <div style="margin-top:1.5rem;">
+            <a href="../comencemos.html" class="btn-nav-cta" style="display:inline-flex;align-items:center;gap:.5rem;">Comencemos <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
           </div>
         </div>
-        <div style="margin-top:1.5rem;">
-          <a href="../comencemos.html" class="btn-nav-cta" style="display:inline-flex;align-items:center;gap:.5rem;">Comencemos <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+
+        <!-- Right: platform dashboard visual -->
+        <div class="anim-fade-up proc-hero-below-visual" aria-hidden="true" style="position:relative;">
+          <svg viewBox="0 0 480 320" width="100%" style="filter:drop-shadow(0 12px 40px rgba(0,50,122,.18));border-radius:16px;overflow:hidden;">
+            <!-- outer card -->
+            <rect width="480" height="320" rx="14" fill="#fff" stroke="rgba(0,50,122,.1)" stroke-width="1"/>
+            <!-- header bar -->
+            <rect width="480" height="48" rx="14" fill="#00327a"/>
+            <rect x="0" y="34" width="480" height="14" fill="#00327a"/>
+            <image href="../assets/logo-horizontal.svg" x="16" y="12" width="100" height="24"/>
+            <circle cx="444" cy="24" r="12" fill="rgba(255,255,255,.15)"/>
+            <circle cx="412" cy="24" r="12" fill="rgba(255,255,255,.1)"/>
+            <!-- sidebar -->
+            <rect x="0" y="48" width="90" height="272" fill="#f4f6fa"/>
+            <rect x="8" y="64" width="74" height="10" rx="5" fill="rgba(0,50,122,.12)"/>
+            <rect x="8" y="84" width="60" height="8" rx="4" fill="rgba(0,50,122,.07)"/>
+            <rect x="8" y="100" width="68" height="8" rx="4" fill="rgba(0,50,122,.07)"/>
+            <rect x="8" y="116" width="55" height="8" rx="4" fill="rgba(0,50,122,.07)"/>
+            <rect x="8" y="134" width="64" height="8" rx="4" fill="rgba(0,50,122,.07)"/>
+            <rect x="8" y="150" width="50" height="8" rx="4" fill="rgba(0,50,122,.07)"/>
+            <!-- main area -->
+            <!-- stat cards row -->
+            <rect x="106" y="60" width="108" height="58" rx="10" fill="#fff" stroke="rgba(0,50,122,.08)" stroke-width="1"/>
+            <rect x="110" y="66" width="50" height="7" rx="3" fill="rgba(0,50,122,.12)"/>
+            <text x="110" y="102" font-family="Montserrat,sans-serif" font-size="18" font-weight="800" fill="#00327a">24/7</text>
+            <rect x="224" y="60" width="108" height="58" rx="10" fill="#fff" stroke="rgba(0,50,122,.08)" stroke-width="1"/>
+            <rect x="228" y="66" width="60" height="7" rx="3" fill="rgba(0,50,122,.12)"/>
+            <text x="228" y="102" font-family="Montserrat,sans-serif" font-size="18" font-weight="800" fill="#00acff">100%</text>
+            <rect x="342" y="60" width="126" height="58" rx="10" fill="#00327a"/>
+            <rect x="348" y="68" width="55" height="7" rx="3" fill="rgba(255,255,255,.3)"/>
+            <text x="348" y="102" font-family="Montserrat,sans-serif" font-size="18" font-weight="800" fill="#fff">+40</text>
+            <!-- table header -->
+            <rect x="106" y="130" width="362" height="20" rx="4" fill="rgba(0,50,122,.05)"/>
+            <rect x="114" y="137" width="50" height="7" rx="3" fill="rgba(0,50,122,.2)"/>
+            <rect x="220" y="137" width="70" height="7" rx="3" fill="rgba(0,50,122,.2)"/>
+            <rect x="360" y="137" width="60" height="7" rx="3" fill="rgba(0,50,122,.2)"/>
+            <!-- table rows -->
+            <rect x="106" y="156" width="362" height="1" fill="rgba(0,50,122,.06)"/>
+            <rect x="114" y="163" width="65" height="6" rx="3" fill="rgba(0,50,122,.1)"/>
+            <rect x="220" y="163" width="45" height="6" rx="3" fill="rgba(0,50,122,.07)"/>
+            <rect x="360" y="161" width="50" height="10" rx="5" fill="#068e50" opacity=".8"/>
+            <rect x="106" y="177" width="362" height="1" fill="rgba(0,50,122,.06)"/>
+            <rect x="114" y="184" width="80" height="6" rx="3" fill="rgba(0,50,122,.1)"/>
+            <rect x="220" y="184" width="55" height="6" rx="3" fill="rgba(0,50,122,.07)"/>
+            <rect x="360" y="182" width="50" height="10" rx="5" fill="#00acff" opacity=".7"/>
+            <rect x="106" y="198" width="362" height="1" fill="rgba(0,50,122,.06)"/>
+            <rect x="114" y="205" width="58" height="6" rx="3" fill="rgba(0,50,122,.1)"/>
+            <rect x="220" y="205" width="40" height="6" rx="3" fill="rgba(0,50,122,.07)"/>
+            <rect x="360" y="203" width="50" height="10" rx="5" fill="#f47f20" opacity=".8"/>
+            <rect x="106" y="219" width="362" height="1" fill="rgba(0,50,122,.06)"/>
+            <rect x="114" y="226" width="72" height="6" rx="3" fill="rgba(0,50,122,.1)"/>
+            <rect x="220" y="226" width="48" height="6" rx="3" fill="rgba(0,50,122,.07)"/>
+            <rect x="360" y="224" width="50" height="10" rx="5" fill="#068e50" opacity=".8"/>
+            <!-- chart area -->
+            <rect x="106" y="248" width="362" height="62" rx="8" fill="rgba(0,50,122,.03)" stroke="rgba(0,50,122,.07)" stroke-width="1"/>
+            <polyline points="116,298 156,278 196,285 236,262 276,270 316,250 356,258 396,248 436,255 456,260" fill="none" stroke="#00acff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="116,298 156,278 196,285 236,262 276,270 316,250 356,258 396,248 436,255 456,260 456,310 116,310" fill="rgba(0,172,255,.07)"/>
+          </svg>
         </div>
+
       </div>
     </div>
   </section>
@@ -166,60 +230,70 @@
 
 
 
-            <!-- Flow section 1: card emission — flow line + traveling pulse -->
-            <div class="proc-flow-row proc-flow-2col">
-              <div class="proc-flow-text anim-fade-up" style="text-align:left;margin:0;max-width:none;">
-                <h4 class="proc-flow-title">Conéctate con las redes y emite tarjetas físicas y virtuales</h4>
-                <a href="emision.html" class="svc-card-link">Saber más<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <!-- Unified 2-col: both text cards LEFT stacked, vertical diagram RIGHT -->
+            <div style="display:grid;grid-template-columns:1fr 160px;gap:3rem;align-items:stretch;margin-bottom:.5rem;" class="proc-flow-unified">
+
+              <!-- Left: card 1 + card 2 stacked -->
+              <div>
+                <div class="anim-fade-up" style="padding-bottom:2rem;border-bottom:1px solid rgba(0,50,122,.08);margin-bottom:2rem;">
+                  <h4 class="proc-flow-title">Conéctate con las redes y emite tarjetas físicas y virtuales</h4>
+                  <p style="color:var(--silver);font-size:1rem;line-height:1.7;margin:.75rem 0 1rem;">De manera simple y segura, sin necesidad de emprender una transformación digital completa ni realizar inversiones exorbitantes en tecnología y back office. Nosotros nos encargamos de la infraestructura para que tú te enfoques en tu negocio.</p>
+                  <a href="emision.html" class="svc-card-link">Ver más<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                </div>
+                <div class="anim-fade-up">
+                  <h4 class="proc-flow-title">Acepta medios de pago de forma segura, eficiente y cumpliente nacionales e internacionales</h4>
+                  <p style="color:var(--silver);font-size:1rem;line-height:1.7;margin:.75rem 0 1rem;">Creemos que cualquier negocio, sin importar su tamaño o ubicación, merece acceder a los mejores medios de pago. Por eso te conectamos de manera rápida y sencilla al ecosistema, para que tu institución llegue a más personas. Todo con la seguridad y la visibilidad que tu operación necesita, sin complicaciones.</p>
+                  <a href="adquirencia.html" class="svc-card-link">Ver más<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                </div>
               </div>
-              <div class="proc-flow-diagram anim-fade-up" aria-hidden="true" style="aspect-ratio:700/140;">
-                <svg viewBox="0 100 700 145" width="100%" height="100%">
+
+              <!-- Right: single vertical flow diagram spanning both cards -->
+              <div class="proc-flow-vdiagram anim-fade-up" aria-hidden="true" style="display:flex;align-items:center;justify-content:center;">
+                <svg viewBox="0 0 120 400" width="120" height="400">
                   <defs>
-                    <filter id="pfNodeSh" x="-50%" y="-50%" width="200%" height="200%">
-                      <feDropShadow dx="0" dy="4" stdDeviation="10" flood-color="#00327a" flood-opacity=".13"/>
+                    <filter id="pvNodeSh" x="-60%" y="-30%" width="220%" height="160%">
+                      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#00327a" flood-opacity=".13"/>
                     </filter>
+                    <style>
+                      .pv-dash { animation: dashFlow 1.4s linear infinite; }
+                    </style>
                   </defs>
 
-                  <!-- connector left -->
-                  <line class="pf-flow-line" x1="116" y1="162" x2="200" y2="162" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" opacity=".45"/>
-                  <circle cx="206" cy="162" r="5" fill="none" stroke="#00327a" stroke-width="2" opacity=".45"/>
-                  <line class="pf-flow-line" x1="212" y1="162" x2="298" y2="162" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" opacity=".45"/>
+                  <!-- Node 1: Institución (top) -->
+                  <circle cx="60" cy="55" r="40" fill="#fff" filter="url(#pvNodeSh)"/>
+                  <path d="M60 38l-14 8h28z" fill="none" stroke="#00327a" stroke-width="2" stroke-linejoin="round"/>
+                  <rect x="47" y="46" width="26" height="16" rx="1" fill="none" stroke="#00327a" stroke-width="1.8"/>
+                  <rect x="51" y="49" width="4" height="13" fill="#00327a"/>
+                  <rect x="57" y="49" width="4" height="13" fill="#00327a"/>
+                  <rect x="63" y="49" width="4" height="13" fill="#00327a"/>
+                  <text x="60" y="108" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9.5" font-weight="700" fill="#00327a">Institución</text>
 
-                  <!-- connector right -->
-                  <line class="pf-flow-line" x1="402" y1="162" x2="492" y2="162" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" opacity=".45"/>
-                  <circle cx="498" cy="162" r="5" fill="none" stroke="#00327a" stroke-width="2" opacity=".45"/>
-                  <line class="pf-flow-line" x1="504" y1="162" x2="584" y2="162" stroke="#00327a" stroke-width="2" stroke-dasharray="7 5" opacity=".45"/>
+                  <!-- Connector top -->
+                  <line class="pv-dash" x1="60" y1="118" x2="60" y2="162" stroke="#00327a" stroke-width="1.8" stroke-dasharray="6 5" opacity=".4"/>
+                  <circle cx="60" cy="168" r="4" fill="none" stroke="#00327a" stroke-width="1.8" opacity=".4"/>
+                  <line class="pv-dash" x1="60" y1="173" x2="60" y2="192" stroke="#00327a" stroke-width="1.8" stroke-dasharray="6 5" opacity=".4"/>
 
-                  <!-- node 1: Institución -->
-                  <circle cx="72" cy="162" r="44" fill="#fff" filter="url(#pfNodeSh)"/>
-                  <path d="M72 143l-17 9.5h34z" fill="none" stroke="#00327a" stroke-width="2.2" stroke-linejoin="round"/>
-                  <rect x="58" y="152" width="28" height="18" rx="1" fill="none" stroke="#00327a" stroke-width="2"/>
-                  <rect x="63" y="156" width="5" height="14" fill="#00327a"/>
-                  <rect x="70" y="156" width="5" height="14" fill="#00327a"/>
-                  <rect x="77" y="156" width="5" height="14" fill="#00327a"/>
-                  <text x="72" y="218" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12" font-weight="700" fill="#00327a">Institución</text>
+                  <!-- Node 2: Copayment (middle, slightly larger) -->
+                  <circle cx="60" cy="205" r="46" fill="#fff" filter="url(#pvNodeSh)"/>
+                  <image href="../assets/logo-icon.svg" x="34" y="179" width="52" height="52"/>
+                  <text x="60" y="263" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9.5" font-weight="700" fill="#00327a">Copayment</text>
 
-                  <!-- node 2: Copayment (hub, larger) -->
-                  <circle cx="350" cy="162" r="52" fill="#fff" filter="url(#pfNodeSh)"/>
-                  <image href="../assets/logo-icon.svg" x="318" y="130" width="64" height="64"/>
-                  <text x="350" y="228" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12.5" font-weight="700" fill="#00327a">Copayment</text>
+                  <!-- Connector bottom -->
+                  <line class="pv-dash" x1="60" y1="273" x2="60" y2="313" stroke="#00327a" stroke-width="1.8" stroke-dasharray="6 5" opacity=".4"/>
+                  <circle cx="60" cy="319" r="4" fill="none" stroke="#00327a" stroke-width="1.8" opacity=".4"/>
+                  <line class="pv-dash" x1="60" y1="324" x2="60" y2="344" stroke="#00327a" stroke-width="1.8" stroke-dasharray="6 5" opacity=".4"/>
 
-                  <!-- node 3: Red -->
-                  <circle cx="628" cy="162" r="44" fill="#fff" filter="url(#pfNodeSh)"/>
-                  <circle cx="628" cy="153" r="6.5" fill="none" stroke="#00327a" stroke-width="2.2"/>
-                  <circle cx="613" cy="170" r="5" fill="none" stroke="#00327a" stroke-width="2"/>
-                  <circle cx="643" cy="170" r="5" fill="none" stroke="#00327a" stroke-width="2"/>
-                  <line x1="623" y1="157" x2="617" y2="166" stroke="#00327a" stroke-width="1.9"/>
-                  <line x1="633" y1="157" x2="639" y2="166" stroke="#00327a" stroke-width="1.9"/>
-                  <text x="628" y="218" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12" font-weight="700" fill="#00327a">Red</text>
+                  <!-- Node 3: Red (bottom) -->
+                  <circle cx="60" cy="358" r="40" fill="#fff" filter="url(#pvNodeSh)"/>
+                  <circle cx="60" cy="350" r="6" fill="none" stroke="#00327a" stroke-width="2"/>
+                  <circle cx="47" cy="364" r="4.5" fill="none" stroke="#00327a" stroke-width="1.8"/>
+                  <circle cx="73" cy="364" r="4.5" fill="none" stroke="#00327a" stroke-width="1.8"/>
+                  <line x1="55.5" y1="353.5" x2="50" y2="360" stroke="#00327a" stroke-width="1.7"/>
+                  <line x1="64.5" y1="353.5" x2="70" y2="360" stroke="#00327a" stroke-width="1.7"/>
+                  <text x="60" y="411" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9.5" font-weight="700" fill="#00327a">Red</text>
                 </svg>
               </div>
-            </div>
 
-            <!-- "Acepta medios de pago" -->
-            <div class="anim-fade-up" style="padding:.5rem 0 0;">
-              <h4 class="proc-flow-title" style="margin:0 0 .6rem;">Acepta medios de pago de forma segura, eficiente y cumpliente nacionales e internacionales</h4>
-              <a href="adquirencia.html" class="svc-card-link">Saber más<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
             </div>
 
             <!-- 4 capabilities — gradient cards -->
@@ -273,14 +347,53 @@
               </div>
             </div>
 
-            <!-- Products row -->
-            <div class="proc-products">
-              <p class="proc-products-label">Procesamiento eficiente para empresas que quieren ir más lejos</p>
-              <div class="proc-product-badges">
-                <a href="../comencemos.html" class="proc-product-badge">Switch emisor</a>
-                <a href="../comencemos.html" class="proc-product-badge">Switch adquirente</a>
-                <a href="../comencemos.html" class="proc-product-badge">BIN Sponsor</a>
-                <a href="../comencemos.html" class="proc-product-badge">Circuito cerrado</a>
+            <!-- Products cards -->
+            <div class="anim-fade-up" style="margin:2.5rem 0;border-top:1px solid rgba(0,50,122,.08);padding-top:2.5rem;">
+              <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;" class="proc-prod-cards">
+                <!-- Switch Emisor -->
+                <div style="background:#fff;border:1px solid rgba(0,50,122,.1);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 4px 16px rgba(0,50,122,.06);">
+                  <div style="background:linear-gradient(135deg,#00327a 0%,#00acff 100%);height:140px;display:flex;align-items:center;justify-content:center;">
+                    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                  </div>
+                  <div style="padding:1.4rem 1.25rem 1.25rem;flex:1;display:flex;flex-direction:column;gap:.75rem;">
+                    <h5 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:#00327a;margin:0;">Switch Emisor</h5>
+                    <p style="font-size:.9rem;color:var(--silver);line-height:1.6;margin:0;flex:1;">Conecta tu institución a las redes de pago y lanza tu propio programa de tarjetas con infraestructura certificada, cumplimiento regulatorio integrado y acompañamiento en cada etapa. Tú controlas el producto, nosotros ponemos la carretera.</p>
+                    <a href="../comencemos.html" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.88rem;color:#00acff;text-decoration:none;">Ver más +</a>
+                  </div>
+                </div>
+                <!-- Switch Adquirente -->
+                <div style="background:#fff;border:1px solid rgba(0,50,122,.1);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 4px 16px rgba(0,50,122,.06);">
+                  <div style="background:linear-gradient(135deg,#00327a 0%,#00acff 100%);height:140px;display:flex;align-items:center;justify-content:center;">
+                    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                  </div>
+                  <div style="padding:1.4rem 1.25rem 1.25rem;flex:1;display:flex;flex-direction:column;gap:.75rem;">
+                    <h5 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:#00327a;margin:0;">Switch Adquirente</h5>
+                    <p style="font-size:.9rem;color:var(--silver);line-height:1.6;margin:0;flex:1;">Incorpora más comercios a tu ecosistema y procesa mayor volumen con una infraestructura robusta y conectada a las principales redes. Más comercios aceptando pagos significa más inclusión, más negocio.</p>
+                    <a href="../comencemos.html" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.88rem;color:#00acff;text-decoration:none;">Ver más +</a>
+                  </div>
+                </div>
+                <!-- BIN Sponsor -->
+                <div style="background:#fff;border:1px solid rgba(0,50,122,.1);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 4px 16px rgba(0,50,122,.06);">
+                  <div style="background:linear-gradient(135deg,#00327a 0%,#00acff 100%);height:140px;display:flex;align-items:center;justify-content:center;">
+                    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                  </div>
+                  <div style="padding:1.4rem 1.25rem 1.25rem;flex:1;display:flex;flex-direction:column;gap:.75rem;">
+                    <h5 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:#00327a;margin:0;">BIN Sponsor</h5>
+                    <p style="font-size:.9rem;color:var(--silver);line-height:1.6;margin:0;flex:1;">Con nuestro BIN Sponsor puedes lanzar tu programa de tarjetas en semanas, bajo nuestro patrocinio y con control total sobre tu producto.</p>
+                    <a href="../comencemos.html" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.88rem;color:#00acff;text-decoration:none;">Ver más +</a>
+                  </div>
+                </div>
+                <!-- Circuito Cerrado -->
+                <div style="background:#fff;border:1px solid rgba(0,50,122,.1);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 4px 16px rgba(0,50,122,.06);">
+                  <div style="background:linear-gradient(135deg,#00327a 0%,#00acff 100%);height:140px;display:flex;align-items:center;justify-content:center;">
+                    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="4.93" y1="4.93" x2="9.17" y2="9.17"/><line x1="14.83" y1="14.83" x2="19.07" y2="19.07"/><line x1="14.83" y1="9.17" x2="19.07" y2="4.93"/><line x1="4.93" y1="19.07" x2="9.17" y2="14.83"/></svg>
+                  </div>
+                  <div style="padding:1.4rem 1.25rem 1.25rem;flex:1;display:flex;flex-direction:column;gap:.75rem;">
+                    <h5 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:#00327a;margin:0;">Circuito Cerrado</h5>
+                    <p style="font-size:.9rem;color:var(--silver);line-height:1.6;margin:0;flex:1;">Opera una carretera de pagos privada entre tu institución y tus comercios afiliados. Sin marcas internacionales, sin costos de red, sin perder el control de dónde y cómo se usa tu crédito. Copayment habilita, asegura y escala tu operación.</p>
+                    <a href="../comencemos.html" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.88rem;color:#00acff;text-decoration:none;">Ver más +</a>
+                  </div>
+                </div>
               </div>
             </div>
 
