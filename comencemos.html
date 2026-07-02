@@ -131,7 +131,7 @@
   <!-- ══════════════════════════════════════
        CONTACTO SECTION
   ══════════════════════════════════════ -->
-  <section class="section" id="main-content" style="background:var(--navy);position:relative;overflow:hidden;">
+  <section class="section" id="main-content" style="background:#fff;position:relative;overflow:hidden;">
     <style>
       /* Animated country SVG flags */
       .ctc-flags { display:flex; justify-content:center; gap:1rem; margin:1.75rem 0 0; flex-wrap:wrap; }
@@ -139,50 +139,51 @@
         display:flex; flex-direction:column; align-items:center; gap:.4rem;
         background:none; border:none; padding:0; cursor:pointer;
         transition:transform .2s;
-        color:rgba(255,255,255,.55); font-family:'Montserrat',sans-serif; font-size:.65rem; font-weight:700;
+        color:rgba(0,50,122,.55); font-family:'Montserrat',sans-serif; font-size:.65rem; font-weight:700;
         letter-spacing:.08em; text-transform:uppercase;
       }
       .ctc-flag-btn:hover,.ctc-flag-btn.active {
-        transform:translateY(-2px); color:#fff;
+        transform:translateY(-2px); color:var(--navy);
       }
       .ctc-flag-svg {
         width:52px; height:35px; border-radius:4px; overflow:hidden;
-        box-shadow:0 2px 8px rgba(0,0,0,.35), 0 0 0 1px rgba(255,255,255,.1);
+        box-shadow:0 2px 8px rgba(0,50,122,.15), 0 0 0 1px rgba(0,50,122,.1);
         filter:grayscale(1) opacity(.7);
         transition:filter .2s, box-shadow .2s;
       }
       .ctc-flag-btn:hover .ctc-flag-svg,
       .ctc-flag-btn.active .ctc-flag-svg {
         filter:grayscale(0) opacity(1);
-        box-shadow:0 2px 8px rgba(0,0,0,.35), 0 0 0 2px rgba(0,172,255,.6);
+        box-shadow:0 2px 8px rgba(0,50,122,.15), 0 0 0 2px rgba(0,172,255,.6);
       }
 
       /* Sumsub-style pill form */
       .ctc-form-card {
-        background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12);
+        background:#fff; border:1px solid rgba(0,50,122,.08);
         border-radius:20px; padding:2.5rem 2rem; max-width:560px; margin:0 auto;
+        box-shadow:0 24px 60px rgba(0,50,122,.12);
       }
-      .ctc-form-title { font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.5rem; color:#fff; margin-bottom:.4rem; }
-      .ctc-form-sub   { color:rgba(255,255,255,.5); font-size:.85rem; margin-bottom:1.5rem; }
-      .ctc-form-label { font-family:'Montserrat',sans-serif; font-size:.75rem; font-weight:700; color:rgba(255,255,255,.55); letter-spacing:.1em; text-transform:uppercase; margin-bottom:.65rem; display:block; text-align:center; }
+      .ctc-form-title { font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.5rem; color:var(--navy); margin-bottom:.4rem; }
+      .ctc-form-sub   { color:var(--silver); font-size:.85rem; margin-bottom:1.5rem; }
+      .ctc-form-label { font-family:'Montserrat',sans-serif; font-size:.75rem; font-weight:700; color:rgba(0,50,122,.55); letter-spacing:.1em; text-transform:uppercase; margin-bottom:.65rem; display:block; text-align:center; }
       .ctc-pills-wrap { display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:1.5rem; justify-content:center; }
       .ctc-pill-btn {
-        background:rgba(255,255,255,.08); border:1.5px solid rgba(255,255,255,.18);
+        background:var(--light-bg); border:1.5px solid transparent;
         border-radius:100px; padding:.42rem 1rem; font-family:'Montserrat',sans-serif;
-        font-size:.8rem; font-weight:600; color:rgba(255,255,255,.7); cursor:pointer;
+        font-size:.8rem; font-weight:600; color:var(--navy); cursor:pointer;
         transition:background .18s, border-color .18s, color .18s, box-shadow .18s;
       }
-      .ctc-pill-btn:hover { background:rgba(0,172,255,.15); border-color:rgba(0,172,255,.5); color:#fff; }
-      .ctc-pill-btn.selected { background:rgba(0,172,255,.25); border-color:#00acff; color:#fff; box-shadow:0 0 14px rgba(0,172,255,.3); }
+      .ctc-pill-btn:hover { background:rgba(0,172,255,.12); border-color:rgba(0,172,255,.5); color:var(--navy); }
+      .ctc-pill-btn.selected { background:var(--navy); border-color:var(--navy); color:#fff; box-shadow:0 4px 14px rgba(0,50,122,.3); }
       .ctc-email-input {
-        width:100%; background:rgba(255,255,255,.07); border:1.5px solid rgba(255,255,255,.2);
-        border-radius:10px; padding:.7rem 1rem; font-size:.9rem; color:#fff;
+        width:100%; background:var(--light-bg); border:1.5px solid transparent;
+        border-radius:10px; padding:.7rem 1rem; font-size:.9rem; color:var(--navy);
         font-family:'Montserrat',sans-serif; outline:none; margin-bottom:1.25rem;
-        transition:border-color .2s, box-shadow .2s;
+        transition:border-color .2s, box-shadow .2s, background .2s;
         box-sizing:border-box;
       }
-      .ctc-email-input::placeholder { color:rgba(255,255,255,.35); }
-      .ctc-email-input:focus { border-color:#00acff; box-shadow:0 0 0 3px rgba(0,172,255,.15); }
+      .ctc-email-input::placeholder { color:rgba(0,50,122,.35); }
+      .ctc-email-input:focus { background:#fff; border-color:#00acff; box-shadow:0 0 0 3px rgba(0,172,255,.15); }
       .ctc-submit-btn {
         width:100%; background:#068e50; border:none; border-radius:10px;
         padding:.8rem; font-family:'Montserrat',sans-serif; font-weight:700;
@@ -200,22 +201,22 @@
       /* Email info grid */
       .ctc-info-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-top:2.5rem; }
       @media(max-width:700px){ .ctc-info-grid{grid-template-columns:1fr;} }
-      .ctc-info-card { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:12px; padding:1.25rem; }
-      .ctc-info-q { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.8rem; color:#fff; margin-bottom:.4rem; }
+      .ctc-info-card { background:#fff; border:1px solid rgba(0,50,122,.08); border-left:3px solid #00acff; border-radius:12px; padding:1.25rem; box-shadow:0 4px 20px rgba(0,50,122,.06); text-align:left; }
+      .ctc-info-q { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.8rem; color:var(--navy); margin-bottom:.4rem; }
       .ctc-info-email { color:#00acff; font-size:.8rem; word-break:break-all; text-decoration:none; }
       .ctc-info-email:hover { text-decoration:underline; }
     </style>
 
     <div class="container" style="text-align:center;position:relative;">
       <nav class="breadcrumb" aria-label="Ruta de navegación" style="justify-content:center;margin-bottom:1.5rem;">
-        <a href="index.html" style="color:rgba(255,255,255,.5);">Inicio</a>
-        <span class="breadcrumb-sep" style="color:rgba(255,255,255,.3);">›</span>
-        <span style="color:rgba(255,255,255,.8);">Comencemos</span>
+        <a href="index.html" style="color:rgba(0,50,122,.5);">Inicio</a>
+        <span class="breadcrumb-sep" style="color:rgba(0,50,122,.3);">›</span>
+        <span style="color:rgba(0,50,122,.85);">Comencemos</span>
       </nav>
       <div class="pillar-group-label" style="color:var(--blue);margin-bottom:.4rem;">Contacto</div>
-      <h2 class="section-title" style="color:#fff;margin-bottom:.5rem;">Estamos aquí para ti</h2>
-      <p style="color:rgba(255,255,255,.55);margin-bottom:.25rem;">Siempre nos alegra saber de ti.</p>
-      <p style="color:rgba(255,255,255,.55);margin-bottom:1.5rem;">Cuéntanos qué necesitas y te conectamos con la persona correcta.</p>
+      <h2 class="section-title" style="color:var(--navy);margin-bottom:.5rem;">Estamos aquí para ti</h2>
+      <p style="color:var(--silver);margin-bottom:.25rem;">Siempre nos alegra saber de ti.</p>
+      <p style="color:var(--silver);margin-bottom:1.5rem;">Cuéntanos qué necesitas y te conectamos con la persona correcta.</p>
 
       <!-- Pill-based contact form -->
       <div class="ctc-form-card anim-fade-up">
