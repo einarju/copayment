@@ -2914,9 +2914,9 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
   margin: 0 auto 2rem;
 }
 .proc-case-desc {
-  font-size: .9rem;
+  font-size: 1.3rem;
   color: var(--silver);
-  line-height: 1.7;
+  line-height: 1.8;
   margin-bottom: 1.5rem;
 }
 
