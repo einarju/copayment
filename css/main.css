@@ -87,9 +87,9 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
 /* ── Layout helpers ── */
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 2.5rem;
 }
 .section {
   padding: 96px 0;
@@ -210,7 +210,7 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
 }
 .navbar-inner {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   display: flex;
   align-items: center;
   justify-content: space-between;
