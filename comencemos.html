@@ -147,14 +147,12 @@
       }
       .ctc-flag-svg {
         width:52px; height:35px; border-radius:4px; overflow:hidden;
-        box-shadow:0 2px 8px rgba(0,50,122,.15), 0 0 0 1px rgba(0,50,122,.1);
-        filter:grayscale(1) opacity(.7);
-        transition:filter .2s, box-shadow .2s;
+        filter:saturate(.35) opacity(.7);
+        transition:filter .2s;
       }
       .ctc-flag-btn:hover .ctc-flag-svg,
       .ctc-flag-btn.active .ctc-flag-svg {
-        filter:grayscale(0) opacity(1);
-        box-shadow:0 2px 8px rgba(0,50,122,.15), 0 0 0 2px rgba(0,172,255,.6);
+        filter:saturate(1) opacity(1);
       }
 
       /* Sumsub-style pill form */
