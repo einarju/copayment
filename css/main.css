@@ -2907,6 +2907,12 @@ p  { font-size: 1.05rem; color: var(--silver); line-height: 1.7; }
   line-height: 1.45;
   margin-bottom: 1rem;
 }
+.proc-case-title--top {
+  font-size: clamp(1.9rem, 3vw, 2.24rem);
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 2rem;
+}
 .proc-case-desc {
   font-size: .9rem;
   color: var(--silver);
